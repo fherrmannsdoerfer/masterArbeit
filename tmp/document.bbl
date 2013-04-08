@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Hwang et~al.(2012)Hwang, Hun-Sik, and Kweon}]{skellam}
+Hwang, Youngbae, Kim Hun-Sik, and In~So Kweon (2012), \enquote{Difference-based
+  image noise modeling using skellam distribution.} \emph{IEEE Transactions on
+  Pattern Analysis and Machine Intelligence}, 34, 1329--1341.
+\bibAnnoteFile{skellam}
+
+\end{thebibliography}

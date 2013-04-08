@@ -1,0 +1,12 @@
+\select@language {german}
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {chapter}{\numberline {2}Data processing}{3}
+\contentsline {section}{\numberline {2.1}the camera}{3}
+\contentsline {subsection}{\numberline {2.1.1}dark current}{3}
+\contentsline {section}{\numberline {2.2}the data}{3}
+\contentsline {section}{\numberline {2.3}Transformations}{3}
+\contentsline {subsection}{\numberline {2.3.1}Transform to real intensities}{3}
+\contentsline {section}{\numberline {2.4}Estimate gain factor and offset}{4}
+\contentsline {subsection}{\numberline {2.4.1}Poisson distribution}{4}
+\contentsline {subsection}{\numberline {2.4.2}Anscombe transform}{5}
+\contentsline {chapter}{Literaturverzeichnis}{6}

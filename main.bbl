@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Biomedical Imaging~Group(2013)}]{challenge}
+Biomedical Imaging~Group, Switzerland, EPFL (2013), \enquote{Localization
+  microscopy isbi 2013 challenge.}
+  \urlprefix\url{http://bigwww.epfl.ch/smlm/challenge/}. Accesed on 04.04.2013.
+\bibAnnoteFile{challenge}
+
+\end{thebibliography}

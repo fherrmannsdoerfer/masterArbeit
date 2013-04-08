@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt,fleqn,bibliography=totoc,twoside]{scrreprt}
+%fleqn 			--- macht die formeln links stat mittig
+%bibtotoc		--- nimmt das literaturverzeichnis in das inhaltsverzeichnis auf
+
+
+\usepackage[english]{babel} 
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{amsmath,amsthm,amssymb}
+
+\usepackage{subfig}
+
+\usepackage{array}
+\usepackage{graphicx}%Bilder können eingebunden werden
+\usepackage{subfig}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[OR]{\rightmark} %die Section-Name
+\fancyhead[EL]{\leftmark} % Chapter-Name
+%\fancyhead[LE,RO]{\slshape \rightmark}
+%\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyfoot[OR]{\thepage}
+\fancyfoot[EL]{\thepage}
+\def\MakeUppercase{}
+%\geometry{bottom=42mm}
+\usepackage{natbib}
+\usepackage{caption}
+\captionsetup{format=plain}
+\begin{document}
+
+%\input{Titelseite}
+\tableofcontents
+
+%\input{/home/herrmannsdoerfer/MasterArbeit/Kapitel1}
+\input{Kapitel8}
+%\input{/home/herrmannsdoerfer/MasterArbeit/Kapitel2}
+
+%\input{/home/herrmannsdoerfer/MasterArbeit/Kapitel3}
+%\input{Kapitel4}
+
+%\input{Kapitel5}
+%%Ausblick schreiben!!!!!!!!~!!!
+%\input{Kapitel6}
+%\input{Anhang}
+%\input{Literaturverzeichnis}
+\bibliographystyle{te}
+
+\bibliography{research}
+
+\end{document}

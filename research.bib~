@@ -1,0 +1,48 @@
+@article{skellam,
+       author={Hwang, Youngbae and Kim Hun-Sik and In So Kweon},
+       title={Difference-Based Image Noise Modeling Using Skellam Distribution},
+       journal={IEEE
+Transactions on Pattern Analysis and Machine Intelligence},
+       volume={34},
+       year = {2012},
+       pages = {1329-1341}
+     }
+     
+@mastersthesis{MAJoachim,
+		author = {Schleicher, Joachim},
+		title = {Image Processing for Super-Resolution Localization Microscopy Utilizing an FPGA Accelerator},
+		school = {Heidelberg University},
+		year = {2011}
+		}
+		
+@misc{meanVar,
+		author = {Newberry, Michael},
+		title = {Pixel Response Effects on CCD Camera Gain Calibration},
+		note = {Tech note},
+		year = {1998},
+		url = {$http://www.mirametrics.com/tech_note_ccdgain.htm$}
+		}
+@article{simulated,
+		author = {Gr\"ull, Frederik and Manfred Kirchgessner and Rainer Kaufmann and Michael Hausmann and Udo Kebschull},
+		title = {Accelerating image analysis for localization microscopy with FP-GAs},
+		journal = {In Field Programmable Logic and Applications},
+		year = {2011},
+		note = {doi: 10.1109/FPL.2011.11}}
+		
+@misc{ulli,
+		author = {K\"othe, Ullrich},
+		title = {Reliable low-level image analysis},
+		note = {Habilitation Tesis},
+		year = {2007},
+		url = {http://hci.iwr.uni-heidelberg/Staff/ukoethe/papers/habil-koethe.pdf}
+		}
+@online{challenge,
+		author = {unknown},
+		title = {Localization Microscopy ISBI 2013 Challenge},
+		url = {http://bigwww.epfl.ch/smlm/challenge/},
+		year = {2013},
+		note = {accesed on 04.04.2013}
+		}
+
+
+	

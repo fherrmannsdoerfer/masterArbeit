@@ -1,0 +1,60 @@
+\chapter{Multicolor registration}
+\section{Background}
+In microscopy it is often desirable to label different structures in a cell with
+different colors. To do so our collaborators use different fluoroscent molecules
+that emit light at different and distinguishable wavelengths. Using different
+filters it is possible to capture pictures just containing light emited from one
+fluorophore. To get a mulit-channel picture the different channels must be
+aligned. Because different flourophores emit different wavelengths, cromatic
+aberration apears. This means that the light for the same spot but with
+different wavelenghts is not mapped to the same spot in the image. To align the
+different channels despite cromatic aberration, beads are used. Beads are
+flourophores added to the probe, that emit light in all wavelengths the
+different markers do and therefore are visible in all channels. The beads can be
+used as landmarks, because their position in the original image is at the same
+spot. The task is to find a transformation that maps corresponding beads on each
+other.
+\section{Features of the colercomposer application}
+
+\section{Bead detection}
+The input for the colorcomposer application is a text file created by the storm
+algorithm that contains information about the position, intensity, symmetry,
+framenumber and signal-to-noise ratio of each detection. The beads should
+ideally be visible in most of the images, this means one must search for
+detections that appear in almost every frame at the same position. Therefore it
+is plausible to take every detection of the first 50 frames as initial
+candidates for beads. After that candidates that are closer than a threshold are
+merged to get a list of all location where beads might be. Given that list every
+other detection is tested to belong to one of the bead candidates. If a
+candidate gets too few members it is no longer considered to be a bead and
+removed from the list.
+\section{Align Beads}
+After the beads for each channel are found the next task is to find the same
+bead in each channel. It can happen that some beads occure in just one channel,
+if this is the case there will be no corresponding bead in the other
+channels.\\
+To do so, the minimal number of beads, three to four, that are neccesary to
+calculate the transformation are chosen randomly from the first channel. After that, based on
+a probabilistic approach and a distance matrix containing information about the
+distances between all beads of the two channels, three to four beads from the
+second channel are chosen.\\
+Using this pairs of beads linear transformation is found like described by
+\cite{MAJoachim}. Using this transformation it is tested how many beads match in
+total. It is assumed that the correct transformation will match other bead pairs
+that were not chosen to calculate this transformation. After that the whole
+procedure is done multiple times. In the end the best transformation is
+chosen.\\
+In principle shearing should also be allowed for this transformation, but tests
+indicate that shearing does not occure. There is a problem if there are just
+three beads in each channel, then every time a perfect transformation is found,
+but with the constraint of forbidden shearing, the right solution can be
+identified.
+
+\section{Accuracy of Registration}
+
+\section{Colocalisation}
+\subsection{Global colocalisation}
+\subsection{Local colocalisation}
+\subsection{Validation of colocalisation approaches}
+"Image set CBS001RGM-CBS010RGM from the Colocalization Benchmark Source
+(www.colocalization-benchmark.com) was used to validate colocalization."

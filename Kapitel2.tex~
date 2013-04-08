@@ -1,0 +1,186 @@
+\chapter{Data processing}
+\section{the camera}
+\subsection{dark current}
+
+\section{the data}
+The datasets for STORM microscopy that we recieve from our collaborators from
+Bioquant are big datasets of several gigabyte in the Andor .sif format. Each
+file conains a stack of pictures, normaly between 1000 and 10000, taken
+consecutively.
+In each picture there are beads and signals. Both result from very small 
+fluorescent molecules attached to the structures that are investigated. The
+light of this pointlike objects is dissorted to a gaussian shaped signal due to
+the large magnification.
+Beads are molecules that emit light at any time contrary to the other signal
+which blinks that means it is visible in just one frame at an explicit location.
+The beads are used as landmarks for later alignment of two or more different
+color channels. The other spots are the structure that the biologist are
+interested in. Each of the gaussian shaped signals should be recognized and the
+center will be determined with subpixel accuracy and is stored in the end in a
+list to be further processed by the colorcomposer application.
+
+
+
+\section{Transformations}
+\subsection{Transform to real intensities}
+The images aquired from the camera show not the real intensities
+$I_\text{true}$, which result from the photon emission of the probe, but
+transformed ones $I_\text{meas}$. There are two main reasons why the taken image
+differs from the true image, besides noise.\\
+There is dark current which means that even a picture taken with closed shutter
+would get some intensity, even without any light hitting the sensor chip of the
+camera. This is a result of thermal movement of the atoms off the sensor chip
+and can be reduced by cooling. The dark current noise adds an almost constant
+value $o$ to the output signal.
+Incoming photons create electrons via inner photoelectric effect. This electrons
+are collected for each pixel and might be amplified to get the final result.
+Assuming a linear relation between the number of incoming photons and the number
+of electrons created and a linear amplifier results in a factor $g$. This factor
+is multiplied with the number of photons captured during exposure time for each
+pixel.\\
+If the gain factor $g$ and the offset $o$ are known the true intensity, the
+number of photons detected is:
+\begin{equation}
+	I_\text{true} = \dfrac{I_\text{meas}-o}{g}.
+\end{equation}
+How to estimate this two parameters will be covered in the next section.
+
+\section{Estimate gain factor and offset}
+\subsection{Skellam distribution}
+The method described by \cite{skellam} is used to estimate the
+gain factor. For this methode a Skellam distribution is used. The probability
+mass function of a Skellam distribution is a function of the difference between
+two Poisson random variables
+\begin{equation}
+	p(k;\mu_1, \mu_2) =
+	\exp(-(\mu_1+\mu_2))\left(\frac{\mu_1}{\mu_2}\right)^{k/2}~I_{|k|}\left(2\sqrt{\mu_1
+	\mu_2}\right)
+\end{equation}  
+where $n_1$, $n_2$ are the Poisson random variables and $k = n_1 - n_2$.
+$I_{|k|}$ means the modified Bessel function of the first kind.\\
+Mean $\mu$ and variance $\sigma$ of the Skellam distribution are given by
+\begin{align}
+	&&\mu &= \mu_1 - \mu_2,& \sigma^2 &= \mu_1 + \mu_2\\
+	\Rightarrow &&\mu_1& = \frac{\mu + \sigma^2}{2},& \mu_2 &=\frac{-\mu +
+	\sigma^2}{2}
+\end{align} 
+Each dataset is three-dimensional where time is the third
+dimension. Therefore mean $\mu$ and variance $\sigma^2$ can be calculated from
+the data for each pixel individually
+\begin{align}
+	\mu(i,j) & = \frac{\Sigma_t(I_t(i,j)-I_{t+1}(i,j))}{n}\\
+	\sigma^2 & = \frac{\Sigma_t(\mu-(I_t(i,j)-I_{t+1}(i,j)))^2}{n-1}
+\end{align} 
+To determine the gain factor the Skellam parameter are plotted over the mean
+intensities. A straight line can be fitted and its slope is exactly the gain
+factor. 
+\subsection{fitting the line}
+For the real data it is not so easy to fit the line. All points would lay on a
+straight line if they would have the same intensity for the whole time. In
+principle this is not the case. One key aspect of the strom methode is that the
+flourescent moleculse are blinking. This causes an increase in the Skellam
+parameter, which is more or less the variance of the intensities of each pixel.
+The blinking causes the points to tend to be above the ideal line.
+The condition that the pixels should have constant intensitie over the whole
+time series holds for background pixel that are never on and for beads. Taking
+this into acount the line is not fitted to all pixels. The intensities of all
+pixels are sorted. After that the range of intensities is divided into a
+certain number of intervals, typically about 20. In each interval it is
+searched for the lowes Skellam parameter. Even this points contain usually many
+outliers. Within this points it is searched for a good line. Therefore a random
+number of points between 5 and the maximal number of points is  selected
+randomly. Then the best fit according to the minimum of total least squares is
+calculated from this points. This is done several times to get the best line
+ignoring outliers.\\
+Ideally the zero crossing on the intensity axis, which means the intensity with
+zero Skellam parameter. This intensity is the contribution of the dark current
+$o$.
+In practice it is much more stable to take the overall minimum pixel intensity
+as offset.\\
+The result is a global value for the gain and the offset. 
+
+\subsection{Approach using skewness of poisson distribution}
+For every pixel there is a set of multiple values in the set. This allows to
+calculate the different parameters individually for each pixel. One can
+calculate mean and variance of the measured intensities $I_\text{meas}(i,j)$ and
+gets
+\begin{align}
+	\text{mean}(I_\text{meas}(i,j))& = \text{mean}(I_\text{true}(i,j)) + o\\
+	\text{var}(I_\text{meas}(i,j))& = g\cdot\text{var}(I_\text{true}(i,j))\\
+\end{align}
+Assuming a Poisson distribution as the true intensity, mean and variance would
+be the same. Unfortunately the mean true intensities are unknown and it is
+not possible to determin $g$ and $o$ so far. For large mean Intensities $\mu$
+the Poisson distribution becomes more and more similar to a Gauss distribution
+with the same mean. However, for small means, the Poisson distribution is not
+symmetric. The skewness $s_p$ of a Poission distribution is the inverse of the
+square root of the mean $(\mu)^{-.5}$. It can also be directly
+calculated from data
+\begin{equation}
+	s_p = \frac{1}{n}\sum_{i = 1}^n \left(\frac{x_i - \bar x}{\sigma}\right)^3
+\end{equation}
+The skewness is invariant to shift and multiplication with a constant. This
+means that the transformation caused by the camera gain and the dark current
+does not affect the skewness. This gives a third equation to solve for $g$ and
+$o$.\\
+This approach has very strict limitation to at least for background not to
+intense signals. If the mean of the true Poisson distributin is higher than
+roughly 30 the skewness gives due to noise no stabel results and it is
+impossible to determin the mean intensity in this way.
+
+\section{Mask for noise supression}
+\section{Calibration measurement and plausibility}
+
+\subsection{Poisson distribution}
+One very important probability distribution in physics is the Poisson
+distribution. It describes the results of ``counting experiments'' and is
+therefore very important for image processing as the pictures taken with a
+camera are in principle counts of photons reaching the camera. Photon counting
+noise is one important example.\\
+Poisson distributions are just defined for integer values and the variance is
+the same as the mean value of the distribution. Another important attribute is
+the skewnes which is the inverse of the squarerot of the mean or variance.\\ 
+The probability mass function is:
+\begin{equation}
+	p(n,\mu) = \frac{\mu^n}{n!}\exp(-\mu)
+\end{equation}
+
+
+\subsection{Anscombe transform}
+The Anscombe transform is used to transform a random variable with a Poisson
+distribution into one with an approximatly constant standard deviation. The
+transformation is defined as:
+\begin{equation}
+	A(x) = 2\sqrt{x+\frac{3}{8}}.
+\end{equation}
+As one can see in figure \ref{anscombe} the Anscombe transformations result has
+for mean intensities greater than 4 a intensity independent standard deviation of
+one.
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.5\textwidth]{pictures/anscombe.png}
+	\caption{Standard deviation over mean intensities of different Poisson
+	distributions}
+	\label{anscombe}
+	
+\end{figure}
+
+\section{Accuracy of detection}
+Unfortunately the position of the flourescent molecules can't be detected
+perfectly. There are three main contribution to the error in detection.\\
+First, there is the problem of finding the maximum in a noisy signal. Due to
+noise the pixel next to the true maximum might get some intensity and be
+therefore brighter.\\
+Second, the choice of the gain factor and the offset might influence the
+precision.\\
+Third, the position is deteted by upscaling the pixel grid and interpolation.
+After that the maximums position of the upscaled grid is taken as the resulting
+position. This gives an error from roughly pixelwidth divided by square root of
+two.
+\subsection{error from noise}
+Because there is no ground truth availible for micoscropy data, data must be
+generated. This was done similar as described by \cite{simulated}.
+\subsection{error from parameter estimation}
+
+\section{Comparison with older version of the storm algorithm}
+\section{Bleaching signal}
