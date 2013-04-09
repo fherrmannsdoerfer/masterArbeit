@@ -37,7 +37,7 @@ Transactions on Pattern Analysis and Machine Intelligence},
 		url = {http://hci.iwr.uni-heidelberg/Staff/ukoethe/papers/habil-koethe.pdf}
 		}
 @online{challenge,
-		author = {unknown},
+		author = {Biomedical Imaging Group, EPFL, Switzerland},
 		title = {Localization Microscopy ISBI 2013 Challenge},
 		url = {http://bigwww.epfl.ch/smlm/challenge/},
 		year = {2013},
