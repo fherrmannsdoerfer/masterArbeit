@@ -10,10 +10,14 @@
   \begin{quotation}\noindent\textsc{Key:} #1\\
   \textsc{Annotation:}\ #2\end{quotation}}
 
-\bibitem[{Biomedical Imaging~Group(2013)}]{challenge}
-Biomedical Imaging~Group, Switzerland, EPFL (2013), \enquote{Localization
-  microscopy isbi 2013 challenge.}
-  \urlprefix\url{http://bigwww.epfl.ch/smlm/challenge/}. Accesed on 04.04.2013.
-\bibAnnoteFile{challenge}
+\bibitem[{Heilemann et~al.(2008)Heilemann, van~de Linde, Sch\"uttpelz, Kasper,
+  Seefeldt, Mukherjee, Tinnefeld, and Sauer}]{heilemann}
+Heilemann, Mike, Sebastian van~de Linde, Mark Sch\"uttpelz, Robert Kasper,
+  Britta Seefeldt, Anindita Mukherjee, Philip Tinnefeld, and Markus Sauer
+  (2008), \enquote{Subdiffraction-resolution fluorescence imaging with
+  conventional fluorescent probes.} \emph{Angewandte Chemie International
+  Edition}, 47, 6172--6176,
+  \urlprefix\url{http://dx.doi.org/10.1002/anie.200802376}.
+\bibAnnoteFile{heilemann}
 
 \end{thebibliography}

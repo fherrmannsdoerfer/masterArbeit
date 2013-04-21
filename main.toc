@@ -1,75 +1,12 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction}{3}
-\contentsline {chapter}{\numberline {2}Data processing}{4}
-\contentsline {section}{\numberline {2.1}the data}{4}
-\contentsline {section}{\numberline {2.2}Parameters and options}{4}
-\contentsline {subsection}{\numberline {2.2.1}Necessary}{4}
-\contentsline {section}{\numberline {2.3}Import and processing}{4}
-\contentsline {section}{\numberline {2.4}Workflow}{4}
-\contentsline {subsection}{\numberline {2.4.1}Chose parameters}{4}
-\contentsline {subsection}{\numberline {2.4.2}Estimating camera gain and offset}{5}
-\contentsline {subsection}{\numberline {2.4.3}Recursevly adjusting gain and offset}{5}
-\contentsline {subsection}{\numberline {2.4.4}Estimating the width of the point spread function}{5}
-\contentsline {subsection}{\numberline {2.4.5}Processing the data}{6}
-\contentsline {subsubsection}{Import Data}{6}
-\contentsline {subsubsection}{Background estimation}{6}
-\contentsline {subsubsection}{Create mask for background suppression}{6}
-\contentsline {subsubsection}{Filter data and finding maxima}{6}
-\contentsline {subsubsection}{Quality control for detections}{7}
-\contentsline {section}{\numberline {2.5}Calibration measurement and plausibility}{7}
-\contentsline {section}{\numberline {2.6}Accuracy of detection}{7}
-\contentsline {subsection}{\numberline {2.6.1}error from noise}{7}
-\contentsline {subsection}{\numberline {2.6.2}error from parameter estimation}{7}
-\contentsline {section}{\numberline {2.7}Comparison with older version of the storm algorithm}{7}
-\contentsline {section}{\numberline {2.8}Bleaching signal}{7}
-\contentsline {section}{\numberline {2.9}Check for slope using calibration}{7}
-\contentsline {section}{\numberline {2.10}New graphical user Interface}{8}
-\contentsline {chapter}{\numberline {3}Multicolor registration}{9}
-\contentsline {section}{\numberline {3.1}Background}{9}
-\contentsline {section}{\numberline {3.2}Features of the colercomposer application}{9}
-\contentsline {section}{\numberline {3.3}Bead detection}{9}
-\contentsline {section}{\numberline {3.4}Align Beads}{9}
-\contentsline {section}{\numberline {3.5}Accuracy of Registration}{10}
-\contentsline {section}{\numberline {3.6}Colocalisation}{10}
-\contentsline {subsection}{\numberline {3.6.1}Global colocalisation}{10}
-\contentsline {subsection}{\numberline {3.6.2}Local colocalisation}{10}
-\contentsline {subsection}{\numberline {3.6.3}Validation of colocalisation approaches}{10}
-\contentsline {chapter}{\numberline {4}Work for the biologists}{11}
-\contentsline {section}{\numberline {4.1}Selecting the best camera}{11}
-\contentsline {section}{\numberline {4.2}little tool to investigate bleaching}{11}
-\contentsline {chapter}{\numberline {5}Futur work}{12}
-\contentsline {section}{\numberline {5.1}3d Storm}{12}
-\contentsline {section}{\numberline {5.2}Improved methode to detect maxima}{12}
-\contentsline {section}{\numberline {5.3}Colorcomposer implemented in Storm-Gui}{12}
-\contentsline {chapter}{\numberline {6}CCD camera}{13}
-\contentsline {section}{\numberline {6.1}Image acquisition}{13}
-\contentsline {subsection}{\numberline {6.1.1}Photon sources with shot noise}{13}
-\contentsline {subsection}{\numberline {6.1.2}Quantum efficiency}{13}
-\contentsline {subsection}{\numberline {6.1.3}Gain}{13}
-\contentsline {subsection}{\numberline {6.1.4}Readout noise}{13}
-\contentsline {subsection}{\numberline {6.1.5}Dark current noise}{14}
-\contentsline {subsection}{\numberline {6.1.6}Quantisation}{14}
-\contentsline {chapter}{\numberline {7}Theoretical background}{15}
-\contentsline {section}{\numberline {7.1}Transformations}{15}
-\contentsline {subsection}{\numberline {7.1.1}Transformation to Poisson distributed signal}{15}
-\contentsline {subsection}{\numberline {7.1.2}Anscombe transformation}{15}
-\contentsline {section}{\numberline {7.2}Estimation of camera gain}{15}
-\contentsline {section}{\numberline {7.3}Distributions}{16}
-\contentsline {subsection}{\numberline {7.3.1}Poisson distribution}{16}
-\contentsline {subsection}{\numberline {7.3.2}Skellam distribution}{16}
-\contentsline {subsection}{\numberline {7.3.3}Approach using skewness of poisson distribution}{17}
-\contentsline {chapter}{\numberline {8}ISBI Challenge 2013}{18}
-\contentsline {section}{\numberline {8.1}Introduction}{18}
-\contentsline {section}{\numberline {8.2}Terminology}{18}
-\contentsline {section}{\numberline {8.3}Measures}{19}
-\contentsline {subsection}{\numberline {8.3.1}Jaccard index}{19}
-\contentsline {subsection}{\numberline {8.3.2}RSME}{19}
-\contentsline {section}{\numberline {8.4}Trainingsdata}{19}
-\contentsline {subsection}{\numberline {8.4.1}Bundled tubes datasets}{19}
-\contentsline {subsection}{\numberline {8.4.2}Tubulin data sets}{20}
-\contentsline {section}{\numberline {8.5}Submissions}{20}
-\contentsline {subsection}{\numberline {8.5.1}High precision}{20}
-\contentsline {subsection}{\numberline {8.5.2}High score}{20}
-\contentsline {subsection}{\numberline {8.5.3}Highest score via postprocessing}{20}
-\contentsline {section}{\numberline {8.6}Results}{20}
-\contentsline {chapter}{Bibliography}{23}
+\contentsline {chapter}{\numberline {1}Theoretical background}{2}
+\contentsline {section}{\numberline {1.1}Distributions}{2}
+\contentsline {subsection}{\numberline {1.1.1}Poisson distribution}{2}
+\contentsline {subsection}{\numberline {1.1.2}Skellam distribution}{2}
+\contentsline {subsection}{\numberline {1.1.3}Approach using skewness of poisson distribution}{2}
+\contentsline {section}{\numberline {1.2}the data}{3}
+\contentsline {section}{\numberline {1.3}Estimation of camera gain}{4}
+\contentsline {section}{\numberline {1.4}Transformations}{6}
+\contentsline {subsection}{\numberline {1.4.1}Transformation to Poisson distributed signal}{6}
+\contentsline {subsection}{\numberline {1.4.2}Anscombe transformation}{6}
+\contentsline {chapter}{Bibliography}{8}

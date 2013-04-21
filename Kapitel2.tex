@@ -1,22 +1,5 @@
 \chapter{Data processing}
 
-\section{the data}
-The datasets for STORM microscopy that we recieve from our collaborators from
-Bioquant are big datasets of several gigabyte in the Andor .sif format. Each
-file conains a stack of pictures, normaly between 1000 and 10000, taken
-consecutively.
-In each picture there are beads and signals. Both result from very small 
-fluorescent molecules attached to the structures that are investigated. The
-light of this pointlike objects is dissorted to a gaussian shaped signal due to
-the large magnification.
-Beads are molecules that emit light at any time contrary to the other signal
-which blinks that means it is visible in just one frame at an explicit location.
-The beads are used as landmarks for later alignment of two or more different
-color channels. The other spots are the structure that the biologist are
-interested in. Each of the gaussian shaped signals should be recognized and the
-center will be determined with subpixel accuracy and is stored in the end in a
-list to be further processed by the colorcomposer application.
-
 \section{Parameters and options}
 \subsection{Necessary}
 
@@ -27,20 +10,20 @@ The STORM data has usually a size of around 3 gigabyte. There are even larger da
 \subsection{Chose parameters}
 At the begining the user has the option to set all important parameters, if no parameter is set the default ones are used and will give a good result because all crucial parameters are either determined from the data or set to reasonable values that work for every data set.
 \subsection{Estimating camera gain and offset}
-First of all it is checked whether there exists a file containing settings for gain and offset from an earlier run. If this is not the case new parameters are estimated based on the first part of the data, usually 200 frames are sufficiant.
+First of all it is checked whether there exists a file containing settings for gain and offset from an earlier run. If this is not the case new parameters are estimated based on the first part of the data, usually 200 frames are sufficiant.\newline
 The method described by \cite{skellam} is used to estimate the
 gain factor. For this methode a Skellam distribution is used. 
 Each dataset is three-dimensional where time is the third
-dimension. Therefore mean $\mu$ and variance $\sigma^2$ can be calculated from
+dimension. Therefore mean $\mu$ and variance $\sigma^2$, in time, can be calculated from
 the data for each pixel individually
 \begin{align}
 	\mu(i,j) & = \frac{\Sigma_t(I_t(i,j)-I_{t+1}(i,j))}{n}\\
 	\sigma^2 & = \frac{\Sigma_t(\mu-(I_t(i,j)-I_{t+1}(i,j)))^2}{n-1}
 \end{align} 
 To determine the gain factor the Skellam parameter are plotted over the mean
-intensities. A straight line can be fitted and its slope is exactly the gain
+intensities. A straight line can be fitted and its slope gives the gain
 factor.
-\subsection{Recursevly adjusting gain and offset}
+\subsection{Recursively adjusting gain and offset}
 After the estimation of gain factor and offset, the transformations described in \ref{trafoPoiss} and \ref{trafoAnscombe} are applied and the background subtracted.\newline
 Due to the Anscombe transformation the background pixels of the image should only vary around a mean intensity of zero with a variance of 1. Therefore a histogramm of the pixel intensities is created. The after background subtraction the background pixels should contribute only to the lower intensities in the histogramm. A gaussian function is fitted to the histogramms values. This is done under the assumption that there is much more background in the image than signal or the intensities coming from signals are distributed over a larger range, so the gaussian for the background intensity distribution can be fitted correctly.\newline
 If the estimated value for the variance is too far off 1 the originally estimated gain factor is corrected, applied and the fit is done again. This is done until the background variance converges or the maximal number of iterations is reached. In this case the initial gain factor will be used and a warning printed to the screen.
@@ -75,7 +58,7 @@ Especially in data sets with a high density of spots it can happen, that two spo
 Unfortunately the position of the flourescent molecules can't be detected
 perfectly. There are three main contribution to the error in detection.\\
 First, there is the problem of finding the maximum in a noisy signal. Due to
-noise the pixel next to the true maximum might get some intensity and be
+noise the pixel next to the true maximum might gain some intensity and be
 therefore brighter.\\
 Second, the choice of the gain factor and the offset might influence the
 precision.\\
