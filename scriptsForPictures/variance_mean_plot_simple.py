@@ -1,0 +1,34 @@
+import numpy as np
+import h5py
+from matplotlib import pyplot as plot
+from scipy import stats
+
+f = h5py.File('/home/herrmannsdoerfer/Daten_Kalibrierung_Messung_3_lightSecondTry.hdf5')
+
+min0 = 100
+max0 = 114
+min1 = 100
+max1 = 114
+tag = 'on'
+ordnername = 'Shutter_open_emgain_'+ tag
+tiffstacks = f[ordnername]
+stacksize = 5#len(tifstacks)
+bild = []
+mean=[]
+var=[]
+for i in range(stacksize):
+    print i
+    if i == 22:
+        continue
+    mean.append(np.mean(tiffstacks.values()[i][min0:max0,min1:max1,:]))
+    var.append(np.var(tiffstacks.values()[i][min0:max0,min1:max1,:]))
+
+m,c = stats.linregress(mean,var)[0:2]
+xr = range(0,int(np.max(mean)),int(np.max(mean)/20))
+yr = np.array(m)*xr + c
+plot.plot(xr,yr)
+plot.plot(mean,var,'o')
+plot.show()
+ns = -c/m
+print m
+print ns

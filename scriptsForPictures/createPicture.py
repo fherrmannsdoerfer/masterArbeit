@@ -1,0 +1,24 @@
+import vigra
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+
+def make_image(inputname,outputname):
+    # data = mpimg.imread(inputname)[:,:,0]
+    data = vigra.impex.readImage(inputname)[...,0]
+    fig = plt.figure()
+    dim0 = data.shape[0]
+    fig.set_size_inches(data.shape[0]/1000., data.shape[1]/1000.)
+    ax = plt.Axes(fig, [0., 0., 1., 1.])
+    ax.set_axis_off()
+    fig.add_axes(ax)
+    ax.imshow(np.transpose(np.array(data)), cmap = plt.cm.hot)
+    plt.savefig(outputname, dpi = 1000)
+
+
+origname = sys.argv[1]
+destname = sys.argv[2]
+
+print origname, destname
+
+make_image(origname,destname)
