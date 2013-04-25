@@ -15,6 +15,9 @@ used as landmarks, because their position in the original image is at the same
 spot. The task is to find a transformation that maps corresponding beads on each
 other.
 \section{Features of the colercomposer application}
+\subsection{Automatic bead detection}
+\subsection{Alignment of two multicolor images}
+\subsection{Heatmap 
 
 \section{Bead detection}
 The input for the colorcomposer application is a text file created by the storm
@@ -38,14 +41,14 @@ calculate the transformation are chosen randomly from the first channel. After t
 a probabilistic approach and a distance matrix containing information about the
 distances between all beads of the two channels, three to four beads from the
 second channel are chosen.\\
-Using this pairs of beads linear transformation is found like described by
+Using this pairs of beads a linear transformation is found like described by
 \cite{MAJoachim}. Using this transformation it is tested how many beads match in
 total. It is assumed that the correct transformation will match other bead pairs
 that were not chosen to calculate this transformation. After that the whole
 procedure is done multiple times. In the end the best transformation is
 chosen.\\
-In principle shearing should also be allowed for this transformation, but tests
-indicate that shearing does not occure. There is a problem if there are just
+In principle shearing should also be allowed for a linear transformation, but tests
+indicate that shearing does not occure, so it is disabled to improve stability. If there are just
 three beads in each channel, then every time a perfect transformation is found,
 but with the constraint of forbidden shearing, the right solution can be
 identified.

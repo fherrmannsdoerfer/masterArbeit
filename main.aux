@@ -3,33 +3,157 @@
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Theoretical background}{2}}
+\citation{Abbe}
+\citation{Palm}
+\citation{Storm}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Distributions}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Poisson distribution}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Skellam distribution}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}Approach using skewness of poisson distribution}{2}}
-\newlabel{meanvarPoiss1}{{1.5}{2}}
-\newlabel{meanvarPoiss2}{{1.6}{2}}
-\citation{heilemann}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}the data}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Estimation of camera gain}{4}}
-\newlabel{trafoGain}{{1.8}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Raw image for dSTORM processing\relax }}{5}}
+\citation{skellam}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Data processing}{4}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Import and processing}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Workflow}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Chose parameters}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Estimating camera gain and offset}{4}}
+\citation{MAJoachim}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Recursively adjusting gain and offset}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Estimating the width of the point spread function}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Processing the data}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Import Data}{5}}
+\citation{vigra}
+\@writefile{toc}{\contentsline {subsubsection}{Background estimation}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Create mask for background suppression}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Filter data and finding maxima}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Quality control for detections}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Comparison with older version of the storm algorithm}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}New graphical user Interface (GUI)}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Input widget}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Result widget}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces There are two different ways to set the parameters important for the algorithm. In the picture on the left the standard way of setting parameters can be seen. On the right, there are sliders that can be adjusted between two extrems each. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Advanced setting widget}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Easy setting widget}}}{8}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{rawStorm}{{1.1}{5}}
+\newlabel{guiSettings}{{2.1}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces The new gui design. On the left is the window for selecting input file and parameters show. On the right the result widget showing the procession of a data set in progress.\relax }}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Input widget}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Result widget}}}{8}}
+\newlabel{guiWidgets}{{2.2}{8}}
+\citation{MAJoachim}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Multicolor registration}{9}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Background}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Features of the colercomposer application}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Bead detection}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Align Beads}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Accuracy of Registration}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Colocalisation}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Global colocalisation}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Local colocalisation}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Validation of colocalisation approaches}{10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Futur work}{11}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}3d Storm}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Improved methode to detect maxima}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Colorcomposer implemented in Storm-Gui}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Interactive parameter selection}{11}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}CCD camera}{12}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Image acquisition}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Photon sources with shot noise}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Quantum efficiency}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Gain}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Readout noise}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.5}Dark current noise}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.6}Quantisation}{13}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Theoretical background}{14}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Distributions}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Poisson distribution}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Skellam distribution}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Approach using skewness of poisson distribution}{14}}
+\newlabel{meanvarPoiss1}{{6.5}{14}}
+\newlabel{meanvarPoiss2}{{6.6}{14}}
+\citation{heilemann}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}the data}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Transformations}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Transformation to Poisson distributed signal}{16}}
+\newlabel{trafoPoiss}{{6.3.1}{16}}
+\newlabel{transtopoiss}{{6.8}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Anscombe transformation}{16}}
+\newlabel{trafoAnscombe}{{6.3.2}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Estimation of camera gain}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Raw image for dSTORM processing\relax }}{17}}
+\newlabel{rawStorm}{{6.1}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions\relax }}{18}}
+\newlabel{anscombe}{{6.2}{18}}
+\newlabel{trafoGain}{{6.10}{18}}
+\citation{challenge}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}ISBI Challenge 2013}{19}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Introduction}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Terminology}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Measures}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Jaccard index}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.2}RSME}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}Trainingsdata}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Bundled tubes datasets}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces One frame from bundled tubes training data set\relax }}{21}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {High spot density}}}{21}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Low spot density}}}{21}}
+\newlabel{bundledtubesHighowDensityFrame}{{7.1}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Maximum projection of bundled tubes data set\relax }}{21}}
+\newlabel{pctMaximumProjBundledTubes}{{7.2}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Tubulin data sets}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}Submissions}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}High precision}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.2}High score}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.3}Highest score via postprocessing}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.6}Results}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces This pictures show the variability of the background in the spatial and temporal dimensions\relax }}{22}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{22}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{22}}
+\newlabel{tubulinVariableBg}{{7.3}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Maximum projection of tubulin data set\relax }}{23}}
+\newlabel{pctMaximumProjTubulin}{{7.4}{23}}
+\citation{meanVar}
+\citation{simulated}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Check of the assumptions}{24}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Calibration measurement}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Correction to Poisson distributions}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.3}Result Anscombe transformation}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.4}Accuracy of detection}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{25}}
+\newlabel{calibplot}{{8.1}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces This pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 were used. The offset was estimated from the minimal intensities of the original image.\relax }}{25}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{25}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{25}}
+\newlabel{isitPoisson}{{8.2}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted gaussian with variance one and mean zero.\relax }}{26}}
+\newlabel{isitAnscombe}{{8.3}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.5}Bleaching signal}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{28}}
+\newlabel{accplot}{{8.4}{28}}
 \bibstyle{te}
 \bibdata{research}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Transformations}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.1}Transformation to Poisson distributed signal}{6}}
-\newlabel{trafoPoiss}{{1.4.1}{6}}
-\newlabel{transtopoiss}{{1.18}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4.2}Anscombe transformation}{6}}
-\newlabel{trafoAnscombe}{{1.4.2}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions\relax }}{7}}
-\newlabel{anscombe}{{1.2}{7}}
-\bibcite{heilemann}{{1}{2008}{{Heilemann et~al.}}{{Heilemann, van~de Linde, Sch\"uttpelz, Kasper, Seefeldt, Mukherjee, Tinnefeld, and Sauer}}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{8}}
+\bibcite{Abbe}{{1}{1873}{{Abbe}}{{}}}
+\bibcite{Palm}{{2}{2006}{{Betzig et~al.}}{{Betzig, Patterson, Sougrat, Lindwasser, Olenych, Bonifacino, Davidson, Lippincott-Schwartz, and Hess}}}
+\bibcite{challenge}{{3}{2013}{{Biomedical Imaging~Group}}{{}}}
+\bibcite{simulated}{{4}{2011}{{Gr\"ull et~al.}}{{Gr\"ull, Kirchgessner, Kaufmann, Hausmann, and Kebschull}}}
+\bibcite{heilemann}{{5}{2008}{{Heilemann et~al.}}{{Heilemann, van~de Linde, Sch\"uttpelz, Kasper, Seefeldt, Mukherjee, Tinnefeld, and Sauer}}}
+\bibcite{skellam}{{6}{2012}{{Hwang et~al.}}{{Hwang, Hun-Sik, and Kweon}}}
+\bibcite{vigra}{{7}{2011}{{K\"othe}}{{}}}
+\bibcite{meanVar}{{8}{1998}{{Newberry}}{{}}}
+\bibcite{Storm}{{9}{2006}{{Rust}}{{}}}
+\bibcite{MAJoachim}{{10}{2011}{{Schleicher}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{30}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}

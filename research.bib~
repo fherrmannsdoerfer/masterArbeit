@@ -52,7 +52,7 @@ Transactions on Pattern Analysis and Machine Intelligence},
 		note = {accessed on 31.04.2013}}
 
 @article{heilemann,
-		author = {Heilemann, Mike and van de Linde, Sebastian and Schuttpelz, Mark and Kasper, Robert and Seefeldt, Britta and Mukherjee, Anindita and Tinnefeld, Philip and Sauer, Markus},
+		author = {Heilemann, Mike and van de Linde, Sebastian and Sch\"uttpelz, Mark and Kasper, Robert and Seefeldt, Britta and Mukherjee, Anindita and Tinnefeld, Philip and Sauer, Markus},
 		title = {Subdiffraction-Resolution Fluorescence Imaging with Conventional Fluorescent Probes},
 		journal = {Angewandte Chemie International Edition},
 		volume = {47},
@@ -63,5 +63,41 @@ Transactions on Pattern Analysis and Machine Intelligence},
 		doi = {10.1002/anie.200802376},
 		pages = {6172--6176},
 		keywords = {fluorescent probes, imaging agents, localization microscopy, optical switches, subdiffraction resolution},
-		year = {2008},
+		year = {2008}
 		}
+
+@article{heilemann1,
+		author = {Heilemann, Mike},
+		title = {Fluorescence microscopy beyond the diffraction limit},
+		journal = {Jurnal of Biotechnology},
+		volume = {149},
+		number = {4},
+		issn = {0168-1656},
+		doi = {10.10.16/j.jbiotec.2010.03.012},
+		pages = {243--251},
+		year = {2010}
+		}
+		
+@article{Abbe,
+		author    = {Ernst Abbe},
+		title     = {Beitr\"age zur Theorie des Mikroskops und der mikroskopischen Wahrnehmung},
+		journal   = {Archiv f\"ur Mikroskopische Anatomie},
+		volume    = {9},
+		pages     = {456},
+		doi       = {10.1007/BF02956175},
+		year      = {1873},
+		issn      = {0176-7364}
+}
+
+
+
+@article{Storm,
+		author    = {Rust, M.; M. Bates, X. Zhuang},
+		title     = {Sub-diffraction-limit imaging by stochastic optical reconstruction microscopy (STORM)},
+		journal   = {Nature Methods},
+		volume    = {3},
+		number    = {10},
+		pages     = {793--796},
+		year      = {2006},
+		doi 	  = {10.1038/nmeth929}
+}

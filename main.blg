@@ -3,44 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: te.bst
 Database file #1: research.bib
-You've used 1 entry,
+Warning--entry type for "challenge" isn't style-file defined
+--line 39 of file research.bib
+Warning--entry type for "vigra" isn't style-file defined
+--line 47 of file research.bib
+You've used 10 entries,
             2904 wiz_defined-function locations,
-            608 strings with 5256 characters,
-and the built_in function-call counts, 984 in all, are:
-= -- 66
-> -- 76
-< -- 0
-+ -- 25
-- -- 24
-* -- 93
-:= -- 151
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 13
-chr.to.int$ -- 1
-cite$ -- 2
-duplicate$ -- 61
-empty$ -- 54
-format.name$ -- 27
-if$ -- 182
+            667 strings with 6820 characters,
+and the built_in function-call counts, 5813 in all, are:
+= -- 465
+> -- 307
+< -- 6
++ -- 105
+- -- 93
+* -- 469
+:= -- 917
+add.period$ -- 33
+call.type$ -- 10
+change.case$ -- 84
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 418
+empty$ -- 388
+format.name$ -- 111
+if$ -- 1130
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 15
-newline$ -- 17
-num.names$ -- 4
-pop$ -- 26
+missing$ -- 92
+newline$ -- 53
+num.names$ -- 40
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 71
 quote$ -- 0
-skip$ -- 14
+skip$ -- 133
 stack$ -- 0
-substring$ -- 42
-swap$ -- 33
+substring$ -- 243
+swap$ -- 192
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 9
+type$ -- 90
 warning$ -- 0
-while$ -- 5
+while$ -- 38
 width$ -- 0
-write$ -- 25
+write$ -- 133
+(There were 2 warnings)
