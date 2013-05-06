@@ -32,33 +32,80 @@ For a certain number of frames the Fourier transform is calculated and averaged.
 \subsubsection{Import Data}
 Storm data sets can consist of several thousand frames with resolutions up to one mega pixel per frame. This makes it necessary to break the data into smaller parts because otherwise it might be much larger as the RAM of an ordinary machine. Because of the background estimation it is not possible to process every frame completly independent as it was in the older version of this software \cite{MAJoachim}. It is also faster with some datatypes to load a larger consecutive part of the dataset into memory.\newline
 This algorithm uses chunks of user defined size. There are some limitations to the chuncksize that are discussed later. The data set is split into parts of equal size in $x$- and $y$-dimensions and independently also in $t$-dimension. If this partition does not fit at the edge of the data set, the last chunks will be smaller.\newline
-The data is transformed to be Poission distributed and after that the Anscombe transform is applied.
+The data is transformed to be Poission distributed and after that the Anscombe transform is applied. After the Anscombe transformation the background intensities have unit variance.
 \subsubsection{Background estimation}
-For each chunk the median is determined to get a robust estimate of the background value for this chunk. 
-The Bspline interpolation implemented in vigra \cite{vigra} is used to get interpolated values for the full resolution of the current frames. For this interpolation three chunks in $t$-dimension have to be available. Therefore the maximal chunksize in $t$-dimension must not be larger than a third of the total stacksize.\newline
-This background is then subtracted from the transformed data to give finally background pixels with zero mean and a variance of one, both in $xy$- and in $t$-dimension.
+For each chunk the median of the Anscombe transformated data is determined to get a robust estimate of the background value for this chunk. 
+The Bspline interpolation implemented in vigra \cite{vigra} is used to get interpolated values for the full resolution of the current frames. For this interpolation three chunks in both spatial and temporal domain have to be available. Therefore the maximal chunksize in $t$-dimension must not be larger than a third of the total stacksize, the same holds for the chunksize in $x$ and $y$ direction which must not exceed the spatial resolution of the image stack.\newline
+This background is then subtracted from the transformed data to give finally background pixels with zero mean and unit variance, both in $xy$- and in $t$-dimension. Figure \ref{removedBG} shows an frame with variable background before and after background subtraction.
+\begin{figure}
+\subfloat[Original image]{\includegraphics[width = 0.485\textwidth]{pictures/Tubulin2OrigFrame50Color.png}}\hfill
+\subfloat[image after background subtraction]{\includegraphics[width = 0.485\textwidth]{pictures/Tubulin2normalprocessFrame50Color.png}}
+	\caption{Effect of background subtraction on inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied.}
+	\label{removedBG}	
+\end{figure}
 \subsubsection{Create mask for background suppression}
-With the given $p$-value from the settings a global threshold can be determined, because inhomogeneities of background intensities has been removed. The threshold value is that intensity that is explained from a gaussian distribution with mean zero and variance one with the given $p$ probability. This is possible because the background intensity follows such a distribution after all the applied transformations.\newline
-The threshold is applied to the current frame and stored as a mask. Due to the probability that background pixels intensitis might exceed the threshold the connected components of the mask are calculated. Pixels that belong to connected components with too few members are discarded. 
+With the given $p$-value from the settings a global threshold can be determined, because inhomogenities of background intensities has been removed. The threshold value is that intensity that is explained from a gaussian distribution with mean zero and variance one with the given $p$ probability. This is possible because the background intensity follows such a distribution after all the applied transformations.\newline
+The threshold is applied to the current frame and stored as a mask. Due to the probability that background pixels intensitis might exceed the threshold the connected components of the mask are calculated. Pixels that belong to connected components with too few members are discarded. The idea behind using connected components is, that there is a probability for a background pixel to be brighter than the threshold, but it is unlikely that two neighbouring pixels exceed the threshold in the same frame and even more unlikely that three of them does. Therefore the number of pixels necessary for not discarding a connected component is set to three at least. If the width of the point spread function is very large the number of pixels can be set depending on the psf width. But to suppress background pixels efficiently it has to be larger than three.
 \subsubsection{Filter data and finding maxima}
 To imporve the accuracy of the spot detection the transformed signal is convolved with a two dimensional gaussian function with the previously determined or user set width. The convolved image will further be used to find the maxima. Each maxima found is tested to be covered by the mask or discared otherwise. A region of intrest around the remaining maxima is interpolated to a higher resolution. In the interpolated region  it is searched for maxima for the last time. This maxima will be detected with super resolution.\\
 To determin the signal-noise-ratio the unfilterd and uninterpolated pixelintensity is used.
 
 \subsubsection{Quality control for detections}
-Especially in data sets with a high density of spots it can happen, that two spots are near each other and the point spread functions overlap. It may happen that instead of two maxima just one maximum will be detected right between the true ones. This leads to large errors in the localisation. To avoid this a threshold for the asymmetry of the spots can be set.
+Especially in data sets with a high density of spots it can happen, that two spots are near each other and the point spread functions overlap. It may happen that instead of two maxima just one maximum will be detected right between the true ones, as it can be seen in \ref{betterthansimplestorm}. This leads to large errors in the localisation. To avoid this a threshold for the asymmetry of the spots can be set.
 
 
-\section{Comparison with older version of the storm algorithm}
-\subsection{Adjustable filter width}
-\subsection{Treatment of variable background}
+\section{Comparison with older version of the SimpleStorm algorithm}
+\subsection{Adjustable filter width} \label{sectionFilterisEvil}
+If two or more point spread functions overlap, applying a smoothing filter can lead to merging point spread functions. This becomes a problem if the two distinct maxima of the original unsmoothed psfs form a new maxima inbetween. This leads to just one detection somewhere between the true maxima. The number of merging psfs increases with greater filter widths. For high density data it might be better to use a filter with smaller width and therefore with less accuracy, but with less merging psf. In total this might give a better result depending on the number of incorrectly merged PSFs. This is the reason why the filter ing was changed to use just a Gaussian filter instead of the Wiener filter originally used. 
+The effect of the smaller filter width can be seen in \ref{betterthansimplestorm}. The red crosses indicate detections found by the new SimpleStorm version, the blue crosses show the estimated positions from the previous version of SimpleStorm and the white x marks the groundtruth. The predictins by the newer version are not perfect but better than the prediction of the older version. The scores of the two prediction can be seen in \ref{tabelbetterthansimplestorm}. Both results have almost the same accuracy, but they differ in the scores. There are two effects canceling each other out related to the accuracy. Less merged PSFs increase the accuracy, but the positive effect of filtering, as seen in \ref{bla}, is also lost. 
 
+\begin{table}
+\caption{Comparismn of results created using almost no smoothing or Wiener filter on high density data. While the accuracy almost the same the number of detections and the scores are higher for the unsmoothed data. For the evaluation the evaluation software from \cite{challenge} were used.}
+\begin{tabular}{lllllll}
+&intercetions&Jaccard&F-Score&Precision&Recall&RMSE\\
+Gaussian filter width = 0.01& 16955&19.99&33.26&81.10&20.92&27.21\\
+Wiener filter& 14480&17.06&29.15&79.19&17.87&27.28
+\end{tabular} \label{tabelbetterthansimplestorm}
+
+\end{table}
+
+
+
+
+
+\begin{figure}
+\subfloat[Advanced setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm1.png}}\hfill
+\subfloat[Easy setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm2.png}}
+	\caption{This pictures show the difference a smaller filterwidth has. The red crosses show detections found with a filter width of 0.01, the blue crosses the results using a Wiener filter. The white x marks the groundtruth.}
+	\label{betterthansimplestorm}	
+\end{figure}
+
+\subsection{False positive suppression}
+In the previous version the background was determined by first estimating a baseline, the minimum of the current frame was taken. This baseline was subtracted and the resulting image smoothed with a gaussian filter of widht 10. The smoothed image was subtracted from the original image to give a background free image. This works fine for subtracting background with variations larger than the filters width, but gives as a result just intensities without any information about the variability of the background intensities. If for example the resulting intensity, after background subtraction is 5, this can either mean it is definitly signal if the variance of the background in the original image was very small, but it can also mean nothing, if the variance of the original background was 20, the probability that the difference of 5 between the original image and the smoothed one has a high chance to result from the background variation.\newline
+In the older version of SimpleSTORM the intensity of a candidate, that was considered to be signal, was checked by comparing its intensity after the background subtraction with its intensity before. If the maximums intensity was at least twice as high as the subtracted background it was taken for further processing, otherwise discarded. If the background has a high variability in the spatial domain, the baseline gets a value that is too low for the regions with a higher mean intensity. For this regions the background that is subtracted has high values and therefore the maxima are discarded because the resulting intensity is lower than the twice the background. This phenomena can be seen in figure \ref{bgmakesitbad}. The old version of SimpleSTORM just findes about 8000 spots while the new version finds more than 44000. This results in a better reconstructed image that shows the underlying structure in a better way.
+
+\begin{figure}
+\subfloat[Typical frame showing variable background intensities]{\includegraphics[width = 0.3\textwidth]{pictures/Tubulin2OrigFrame50.png}}\hfill
+\subfloat[Result old SimpleSTORM]{\includegraphics[width = 0.30\textwidth]{pictures/Tubulin2factor1OldSimpleSTORM.png}}\hfill	
+\subfloat[Result new SimpleSTORM]{\includegraphics[width = 0.3\textwidth]{pictures/Tubulin2factor1.png}}
+
+\caption{This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.}
+\label{postproc}	
+
+\end{figure}
+
+The great advantage of the newer version of SimpleStorm is its model for the background. For each pixel the probability to be signal can be determined, based on its signal to noise ratio (SNR). Using the number of connected components of each cluster, false positive detections caused by bright background pixels can be suppressed. This is a great advantage over background suppression methodes that work just on intensities.
+
+\subsection{Comparable results based on the signal-to-noise ratio}
+The accuracy of the maxima detection relies on the signal to noise ratio. With a given SNR the correct standard deviation of the localisation error can be used for further calculations. This is not possible if just an intensity is saved because without information about the backgrounds variance the reliability of the detection can't be estimated.\newline
+To save the signal-to-noise ratio is also an advantage when results are compared that result from either different cameras or different settings or a different environment that might lead to a higher background variability. 
 
 
 \section{New graphical user Interface (GUI)}
 \subsection{Input widget}
 The new GUI for SimpleStorm was designed because where are many new features. Figure \ref{guiWidgets} shows the new design. The GUI was mainly designed by Ilia Kats.
 In principle there are three categories of parameters. The first category tells the program which upsampling factor shall be used or what the pixel width of the input data is given in nanometers. This are informations that can be chosen by any kind of user without knowing anything about the algorithms  the SimpleStorm software uses. The most challenging parameter of this section is the alpha value that sets the sensitivity for false detections. If the user doesn't know what this means or which values gives the best results, he or her can stick to the default setting and alternate it after the run. \newline
-The next category of parameters is about region of interest (roi) widths for the estimation of the point spread function, and chunk sizes. There are two different ways to set this parameters (see figure \ref{guiSettings}). One way is to give values for all parameters. This is difficult without understanding the influence of this parameters on the algorithm. Therefore there is also a second way to set this parameters. The user should know some properties of the data that shall be processed, such as is the spot density high or low, is there variable background in time and space or not? Depending on the sliders position the best parameters are set automaticly. With this second option the user can process his or her data, treating variable background or dense data without deep insight or understanding of the used algorithms.\newline
+The next category of parameters is about region of interest (roi) widths for the estimation of the point spread function, and chunk sizes. There are two different ways to set this parameters (see figure \ref{guiSettings}). One way is to give values for all parameters. This is difficult without understanding the influence of this parameters on the algorithm. Therefore there is also a second way to set this parameters. The user should know some properties of the data that shall be processed, such as is the spot density high or low, is there variable background in time and space or not? Depending on the sliders position the best parameters are set automatically, how this is done will be described later. With this second option the user can process his or her data, treating variable background or dense data without deep insight or understanding of the used algorithms.\newline
 The last catagory of parameters describes which camera gain and offset was used, the width of the signals point spread function and a prefactor that can be used to alter the estimated gain. 
 \begin{figure}
 \subfloat[Advanced setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/advancedSettingsGui.png}}\hfill
@@ -71,7 +118,13 @@ After the run button at the lower left edge of the input widget was pressed, a n
 
 \begin{figure}
 \subfloat[Input widget]{\includegraphics[width = 0.405\textwidth]{pictures/InputWidget.png}}\hfill
-\subfloat[Result widget]{\includegraphics[width = 0.565\textwidth]{pictures/ResultWidget.png}}
+\subfloat[Result widget]{\includegraphics[width = 0.575\textwidth]{pictures/ResultWidget.png}}
 	\caption{The new gui design. On the left is the window for selecting input file and parameters show. On the right the result widget showing the procession of a data set in progress.}
 	\label{guiWidgets}	
 \end{figure}
+
+\subsection{Easy parameter selection}
+As mentioned above with the sliders for background and spot density it is easy to set reasonable parameters without knowing its influence on the algorithms. The sliders can be placed inbetween two extrem cases, each.\newline
+The background sliders have direct influence of the corresponding chunksize. A more constant background gives better results with larger chunks. This is the case because the median of all pixels in a chunk is used to estimate the mean value of the background. Therefore the chunk have to contain more background pixels than signal otherwise the mean value will be overestimated. With large chunks this assumption is satisfied. But the smaller the chunksize the more likely it is that a cluster of points lies in the chunk and because of that the median gives to high values. On the other hand, the chunksizes should be in the range of the changes in background. The best chunksize is therefore in the range of the variable background. The sliders position sets the chunksizes linearly to a value that lies inbetween the minimal chunksize possible and the largest chunksize possible for the data set. The minimal possible chunksizes are 3 pixels and the largest chunksize possible is the the half of the shorter border in $x$ and $y$ dimension and the number of of frames over which the parameters are estimated divided by the number of chunks in memory in $t$ dimension.\newline 
+In general the more dense the dataset is the more likely two neighbouring PSFs are merget due to the filtering, as showed in \ref{sectionFilterisEvil}. There are two ways to avoid inaccurate detections. One is less filtering to avoid merges the second one is checking the symmetry of the detected spots. Merged spots become more and more asymmetric the further the two true centers of the PSF lay apart from each other. A high asymmetry is a good indicator for a poorly detected spot.
+The slider about the spot density influences the prefactor for the estimated sigma and the value for the asymmetry checks. It sets the threshold for the asymmetry in the same way the sliders for background work, within appropriate limits, with higher values for less dense data sets. Also the prefactor is set to values between 1 for sparse data and zero for dense data.

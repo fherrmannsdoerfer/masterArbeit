@@ -3,11 +3,15 @@ import matplotlib.pyplot as plot
 import h5py
 import vigra
 
+#fnamehdf5 = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/Tubulin2/Tubulin2.hdf5"
+#fnameGroundtruth = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/Tubulin2/GroundTruth/activation.csv"
+#fnamehdf5 = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/BundledTubeshighDensity/BundledTubeshighDensity.hdf5"
 fnamehdf5 = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/BundledTubesHighDensity/BundledTubesHighDensity.hdf5"
-fnameCoordsMyStorm0 = "/home/herrmannsdoerfer/MasterArbeit/daten/BundledTubesHighDensity_sigma_0_01.txt"
-fnameCoordsMyStorm11 = "/home/herrmannsdoerfer/MasterArbeit/daten/BundledTubesHighDensity_sigma_1_1.txt"
-fnameCoordsSimpleStorm = "/home/herrmannsdoerfer/MasterArbeit/daten/BundledTubesHighDensityThr_15.txt"
 fnameGroundtruth = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/BundledTubesHighDensity/GroundTruth/activation.csv"
+fnameCoordsMyStorm11 = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/Tubulin2/Tubulin2MyStorm022.txt"
+fnameCoordsMyStorm0 = "/home/herrmannsdoerfer/MasterArbeit/daten/BundledTubesHighDensity_sigma_1_1.txt"
+fnameCoordsSimpleStorm = "/home/herrmannsdoerfer/Challenge/TrainingsDaten/BundledTubesHighDensity/BundledTubesHighDensity.txt"
+
 
 dataStorm0 = np.loadtxt(fnameCoordsMyStorm0,skiprows=1)
 dataStorm11 = np.loadtxt(fnameCoordsMyStorm11,skiprows=1)
@@ -54,12 +58,12 @@ for frame in range(360):#  frame = 80
       bildupscaled[posx+i,posy,0] = maxval
       bildupscaled[posx,posy+i,0] = maxval
 
-  for i in range(len(DetStorm11Frame)):
-    posx = dataStorm11[DetStorm11Frame[i],0] * factor + factor/2
-    posy = dataStorm11[DetStorm11Frame[i],1] * factor + factor/2
-    for i in range(-4,5):
-      bildupscaled[posx+i,posy,1] = maxval
-      bildupscaled[posx,posy+i,1] = maxval
+  #for i in range(len(DetStorm11Frame)):
+    #posx = dataStorm11[DetStorm11Frame[i],0] * factor + factor/2
+    #posy = dataStorm11[DetStorm11Frame[i],1] * factor + factor/2
+    #for i in range(-4,5):
+      #bildupscaled[posx+i,posy,1] = maxval
+      #bildupscaled[posx,posy+i,1] = maxval
 
   for i in range(len(DetStormSimpleStormFrame)):
     posx = dataStormSimpleStorm[DetStormSimpleStormFrame[i],0] * factor + factor/2

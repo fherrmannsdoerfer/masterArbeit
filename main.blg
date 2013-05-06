@@ -7,45 +7,45 @@ Warning--entry type for "challenge" isn't style-file defined
 --line 39 of file research.bib
 Warning--entry type for "vigra" isn't style-file defined
 --line 47 of file research.bib
-You've used 10 entries,
+You've used 11 entries,
             2904 wiz_defined-function locations,
-            667 strings with 6820 characters,
-and the built_in function-call counts, 5813 in all, are:
-= -- 465
-> -- 307
-< -- 6
-+ -- 105
-- -- 93
-* -- 469
-:= -- 917
-add.period$ -- 33
-call.type$ -- 10
-change.case$ -- 84
-chr.to.int$ -- 10
-cite$ -- 20
-duplicate$ -- 418
-empty$ -- 388
-format.name$ -- 111
-if$ -- 1130
+            672 strings with 6946 characters,
+and the built_in function-call counts, 6205 in all, are:
+= -- 503
+> -- 318
+< -- 7
++ -- 109
+- -- 96
+* -- 495
+:= -- 983
+add.period$ -- 37
+call.type$ -- 11
+change.case$ -- 91
+chr.to.int$ -- 11
+cite$ -- 22
+duplicate$ -- 448
+empty$ -- 415
+format.name$ -- 115
+if$ -- 1207
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 92
-newline$ -- 53
-num.names$ -- 40
-pop$ -- 159
+missing$ -- 98
+newline$ -- 57
+num.names$ -- 44
+pop$ -- 169
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 76
 quote$ -- 0
-skip$ -- 133
+skip$ -- 146
 stack$ -- 0
-substring$ -- 243
-swap$ -- 192
+substring$ -- 256
+swap$ -- 203
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
+type$ -- 99
 warning$ -- 0
-while$ -- 38
+while$ -- 41
 width$ -- 0
-write$ -- 133
+write$ -- 145
 (There were 2 warnings)
