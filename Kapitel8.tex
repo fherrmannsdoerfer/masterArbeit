@@ -37,6 +37,7 @@ The root-mean square distance gives an impression how big the squared distance b
 \text{RSME} = \frac{1}{\left|A\cap B\right|}\sum\limits_{i=1}^{\left|A\cap B\right|} \left(p_a(x,y)-p_b(x,y)\right)^2
 \end{equation}
 \section{Trainingsdata}
+All pictures shown in this section are reconstructed from original images or original images as provided by \cite{challenge}.
 \subsection{Bundled tubes datasets}
 There was two kinds of bundled tubes data sets, both created from the same underlying structure, one set with a high spot density and a short sequence of 360 frames, the other with fewer spots per frame but 12000 frames in total. Picture \ref{bundledtubesHighowDensityFrame} shows one frame of each data set.\newline
 \begin{figure}
@@ -100,126 +101,36 @@ Figure \ref{postproc} shows the data before postprocessing, the mask and the res
 
 
 \section{Results}
+All tables shown in this section and all diagrams are created from the results released by \cite{challenge}.
 \subsection{High density data}
 Table \ref{reshd1}, \ref{reshd2} and \ref{reshd3} show the results of the SimpleSTORM algorithm for the different submissions. The submission with postprocessing applied gave the best results for the Jaccard index, compared to the other two submissions. As expected the settings for high score, but without postprocessing yielded better Jaccard indices than the high precission settings, but also worse precision. As expected the high precision settings resulted in the highest possible precision of one hundred percent. Also the postprocessed data has a perfect precision, this demonstrates that the postprocessing removed the false positives, which decreased the precision in the high score (without postprocessing) results. The accuracy was the the same for all three submissions.\newline
+The time the software needed was submitted with the results, this means that it depends strongly on the system the algorithms run on. Over all SimpleSTORM took about 90 seconds to process the high density data sets. This was an average runtime. Most of the faster algorithms used the GPU.
 
-\begin{table}
-\caption{Results for the main submission (with postprocessing)}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-HD1&40.44&100&41&40.13\\
-HD2&30.84&100&31&63.18\\
-HD3&12.55&100&13&61.8
-\end{tabular} \label{reshd1}
-\end{table}
-
-
-\begin{table}
-\caption{Results for the high precission submission}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-HD1&37.62&100&38&40.23\\
-HD2&28.37&100&28&60.70\\
-HD3&12.66&100&13&62.58
-\end{tabular}\label{reshd2}
-\end{table}
-\begin{table}
-\caption{Results for the high score submission (without postprocessing)}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-HD1&37.96&100&38&40.22\\
-HD2&29.73&94&30&63.33\\
-HD3&13.00&99&13&63.95
-\end{tabular}\label{reshd3}
-\end{table}
 Figures \ref{meanJaccardHighDensity} and \ref{meanRSMEHighDensity} show the mean of the Jaccard index and the RSME score taken over all high density data sets. The results for SimpleSTORM are highlighted. SimpleSTORM achieved an average rank for the Jaccard index and a top five rank for the RSME score. With 100 percent precision it was among 6 other participants on the first rank.
 
 
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf}
-	\caption{Results for high density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.}
-	\label{meanJaccardHighDensity}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf}
-	\caption{Results for high density data sets. Averaged RSME scores over all three datasets. For this score lower is better.}
-	\label{meanRSMEHighDensity}
-\end{figure}
 
 \subsection{Low density data}
-The tables \ref{resls1}, \ref{resls2} and \ref{resls3} show the same trends as for the high density data, but with this data sets, the difference between the precisions is greater between the high precision submission and the other two submissions.
-\begin{table}
-\caption{Results for the main submission (with postprocessing)}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-LS1&86.12&100&86&26.32\\
-LS2&69.64&97&71&37.43\\
-LS3&47.48&99&48&54.2
-\end{tabular}\label{resls1}
-\end{table}
+The tables \ref{resls1}, \ref{resls2} and \ref{resls3} show the same trends as for the high density data, but with this data sets, the difference between the precisions is greater between the high precision submission and the other two submissions. The runtime was about five minutes which was, like for the high density data sets, average.
 
-
-\begin{table}
-\caption{Results for the high precission submission}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-LS1&83.39&100&83&27.91\\
-LS2&63.21&100&63&39.57\\
-LS3&40.82&100&41&49.55
-\end{tabular}\label{resls2}
-\end{table}
-\begin{table}
-\caption{Results for the high score submission (without postprocessing)}
-\begin{tabular}{lrrrr}
-Dataset&Jaccard (in \%)&Precsision (in \%)& Recall (in \%) & RMSE (in nm)\\
-LS1&87.23&99&88&28.10\\
-LS2&65.95&89&72&44.60\\
-LS3&40.82&96&48&54.40
-\end{tabular}\label{resls3}
-\end{table}
 
 
 As for the high density data sets the mean scores were calculated for the low density data set and are shown in figure \ref{meanJaccardLowDensity} and \ref{meanRSMEHighDensity}. The results for the precision are also shown in figure \ref{meanPrecisionLowDensity}. SimpleSTORM got the third rank in the Jaccard index and intermediate ranks for accuracy and precision.
 
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf}
-	\caption{Results for low density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.}
-	\label{meanJaccardLowDensity}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf}
-	\caption{Results for low density data sets. Averaged RSME scores over all three datasets. For this score lower is better.}
-	\label{meanRSMELowDensity}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf}
-	\caption{Results for low density data sets. Averaged Precision over all three datasets. For this score higher is better. The y axis is broken to show the differences better.}
-	\label{meanPrecisionLowDensity}
-\end{figure}
 
 \subsection{Overall}
 Of the 29 participants of the challenge just 15 submitted results for the high density data sets. There is no winner since no software performed well on each score. This can be explained by a trade-off between high accuracy (a low RSME) and the number of spots detected (influence on Jaccard index). For example, bright spots are easier to localize. Just finding the brightest spots yields a good performance on the RSME score but less points. This trade-off can be seen not just in our results, where a high Jaccard index goes along with an intermediate RSME score and vice versa, but also for other algorithms like Fast-ML-HD, which got the highest Jaccard index on the high density data but the second worst RSME score for the same data set.\newline
 To compare the different algorithms some metric has to be used that takes the shown trade-off between Jaccard index and accuracy into account. One way is to use the rank each software achieved on the different data sets for different scores and average over it. The results averaging just the mean rank for the Jaccard index and for the RSME score are shown in figure \ref{meanRankLow} for the low density data sets and in figure \ref{meanRankHigh} for the high density data sets.\newline
-SimpleSTORM achieves the best mean rank for high density data and the third best result for the low density data sets. Although this methode of comparison did not weight the ranks which means that extraordinary good performance makes no difference to slightly better performance, but it shows that SimpleSTORM provides a good compromise between many correct detections and high accuracy.
+SimpleSTORM achieves the best mean rank for high density data and the third best result for the low density data sets. \newline
+Figure \ref{meanRankOverall} shows the result if the average rank for each data set and for RSME score and the Jaccard index is calculated just based on the ranks of all algorithms that processed both, high density and low density data. All other algorithms were taken out of this consideration. Although this methode of comparison did not weight the ranks which means that extraordinary good performance makes no difference to slightly better performance between two consecutive softwares, but it shows that SimpleSTORM provides a good compromise between many correct detections and high accuracy.
+
+
 
 \begin{figure}
 \centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf}
-	\caption{Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better.}
-	\label{meanRankLow}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf}
-	\caption{Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better}
-	\label{meanRankHigh}
+\includegraphics[width = 0.88\textwidth]{pictures/diagrammsChallenge/MeanRankOverallCropped.pdf}
+	\caption{Averaged rank over Jaccard index and RSME score for all data sets. Lower ranks are better}
+	\label{meanRankOverall}
 \end{figure}

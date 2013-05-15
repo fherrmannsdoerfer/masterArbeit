@@ -38,4 +38,4 @@ plot.ylabel("pixel per bin", fontsize=20)
 
 #plot.legend(loc = 1, prop={'size':15})
 plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/anscombeAndFit.png')
- 
+

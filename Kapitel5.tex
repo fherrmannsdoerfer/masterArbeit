@@ -10,6 +10,6 @@ The Colorcomposer could be implemented in the SimpleSTORM-GUI. The benefits besi
 \section{Combination of Wiener filter and Gaussian filter}
 Depending on the spot density and the datas atributes like the signal-to-noise ratio it might be favorable to combine the usage of a Wiener filter and a Gaussian filter in a way to chose the filter that performs best on the data given.
 \section{Interactive parameter selection}
-An unprocessed image is shown to the user. The user marks areas with spots, where he thinks that it is signal or dark spots he wants to have detected. Then the program sets the parameters in a way that at the user labeled areas will contain signal in the end.
+An unprocessed image is shown to the user. The user marks areas with spots of interest. Especially the darkest spots that should be detected. Then the program sets the parameters in a way that at the user labeled spots will be detected in the end. This would be a good way to set the best alpha value or the signal-to-noise ratio limit.\newline
 
-Alternatively one could set the parameters and get a direct feedback which points would be selected in the shown frame.
+Alternatively one could set the parameters and get a direct feedback which points would be selected in the shown frame. If the results are not satisfying the parameters can be changed instantly.

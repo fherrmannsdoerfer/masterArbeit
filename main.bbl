@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{15}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -15,6 +15,12 @@ Abbe, Ernst (1873), \enquote{Beitr\"age zur theorie des mikroskops und der
   mikroskopischen wahrnehmung.} \emph{Archiv f\"ur Mikroskopische Anatomie}, 9,
   456.
 \bibAnnoteFile{Abbe}
+
+\bibitem[{Anscombe(1948)}]{anscombe}
+Anscombe, F.~J. (1948), \enquote{{The Transformation of Poisson, Binomial and
+  Negative-Binomial Data}.} \emph{Biometrika}, 35, 246--254,
+  \urlprefix\url{http://www.jstor.org/stable/2332343}.
+\bibAnnoteFile{anscombe}
 
 \bibitem[{Betzig et~al.(2006)Betzig, Patterson, Sougrat, Lindwasser, Olenych,
   Bonifacino, Davidson, Lippincott-Schwartz, and Hess}]{Palm}
@@ -55,6 +61,12 @@ Hwang, Youngbae, Kim Hun-Sik, and In~So Kweon (2012), \enquote{Difference-based
   Pattern Analysis and Machine Intelligence}, 34, 1329--1341.
 \bibAnnoteFile{skellam}
 
+\bibitem[{Kats(2013)}]{ilia2}
+Kats, Ilia (2013), \emph{{Implementation and benchmarking of simpleSTORM, a
+  self-calibrating single-molecule localization algorithm}}. Laboratory report,
+  University of Heidelberg.
+\bibAnnoteFile{ilia2}
+
 \bibitem[{K\"othe(2007)}]{ulli}
 K\"othe, Ullrich (2007), \enquote{Reliable low-level image analysis.}
   \urlprefix\url{http://hci.iwr.uni-heidelberg/Staff/ukoethe/papers/habil-koethe.pdf}.
@@ -73,6 +85,18 @@ Newberry, Michael (1998), \enquote{Pixel response effects on ccd camera gain
   \urlprefix\url{$http://www.mirametrics.com/tech_note_ccdgain.htm$}. Tech
   note.
 \bibAnnoteFile{meanVar}
+
+\bibitem[{{R Core Team}(2012)}]{Rcite}
+{R Core Team} (2012), \emph{R: A Language and Environment for Statistical
+  Computing}. R Foundation for Statistical Computing, Vienna, Austria,
+  \urlprefix\url{http://www.R-project.org/}. {ISBN} 3-900051-07-0.
+\bibAnnoteFile{Rcite}
+
+\bibitem[{Rousseeuw and Driessen(1999)}]{ilia1}
+Rousseeuw, Peter~J. and Katrien~van Driessen (1999), \enquote{{A Fast Algorithm
+  for the Minimum Covariance Determinant Estimator}.} \emph{Technometrics}, 41,
+  212--223, \urlprefix\url{http://www.jstor.org/stable/1270566}.
+\bibAnnoteFile{ilia1}
 
 \bibitem[{Rust(2006)}]{Storm}
 Rust, X.~Zhuang, M.; M.~Bates (2006), \enquote{Sub-diffraction-limit imaging by

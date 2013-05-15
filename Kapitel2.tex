@@ -1,5 +1,6 @@
 \chapter{Data processing}
-STORM data from different cells or structures show many different features, there can be clusters of flourophores with a high density of spots, low density, variable background in space and time, beads can be present or not. This section is about how the algorithm processes the data sets and how it is possible to find good settings that will work for all kind of input data. 
+STORM data from different cells or structures show many different features, there can be clusters of flourophores with a high density of spots, low density, variable background in space and time, beads can be present or not. This section is about how the algorithm processes the data sets and how it is possible to find good settings that will work for all kind of input data.\newline
+All real world images shown in this thesis were aquired from members of Prof. Dr. Mike Heilemanns group.
 
 
 \section{Import and processing}
@@ -21,18 +22,21 @@ the data for each pixel individually
 \end{align} 
 To determine the gain factor the Skellam parameter are plotted over the mean
 intensities. A straight line can be fitted and its slope gives the gain
-factor.
+factor, the intersection is the offset.\newline 
+The methode for the fit uses R \cite{Rcite}. To suppress outliers, the fit is performed only on a compact subset of all points \cite{ilia1}, more details can be found in the manual of SimpleSTORM \cite{ilia2}. This part of the algorithmn was developed and implemented by Ilia Kats.  
 \subsection{Recursively adjusting gain and offset}
 After the estimation of gain factor and offset, the transformations described in \ref{trafoPoiss} and \ref{trafoAnscombe} are applied and the background subtracted.\newline
 Due to the Anscombe transformation the background pixels of the image should only vary around a mean intensity of zero with a variance of 1. Therefore a histogramm of the pixel intensities is created. The after background subtraction the background pixels should contribute only to the lower intensities in the histogramm. A gaussian function is fitted to the histogramms values. This is done under the assumption that there is much more background in the image than signal or the intensities coming from signals are distributed over a larger range, so the gaussian for the background intensity distribution can be fitted correctly.\newline
 If the estimated value for the variance is too far off 1 the originally estimated gain factor is corrected, applied and the fit is done again. This is done until the background variance converges or the maximal number of iterations is reached. In this case the initial gain factor will be used and a warning printed to the screen.
 \subsection{Estimating the width of the point spread function}
-For a certain number of frames the Fourier transform is calculated and averaged. The result is called mean power spectrum. It can be used to estimate the variance of the point spread function of the signal. A two dimensional gaussian functions Fourier transform is again a gaussian but with inverse variance. This relation is used to determine the variance of the point spread function in spatial domain, using the fit parameter for the variance in frequency domain.
+For a certain number of frames the Fourier transform is calculated and averaged. The result is called mean power spectrum. It can be used to estimate the variance of the point spread function of the signal. A two dimensional Gaussian functions Fourier transform is again a gaussian but with inverse variance. This relation is used to determine the variance of the point spread function in spatial domain, using the fit parameter for the variance in frequency domain.\newline
+The script for fitting the two dimensional Gaussian function was implemented by Ilia Kats.
 \subsection{Processing the data}
 \subsubsection{Import Data}
 Storm data sets can consist of several thousand frames with resolutions up to one mega pixel per frame. This makes it necessary to break the data into smaller parts because otherwise it might be much larger as the RAM of an ordinary machine. Because of the background estimation it is not possible to process every frame completly independent as it was in the older version of this software \cite{MAJoachim}. It is also faster with some datatypes to load a larger consecutive part of the dataset into memory.\newline
 This algorithm uses chunks of user defined size. There are some limitations to the chuncksize that are discussed later. The data set is split into parts of equal size in $x$- and $y$-dimensions and independently also in $t$-dimension. If this partition does not fit at the edge of the data set, the last chunks will be smaller.\newline
-The data is transformed to be Poission distributed and after that the Anscombe transform is applied. After the Anscombe transformation the background intensities have unit variance.
+The data is transformed to be Poission distributed and after that the Anscombe transform is applied. After the Anscombe transformation the background intensities have unit variance.\newline
+The implementation of the workflow using chunks was implemented by Ilia Kats.
 \subsubsection{Background estimation}
 For each chunk the median of the Anscombe transformated data is determined to get a robust estimate of the background value for this chunk. 
 The Bspline interpolation implemented in vigra \cite{vigra} is used to get interpolated values for the full resolution of the current frames. For this interpolation three chunks in both spatial and temporal domain have to be available. Therefore the maximal chunksize in $t$-dimension must not be larger than a third of the total stacksize, the same holds for the chunksize in $x$ and $y$ direction which must not exceed the spatial resolution of the image stack.\newline
@@ -51,7 +55,8 @@ To imporve the accuracy of the spot detection the transformed signal is convolve
 To determin the signal-noise-ratio the unfilterd and uninterpolated pixelintensity is used.
 
 \subsubsection{Quality control for detections}
-Especially in data sets with a high density of spots it can happen, that two spots are near each other and the point spread functions overlap. It may happen that instead of two maxima just one maximum will be detected right between the true ones, as it can be seen in \ref{betterthansimplestorm}. This leads to large errors in the localisation. To avoid this a threshold for the asymmetry of the spots can be set.
+Especially in data sets with a high density of spots it can happen, that two spots are near each other and the point spread functions overlap. It may happen that instead of two maxima just one maximum will be detected right between the true ones, as it can be seen in \ref{betterthansimplestorm}. This leads to large errors in the localisation. To avoid this a threshold for the asymmetry of the spots can be set.\newline
+The calculation of the asymmetry was already implemented by Joachim Schleicher \cite{MAJoachim}.
 
 
 \section{Comparison with older version of the SimpleStorm algorithm}
