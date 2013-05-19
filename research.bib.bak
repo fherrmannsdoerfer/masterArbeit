@@ -211,18 +211,24 @@ Transactions on Pattern Analysis and Machine Intelligence},
 }
 
 @misc{DAO, 
-title={DAOSTORM: an algorithm for high- density super-resolution microscopy}, url={http://www.nature.com/nmeth/journal/v8/n4/full/nmeth0411-279.html}, DOI={10.1038/nmeth0411-279}, number={4}, journal={Nature Methods}, 
+title={DAOSTORM: an algorithm for high- density super-resolution microscopy}, url={http://www.nature.com/nmeth/journal/v8/n4/full/nmeth0411-279.html}, 
+DOI={10.1038/nmeth0411-279}, 
+number={4}, 
+journal={Nature Methods}, 
 author={Seamus J Holden, Stephan Uphoff, Achillefs N Kapanidis}, 
 year={2011}, 
 pages={279–280}}
 
 @misc{alg3, 
-title={Fast, single-molecule localization that achieves theoretically minimum uncertainty}, url={http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.1449.html}, DOI={10.1038/nmeth.1449}, 
+title={Fast, single-molecule localization that achieves theoretically minimum uncertainty}, url={http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.1449.html}, 
+DOI={10.1038/nmeth.1449}, 
 number={5}, 
 journal={Nature Methods}, 
-author={Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke}, 
+author={Carlas S Smith, Nikolai Joseph, Bernd Rieger and Keith A Lidke}, 
 year={2010}, 
 pages={373–375}}
+
+
 
 @article{M2LE, 
 author = {Rebecca Starr and Shane Stahlheber and Alex Small}, 
@@ -243,12 +249,12 @@ abstract = {The code used to generate figures in our previous Letter \[Opt. Lett
 @online{peakFit,
 		author = {Alex D. Herbert, Thomas Etheridge, Anthony M. Carr},
 		title = {PeakFit - Single-molecule localisation software for ImageJ},
-		url = {http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/smlm_plugins},
+		url = {http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/smlm\_plugins},
 		year = {2013},
 		note = {accessed on 17.05.2013}
 		}
 
-@article{ PYME
+@article{ PYME,
 	year={2011},
 	issn={1998-0124},
 	journal={Nano Research},
@@ -280,3 +286,41 @@ abstract = {Super-resolution fluorescence imaging based on single-molecule local
 }
 
 
+@article{rapidstorm,
+  added-at = {2012-07-11T13:23:04.000+0200},
+  author = {WOLTER, S. and SAUER, M.},
+  biburl = {http://www.bibsonomy.org/bibtex/2e0d9d8bc9c05c96ba73e6250c6496e89/reichert},
+  doi = {10.1111/j.1365-2818.2011.03562.x},
+  interhash = {c7d19fcbbf656ae5d62f823489fb2af7},
+  intrahash = {e0d9d8bc9c05c96ba73e6250c6496e89},
+  issn = {1365-2818},
+  journal = {Journal of Microscopy},
+  keywords = {linde mike sauer},
+  number = 1,
+  pages = {109--109},
+  publisher = {Blackwell Publishing Ltd},
+  timestamp = {2012-07-11T13:23:04.000+0200},
+  title = {Follow-up to paper by S. Wolter, M. Schüttpelz, M. Tscherepanow, S. van de Linde, M. Heilemann and M. Sauer, entitled Real-Time Computation of Subdiffraction-Resolution Fluorescence Images},
+  url = {http://dx.doi.org/10.1111/j.1365-2818.2011.03562.x},
+  volume = 245,
+  year = 2012
+}
+
+@article{sted,
+    abstract = {{We propose a new type of scanning fluorescence microscope capable of resolving 35 nm in the far field. We overcome the diffraction resolution limit by employing stimulated emission to inhibit the fluorescence process in the outer regions of the excitation point-spread function. In contrast to near-field scanning optical microscopy, this method can produce three-dimensional images of translucent specimens.}},
+    author = {Hell, S. W. and Wichmann, J.},
+    citeulike-article-id = {3031969},
+    citeulike-linkout-0 = {http://dx.doi.org/10.1364/ol.19.000780},
+    citeulike-linkout-1 = {http://www.opticsinfobase.org/abstract.cfm?id=12352},
+    doi = {10.1364/ol.19.000780},
+    journal = {Optics Letters},
+    keywords = {paper\_subdiffraction\_imaging, photonics\_west\_proceeding, sted, thesis\_03},
+    number = {11},
+    pages = {780--782},
+    posted-at = {2009-11-20 17:18:19},
+    priority = {0},
+    title = {{Breaking the diffraction resolution limit by stimulated emission: stimulated-emission-depletion fluorescence microscopy}},
+    url = {http://dx.doi.org/10.1364/ol.19.000780},
+    volume = {19},
+    year = {1994}
+}

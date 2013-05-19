@@ -1,6 +1,8 @@
 \chapter{Summary and outlook}
 \section{Summary}
-
+A new easy to use and robust data processing algorithm was presented. It enables even users that are new to STORM imaging techniques to get reasonable results without reading and understanding about several parameters and their influence on the algorithm and without finding a good set of parameters.\newline
+SimpleSTORM is also a powerful tool that allows tweaking of the parameters. Its performance has been shown in the ISBI localization microscopy challenge where SimpleSTORM showed good performance overall data sets.\newline
+With the improved colorcomposer software an easy to use and powerful tool for image reconstruction of multi-channel microscopy data is provided. The reconstructed images of different channels can be aligned automatically. A colocalisation analysis can be performed.
 \section{Outlook}
 \subsection{3d Storm}
 STORM imageing techniques have been extended to capture 3-D structures up to a thickness of micrometers with super resolution. This will become more an more important in the future. There are different ways to get the information about the depth. One way is to use a cylindric lense which results in point spread functions that are symmetrical if the flourophore lies in the confocal plane, but is more and more assymetric the farer away the captured spot lies off the confocal plane.\newline

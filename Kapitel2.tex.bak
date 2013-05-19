@@ -1,5 +1,5 @@
 \chapter{Data processing}
-STORM data from different cells or structures show many different features, there can be clusters of flourophores with a high density of spots, low density, variable background in space and time, beads can be present or not. This section is about how the algorithm processes the data sets and how it is possible to find good settings that will work for all kind of input data.\newline
+STORM data from different cells or structures show many different features: there can be clusters of flourophores with a high density of spots, areas with low density, variable background in space and time, beads can be present or not. This section is about how the algorithm processes the data sets and how it is possible to find good settings that will work for all kind of input data.\newline
 All real world images shown in this thesis were aquired from members of Prof. Dr. Mike Heilemanns group.
 
 

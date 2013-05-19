@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{26}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -16,11 +16,25 @@ Abbe, Ernst (1873), \enquote{Beitr\"age zur theorie des mikroskops und der
   456.
 \bibAnnoteFile{Abbe}
 
+\bibitem[{Alex D.~Herbert(2013)}]{peakFit}
+Alex D.~Herbert, Anthony M.~Carr, Thomas~Etheridge (2013), \enquote{Peakfit -
+  single-molecule localisation software for imagej.}
+  \urlprefix\url{http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/smlm\_plugins}.
+  Accessed on 17.05.2013.
+\bibAnnoteFile{peakFit}
+
 \bibitem[{Anscombe(1948)}]{anscombe}
 Anscombe, F.~J. (1948), \enquote{{The Transformation of Poisson, Binomial and
   Negative-Binomial Data}.} \emph{Biometrika}, 35, 246--254,
   \urlprefix\url{http://www.jstor.org/stable/2332343}.
 \bibAnnoteFile{anscombe}
+
+\bibitem[{Baddeley et~al.(2011)Baddeley, Cannell, and Soeller}]{PYME}
+Baddeley, David, MarkB. Cannell, and Christian Soeller (2011),
+  \enquote{Three-dimensional sub-100 nm super-resolution imaging of biological
+  samples using a phase ramp in the objective pupil.} \emph{Nano Research}, 4,
+  589--598, \urlprefix\url{http://dx.doi.org/10.1007/s12274-011-0115-z}.
+\bibAnnoteFile{PYME}
 
 \bibitem[{Betzig et~al.(2006)Betzig, Patterson, Sougrat, Lindwasser, Olenych,
   Bonifacino, Davidson, Lippincott-Schwartz, and Hess}]{Palm}
@@ -37,8 +51,8 @@ Biomedical Imaging~Group, Switzerland, EPFL (2013), \enquote{Localization
   04.04.2013.
 \bibAnnoteFile{challenge}
 
-\bibitem[{Carlas S~Smith(2010)}]{alg3}
-Carlas S~Smith, Bernd Rieger Keith A~Lidke, Nikolai~Joseph (2010),
+\bibitem[{Carlas S~Smith and Lidke(2010)}]{alg3}
+Carlas S~Smith, Bernd~Rieger, Nikolai~Joseph and Keith~A Lidke (2010),
   \enquote{Fast, single-molecule localization that achieves theoretically
   minimum uncertainty.}
   \urlprefix\url{http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.1449.html}.
@@ -156,5 +170,22 @@ Starr, Rebecca, Shane Stahlheber, and Alex Small (2012), \enquote{Fast maximum
   \emph{Opt. Lett.}, 37, 1967--1967,
   \urlprefix\url{http://ol.osa.org/abstract.cfm?URI=ol-37-11-1967}.
 \bibAnnoteFile{M2LE}
+
+\bibitem[{WOLTER and SAUER(2012)}]{rapidstorm}
+WOLTER, S. and M.~SAUER (2012), \enquote{Follow-up to paper by s. wolter, m.
+  schüttpelz, m. tscherepanow, s. van de linde, m. heilemann and m. sauer,
+  entitled real-time computation of subdiffraction-resolution fluorescence
+  images.} \emph{Journal of Microscopy}, 245, 109--109,
+  \urlprefix\url{http://dx.doi.org/10.1111/j.1365-2818.2011.03562.x}.
+\bibAnnoteFile{rapidstorm}
+
+\bibitem[{Wolter et~al.(2011)Wolter, Endesfelder, van~de Linde, Heilemann, and
+  Sauer}]{quickpalm}
+Wolter, Steve, Ulrike Endesfelder, Sebastian van~de Linde, Mike Heilemann, and
+  Markus Sauer (2011), \enquote{Measuring localization performance of
+  super-resolution algorithms on very active samples.} \emph{Opt. Express}, 19,
+  7020--7033,
+  \urlprefix\url{http://www.opticsexpress.org/abstract.cfm?URI=oe-19-8-7020}.
+\bibAnnoteFile{quickpalm}
 
 \end{thebibliography}

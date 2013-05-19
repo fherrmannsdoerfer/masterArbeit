@@ -11,53 +11,47 @@ Warning--entry type for "vigra" isn't style-file defined
 --line 47 of file research.bib
 Warning--I'm ignoring pearson's extra "year" field
 --line 184 of file research.bib
-Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
-while executing---line 1424 of file te.bst
-Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
-while executing---line 1424 of file te.bst
-Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
-while executing---line 1509 of file te.bst
-Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
-while executing---line 1509 of file te.bst
-You've used 22 entries,
+Warning--entry type for "peakFit" isn't style-file defined
+--line 249 of file research.bib
+You've used 26 entries,
             2904 wiz_defined-function locations,
-            756 strings with 9141 characters,
-and the built_in function-call counts, 11859 in all, are:
-= -- 981
-> -- 556
-< -- 15
-+ -- 189
-- -- 165
-* -- 941
-:= -- 1879
-add.period$ -- 69
-call.type$ -- 22
-change.case$ -- 167
-chr.to.int$ -- 22
-cite$ -- 44
-duplicate$ -- 867
-empty$ -- 824
-format.name$ -- 209
-if$ -- 2321
+            787 strings with 10207 characters,
+and the built_in function-call counts, 14348 in all, are:
+= -- 1190
+> -- 680
+< -- 17
++ -- 229
+- -- 201
+* -- 1164
+:= -- 2252
+add.period$ -- 82
+call.type$ -- 26
+change.case$ -- 200
+chr.to.int$ -- 26
+cite$ -- 52
+duplicate$ -- 1043
+empty$ -- 993
+format.name$ -- 261
+if$ -- 2812
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 185
-newline$ -- 101
-num.names$ -- 88
-pop$ -- 317
+missing$ -- 223
+newline$ -- 117
+num.names$ -- 104
+pop$ -- 381
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 170
 quote$ -- 0
-skip$ -- 297
+skip$ -- 352
 stack$ -- 0
-substring$ -- 508
-swap$ -- 388
+substring$ -- 631
+swap$ -- 476
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 198
+type$ -- 234
 warning$ -- 0
-while$ -- 82
+while$ -- 99
 width$ -- 0
-write$ -- 279
-(There were 4 error messages)
+write$ -- 330
+(There were 4 warnings)

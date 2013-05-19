@@ -62,8 +62,8 @@ roughly 30 the skewness gives due to noise no stabel results and it is
 impossible to determin the mean intensity in this way.
 
 
-\section{the data}
-The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label interesting structures with fluorophors that can be exited using a laser with the appropriate wavelength. After a short time the flourophors emit a photon and go back to the unexited state or lose the ability to get exited, they bleach out.
+\section{The data}
+The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label interesting structures with fluorophors that can be exited using a laser with the appropriate wavelength. After a short time the flourophors emit a photon and fall back to the unexited state or lose the ability to get exited, they bleach out.
 The datasets for dSTORM microscopy that we recieve from our collaborators from
 Bioquant are big datasets of several gigabyte in the Andor .sif format. Each
 file conains a stack of pictures, normaly between 1000 and 10000, taken

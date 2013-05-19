@@ -1,92 +1,85 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{6}
-\contentsline {chapter}{\numberline {2}Data processing}{7}
-\contentsline {section}{\numberline {2.1}Import and processing}{7}
-\contentsline {section}{\numberline {2.2}Workflow}{7}
-\contentsline {subsection}{\numberline {2.2.1}Chose parameters}{7}
-\contentsline {subsection}{\numberline {2.2.2}Estimating camera gain and offset}{7}
-\contentsline {subsection}{\numberline {2.2.3}Recursively adjusting gain and offset}{8}
-\contentsline {subsection}{\numberline {2.2.4}Estimating the width of the point spread function}{8}
-\contentsline {subsection}{\numberline {2.2.5}Processing the data}{9}
-\contentsline {subsubsection}{Import Data}{9}
-\contentsline {subsubsection}{Background estimation}{9}
-\contentsline {subsubsection}{Create mask for background suppression}{9}
-\contentsline {subsubsection}{Filter data and finding maxima}{10}
-\contentsline {subsubsection}{Quality control for detections}{11}
-\contentsline {section}{\numberline {2.3}Comparison with older version of the SimpleStorm algorithm}{11}
-\contentsline {subsection}{\numberline {2.3.1}Adjustable filter width}{11}
-\contentsline {subsection}{\numberline {2.3.2}False positive suppression}{12}
-\contentsline {subsection}{\numberline {2.3.3}Comparable results based on the signal-to-noise ratio}{13}
-\contentsline {section}{\numberline {2.4}New graphical user Interface (GUI)}{13}
-\contentsline {subsection}{\numberline {2.4.1}Input widget}{13}
-\contentsline {subsection}{\numberline {2.4.2}Result widget}{14}
-\contentsline {subsection}{\numberline {2.4.3}Easy parameter selection}{16}
-\contentsline {chapter}{\numberline {3}Multicolor registration}{17}
-\contentsline {section}{\numberline {3.1}Colorcomposer GUI}{17}
-\contentsline {section}{\numberline {3.2}Features of the colorcomposer application}{18}
-\contentsline {subsection}{\numberline {3.2.1}Invariance of input datas units}{18}
-\contentsline {subsection}{\numberline {3.2.2}Manual bead selection and removal}{19}
-\contentsline {subsection}{\numberline {3.2.3}Automatic bead detection}{19}
-\contentsline {subsection}{\numberline {3.2.4}Alignment of two multicolor images}{19}
-\contentsline {subsection}{\numberline {3.2.5}Information about localisation certainty}{19}
-\contentsline {subsection}{\numberline {3.2.6}Heatmap}{20}
-\contentsline {section}{\numberline {3.3}Align Beads}{20}
-\contentsline {section}{\numberline {3.4}Total localisation error}{20}
-\contentsline {section}{\numberline {3.5}Colocalisation}{22}
-\contentsline {subsection}{\numberline {3.5.1}Global colocalisation}{22}
-\contentsline {subsection}{\numberline {3.5.2}Local colocalisation}{23}
-\contentsline {chapter}{\numberline {4}CCD camera}{24}
-\contentsline {section}{\numberline {4.1}Image acquisition}{24}
-\contentsline {subsection}{\numberline {4.1.1}Photon sources with shot noise}{24}
-\contentsline {subsection}{\numberline {4.1.2}Quantum efficiency}{24}
-\contentsline {subsection}{\numberline {4.1.3}Gain}{24}
-\contentsline {subsection}{\numberline {4.1.4}Readout noise}{24}
-\contentsline {subsection}{\numberline {4.1.5}Dark current noise}{25}
-\contentsline {subsection}{\numberline {4.1.6}Quantisation}{25}
-\contentsline {chapter}{\numberline {5}Theoretical background}{26}
-\contentsline {section}{\numberline {5.1}Distributions}{26}
-\contentsline {subsection}{\numberline {5.1.1}Poisson distribution}{26}
-\contentsline {subsection}{\numberline {5.1.2}Skellam distribution}{26}
-\contentsline {subsection}{\numberline {5.1.3}Approach using skewness of poisson distribution}{26}
-\contentsline {section}{\numberline {5.2}the data}{27}
-\contentsline {section}{\numberline {5.3}Transformations}{29}
-\contentsline {subsection}{\numberline {5.3.1}Transformation to Poisson distributed signal}{29}
-\contentsline {subsection}{\numberline {5.3.2}Anscombe transformation}{29}
-\contentsline {section}{\numberline {5.4}Estimation of camera gain}{29}
-\contentsline {chapter}{\numberline {6}ISBI Challenge 2013}{32}
-\contentsline {section}{\numberline {6.1}Introduction}{32}
-\contentsline {section}{\numberline {6.2}Terminology}{32}
-\contentsline {section}{\numberline {6.3}Measures}{33}
-\contentsline {subsection}{\numberline {6.3.1}Jaccard index}{33}
-\contentsline {subsection}{\numberline {6.3.2}RSME}{33}
-\contentsline {section}{\numberline {6.4}Trainingsdata}{33}
-\contentsline {subsection}{\numberline {6.4.1}Bundled tubes datasets}{34}
-\contentsline {subsection}{\numberline {6.4.2}Tubulin data sets}{34}
-\contentsline {section}{\numberline {6.5}Submissions}{34}
-\contentsline {subsection}{\numberline {6.5.1}High precision}{35}
-\contentsline {subsection}{\numberline {6.5.2}High score}{35}
-\contentsline {subsection}{\numberline {6.5.3}Highest score via postprocessing}{37}
-\contentsline {section}{\numberline {6.6}Results}{37}
-\contentsline {subsection}{\numberline {6.6.1}High density data}{37}
-\contentsline {subsection}{\numberline {6.6.2}Low density data}{38}
-\contentsline {subsection}{\numberline {6.6.3}Overall}{38}
-\contentsline {chapter}{\numberline {7}Check of the assumptions}{40}
-\contentsline {section}{\numberline {7.1}Calibration measurement}{40}
-\contentsline {section}{\numberline {7.2}Correction to Poisson distributions}{40}
-\contentsline {section}{\numberline {7.3}Result Anscombe transformation}{42}
-\contentsline {section}{\numberline {7.4}Accuracy of detection}{42}
-\contentsline {section}{\numberline {7.5}Matched filter is best filter}{43}
-\contentsline {section}{\numberline {7.6}Test PSF estimation}{46}
-\contentsline {section}{\numberline {7.7}Bleaching signal}{47}
-\contentsline {chapter}{\numberline {8}Related work}{49}
-\contentsline {chapter}{\numberline {9}Summary and outlook}{51}
-\contentsline {section}{\numberline {9.1}Summary}{51}
-\contentsline {section}{\numberline {9.2}Outlook}{51}
-\contentsline {subsection}{\numberline {9.2.1}3d Storm}{51}
-\contentsline {subsection}{\numberline {9.2.2}Improved methode to detect maxima}{51}
-\contentsline {subsection}{\numberline {9.2.3}Colorcomposer implemented in Storm-Gui}{51}
-\contentsline {subsection}{\numberline {9.2.4}Combination of Wiener filter and Gaussian filter}{51}
-\contentsline {subsection}{\numberline {9.2.5}Interactive parameter selection}{52}
+\contentsline {chapter}{\numberline {2}Theoretical background}{8}
+\contentsline {section}{\numberline {2.1}Distributions}{8}
+\contentsline {subsection}{\numberline {2.1.1}Poisson distribution}{8}
+\contentsline {subsection}{\numberline {2.1.2}Skellam distribution}{8}
+\contentsline {subsection}{\numberline {2.1.3}Approach using skewness of poisson distribution}{8}
+\contentsline {section}{\numberline {2.2}the data}{9}
+\contentsline {section}{\numberline {2.3}Transformations}{11}
+\contentsline {subsection}{\numberline {2.3.1}Transformation to Poisson distributed signal}{11}
+\contentsline {subsection}{\numberline {2.3.2}Anscombe transformation}{11}
+\contentsline {section}{\numberline {2.4}Estimation of camera gain}{11}
+\contentsline {chapter}{\numberline {3}CCD camera}{14}
+\contentsline {section}{\numberline {3.1}Image acquisition}{14}
+\contentsline {subsection}{\numberline {3.1.1}Photon sources with shot noise}{14}
+\contentsline {subsection}{\numberline {3.1.2}Quantum efficiency}{14}
+\contentsline {subsection}{\numberline {3.1.3}Gain}{14}
+\contentsline {subsection}{\numberline {3.1.4}Readout noise}{14}
+\contentsline {subsection}{\numberline {3.1.5}Dark current noise}{15}
+\contentsline {subsection}{\numberline {3.1.6}Quantisation}{15}
+\contentsline {chapter}{\numberline {4}Data processing}{16}
+\contentsline {section}{\numberline {4.1}Import and processing}{16}
+\contentsline {section}{\numberline {4.2}Workflow}{16}
+\contentsline {subsection}{\numberline {4.2.1}Chose parameters}{16}
+\contentsline {subsection}{\numberline {4.2.2}Estimating camera gain and offset}{16}
+\contentsline {subsection}{\numberline {4.2.3}Recursively adjusting gain and offset}{17}
+\contentsline {subsection}{\numberline {4.2.4}Estimating the width of the point spread function}{17}
+\contentsline {subsection}{\numberline {4.2.5}Processing the data}{18}
+\contentsline {subsubsection}{Import Data}{18}
+\contentsline {subsubsection}{Background estimation}{18}
+\contentsline {subsubsection}{Create mask for background suppression}{18}
+\contentsline {subsubsection}{Filter data and finding maxima}{19}
+\contentsline {subsubsection}{Quality control for detections}{20}
+\contentsline {section}{\numberline {4.3}Comparison with older version of the SimpleStorm algorithm}{20}
+\contentsline {subsection}{\numberline {4.3.1}Adjustable filter width}{20}
+\contentsline {subsection}{\numberline {4.3.2}False positive suppression}{21}
+\contentsline {subsection}{\numberline {4.3.3}Comparable results based on the signal-to-noise ratio}{22}
+\contentsline {section}{\numberline {4.4}New graphical user Interface (GUI)}{22}
+\contentsline {subsection}{\numberline {4.4.1}Input widget}{22}
+\contentsline {subsection}{\numberline {4.4.2}Result widget}{23}
+\contentsline {subsection}{\numberline {4.4.3}Easy parameter selection}{25}
+\contentsline {chapter}{\numberline {5}Check of the assumptions}{26}
+\contentsline {section}{\numberline {5.1}Calibration measurement}{26}
+\contentsline {section}{\numberline {5.2}Correction to Poisson distributions}{26}
+\contentsline {section}{\numberline {5.3}Result Anscombe transformation}{28}
+\contentsline {section}{\numberline {5.4}Accuracy of detection}{28}
+\contentsline {section}{\numberline {5.5}Matched filter is best filter}{29}
+\contentsline {section}{\numberline {5.6}Test PSF estimation}{32}
+\contentsline {section}{\numberline {5.7}Bleaching signal}{33}
+\contentsline {chapter}{\numberline {6}Multicolor registration}{35}
+\contentsline {section}{\numberline {6.1}Colorcomposer GUI}{35}
+\contentsline {section}{\numberline {6.2}Features of the colorcomposer application}{36}
+\contentsline {subsection}{\numberline {6.2.1}Invariance of input datas units}{36}
+\contentsline {subsection}{\numberline {6.2.2}Manual bead selection and removal}{37}
+\contentsline {subsection}{\numberline {6.2.3}Automatic bead detection}{37}
+\contentsline {subsection}{\numberline {6.2.4}Alignment of two multicolor images}{37}
+\contentsline {subsection}{\numberline {6.2.5}Information about localisation certainty}{37}
+\contentsline {subsection}{\numberline {6.2.6}Heatmap}{38}
+\contentsline {section}{\numberline {6.3}Align Beads}{38}
+\contentsline {section}{\numberline {6.4}Total localisation error}{38}
+\contentsline {section}{\numberline {6.5}Colocalisation}{40}
+\contentsline {subsection}{\numberline {6.5.1}Global colocalisation}{40}
+\contentsline {subsection}{\numberline {6.5.2}Local colocalisation}{41}
+\contentsline {chapter}{\numberline {7}Related work}{42}
+\contentsline {chapter}{\numberline {8}ISBI Challenge 2013}{44}
+\contentsline {section}{\numberline {8.1}Introduction}{44}
+\contentsline {section}{\numberline {8.2}Terminology}{44}
+\contentsline {section}{\numberline {8.3}Measures}{45}
+\contentsline {subsection}{\numberline {8.3.1}Jaccard index}{45}
+\contentsline {subsection}{\numberline {8.3.2}RSME}{45}
+\contentsline {section}{\numberline {8.4}Trainingsdata}{45}
+\contentsline {subsection}{\numberline {8.4.1}Bundled tubes datasets}{46}
+\contentsline {subsection}{\numberline {8.4.2}Tubulin data sets}{46}
+\contentsline {section}{\numberline {8.5}Submissions}{46}
+\contentsline {subsection}{\numberline {8.5.1}High precision}{47}
+\contentsline {subsection}{\numberline {8.5.2}High score}{47}
+\contentsline {subsection}{\numberline {8.5.3}Highest score via postprocessing}{49}
+\contentsline {section}{\numberline {8.6}Results}{49}
+\contentsline {subsection}{\numberline {8.6.1}High density data}{49}
+\contentsline {subsection}{\numberline {8.6.2}Low density data}{50}
+\contentsline {subsection}{\numberline {8.6.3}Overall}{50}
+\contentsline {chapter}{\numberline {9}Conclusion}{52}
 \contentsline {chapter}{\numberline {10}Appendix}{53}
 \contentsline {section}{\numberline {10.1}ISBI challenge}{53}
 \contentsline {chapter}{\numberline {11}Bibliography}{58}
