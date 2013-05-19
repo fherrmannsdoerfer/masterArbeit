@@ -1,0 +1,29 @@
+\begin{titlepage}
+\vspace*{1cm}
+\begin{center}
+\LARGE
+Universit\"at Heidelberg\\
+HCI\\
+\vspace{1cm}
+\begin{center}
+	\includegraphics[width=6.5cm]{Bilder/logo1_ai.pdf}
+\end{center}
+\vspace{2cm}
+Masterarbeit\\
+\vspace{1cm}
+{\huge\bf
+Thema}\\
+\vspace{1cm}
+{\large\bf Thema englisch}\\
+\vspace{1cm}
+\LARGE
+Frank Herrmannsd\"orfer\\
+\vspace{2cm}
+\large
+Eingereicht: 01.05.2013\\
+\vspace{1cm}
+\begin{tabular}{ll}
+Betreuung:& Prof. Dr. Fred Hamprecht\\
+\end{tabular}
+\end{center}
+\end{titlepage}
