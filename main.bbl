@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{22}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -37,6 +37,19 @@ Biomedical Imaging~Group, Switzerland, EPFL (2013), \enquote{Localization
   04.04.2013.
 \bibAnnoteFile{challenge}
 
+\bibitem[{Carlas S~Smith(2010)}]{alg3}
+Carlas S~Smith, Bernd Rieger Keith A~Lidke, Nikolai~Joseph (2010),
+  \enquote{Fast, single-molecule localization that achieves theoretically
+  minimum uncertainty.}
+  \urlprefix\url{http://www.nature.com/nmeth/journal/v7/n5/full/nmeth.1449.html}.
+\bibAnnoteFile{alg3}
+
+\bibitem[{E.~M. M.~Manders(1993)}]{manders}
+E.~M. M.~Manders, J. A.~Aten, F. J.~Verbeek (1993), \enquote{Measurement of
+  co-localization of objects in dual-colour confocal images journal of
+  microscopy.} \emph{Journal of Microscopy}, 169, 375--382.
+\bibAnnoteFile{manders}
+
 \bibitem[{Gr\"ull et~al.(2011)Gr\"ull, Kirchgessner, Kaufmann, Hausmann, and
   Kebschull}]{simulated}
 Gr\"ull, Frederik, Manfred Kirchgessner, Rainer Kaufmann, Michael Hausmann, and
@@ -61,6 +74,12 @@ Hwang, Youngbae, Kim Hun-Sik, and In~So Kweon (2012), \enquote{Difference-based
   Pattern Analysis and Machine Intelligence}, 34, 1329--1341.
 \bibAnnoteFile{skellam}
 
+\bibitem[{Jones et~al.(2001--)Jones, Oliphant, Peterson et~al.}]{scipy}
+Jones, Eric, Travis Oliphant, Pearu Peterson, et~al. (2001--),
+  \enquote{{SciPy}: Open source scientific tools for {Python}.}
+  \urlprefix\url{http://www.scipy.org/}.
+\bibAnnoteFile{scipy}
+
 \bibitem[{Kats(2013)}]{ilia2}
 Kats, Ilia (2013), \emph{{Implementation and benchmarking of simpleSTORM, a
   self-calibrating single-molecule localization algorithm}}. Laboratory report,
@@ -79,6 +98,14 @@ K\"othe, Ullrich (2011), \enquote{The vigra computer vision library.}
   31.04.2013.
 \bibAnnoteFile{vigra}
 
+\bibitem[{Malkusch et~al.(2011)Malkusch, Endesfelder, Mondry, Gell\'e~ri,
+  Verveer, and Heilemann}]{coloc}
+Malkusch, Sebastian, Ulrike Endesfelder, J.~Mondry, M.~Gell\'e~ri, P.J.
+  Verveer, and Mike Heilemann (2011), \enquote{Coordinate-based colocalization
+  analysis of single-molecule localization microscopy data.} \emph{Histochem
+  Cell Biology}.
+\bibAnnoteFile{coloc}
+
 \bibitem[{Newberry(1998)}]{meanVar}
 Newberry, Michael (1998), \enquote{Pixel response effects on ccd camera gain
   calibration.}
@@ -91,6 +118,12 @@ Newberry, Michael (1998), \enquote{Pixel response effects on ccd camera gain
   Computing}. R Foundation for Statistical Computing, Vienna, Austria,
   \urlprefix\url{http://www.R-project.org/}. {ISBN} 3-900051-07-0.
 \bibAnnoteFile{Rcite}
+
+\bibitem[{Rodgers and Nicewander(Feb., 1988)}]{pearson}
+Rodgers, Joseph~Lee and W.~Alan Nicewander (Feb., 1988), \enquote{Thirteen ways
+  to look at the correlation coefficient.} \emph{The American Statistician},
+  42, pp. 59--66, \urlprefix\url{http://www.jstor.org/stable/2685263}.
+\bibAnnoteFile{pearson}
 
 \bibitem[{Rousseeuw and Driessen(1999)}]{ilia1}
 Rousseeuw, Peter~J. and Katrien~van Driessen (1999), \enquote{{A Fast Algorithm
@@ -109,5 +142,19 @@ Schleicher, Joachim (2011), \emph{Image Processing for Super-Resolution
   Localization Microscopy Utilizing an FPGA Accelerator}. Master's thesis,
   Heidelberg University.
 \bibAnnoteFile{MAJoachim}
+
+\bibitem[{Seamus J~Holden(2011)}]{DAO}
+Seamus J~Holden, Achillefs N~Kapanidis, Stephan~Uphoff (2011),
+  \enquote{Daostorm: an algorithm for high- density super-resolution
+  microscopy.}
+  \urlprefix\url{http://www.nature.com/nmeth/journal/v8/n4/full/nmeth0411-279.html}.
+\bibAnnoteFile{DAO}
+
+\bibitem[{Starr et~al.(2012)Starr, Stahlheber, and Small}]{M2LE}
+Starr, Rebecca, Shane Stahlheber, and Alex Small (2012), \enquote{Fast maximum
+  likelihood algorithm for localization of fluorescent molecules: erratum.}
+  \emph{Opt. Lett.}, 37, 1967--1967,
+  \urlprefix\url{http://ol.osa.org/abstract.cfm?URI=ol-37-11-1967}.
+\bibAnnoteFile{M2LE}
 
 \end{thebibliography}

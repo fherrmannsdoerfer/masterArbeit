@@ -13,7 +13,25 @@ different markers do and therefore are visible in all channels. The beads can be
 used as landmarks, because their position in the original image is at the same
 spot. The task is to find a transformation that maps corresponding beads on each
 other.
+
+\section{Colorcomposer GUI}
+The goal for the colorcomposer tool is to provide software that is easy to use, flexible and powerful. The current version of the colorcomposer is easy to use, because the different channels can be aligned by just selecting the auto align option.\newline
+But it is also flexible. If the user wants to select the beads on his or her own, the beads can manually selected and deleted. After the transformation the user might use the implemented tools for colocalisation detection or save the transformed images and process them with the tool of his or her choice.\newline 
+Also the colorcomposer is powerful as it provides for example information about the number of points currently under the cursor or its intensity. Also the estimated transformation error and the localisation error are computed and stored.\newline
+The basic framework for the colorcomposer was set up by \cite{MAJoachim}. It contained the workflow for importing and exporting images the handling of bead objects and a linear transformation that used the beads in the order they were found. This early version was not usable and were improved.\newline
+Figure \ref{ColorComposer} shows improved colorcomposer GUI with two datasets loaded. The buttons on the right give the user the option to add or remove beads also in addition to the autodetected beads. There are also different sliders to control the values used for bead detection. In the lower right corner there is additional information provided about the total number of points within a rectengular with the selected cursor radius' size, also the sum of the intensities and the total number of frames for each data set is given. This information are helpful to determin whether or not a cluster of points is a bead or not.\newline
+On top there is a menu bar with new options, like discarding all beads, automatically detecting beads, calculate colocalisation measures and show or hide the colocalisation heatmap.
+\begin{figure}
+\centering
+\includegraphics[width = 0.88\textwidth]{pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png}
+	\caption{Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete singel beads. On the lower right additional information about the area under the coursor is displayed, such as number of pixels, total intensity and the number of frames in total.}
+	\label{ColorComposer}
+\end{figure}
+
+
 \section{Features of the colorcomposer application}
+\subsection{Invariance of input datas units}
+The resulting coordinate files from SimpleSTORM or other STORM algorithms may be given in units of pixels relative to the unprocessed data or in nanometers. Treating coordinates given in nanometer as pixlel units would lead to very huge and very sparse images to display in the colorcomposer. Therefore the colorcomposer reads out additional information from the coordinates text files header. This informations are the pixel to nanometer ratio and the used factor. With this information the picture can be reconstructed as an upsampled version of the input image by the used factor regardless of the units used to save the coordinates file. If none of this information is given a pixel to nanometer ratio of 1 is assumed which garantues backward compatibility with older coordinate files given in pixel units.
 \subsection{Manual bead selection and removal}
 With the improved version of the colorcomposer it is possible to add beads manually. Therefore the desired location is clicked in the preview image and after that either the button "add green bead" or "add red bead" is hit. If there are enough frames containing localisations near the given location a bead is added to the center of mass of the intensities in that area. If the button "delete bead" is pressed all beads in the selected area are deleted.\newline
 This feature can be used to add beads which the automatic bead detection missed.
@@ -30,6 +48,7 @@ In the end beads that are too close together are merged to for a new bead with i
 
 \subsection{Alignment of two multicolor images}
 \subsection{Information about localisation certainty}
+The detected spots from SimpleSTORM contain some localisation error. This error will be derived in section ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore. 
 \subsection{Heatmap}
 
 
@@ -64,8 +83,29 @@ This effects can be suppressed by not allowing shearing for the transformation.
 	\label{badshearing}
 \end{figure}
 
-\section{Accuracy of Registration}
-
+\section{Total localisation error}
+There are three contributions to the total localisation error considered in this thesis.\newline
+First there is the error introduced from the linear transformation to align the beads. To estimate this error the variance of the estimator is used. Since the transformation matrix is calculated by linear regression from the matricies $B$ and $R$ of the localisations of the first and the second layer of beads, with $B$ beeing the matrix of the first layer to that the second layer $R$ is transformed to. The variance of the estimator is
+\begin{align}
+\text{variance registration}&= \sigma^2 x_0\left(R^TR\right)^{-1}x_0^T, \text{ with }x_0 = \left(x_o,x_1,1\right) \label{gl22}
+\end{align}
+Using equation \ref{gl22} the variance for all pixel can be calculated.\newline
+The second contribution to the total localisation error is the localisation error of the SimpleSTORM algorithm. Its formula is
+\begin{align}
+ \text{variance localisation} = \frac{N^2\pi}{2S_0^2} \left(1+\frac{\sigma_\text{PSF}^2}{\sigma_\text{filter}^2}\right)^2\left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right)^2 
+\end{align}
+It's derived in \ref{detectionError} and can be calculated for each detection individually based on the known signal-to-noise, which gives directly the signals intensity $S$ because of the known noise variance of one which gives the nois' standard deviation $N$ of also one. The PSFs width was either given or estimated and is passed to the colorcomposer in the detection coordinate file's header along with the prefactor $f$ for the actually used filter. Using this the localisation error can be writen as
+\begin{align}
+ \text{variance localisation} &= \frac{N^2\pi}{2S_0^2} \left(1+\frac{\sigma_\text{PSF}^2}{f^2\sigma_\text{PSF}^2}\right)^2\left(f^2\sigma_\text{PSF}^2+\sigma_\text{PSF}^2\right)^2 \\
+ &=\frac{N^2\pi}{2S_0^2}\left(1+\frac{1}{f^2}\right)^2\left(1+f^2\right)^2\sigma_\text{PSF}^4\\
+ &= \frac{N^2\pi}{2S_0^2}\left(2+\frac{1}{f^2}+f^2\right)^2\sigma_\text{PSF}^4
+\end{align}
+The third and minor contribution to the total localisation error for each pixel is the quantization noise. It occures when continous intensities, as the photons forming the PSF, are transformed into integer values. Quantisation noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
+\begin{align}
+ \sigma_Q^2 =\int\limits_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}
+\end{align}
+The unit of this error is the pixel size.\newline
+To get the total localisation error all three variances are summed up for each pixel.
 
 \section{Colocalisation}
 Colocalisation in wide field microscopy is a measure of the overlap of data point from different channels. It can provide information whether or not two molecules interact. With increasing resolution of the images colocalisation becomes more and more a measure of similar structures near each other. Two structures can't be at the very same position in the cell. The colorcomposer software provides both global and local colocalisation measurements.
@@ -78,15 +118,16 @@ It is the ratio between the covariance between the points of two channels and th
 
 Also the Manders correlation coefficients $M_1$ and $M_2$ and the overlap coefficient (\cite{manders}) are calculated.
 \begin{align}
-M_1 =& \frac{\sum_i R_{i,\text{coloc}}}{\sum_i R_i}\\
-M_2 = & \frac{sum_i G_{i,\text{coloc}}}{\sum_i G_i}
+M_1 =& \frac{\sum_i R_{i,\text{coloc}}}{\sum_i R_i}&M_2 = & \frac{\sum_i G_{i,\text{coloc}}}{\sum_i G_i}
 \end{align}
 With $R_{i,\text{coloc}} = R_i$ if $G_i >0$ and $R_{i,\text{coloc}} = 0$ otherwise and $G_{i,\text{coloc}} = G_i$ if $R_i >0$ and $G_{i,\text{coloc}} = 0$. $G_i$, $R_i$ are the intensities of the pixel of the green and red channel.
 \begin{align}
-\text{overlap coefficient} = \frac{\sum_i R_i \cdot G_i}{\sqrt{\sum_i left(R_i\right)^2 \cdot \sum_i \left(G_i\right)^2}} 
+\text{overlap coefficient} = \frac{\sum_i R_i \cdot G_i}{\sqrt{\sum_i \left(R_i\right)^2 \cdot \sum_i \left(G_i\right)^2}} 
 \end{align}
 
 \subsection{Local colocalisation}
-\subsection{Validation of colocalisation approaches}
-"Image set CBS001RGM-CBS010RGM from the Colocalization Benchmark Source
-(www.colocalization-benchmark.com) was used to validate colocalization."
+Global colocalisation has the drawback that there is just one value for the whole image. If there are regions in the image that show much colocalisation and other regions without colocalisation the same colocalisation coefficient might be achieved as if one channel is distributed randomly.\newline
+For local colocalisation analysis the algorithm from \cite{coloc} are used and were further developed to gain a speed boost. The algorithm runs now approximatly 40 times faster. This was achieved by using the scipys \cite{scipy} ckdtree function, which is a k-d tree implemented in C.
+%\subsection{Validation of colocalisation approaches}
+%"Image set CBS001RGM-CBS010RGM from the Colocalization Benchmark Source
+%(www.colocalization-benchmark.com) was used to validate colocalization."

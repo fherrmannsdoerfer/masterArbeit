@@ -1,8 +1,22 @@
-\documentclass[a4paper,12pt,fleqn,bibliography=totoc,twoside]{scrreprt}
+%\documentclass[a4paper,12pt,fleqn,bibliography=totoc,twoside]{scrreprt}
 %fleqn 			--- macht die formeln links stat mittig
 %bibtotoc		--- nimmt das literaturverzeichnis in das inhaltsverzeichnis auf
 
-
+\documentclass[
+  paper    = a4,
+  BCOR     = 10mm,
+  twoside,
+  fontsize = 12pt,
+  fleqn,
+  toc      = bibnumbered,
+  toc      = listofnumbered,
+  numbers  = noendperiod,
+  headings = normal,
+  listof   = leveldown,
+  version  = 3.03
+] {scrreprt}
+\usepackage{setspace}
+\onehalfspacing
 \usepackage[english]{babel} 
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
@@ -33,24 +47,27 @@
 
 \setcounter{tocdepth}{1}
 \begin{document}
-
+\include{titlepages-eng}
+\include{abstracts}
 %\input{Titelseite}
 \tableofcontents
 
 \input{Kapitel1}
 \input{Kapitel2}
 \input{Kapitel3}
-\input{Kapitel5}
+
 \input{Kapitel6}
 \input{Kapitel7}
 \input{Kapitel8}
 \input{Kapitel9}
+\input{Kapitel10}
+\input{Kapitel5}
 
 \input{Anhang}
-%\input{verischerung}
+
 
 \bibliographystyle{te}
 
 \bibliography{research}
-
+\input{deposition}
 \end{document}

@@ -62,7 +62,7 @@ The calculation of the asymmetry was already implemented by Joachim Schleicher \
 \section{Comparison with older version of the SimpleStorm algorithm}
 \subsection{Adjustable filter width} \label{sectionFilterisEvil}
 If two or more point spread functions overlap, applying a smoothing filter can lead to merging point spread functions. This becomes a problem if the two distinct maxima of the original unsmoothed psfs form a new maxima inbetween. This leads to just one detection somewhere between the true maxima. The number of merging psfs increases with greater filter widths. For high density data it might be better to use a filter with smaller width and therefore with less accuracy, but with less merging psf. In total this might give a better result depending on the number of incorrectly merged PSFs. This is the reason why the filter ing was changed to use just a Gaussian filter instead of the Wiener filter originally used. 
-The effect of the smaller filter width can be seen in \ref{betterthansimplestorm}. The red crosses indicate detections found by the new SimpleStorm version, the blue crosses show the estimated positions from the previous version of SimpleStorm and the white x marks the groundtruth. The predictins by the newer version are not perfect but better than the prediction of the older version. The scores of the two prediction can be seen in \ref{tabelbetterthansimplestorm}. Both results have almost the same accuracy, but they differ in the scores. There are two effects canceling each other out related to the accuracy. Less merged PSFs increase the accuracy, but the positive effect of filtering, as seen in \ref{bla}, is also lost. 
+The effect of the smaller filter width can be seen in \ref{betterthansimplestorm}. The red crosses indicate detections found by the new SimpleStorm version, the blue crosses show the estimated positions from the previous version of SimpleStorm and the white x marks the groundtruth. The predictins by the newer version are not perfect but better than the prediction of the older version. The scores of the two prediction can be seen in \ref{tabelbetterthansimplestorm}. Both results have almost the same accuracy, but they differ in the scores. There are two effects canceling each other out related to the accuracy. Less merged PSFs increase the accuracy, but the positive effect of filtering with the appropriate filter, as shown in \ref{accplot2} or in \ref{matchedFilter1}, is also lost. 
 
 \begin{table}
 \caption{Comparismn of results created using almost no smoothing or Wiener filter on high density data. While the accuracy almost the same the number of detections and the scores are higher for the unsmoothed data. For the evaluation the evaluation software from \cite{challenge} were used.}
@@ -95,7 +95,7 @@ In the older version of SimpleSTORM the intensity of a candidate, that was consi
 \subfloat[Result new SimpleSTORM]{\includegraphics[width = 0.3\textwidth]{pictures/Tubulin2factor1.png}}
 
 \caption{This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.}
-\label{postproc}	
+\label{bgmakesitbad}	
 
 \end{figure}
 

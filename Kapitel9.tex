@@ -65,24 +65,10 @@ The results can be seen in \ref{accplot}. It can be seen, that the more spots ar
 \end{minipage}
 \end{figure}
 
-%\begin{figure}
-%\centering
-%\includegraphics[width = 0.88\textwidth]{pictures/AccuracyTest.png}
-%	 \caption{Result of the accuracy test. For datasets with one, three or five point spread functions per %frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the %detections are.}
-%	\label{accplot}
-%\end{figure}
 
-
-%\begin{figure}
-%\centering
-%\includegraphics[width = 0.88\textwidth]{pictures/AccuracyTestSigma.png}
-%	 \caption{Result of the accuracy test for different sigmas for the gaussian smoothing. One data set %was processed with different sigma values and evaluated for different signal to noise levels. The true %standard deviation of point spread function of the simulated data is 1.4.}
-%	\label{accplot2}
-%\end{figure}
-
-\section{Matched filter is best filter}
+\section{Matched filter is best filter} \label{detectionError}
 For denoising the image a matched filter is used. Since we assume the point spread function to be gaussian, a two dimensional gaussian filter with the estimated size of the point spread function is used. The following calculation shows why this is the best choice for the standard deviation.\newline
-This calculation is similar to the calculation in \cite{ulli}. The assumptions are, the point spread function is gaussian shaped with a true standard deviation of $\sigma_\text{true}$, the image contains white gaussian noise with mean zero and unit variance, the applied filter for denoising is a gaussian filter with standard deviation $\sigma_\text{filter}$.\newline
+This calculation is similar to the calculation in \cite{ulli}. The assumptions are, the point spread function is gaussian shaped with a true standard deviation of $\sigma_\text{PSF}$, the image contains white gaussian noise with mean zero and unit variance, the applied filter for denoising is a gaussian filter with standard deviation $\sigma_\text{filter}$.\newline
 The image $f$ is composed of gaussian filter convolved with the signal $s$ and the above mentioned white noise $n$. $s$ and $n$ are describing the filtered signal respectivly noise.
 \begin{align}
  f=s+n \label{gl91}
@@ -105,7 +91,7 @@ The result for the variance of the first derivative of white noise convolved wit
 \end{align}
 The convolution of the Gaussian PSF  with an other Gaussian results in Gaussian with combined scales.
 \begin{align}
- \mathcal{N}(0,\sigma_\text{true}) \ast \mathcal{N}(0,\sigma_\text{filter}) = \mathcal{N}\left(0,\underbrace{\sqrt{\sigma_\text{true}^2+\sigma_\text{filter}^2}}_{=\sigma_\text{comb}}\right)
+ \mathcal{N}(0,\sigma_\text{PSF}) \ast \mathcal{N}(0,\sigma_\text{filter}) = \mathcal{N}\left(0,\underbrace{\sqrt{\sigma_\text{PSF}^2+\sigma_\text{filter}^2}}_{=\sigma_\text{comb}}\right)
 \end{align}
 The value of the second derivative in $x$-direction of the convolved PSF at (0,0) is:
 \begin{align}
@@ -115,14 +101,14 @@ Combining \ref{ch9gl1}, \ref{ch9gl2} and \ref{ch9gl3} yields:
 \begin{align}
 \text{var}\left(\Delta x\right) &= \dfrac{\dfrac{N^2}{8\pi\sigma_\text{filter}^4}}{\dfrac{S_0^2}{4\pi^2 \sigma_\text{comb}^8}}\\
 &= \frac{N^2\cdot 4\pi^2 \sigma_\text{comb}^8}{S_0^2\cdot8\pi\sigma_\text{filter}^4}\\
-&= \frac{N^2}{S_0^2} \frac{\pi \left(\sigma_\text{filter}^2+\sigma_\text{true}^2\right)^4}{2\sigma_\text{filter}^4}\\
-&= \frac{N^2\pi}{2S_0^2} \left(1+\frac{\sigma_\text{true}^2}{\sigma_\text{filter}^2}\right)^2\left(\sigma_\text{filter}^2+\sigma_\text{true}^2\right)^2 
+&= \frac{N^2}{S_0^2} \frac{\pi \left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right)^4}{2\sigma_\text{filter}^4}\\
+&= \frac{N^2\pi}{2S_0^2} \left(1+\frac{\sigma_\text{PSF}^2}{\sigma_\text{filter}^2}\right)^2\left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right)^2 
 \end{align}
 The same variance can be calculated with respect to $y$, yielding a total variance that is square root of 2 bigger, because the variances are orthogonal.
 Therefore the standard deviation of the localisation is:
 \begin{align}
  \text{std. dev loc}&=\frac{N}{S_0}\sqrt{\frac{\sqrt{2}\pi}{2}}
- \left(1+\frac{\sigma_\text{true}^2}{\sigma_\text{filter}^2}\right)\left(\sigma_\text{filter}^2+\sigma_\text{true}^2\right) 
+ \left(1+\frac{\sigma_\text{PSF}^2}{\sigma_\text{filter}^2}\right)\left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right) 
 \end{align}
 To verify this results a test data sets has been created containing 3500 frames with one PSF with different scales. This data sets have been filtered with Gaussian filters of different sizes. After that the maximum for each frame was detected and compared with the true position. Figure \ref{matchedFilter1} shows the accuracy for different PSF scales and filter widths.\newline
 As expected the best results were achieved using a Gaussian filter with the PSFs size. The larger the PSFs scale the more inaccurate the localisation becomes.\newline
@@ -145,7 +131,7 @@ This results show that the calculated standard deviation of the localisation can
 \end{figure}
 
 \section{Test PSF estimation}
-The estimation of the width of the point spread function of the signal is very important. The localisation error increases with larger deviations of the matched filters width from the true width of the PSF. Figure \ref{estimatedSigma} shows the results of an accuracy test. For this test data was created artificially. One PSF was simulated at a random location with a fixed width, poisson noise was added so that the signal-to-noise ratio was 10. Then this width was estimated by the SimpleSTORM algorithm. This was done with values for the standard deviation of the gaussian in a range from 0.2 up to 4. The plot shows that for standard deviations up to 2.5 the estimated value for the width is very close to the actual value. The wider the PSF becomes in the spatial domain the smaller it get in the Fourier domain. This is the reason why the accuracy of the estimation is decreasing for larger widths. This effect can be reduced by choosing a larger region of interest for the power spectrums acumulation. The parameter chosen for the plot in figure \ref{estimatedSigma} was the default value. The typical width of the PSF is in a range of 1 to 2, this is a range in which the estimation gives reliable results.
+The estimation of the width of the point spread function of the signal is very important. The localisation error increases with larger deviations of the matched filters width from the true width of the PSF. Figure \ref{estimatedSigma} shows the results of an accuracy test. For this test data was created artificially. One PSF was simulated at a random location with a fixed width, poisson noise was added so that the signal-to-noise ratio was 10. Then this width was estimated by the SimpleSTORM algorithm. This was done with values for the standard deviation of the gaussian in a range from 0.2 up to 4. The plot shows that for standard deviations up to 2.5 the estimated value for the width is very close to the actual value. The wider the PSF becomes in the spatial domain the smaller it gets in the Fourier domain. This is the reason why the accuracy of the estimation is decreasing for larger widths. This effect can be reduced by choosing a larger region of interest for the power spectrums acumulation. The parameter chosen for the plot in figure \ref{estimatedSigma} was the default value. The typical width of the PSF is in a range of 1 to 2, this is a range in which the estimation gives reliable results.\newline
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/AccuracyTestPSFWidth.png}
@@ -160,6 +146,6 @@ One assumption was that the backgrounds illumination is caused mainly form out o
 \begin{figure}
 \centering
 \includegraphics[width = 0.5\textwidth]{pictures/bleaching.png}
-	\caption{The number of active fluorophores decrease over time and also the mean intensity of the image. This picture shows the mean intensities over 10 background pixel over time. }
+	\caption{The number of active fluorophores decrease over time and so does the mean intensity of the image. This picture shows the mean intensities over 10 background pixel over time. }
 	\label{bleaching}
 \end{figure}

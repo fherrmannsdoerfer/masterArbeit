@@ -1,51 +1,63 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
+A level-1 auxiliary file: titlepages-eng.aux
+A level-1 auxiliary file: abstracts.aux
 The style file: te.bst
 Database file #1: research.bib
 Warning--entry type for "challenge" isn't style-file defined
 --line 39 of file research.bib
 Warning--entry type for "vigra" isn't style-file defined
 --line 47 of file research.bib
-You've used 15 entries,
+Warning--I'm ignoring pearson's extra "year" field
+--line 184 of file research.bib
+Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
+while executing---line 1424 of file te.bst
+Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
+while executing---line 1424 of file te.bst
+Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
+while executing---line 1509 of file te.bst
+Too many commas in name 1 of "Carlas S Smith, Nikolai Joseph, Bernd Rieger, Keith A Lidke" for entry alg3
+while executing---line 1509 of file te.bst
+You've used 22 entries,
             2904 wiz_defined-function locations,
-            704 strings with 7698 characters,
-and the built_in function-call counts, 8125 in all, are:
-= -- 675
-> -- 373
-< -- 11
-+ -- 128
-- -- 111
-* -- 636
-:= -- 1284
-add.period$ -- 48
-call.type$ -- 15
-change.case$ -- 115
-chr.to.int$ -- 15
-cite$ -- 30
-duplicate$ -- 598
-empty$ -- 566
-format.name$ -- 138
-if$ -- 1589
+            756 strings with 9141 characters,
+and the built_in function-call counts, 11859 in all, are:
+= -- 981
+> -- 556
+< -- 15
++ -- 189
+- -- 165
+* -- 941
+:= -- 1879
+add.period$ -- 69
+call.type$ -- 22
+change.case$ -- 167
+chr.to.int$ -- 22
+cite$ -- 44
+duplicate$ -- 867
+empty$ -- 824
+format.name$ -- 209
+if$ -- 2321
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 129
-newline$ -- 73
-num.names$ -- 60
-pop$ -- 217
+missing$ -- 185
+newline$ -- 101
+num.names$ -- 88
+pop$ -- 317
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 142
 quote$ -- 0
-skip$ -- 203
+skip$ -- 297
 stack$ -- 0
-substring$ -- 352
-swap$ -- 270
+substring$ -- 508
+swap$ -- 388
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 135
+type$ -- 198
 warning$ -- 0
-while$ -- 57
+while$ -- 82
 width$ -- 0
-write$ -- 197
-(There were 2 warnings)
+write$ -- 279
+(There were 4 error messages)
