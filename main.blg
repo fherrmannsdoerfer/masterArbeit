@@ -13,45 +13,45 @@ Warning--I'm ignoring pearson's extra "year" field
 --line 184 of file research.bib
 Warning--entry type for "peakFit" isn't style-file defined
 --line 249 of file research.bib
-You've used 26 entries,
+You've used 27 entries,
             2904 wiz_defined-function locations,
-            787 strings with 10207 characters,
-and the built_in function-call counts, 14348 in all, are:
-= -- 1190
-> -- 680
-< -- 17
-+ -- 229
-- -- 201
-* -- 1164
-:= -- 2252
-add.period$ -- 82
-call.type$ -- 26
-change.case$ -- 200
-chr.to.int$ -- 26
-cite$ -- 52
-duplicate$ -- 1043
-empty$ -- 993
-format.name$ -- 261
-if$ -- 2812
+            794 strings with 10424 characters,
+and the built_in function-call counts, 14945 in all, are:
+= -- 1243
+> -- 702
+< -- 18
++ -- 236
+- -- 207
+* -- 1216
+:= -- 2339
+add.period$ -- 85
+call.type$ -- 27
+change.case$ -- 207
+chr.to.int$ -- 27
+cite$ -- 54
+duplicate$ -- 1086
+empty$ -- 1038
+format.name$ -- 272
+if$ -- 2931
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 223
-newline$ -- 117
-num.names$ -- 104
-pop$ -- 381
+missing$ -- 232
+newline$ -- 121
+num.names$ -- 108
+pop$ -- 395
 preamble$ -- 1
-purify$ -- 170
+purify$ -- 176
 quote$ -- 0
-skip$ -- 352
+skip$ -- 367
 stack$ -- 0
-substring$ -- 631
-swap$ -- 476
+substring$ -- 667
+swap$ -- 498
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 234
+type$ -- 243
 warning$ -- 0
-while$ -- 99
+while$ -- 104
 width$ -- 0
-write$ -- 330
+write$ -- 343
 (There were 4 warnings)

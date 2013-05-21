@@ -4,12 +4,12 @@ different colors. To do so our collaborators use different fluoroscent molecules
 that emit light at different and distinguishable wavelengths. Using different
 filters it is possible to capture pictures just containing light emited from one
 fluorophore. To get a mulit-channel picture the different channels must be
-aligned. Because different flourophores emit different wavelengths, cromatic
+aligned. Because different flourophores emit different wavelengths, chromatic
 aberration apears. This means that the light for the same spot but with
 different wavelenghts is not mapped to the same spot in the image. To align the
-different channels despite cromatic aberration, beads are used. Beads are
-flourophores added to the probe, that emit light in all wavelengths the
-different markers do and therefore are visible in all channels. The beads can be
+different channels despite chromatic aberration, beads are used. Beads are
+flourophores added to the probe that emit light in all wavelengths the
+different markers do, and therefore are visible in all channels. The beads can be
 used as landmarks, because their position in the original image is at the same
 spot. The task is to find a transformation that maps corresponding beads on each
 other.
@@ -38,8 +38,8 @@ This feature can be used to add beads which the automatic bead detection missed.
 \subsection{Automatic bead detection}
 The input for the colorcomposer application is a text file created by the storm
 algorithm that contains information about the position, intensity, symmetry,
-framenumber and signal-to-noise ratio of each detection. The beads should
-ideally appear in most of the images, this means they can be found by searching for
+frame number and signal-to-noise ratio of each detection. The beads should
+ideally appear in most of the images. This means they can be found by searching for
 detections that appear in almost every frame at the same position.\newline
 There was already an automatic bead detection implemented by Joachim Schleicher. This was improved in the following ways.\newline
 All important parameters for the bead detection can now be set in the GUI. The bead detection works by searching for points that appear in most of the frames. Instead of taking all localisations from the first frame as expected bead positions without considering locations that does not appear in the first frame, now a good subset of positions from the first 50 frames by skipping redundant positions based on the minimal distance of a new position to all positions already in the set. The range of 50 frames to look for beads is sufficiant because it is very unlikely that all 50 detections of the bead have been missed.\newline
@@ -53,16 +53,16 @@ The detected spots from SimpleSTORM contain some localisation error. This error 
 
 
 \section{Align Beads}
-After the beads for each channel are found the next task is to find the corresponding
-beads in each channel. It can happen that some beads occure in just one channel,
-if this is the case there will be no corresponding bead in the other
+After the beads for each channel are found, the next task is to find the corresponding
+beads in each channel. It can happen that some beads occur in just one channel.
+If this is the case there will be no corresponding bead in the other
 channels.\\
 To align the beads, the minimal number of beads, three, that are neccesary to
 calculate the transformation are chosen randomly from the first channel. After that, based on
 a probabilistic approach and a distance matrix containing information about the
 distances between all beads of the two channels, three beads from the
 second channel are chosen. It is more likely for nearer beads of the other channel to be selected, but any bead within a certain range can be chosen.\\
-Using this pairs of beads a linear transformation is found like described by
+Using these pairs of beads, a linear transformation is found, as described by
 \cite{MAJoachim}.\newline
 This transformation is used to tested how many other beads, that were not used to calculate the transformation match in
 total. It is assumed that the correct transformation will match other bead pairs in addition.
@@ -70,7 +70,7 @@ This is very important because with every set of three points a valid transforma
 procedure is done multiple times. In the end the best transformation is
 chosen based on the total number of bead pairs that match. If there are multiple transformations that match the same number of bead pairs, it is searched for the transformation with the lowest root mean square error for the matching beads.\\
 In principle shearing should also be allowed for a linear transformation, but tests
-indicate that shearing does not occure, so it is disabled to improve stability. If there are just
+indicate that shearing does not occur, so it is disabled to improve stability. If there are just
 three beads in each channel, then every time a perfect transformation is found,
 but with the constraint of forbidden shearing, the right solution can be
 identified. There is an other problem with this transformation if the bead density is very high it might be that a transformation with much shearing is found that compresses the beads of one channel to a slim band. The probability to find a matching point by chance then is much greater then. Figure \ref{badshearing} shows the result of an incorrect transformation of simulated data. The red channel was created by randomly placing beads. The green channel was slightly shifted and rotated. The green channel was transformed to match with the red channel. Just a subset of beads were used to calculate the transformation and so this solution was found and chosen from the algorithm because of the additional matching point.\newline
@@ -100,7 +100,7 @@ It's derived in \ref{detectionError} and can be calculated for each detection in
  &=\frac{N^2\pi}{2S_0^2}\left(1+\frac{1}{f^2}\right)^2\left(1+f^2\right)^2\sigma_\text{PSF}^4\\
  &= \frac{N^2\pi}{2S_0^2}\left(2+\frac{1}{f^2}+f^2\right)^2\sigma_\text{PSF}^4
 \end{align}
-The third and minor contribution to the total localisation error for each pixel is the quantization noise. It occures when continous intensities, as the photons forming the PSF, are transformed into integer values. Quantisation noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
+The third and minor contribution to the total localisation error for each pixel is the quantization noise. It occurs when continous intensities, as the photons forming the PSF, are transformed into integer values. Quantisation noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
 \begin{align}
  \sigma_Q^2 =\int\limits_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}
 \end{align}

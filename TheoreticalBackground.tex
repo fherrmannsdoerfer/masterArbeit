@@ -1,19 +1,35 @@
 \chapter{Theoretical background}
-
+This chapter gives a brief overview over the most important distributions and transformations that are used for the SimpleSTORM algorithm, and an introduction to regular Charge-coupled Device (CCD) cameras is given. There is also a section about the data the algorithm is designed for.
 \section{Distributions}
 \subsection{Poisson distribution}
 One very important probability distribution in physics is the Poisson
-distribution. It describes the results of ``counting experiments'' and is
-therefore very important for image processing as the pictures taken with a
-camera are in principle counts of photons reaching the camera. Photon counting
-noise is one important example.\\
-Poisson distributions are just defined for integer values and the variance is
-the same as the mean value of the distribution. Another important attribute is
-the skewnes which is the inverse of the squarerot of the mean or variance and describes the assymetry.\\ 
-The probability mass function is:
+distribution. Its probability mass function is:
 \begin{equation}
 	p(n,\mu) = \frac{\mu^n}{n!}\exp(-\mu)
 \end{equation}
+The larger the mean value $\mu$ gets the more likely the Poisson distribution gets to a Gaussian distribution with a mean and a variance of $\mu$. Figure \ref{poisgaussdistr} shows Poisson and Gaussian distributions with different parameters. The mean value was shifted by 0.5 which results from continuity correction.\newline
+Poisson distributions describe the results of ``counting experiments'' and are
+therefore important for image processing as pictures taken with a
+camera are in principle counts of photons reaching the camera.  \newline
+Poisson distributions are just defined for integer values and the variance is
+the same as the mean value of the distribution.\newline
+The median of a Poisson distribution is approximatively given by
+\begin{align}
+	\text{median Pois}(\lambda) \approx \lambda + \frac{1}{3} - \frac{1}{50\lambda}
+\end{align}
+Another important attribute is
+the skewnes which describes the assymetry.
+\begin{align}
+ \text{skewnes Pois}(\lambda) = \frac{1}{\sqrt{\lambda}}
+\end{align}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.9\textwidth]{pictures/poissgaussdistr.png}
+	\caption{Different Poisson and Gaussian distrubutions. Especially for small numbers the Paisson and Gaussian distribution differ. The larger $\mu$ gets for the Poisson distribution the more similar it gets to a Gaussian with mean $\mu$ and sigma $\sqrt{\mu}$. The Poisson distributions were interpolated between their defined values.}
+	\label{poisgaussdistr}
+\end{figure}
+
 \subsection{Skellam distribution}
 The probability
 mass function of a Skellam distribution is a function of the difference between
@@ -30,50 +46,29 @@ Mean $\mu$ and variance $\sigma$ of the Skellam distribution are given by
 	&&\mu &= \mu_1 - \mu_2,& \sigma^2 &= \mu_1 + \mu_2\\
 	\Rightarrow &&\mu_1& = \frac{\mu + \sigma^2}{2},& \mu_2 &=\frac{-\mu +
 	\sigma^2}{2}
-\end{align} 
-
-\subsection{Approach using skewness of poisson distribution}
-For every pixel there is a set of multiple values in the set. This allows to
-calculate the different parameters individually for each pixel. One can
-calculate mean and variance of the measured intensities $I_\text{meas}(i,j)$ and
-gets
-\begin{align}
-	\text{mean}(I_\text{meas}(i,j))& = g\cdot \text{mean}(I_\text{true}(i,j)) + o \label{meanvarPoiss1}\\
-	\text{var}(I_\text{meas}(i,j))& = g^2\cdot\text{var}(I_\text{true}(i,j)) \label{meanvarPoiss2}
 \end{align}
-Assuming a Poisson distribution as the true intensity, mean and variance would
-be the same. Unfortunately the mean true intensities are unknown and it is
-not possible to determin $g$ and $o$ so far. For large mean Intensities $\mu$
-the Poisson distribution becomes more and more similar to a Gauss distribution
-with the same mean. However, for small means, the Poisson distribution is not
-symmetric. The skewness $s_p$ of a Poission distribution is the inverse of the
-square root of the mean $(\mu)^{-.5}$. It can also be directly
-calculated from data
-\begin{equation}
-	s_p = \frac{1}{n}\sum_{i = 1}^n \left(\frac{x_i - \bar x}{\sigma}\right)^3
-\end{equation}
-The skewness is invariant to shift and multiplication with a constant. This
-means that the transformation caused by the camera gain and the dark current
-does not affect the skewness. This gives a third equation to solve for $g$ and
-$o$.\\
-This approach has very strict limitation at least for background pixels not to be too
-bright. If the mean of the true Poisson distributin is higher than
-roughly 30 the skewness gives due to noise no stabel results and it is
-impossible to determin the mean intensity in this way.
+Figure \ref{skellamdist} shows two Poisson distributions ($P_\text{red}$ and $P_\text{blue}$) and the resulting Skellam distribution (puple) of the difference $P_\text{blue} - P_\text{red}$.
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{pictures/skellamdist.png}
+	\caption{Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.}
+	\label{skellamdist}
+\end{figure}
+
 
 
 \section{The data}
-The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label interesting structures with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator flouorophore. After a short time the flourophors emit a photon and go back to the unexited state or lose the ability to get exited, they bleach out.
+The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label interesting structures with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator flouorophore. After a short time the fluorophors emit a photon and go back to the unexited state or lose the ability to get exited, they bleach out.
 The datasets for dSTORM microscopy that we recieve from our collaborators from
 Bioquant are big datasets of several gigabyte in the Andor .sif format. Each
 file conains a stack of pictures, normaly between 1000 and 10000, taken
 consecutively with exposure times between 20 and 200 milliseconds.\newline
 
-Picture /ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple flourophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike flourophores appear as gaussian shaped signals, their point spread functions. The flourophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
+Picture \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
 
-Beads are larger and brighter than spots form only one flourophore and are used to align multiple channels in the postprocessing step. Beads are designt to show up in every frame of the sequence at the same position. They are composed of flourophores of different color to be visible in every channel.\newline
+Beads are larger and brighter than spots form only one fluorophore and are used to align multiple channels in the postprocessing step. Beads are designt to show up in every frame of the sequence at the same position. They are composed of fluorophores of different color to be visible in every channel.\newline
 
-The other spots, bound to some proteins for example, are just lighting up for a very short time. This is the key aspect of dSTORM. Instead of one frame that shows all flourophores at the same time, thousands of frames are captured containing just a point spread functions per frame. This gives the possibility to determine the center of each point spread function with sub-pixel precision, and in the end when all points are displayed together in one picture, to an image with a resolution beyond the diffraction limit.
+The other spots, bound to some proteins for example, are just lighting up for a very short time. This is the key aspect of dSTORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing just a point spread functions per frame. This gives the possibility to determine the center of each point spread function with sub-pixel precision, and in the end when all points are displayed together in one picture, to an image with a resolution beyond the diffraction limit.
 
 \begin{figure}
 \centering
@@ -81,6 +76,20 @@ The other spots, bound to some proteins for example, are just lighting up for a 
 	\caption{Raw image for dSTORM processing}
 	\label{rawStorm}
 \end{figure}
+
+\section{CCD camera}
+\subsection{Photon sources with shot noise}
+The emission of photons is a random process that occures at unpredictible times. Therefore the number of photons passing through a plane is never constant but varies around some average value. The phenomena, that one can never determine exactly how many photons should hit the sensor chip of a CCD camera for example, is called shot noise. It playes a major role if the total number of photons is low, as from dark sources or with short exposure times of the camera.
+\subsection{Quantum efficiency}
+Quantum efficiency describes the fraction of photons that create a detectable electron in a sensor chip. The quantum efficiency is dependent of the wavelenght of the incoming photon. Photons with energies below the band gap can't produce a free electron that can be detected. The quantum efficiency has a maximum basically caused by two effects. The higher the photons energy the higher the kinetic energy of the freed electron, but it is absorbed earlier and can therefore recombinate with a electron hole more likely.
+\subsection{Gain}
+There are two different gain factors involved in the capturing process of a camera. First the electric signal for each pixel might be amplified. And there is also a gain factor that describes the proportionality between collected electrons and the digital number it is associated with.
+\subsection{Readout noise}
+The origin of readout noise is the amplifier. The aplification is never perfect, this means the exact number of electrons at the end of the amplification has some variation around the expected linearly increased value. There might also be some random signals of the electronics that add to the "true" signal. The readout noise is independent of the exposure time.
+\subsection{Dark current noise}
+Dark current noise is generated by the thermal movement of the atoms in the sensor chip. The movement of molecules and atoms is dependent of the temperature of the material, because of that dark current noise depends strongly on the temperature of the chip and can be reduced by cooling. Dark current noise generates electrons in the bins of each pixel even with closed shutter it is constantly increasing with time and follows Poisson statistics.
+\subsection{Quantisation}
+The signal must fit into the output color depth. It has to be rounded or truncated to fit in. This process introduces errors that can be seen as additional noise that is dependent on the intensity of the signal. High intensities are disturbed less relative to low intensies.
 
 
 \section{Transformations}
@@ -126,7 +135,8 @@ one.
 \end{figure}
 
 \section{Estimation of camera gain}
-Given a sample prepared for STORM microscopy. A sequence of images captured from this sample will show some active flourophores, beads and also illuminated background that comes from flourophores that lie not in the focus plane. Assuming an inhomogenous background signal that follows a Poisson distribution, or even better almost homogenous background and beads both with a Poisson distribution in time with different mean values. If this Signal $I_\text{true}$ is transformed in the following way:
+\subsection{Using Skellam parameter}
+Given a sample prepared for STORM microscopy. A sequence of images captured from this sample will show some active fluorophores, beads and also illuminated background that comes from fluorophores that lie not in the focus plane. Assuming an inhomogenous background signal that follows a Poisson distribution, or even better almost homogenous background and beads both with a Poisson distribution in time with different mean values. If this Signal $I_\text{true}$ is transformed in the following way:
 \begin{equation}
 	I_\text{meas} = g \cdot I_\text{true} + o \label{trafoGain}
 \end{equation}
@@ -150,4 +160,32 @@ In the same manner the offset $o$ can be calculated.
 	&= o
 \end{align}
 
+\subsection{Using skewness of poisson distribution}
+For every pixel there is a set of multiple values in the set. This allows to
+calculate the different parameters individually for each pixel. One can
+calculate mean and variance of the measured intensities $I_\text{meas}(i,j)$ and
+gets
+\begin{align}
+	\text{mean}(I_\text{meas}(i,j))& = g\cdot \text{mean}(I_\text{true}(i,j)) + o \label{meanvarPoiss1}\\
+	\text{var}(I_\text{meas}(i,j))& = g^2\cdot\text{var}(I_\text{true}(i,j)) \label{meanvarPoiss2}
+\end{align}
+Assuming a Poisson distribution as the true intensity, mean and variance would
+be the same. Unfortunately the mean true intensities are unknown and it is
+not possible to determin $g$ and $o$ so far. For large mean Intensities $\mu$
+the Poisson distribution becomes more and more similar to a Gauss distribution
+with the same mean. However, for small means, the Poisson distribution is not
+symmetric. The skewness $s_p$ of a Poission distribution is the inverse of the
+square root of the mean $(\mu)^{-.5}$. It can also be directly
+calculated from data
+\begin{equation}
+	s_p = \frac{1}{n}\sum_{i = 1}^n \left(\frac{x_i - \bar x}{\sigma}\right)^3
+\end{equation}
+The skewness is invariant to shift and multiplication with a constant. This
+means that the transformation caused by the camera gain and the dark current
+does not affect the skewness. This gives a third equation to solve for $g$ and
+$o$.\\
+This approach has very strict limitation at least for background pixels not to be too
+bright. If the mean of the true Poisson distributin is higher than
+roughly 30 the skewness gives due to noise no stabel results and it is
+impossible to determin the mean intensity in this way.
 

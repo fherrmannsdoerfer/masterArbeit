@@ -53,13 +53,13 @@
 
 \input{Introduction}
 \input{TheoreticalBackground}
-\input{CCDKamera}
+%\input{CCDKamera}
 \input{DataProcessing}
 \input{CheckForAssumptions}
 \input{multicolorRegistration}
 \input{RelatedWork}
 \input{ISBIChallange}
-\input{Conclusion}
+\input{SummaryConclusion}
 
 \input{Anhang}
 
