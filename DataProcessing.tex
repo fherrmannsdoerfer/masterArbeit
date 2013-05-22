@@ -11,8 +11,9 @@ STORM data has usually a size of around 3 gigabytes. There are even larger datas
 Initially the user has the option to set all important parameters. If no parameter is set the default ones are used and will give a good result because all crucial parameters are either determined from the data or set to reasonable values that work for every data set. The goal of the default parameters is to give a good result with no adjustment. This means parameters are chosen to produce almost 100 \% precision. The loss of some points that are not detected using this conservative setting will not affect the final result as much as a lower precision would.
 \subsection{Estimating camera gain and offset}
 First the application checks for a file containing settings for gain and offset from an earlier run. If this is not the case new parameters are estimated based on the first part of the data; usually 200 frames are sufficiant.\newline
+A set of 2000 points is chosen by their mean intensity with respect to time. The goal is to get pixels with the whole range of mean intensities, good representatives from the darkest background pixel to the brightest beads.\newline 
 The method described by \cite{skellam} is used to estimate the
-gain factor. For this method a Skellam distribution is used. 
+gain factor based on the selected points, a more detailed description of is given in section \ref{skellam1}. For this method a Skellam distribution is used. 
 Each dataset is three-dimensional, where time is the third
 dimension. Therefore mean $\mu$ and variance $\sigma^2$, in time, can be calculated from
 the data for each pixel individually
@@ -24,11 +25,12 @@ $I_t(i,j)$ describes the intensity of the pixel of frame $t$ at position $i,j$.
 To determine the gain factor the Skellam parameter are plotted over the mean
 intensities. A straight line can be fitted, and its slope gives the gain
 factor, the intersection is the offset.\newline 
-The methode for the fit uses R \cite{Rcite}. To suppress outliers, the fit is performed only on a compact subset of all points \cite{ilia1}, more details can be found in the manual of SimpleSTORM \cite{ilia2}. This part of the algorithmn was developed and implemented by Ilia Kats.  
+The methode for the fit uses R \cite{Rcite}. To suppress outliers, the fit is performed only on a compact subset of all points \cite{ilia1}, more details can be found in the manual of SimpleSTORM \cite{ilia2}. This part of the algorithmn was developed and implemented in cooperation with Ilia Kats.  
 \subsection{Recursively adjusting gain and offset}
 After the estimation of gain factor and offset, the transformations described in \ref{trafoPoiss} and \ref{trafoAnscombe} are applied and the background is subtracted.\newline
 Due to the Anscombe transformation, the background pixels of the image should only vary around a mean intensity of zero with a variance of 1. Therefore, a histogram of the pixel intensities is created. After background subtraction, the background pixels should contribute only to the lower intensities in the histogram. A gaussian function is fitted to the histogram's values. This is done under the assumptions that there is much more background in the image than signal, or that the intensities coming from signals are distributed over a larger range, so the Gaussian for the background intensity distribution can be fitted correctly.\newline
-If the estimated value for the variance is too far from 1, the originally estimated gain factor is corrected and applied, and the fit is done again. This is done until the background variance converges or the maximal number of iterations is reached. In this case the initial gain factor will be used and a warning printed to the screen.
+If the estimated value for the variance is too far from 1, the originally estimated gain factor is corrected and applied, and the fit is done again. This is done until the background variance converges within a small threshold or the maximal number of iterations is reached. In this case the initial gain factor will be used and a warning printed to the screen.\newline
+For very small thresholds it might be that due to the correction of the gain factor results in background variances that oscillate around one. If this is the case the mean gain factor from the last four corrections is used.
 \subsection{Estimating the width of the point spread function}
 For a certain number of frames, the Fourier transform is calculated and averaged. The result is called the mean power spectrum. It can be used to estimate the variance of the point spread function of the signal. A two dimensional Gaussian function's Fourier transform is again a Gaussian but with inverse variance. This relation is used to determine the variance of the point spread function in the spatial domain, using the fit parameter for the variance in the frequency domain.\newline
 The script for fitting the two dimensional Gaussian function was implemented by Ilia Kats.
@@ -37,7 +39,7 @@ The script for fitting the two dimensional Gaussian function was implemented by 
 Storm data sets can consist of several thousand frames with resolutions up to one mega pixel per frame. This size makes it necessary to break the data into smaller parts because otherwise it might be much larger than the RAM of an ordinary machine. Because of the background estimation, it is not possible to process every frame completly independently as it was in the older version of this software (\cite{MAJoachim}). It is also faster with some datatypes to load a larger consecutive part of the dataset into memory.\newline
 This algorithm uses chunks of user defined size. There are some limitations to the chunk size that are discussed later. The data set is split into parts of equal size in the $x$- and $y$-dimensions and independently also in the $t$-dimension. If this partition does not fit at the edge of the data set, the last chunks will be smaller.\newline
 The data is transformed to be Poission distributed, then the Anscombe transform is applied. After the Anscombe transformation the background intensities have unit variance.\newline
-The implementation of the workflow using chunks was implemented by Ilia Kats.
+The implementation of the workflow using chunks was done by Ilia Kats.
 \subsubsection{Background estimation}
 For each chunk, the median of the Anscombe transformated data is determined to get a robust estimate of the background value for this chunk. 
 B-spline interpolation, implemented in vigra (\cite{vigra}), is used to get interpolated values for the full resolution of the current frames. For this interpolation, three chunks in both the spatial and the temporal domain have to be available. Therefore the maximal chunk size into $t$-dimension must not be larger than a third of the total stack size, the same holds for the chunk size in $x$ and $y$ direction which must not exceed the spatial resolution of the image stack.\newline
@@ -45,7 +47,7 @@ This background is then subtracted from the transformed data to give finally bac
 \begin{figure}
 \subfloat[Original image]{\includegraphics[width = 0.485\textwidth]{pictures/Tubulin2OrigFrame50Color.png}}\hfill
 \subfloat[image after background subtraction]{\includegraphics[width = 0.485\textwidth]{pictures/Tubulin2normalprocessFrame50Color.png}}
-	\caption{Effect of background subtraction on inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied.}
+	\caption{Effect of background subtraction on inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.}
 	\label{removedBG}	
 \end{figure}
 \subsubsection{Create mask for background suppression}

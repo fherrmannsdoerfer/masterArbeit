@@ -47,25 +47,18 @@ After good candidates are found their number of points, variance and mean positi
 In the end beads that are too close together are merged to for a new bead with its center right between the merged beads.
 
 \subsection{Alignment of two multicolor images}
-\subsection{Information about localisation certainty}
-The detected spots from SimpleSTORM contain some localisation error. This error will be derived in section ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore.
-\subsection{Heatmap}
-
-
-\section{Align Beads}
 After the beads for each channel are found, the next task is to find the corresponding
 beads in each channel. It can happen that some beads occur in just one channel.
 If this is the case there will be no corresponding bead in the other
-channels.\\
+channels.\newline
 To align the beads, the minimal number of beads, three, that are neccesary to
 calculate the transformation are chosen randomly from the first channel. After that, based on
 a probabilistic approach and a distance matrix containing information about the
 distances between all beads of the two channels, three beads from the
-second channel are chosen. It is more likely for nearer beads of the other channel to be selected, but any bead within a certain range can be chosen.\\
+second channel are chosen. It is more likely for nearer beads of the other channel to be selected, but any bead within a certain range can be chosen.\newline
 Using these pairs of beads, a linear transformation is found, as described by
 \cite{MAJoachim}.\newline
-This transformation is used to tested how many other beads, that were not used to calculate the transformation match in
-total. It is assumed that the correct transformation will match other bead pairs in addition.
+This transformation is used to tested how many other beads, that were not used to calculate the transformation match intotal. It is assumed that the correct transformation will match other bead pairs in addition.
 This is very important because with every set of three points a valid transformation can be found that perfectly aligns this three beads. After that the whole
 procedure is done multiple times. In the end the best transformation is
 chosen based on the total number of bead pairs that match. If there are multiple transformations that match the same number of bead pairs, it is searched for the transformation with the lowest root mean square error for the matching beads.\\
@@ -82,9 +75,11 @@ This effects can be suppressed by not allowing shearing for the transformation.
 \caption{Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.}
 \label{badshearing}
 \end{figure}
+\subsection{Information about localisation certainty}
+The detected spots from SimpleSTORM contain some localisation error. This error will be derived in section ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore.
 
 \section{Total localisation error}
-There are three contributions to the total localisation error considered in this thesis.\newline
+There are four contributions to the total localisation error considered in this thesis.\newline
 First there is the error introduced from the linear transformation to align the beads. To estimate this error the variance of the estimator is used. Since the transformation matrix is calculated by linear regression from the matricies $B$ and $R$ of the localisations of the first and the second layer of beads, with $B$ beeing the matrix of the first layer to that the second layer $R$ is transformed to. The variance of the estimator is
 \begin{align}
 \text{variance registration}&= \sigma^2 x_0\left(R^TR\right)^{-1}x_0^T, \text{ with }x_0 = \left(x_o,x_1,1\right) \label{gl22}
@@ -100,12 +95,21 @@ It's derived in \ref{detectionError} and can be calculated for each detection in
  &=\frac{N^2\pi}{2S_0^2}\left(1+\frac{1}{f^2}\right)^2\left(1+f^2\right)^2\sigma_\text{PSF}^4\\
  &= \frac{N^2\pi}{2S_0^2}\left(2+\frac{1}{f^2}+f^2\right)^2\sigma_\text{PSF}^4
 \end{align}
-The third and minor contribution to the total localisation error for each pixel is the quantization noise. It occurs when continous intensities, as the photons forming the PSF, are transformed into integer values. Quantisation noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
+The third contribution results from the fact that the fluorophors are not directly attached to the sample of interest, but there are the antibodies used for staining inbetween. The upper bound of this error can be estimated under the assumption that the target of the antibodies is much smaller than the antibodies, so that there is no occlusion in the projection. This assumption does not hold in reality. Structures like cell membranes are certainly larger than the antibodies, but the assumption gives an upper bound. 
+\begin{align}
+\text{var x} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ \frac{1}{\Omega_\text{Sphere}}\int\limits_0^{2\pi}\int\limits_0^\pi R^2\sin\theta \left(R\cos\phi \sin\theta\right)^2 d\theta d\phi\\
+&=\frac{R^2}{4\pi} \int\limits_0^{2\pi}\int\limits_0^\pi \cos^2\phi \sin^3\theta d\theta d\phi\\
+&=\frac{R^2}{4\pi} \left[\frac{1}{2}\phi +\frac{1}{4}\sin 2\phi \right]_0^{2\pi}\int\limits_0^\pi \sin^3\theta d\theta \\
+&=\frac{ R^2}{2} \left[\frac{1}{12}\cos3\theta -\frac{3}{4}\cos\theta \right]_0^\pi\\
+&=\frac{2}{3} R^2
+\end{align}
+$R$ is the assumed distance of the fluorophore to the structure it is attached to.\newline
+The fourth and minor contribution to the total localisation error for each pixel is the quantization noise. It occurs when continous intensities, as the photons forming the PSF, are transformed into integer values. Quantisation noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
 \begin{align}
  \sigma_Q^2 =\int\limits_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}
 \end{align}
-The unit of this error is the pixel size.\newline
-To get the total localisation error all three variances are summed up for each pixel.
+The unit of this error is the pixel size of the upscaled image and therefore more and more negligible the higher the upscaling factor is.\newline
+To get the total localisation error all four variances are summed up for each pixel.
 
 \section{Colocalisation}
 Colocalisation in wide field microscopy is a measure of the overlap of data point from different channels. It can provide information whether or not two molecules interact. With increasing resolution of the images colocalisation becomes more and more a measure of similar structures near each other. Two structures can't be at the very same position in the cell. The colorcomposer software provides both global and local colocalisation measurements.
@@ -127,7 +131,7 @@ With $R_{i,\text{coloc}} = R_i$ if $G_i >0$ and $R_{i,\text{coloc}} = 0$ otherwi
 
 \subsection{Local colocalisation}
 Global colocalisation has the drawback that there is just one value for the whole image. If there are regions in the image that show much colocalisation and other regions without colocalisation the same colocalisation coefficient might be achieved as if one channel is distributed randomly.\newline
-For local colocalisation analysis the algorithm from \cite{coloc} are used and were further developed to gain a speed boost. The algorithm runs now approximatly 40 times faster. This was achieved by using the scipys \cite{scipy} ckdtree function, which is a k-d tree implemented in C.
+For local colocalisation analysis the algorithm from \cite{coloc} are used and were further developed to gain a speed boost. The algorithm runs now approximatly 40 times faster. This was achieved by using scipys (\cite{scipy}) ckdtree function, which is a k-d tree implemented in C.
 %\subsection{Validation of colocalisation approaches}
 %"Image set CBS001RGM-CBS010RGM from the Colocalization Benchmark Source
 %(www.colocalization-benchmark.com) was used to validate colocalization."
