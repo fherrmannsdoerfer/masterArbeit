@@ -1,5 +1,4 @@
 \chapter{Appendix}
-
 \section{ISBI challenge}
 \begin{table}
 \caption{Results for the main submission (with postprocessing)}
@@ -117,3 +116,6 @@ LS3&40.82&96&48&54.40
 	\caption{Averaged rank over Jaccard index and RSME score for all high density data sets. Lower ranks are better}
 	\label{meanRankHigh}
 \end{figure}
+
+\listoffigures
+\listoftables

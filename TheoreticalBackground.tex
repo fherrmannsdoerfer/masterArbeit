@@ -15,7 +15,7 @@ Poisson distributions are defined for integer values only and its variance is
 the same as the mean value of the distribution.\newline
 The median of a Poisson distribution is approximatively given by
 \begin{align}
-	\text{median Pois}(\lambda) \approx \lambda + \frac{1}{3} - \frac{1}{50\lambda}
+	\text{median Pois}(\lambda) \approx \lambda + \frac{1}{3} - \frac{1}{50\lambda} \label{meanMedianPoiss}
 \end{align}
 Another important attribute is
 the skewnes which describes the assymetry.
@@ -69,7 +69,7 @@ Bioquant are big datasets of several gigabyte in the Andor .sif format. Each
 file conains a stack of pictures, normaly between 1000 and 10000, taken
 consecutively with exposure times between 20 and 200 milliseconds.\newline
 
-Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
+Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as Gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
 
 Beads are larger and brighter than spots from only one fluorophore and are used to align multiple channels in the postprocessing step. Beads are designed to show up in every frame of the sequence at the same position and can therefore be used as landmarks for the alignment. They are composed of fluorophores of different colors to be visible in every channel.\newline
 
@@ -189,3 +189,24 @@ means that the transformation caused by the camera gain and the dark current
 does not affect the skewness. This gives a third equation to solve for $g$ and
 $o$.\\
 This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distributin is higher than roughly 30, the skewness gives, due to noise, no stabel results. For data sets with bright background intensities it is not possible to determine the camera parameters in this way.
+
+\section{Chromatic aberration}
+The propagation speed of light depends on the substance it is propagating through. The property of the substance that describes the ratio of the speed of light in vacuum $c$ and in the substance $v$ is called refraction index $n = c/v$.\newline
+The refraction index for one substance is wavelength dependent. This effect causes the splitting of white light into its components when shining through a prism.\newline
+Therefore the focal length of the microscope is wavelength dependent, shown in Figure \ref{wikibild1}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.5\textwidth]{pictures/anscombe.png}
+	\caption[Chromatic aberration, picture taken from http://en.wikipedia.org/wiki/File:Chromatic_abberation_lens_diagram.svg, at 23rd of May 2013]{Sketch of the dependency of the focal length on the wavelength.}
+	\label{wikibild1}
+	
+\end{figure}
+In microscopy it is often desirable to label different structures in a cell with
+different colors. To do so our collaborators use different fluoroscent molecules
+that emit light at different and therefore distinguishable wavelengths. Using appropriate
+filters it is possible to capture pictures just containing light emited from one
+kind of fluorophore. To get a mulit-channel picture the different channels must be
+aligned. Because different fluorophores emit different wavelengths, chromatic
+aberration apears. This means that the light for the same spot but with
+different wavelenghts is not mapped to the same spot in the image. 
