@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.1)  23 MAY 2013 16:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.1)  25 MAY 2013 06:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -290,12 +290,39 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \f@ncyO@olf=\skip67
 \f@ncyO@orf=\skip68
 )
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count111
+\Gm@cntv=\count112
+\c@Gm@tempcnt=\count113
+\Gm@bindingoffset=\dimen125
+\Gm@wd@mp=\dimen126
+\Gm@odd@mp=\dimen127
+\Gm@even@mp=\dimen128
+\Gm@layoutwidth=\dimen129
+\Gm@layoutheight=\dimen130
+\Gm@layouthoffset=\dimen131
+\Gm@layoutvoffset=\dimen132
+\Gm@dimlist=\toks29
+)
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip69
 \bibsep=\skip70
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count111
+\c@NAT@ctr=\count114
 ) (./main.aux
 (./titlepages-eng.aux) (./abstracts.aux))
 \openout1 = `main.aux'.
@@ -318,17 +345,17 @@ Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen125
+\scratchcounter=\count115
+\scratchdimen=\dimen133
 \scratchbox=\box29
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen126
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks30
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen134
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -336,10 +363,6 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -377,8 +400,41 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\openout2 = `titlepages-eng.aux'.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 434.90045pt, 90.3375pt)
+* v-part:(T,H,B)=(90.3375pt, 646.30444pt, 108.405pt)
+* \paperwidth=597.50793pt
+* \paperheight=845.04694pt
+* \textwidth=434.90045pt
+* \textheight=646.30444pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=18.0675pt
+* \topmargin=-21.8075pt
+* \headheight=18.125pt
+* \headsep=21.75pt
+* \topskip=12.0pt
+* \footskip=50.75pt
+* \marginparwidth=71.1319pt
+* \marginparsep=12.8401pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\openout2 = `titlepages-eng.aux'.
 
 (./titlepages-eng.tex
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 12.
@@ -393,6 +449,12 @@ File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
  (./abstracts.tex
 (./abstract-ger.tex
+Underfull \hbox (badness 1067) in paragraph at lines 1--5
+\T1/cmr/m/n/10.95 Punk-tant-wort des Sig-nal nicht mehr er-forder-lich, diese w
+er-den au-toma-tisch
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1--5
 
  []
@@ -407,6 +469,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) (./abstract-eng.tex
+Underfull \hbox (badness 1189) in paragraph at lines 1--5
+\T1/cmr/m/n/10.95 SimpleSTORM is an ef-fi-cient al-go-rithm which was orig-i-na
+lly de-vel-oped by
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1--5
 
  []
@@ -424,19 +492,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--5
  (./Introduction.tex [5]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--6
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
@@ -445,563 +513,618 @@ File: pictures/alignedStormWidefield.png Graphic file (type png)
 
 <use pictures/alignedStormWidefield.png>
 Package pdftex.def Info: pictures/alignedStormWidefield.png used on input line 
-15.
-(pdftex.def)             Requested size: 375.5785pt x 418.44853pt.
+16.
+(pdftex.def)             Requested size: 382.71451pt x 426.37877pt.
 ) (./TheoreticalBackground.tex [7]
 [8 <./pictures/alignedStormWidefield.png (PNG copy)>]
 Chapter 2.
-<pictures/poissgaussdistr.png, id=41, 578.16pt x 433.62pt>
-File: pictures/poissgaussdistr.png Graphic file (type png)
 
-<use pictures/poissgaussdistr.png>
-Package pdftex.def Info: pictures/poissgaussdistr.png used on input line 28.
-(pdftex.def)             Requested size: 384.10965pt x 288.0824pt.
+Underfull \hbox (badness 10000) in paragraph at lines 12--16
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ []
 
- [9
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[9
 
 ]
-[10 <./pictures/poissgaussdistr.png>]
-<pictures/skellamdist.png, id=55, 578.16pt x 433.62pt>
-File: pictures/skellamdist.png Graphic file (type png)
-
-<use pictures/skellamdist.png>
-Package pdftex.def Info: pictures/skellamdist.png used on input line 53.
-(pdftex.def)             Requested size: 298.75267pt x 224.06114pt.
- [11 <./pictures/skellamdist.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 67--71
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-<pictures/Pos2_2_red2-2frame2475Color.png, id=63, 20.88603pt x 23.27094pt>
+<pictures/Pos2_2_red2-2frame2475Color.png, id=45, 20.88603pt x 23.27094pt>
 File: pictures/Pos2_2_red2-2frame2475Color.png Graphic file (type png)
 
 <use pictures/Pos2_2_red2-2frame2475Color.png>
 Package pdftex.def Info: pictures/Pos2_2_red2-2frame2475Color.png used on input
- line 80.
-(pdftex.def)             Requested size: 375.5785pt x 418.68407pt.
+ line 25.
+(pdftex.def)             Requested size: 382.71451pt x 426.63904pt.
 
-Underfull \vbox (badness 6252) has occurred while \output is active []
+Underfull \vbox (badness 2529) has occurred while \output is active []
 
- [12]
-[13 <./pictures/Pos2_2_red2-2frame2475Color.png>] [14]
+ [10]
+[11 <./pictures/Pos2_2_red2-2frame2475Color.png>]
+<pictures/poissgaussdistr.png, id=58, 578.16pt x 433.62pt>
+File: pictures/poissgaussdistr.png Graphic file (type png)
+
+<use pictures/poissgaussdistr.png>
+Package pdftex.def Info: pictures/poissgaussdistr.png used on input line 56.
+(pdftex.def)             Requested size: 391.40775pt x 293.55424pt.
+ [12 <./pictures/poissgaussdistr.png>]
+<pictures/skellamdist.png, id=66, 578.16pt x 433.62pt>
+File: pictures/skellamdist.png Graphic file (type png)
+
+<use pictures/skellamdist.png>
+Package pdftex.def Info: pictures/skellamdist.png used on input line 81.
+(pdftex.def)             Requested size: 304.42899pt x 228.32217pt.
+ [13 <./pictures/skellamdist.png>] [14]
 <pictures/anscombe.png, id=75, 578.16pt x 433.62pt>
 File: pictures/anscombe.png Graphic file (type png)
 
 <use pictures/anscombe.png>
-Package pdftex.def Info: pictures/anscombe.png used on input line 134.
-(pdftex.def)             Requested size: 213.39569pt x 160.04651pt.
+Package pdftex.def Info: pictures/anscombe.png used on input line 136.
+(pdftex.def)             Requested size: 217.45023pt x 163.08348pt.
 
-Underfull \vbox (badness 2913) has occurred while \output is active []
+Underfull \vbox (badness 1496) has occurred while \output is active []
 
- [15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [15 <./pictures/anscombe.png>] [16]
+<pictures/bildabberationwiki.png, id=83, 2007.5pt x 1209.51875pt>
+File: pictures/bildabberationwiki.png Graphic file (type png)
 
- [16 <./pictures/anscombe.png>]) (./DataProcessing.tex [17] [18]
+<use pictures/bildabberationwiki.png>
+Package pdftex.def Info: pictures/bildabberationwiki.png used on input line 209
+.
+(pdftex.def)             Requested size: 217.45023pt x 130.99889pt.
+ [17]) (./DataProcessing.tex [18 <./pictures/bildabberationwiki.png>]
 Chapter 3.
 [19
 
-]
+] <pictures/skellamplot.png, id=95, 1233.6489pt x 620.0766pt>
+File: pictures/skellamplot.png Graphic file (type png)
+
+<use pictures/skellamplot.png>
+Package pdftex.def Info: pictures/skellamplot.png used on input line 35.
+(pdftex.def)             Requested size: 430.55383pt x 216.41505pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--47
+
+ []
+
+[20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20]
-<pictures/Tubulin2OrigFrame50Color.png, id=96, 18.50111pt x 18.50111pt>
+ [21 <./pictures/skellamplot.png>]
+<pictures/Tubulin2OrigFrame50Color.png, id=103, 18.50111pt x 18.50111pt>
 File: pictures/Tubulin2OrigFrame50Color.png Graphic file (type png)
 
 <use pictures/Tubulin2OrigFrame50Color.png>
 Package pdftex.def Info: pictures/Tubulin2OrigFrame50Color.png used on input li
-ne 49.
-(pdftex.def)             Requested size: 206.99408pt x 207.00565pt.
+ne 66.
+(pdftex.def)             Requested size: 210.92697pt x 210.9387pt.
 
-<pictures/Tubulin2normalprocessFrame50Color.png, id=97, 18.50111pt x 18.50111pt
->
+<pictures/Tubulin2normalprocessFrame50Color.png, id=104, 18.50111pt x 18.50111p
+t>
 File: pictures/Tubulin2normalprocessFrame50Color.png Graphic file (type png)
  <use pictures/Tubulin2normalprocessFrame50Color.png>
 Package pdftex.def Info: pictures/Tubulin2normalprocessFrame50Color.png used on
- input line 50.
-(pdftex.def)             Requested size: 206.99408pt x 207.00565pt.
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22 <./pictures/Tubulin2OrigFrame50Color.png> <./pictures/Tubulin2normalproces
-sFrame50Color.png>]
-Overfull \hbox (60.66414pt too wide) in paragraph at lines 73--78
+ input line 67.
+(pdftex.def)             Requested size: 210.92697pt x 210.9387pt.
+ [22] [23 <./pictures/Tubulin2OrigFrame50Color.png> <./pictures/Tubulin2normalp
+rocessFrame50Color.png>]
+Overfull \hbox (52.55508pt too wide) in paragraph at lines 90--95
 [][]
  []
 
-[23] <pictures/betterthanSimplestorm1.png, id=109, 54.2025pt x 40.15pt>
+<pictures/betterthanSimplestorm1.png, id=113, 54.2025pt x 40.15pt>
 File: pictures/betterthanSimplestorm1.png Graphic file (type png)
 
 <use pictures/betterthanSimplestorm1.png>
 Package pdftex.def Info: pictures/betterthanSimplestorm1.png used on input line
- 83.
-(pdftex.def)             Requested size: 206.99408pt x 153.3704pt.
+ 100.
+(pdftex.def)             Requested size: 210.92697pt x 156.28473pt.
 
-<pictures/betterthanSimplestorm2.png, id=110, 54.2025pt x 40.15pt>
+<pictures/betterthanSimplestorm2.png, id=114, 54.2025pt x 40.15pt>
 File: pictures/betterthanSimplestorm2.png Graphic file (type png)
 
 <use pictures/betterthanSimplestorm2.png>
 Package pdftex.def Info: pictures/betterthanSimplestorm2.png used on input line
- 84.
-(pdftex.def)             Requested size: 206.99408pt x 153.3704pt.
- [24 <./pictures/betterthanSimplestorm1.png (PNG copy)> <./pictures/betterthanS
-implestorm2.png (PNG copy)>]
-<pictures/Tubulin2OrigFrame50.png, id=114, 256.96pt x 256.96pt>
+ 101.
+(pdftex.def)             Requested size: 210.92697pt x 156.28473pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+<pictures/Tubulin2OrigFrame50.png, id=118, 256.96pt x 256.96pt>
 File: pictures/Tubulin2OrigFrame50.png Graphic file (type png)
 
 <use pictures/Tubulin2OrigFrame50.png>
-Package pdftex.def Info: pictures/Tubulin2OrigFrame50.png used on input line 95
-.
-(pdftex.def)             Requested size: 128.03871pt x 128.04054pt.
+Package pdftex.def Info: pictures/Tubulin2OrigFrame50.png used on input line 11
+2.
+(pdftex.def)             Requested size: 130.47145pt x 130.47148pt.
 
-Underfull \hbox (badness 5908) in paragraph at lines 95--95
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 [][]|\T1/cmr/m/n/10 Typ-i-cal frame show-ing
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 95--95
-\T1/cmr/m/n/10 vari-able back-ground in-
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
+\T1/cmr/m/n/10 vari-able back-ground
  []
 
-<pictures/Tubulin2factor1OldSimpleSTORM.png, id=115, 256.96pt x 256.96pt>
+<pictures/Tubulin2factor1OldSimpleSTORM.png, id=119, 256.96pt x 256.96pt>
 File: pictures/Tubulin2factor1OldSimpleSTORM.png Graphic file (type png)
 
 <use pictures/Tubulin2factor1OldSimpleSTORM.png>
 Package pdftex.def Info: pictures/Tubulin2factor1OldSimpleSTORM.png used on inp
-ut line 96.
-(pdftex.def)             Requested size: 128.03871pt x 128.04054pt.
+ut line 113.
+(pdftex.def)             Requested size: 130.47145pt x 130.47148pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
-[][]|\T1/cmr/m/n/10 Re-sult old Sim-
- []
-
-<pictures/Tubulin2factor1.png, id=116, 256.96pt x 256.96pt>
+<pictures/Tubulin2factor1.png, id=120, 256.96pt x 256.96pt>
 File: pictures/Tubulin2factor1.png Graphic file (type png)
 
 <use pictures/Tubulin2factor1.png>
-Package pdftex.def Info: pictures/Tubulin2factor1.png used on input line 97.
-(pdftex.def)             Requested size: 128.03871pt x 128.04054pt.
+Package pdftex.def Info: pictures/Tubulin2factor1.png used on input line 114.
+(pdftex.def)             Requested size: 130.47145pt x 130.47148pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 [][]|\T1/cmr/m/n/10 Re-sult new Sim-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25 <./pictures/Tubulin2OrigFrame50.png (PNG copy)> <./pictures/Tubulin2factor
-1OldSimpleSTORM.png (PNG copy)> <./pictures/Tubulin2factor1.png (PNG copy)>]
-<pictures/basicSettingsGui1.png, id=121, 494.59781pt x 146.04562pt>
+[25 <./pictures/betterthanSimplestorm1.png (PNG copy)> <./pictures/betterthanSi
+mplestorm2.png (PNG copy)>]
+<pictures/basicSettingsGui1.png, id=125, 494.59781pt x 146.04562pt>
 File: pictures/basicSettingsGui1.png Graphic file (type png)
 
 <use pictures/basicSettingsGui1.png>
-Package pdftex.def Info: pictures/basicSettingsGui1.png used on input line 119.
+Package pdftex.def Info: pictures/basicSettingsGui1.png used on input line 136.
 
-(pdftex.def)             Requested size: 206.99408pt x 61.12033pt.
+(pdftex.def)             Requested size: 210.92697pt x 62.28137pt.
 
-<pictures/advancedSettingsGui.png, id=122, 492.33937pt x 148.30406pt>
+<pictures/advancedSettingsGui.png, id=126, 492.33937pt x 148.30406pt>
 File: pictures/advancedSettingsGui.png Graphic file (type png)
 
 <use pictures/advancedSettingsGui.png>
-Package pdftex.def Info: pictures/advancedSettingsGui.png used on input line 12
-0.
-(pdftex.def)             Requested size: 206.99408pt x 62.35063pt.
- [26]
-<pictures/InputWidget.png, id=126, 347.79938pt x 498.36188pt>
+Package pdftex.def Info: pictures/advancedSettingsGui.png used on input line 13
+7.
+(pdftex.def)             Requested size: 210.92697pt x 63.5364pt.
+ [26 <./pictures/Tubulin2OrigFrame50.png (PNG copy)> <./pictures/Tubulin2factor
+1OldSimpleSTORM.png (PNG copy)> <./pictures/Tubulin2factor1.png (PNG copy)>] [2
+7 <./pictures/basicSettingsGui1.png> <./pictures/advancedSettingsGui.png>]
+<pictures/InputWidget.png, id=133, 347.79938pt x 498.36188pt>
 File: pictures/InputWidget.png Graphic file (type png)
 
 <use pictures/InputWidget.png>
-Package pdftex.def Info: pictures/InputWidget.png used on input line 129.
-(pdftex.def)             Requested size: 172.84999pt x 247.67465pt.
+Package pdftex.def Info: pictures/InputWidget.png used on input line 146.
+(pdftex.def)             Requested size: 176.13414pt x 252.38176pt.
 
-<pictures/ResultWidget.png, id=127, 497.60907pt x 498.36188pt>
+<pictures/ResultWidget.png, id=134, 497.60907pt x 498.36188pt>
 File: pictures/ResultWidget.png Graphic file (type png)
 
 <use pictures/ResultWidget.png>
-Package pdftex.def Info: pictures/ResultWidget.png used on input line 130.
-(pdftex.def)             Requested size: 245.40375pt x 245.78116pt.
-) (./CheckForAssumptions.tex [27 <./pictures/basicSettingsGui1.png> <./pictures
-/advancedSettingsGui.png>] [28 <./pictures/InputWidget.png> <./pictures/ResultW
-idget.png>] [29]
+Package pdftex.def Info: pictures/ResultWidget.png used on input line 147.
+(pdftex.def)             Requested size: 250.06642pt x 250.45026pt.
+) (./CheckForAssumptions.tex [28 <./pictures/InputWidget.png> <./pictures/Resul
+tWidget.png>] [29]
 Chapter 4.
-<pictures/meanVariancePlotCalibration.png, id=139, 578.16pt x 433.62pt>
+<pictures/meanVariancePlotCalibration.png, id=143, 578.16pt x 433.62pt>
 File: pictures/meanVariancePlotCalibration.png Graphic file (type png)
 
 <use pictures/meanVariancePlotCalibration.png>
 Package pdftex.def Info: pictures/meanVariancePlotCalibration.png used on input
  line 8.
-(pdftex.def)             Requested size: 375.5785pt x 281.68425pt.
+(pdftex.def)             Requested size: 382.71451pt x 287.03699pt.
 
-<pictures/IsItPoisson105_105.png, id=140, 578.16pt x 433.62pt>
+<pictures/IsItPoisson105_105.png, id=144, 578.16pt x 433.62pt>
 File: pictures/IsItPoisson105_105.png Graphic file (type png)
 
 <use pictures/IsItPoisson105_105.png>
 Package pdftex.def Info: pictures/IsItPoisson105_105.png used on input line 17.
 
-(pdftex.def)             Requested size: 206.99408pt x 155.24294pt.
+(pdftex.def)             Requested size: 210.92697pt x 158.1939pt.
 
-<pictures/IsItPoisson50_50.png, id=141, 578.16pt x 433.62pt>
+<pictures/IsItPoisson50_50.png, id=145, 578.16pt x 433.62pt>
 File: pictures/IsItPoisson50_50.png Graphic file (type png)
 
 <use pictures/IsItPoisson50_50.png>
 Package pdftex.def Info: pictures/IsItPoisson50_50.png used on input line 18.
-(pdftex.def)             Requested size: 206.99408pt x 155.24294pt.
+(pdftex.def)             Requested size: 210.92697pt x 158.1939pt.
 
-<pictures/anscombeAndFit.png, id=142, 578.16pt x 433.62pt>
+<pictures/anscombeAndFit.png, id=146, 578.16pt x 433.62pt>
 File: pictures/anscombeAndFit.png Graphic file (type png)
 
 <use pictures/anscombeAndFit.png>
 Package pdftex.def Info: pictures/anscombeAndFit.png used on input line 27.
-(pdftex.def)             Requested size: 375.5785pt x 281.68425pt.
-
-Underfull \vbox (badness 1831) has occurred while \output is active []
-
+(pdftex.def)             Requested size: 382.71451pt x 287.03699pt.
  [30
 
-]
-[31 <./pictures/meanVariancePlotCalibration.png> <./pictures/IsItPoisson105_105
-.png> <./pictures/IsItPoisson50_50.png>]
+] [31 <./pictures/meanVariancePlotCalibration.png> <./pictures/IsItPoisson105_1
+05.png> <./pictures/IsItPoisson50_50.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 33--40
 
  []
 
-[32 <./pictures/anscombeAndFit.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
-
+[32 <./pictures/anscombeAndFit.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 46--48
 
  []
 
-<pictures/AccuracyTest.png, id=157, 578.16pt x 433.62pt>
+<pictures/AccuracyTest.png, id=161, 578.16pt x 433.62pt>
 File: pictures/AccuracyTest.png Graphic file (type png)
 
 <use pictures/AccuracyTest.png>
 Package pdftex.def Info: pictures/AccuracyTest.png used on input line 54.
-(pdftex.def)             Requested size: 202.81056pt x 152.1067pt.
+(pdftex.def)             Requested size: 206.66399pt x 154.99812pt.
 
-<pictures/AccuracyTestSigma.png, id=158, 578.16pt x 433.62pt>
+<pictures/AccuracyTestSigma.png, id=162, 578.16pt x 433.62pt>
 File: pictures/AccuracyTestSigma.png Graphic file (type png)
 
 <use pictures/AccuracyTestSigma.png>
 Package pdftex.def Info: pictures/AccuracyTestSigma.png used on input line 60.
-(pdftex.def)             Requested size: 202.81056pt x 152.1067pt.
+(pdftex.def)             Requested size: 206.66399pt x 154.99812pt.
  [33]
-Underfull \vbox (badness 4752) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34 <./pictures/AccuracyTest.png> <./pictures/AccuracyTestSigma.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
-<pictures/matchedFilterPlots1.png, id=169, 578.16pt x 433.62pt>
+<pictures/matchedFilterPlots1.png, id=173, 578.16pt x 433.62pt>
 File: pictures/matchedFilterPlots1.png Graphic file (type png)
 
 <use pictures/matchedFilterPlots1.png>
 Package pdftex.def Info: pictures/matchedFilterPlots1.png used on input line 11
-7.
-(pdftex.def)             Requested size: 375.5785pt x 281.68425pt.
+8.
+(pdftex.def)             Requested size: 382.71451pt x 287.03699pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2495) has occurred while \output is active []
 
  [35]
 [36 <./pictures/matchedFilterPlots1.png>]
-<pictures/matchedFilterPlots2.png, id=178, 578.16pt x 433.62pt>
+<pictures/matchedFilterPlots2.png, id=182, 578.16pt x 433.62pt>
 File: pictures/matchedFilterPlots2.png Graphic file (type png)
 
 <use pictures/matchedFilterPlots2.png>
 Package pdftex.def Info: pictures/matchedFilterPlots2.png used on input line 12
-6.
-(pdftex.def)             Requested size: 206.99408pt x 155.24294pt.
+7.
+(pdftex.def)             Requested size: 210.92697pt x 158.1939pt.
 
-<pictures/matchedFilterPlots3.png, id=179, 578.16pt x 433.62pt>
+<pictures/matchedFilterPlots3.png, id=183, 578.16pt x 433.62pt>
 File: pictures/matchedFilterPlots3.png Graphic file (type png)
 
 <use pictures/matchedFilterPlots3.png>
 Package pdftex.def Info: pictures/matchedFilterPlots3.png used on input line 12
-7.
-(pdftex.def)             Requested size: 206.99408pt x 155.24294pt.
+8.
+(pdftex.def)             Requested size: 210.92697pt x 158.1939pt.
 
-<pictures/AccuracyTestPSFWidth.png, id=180, 578.16pt x 433.62pt>
+<pictures/AccuracyTestPSFWidth.png, id=184, 578.16pt x 433.62pt>
 File: pictures/AccuracyTestPSFWidth.png Graphic file (type png)
 
 <use pictures/AccuracyTestPSFWidth.png>
 Package pdftex.def Info: pictures/AccuracyTestPSFWidth.png used on input line 1
-37.
-(pdftex.def)             Requested size: 375.5785pt x 281.68425pt.
+38.
+(pdftex.def)             Requested size: 382.71451pt x 287.03699pt.
 
-Underfull \vbox (badness 6625) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37 <./pictures/matchedFilterPlots2.png> <./pictures/matchedFilterPlots3.png>]
  [38 <./pictures/AccuracyTestPSFWidth.png>]
-<pictures/bleaching.png, id=191, 578.16pt x 433.62pt>
+<pictures/bleaching.png, id=195, 578.16pt x 433.62pt>
 File: pictures/bleaching.png Graphic file (type png)
 
 <use pictures/bleaching.png>
-Package pdftex.def Info: pictures/bleaching.png used on input line 148.
-(pdftex.def)             Requested size: 213.39569pt x 160.04651pt.
+Package pdftex.def Info: pictures/bleaching.png used on input line 149.
+(pdftex.def)             Requested size: 217.45023pt x 163.08348pt.
 ) (./multicolorRegistration.tex [39 <./pictures/bleaching.png>]
 Chapter 5.
 
-<pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png, id=196, 589.4522pt x 50
+<pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png, id=200, 589.4522pt x 50
 5.13719pt>
 File: pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png Graphic file (type 
 png)
  <use pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png>
 Package pdftex.def Info: pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png 
-used on input line 26.
-(pdftex.def)             Requested size: 375.5785pt x 321.86076pt.
+used on input line 21.
+(pdftex.def)             Requested size: 382.71451pt x 327.97302pt.
  [40
 
 ]
-[41 <./pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png>] [42]
-<pictures/shearingBad.png, id=206, 640.64343pt x 194.97844pt>
+[41 <./pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png>] [42] [43]
+<pictures/shearingBad.png, id=214, 640.64343pt x 194.97844pt>
 File: pictures/shearingBad.png Graphic file (type png)
 
 <use pictures/shearingBad.png>
-Package pdftex.def Info: pictures/shearingBad.png used on input line 74.
-(pdftex.def)             Requested size: 375.5785pt x 114.30736pt.
- [43] [44 <./pictures/shearingBad.png>] [45]
+Package pdftex.def Info: pictures/shearingBad.png used on input line 71.
+(pdftex.def)             Requested size: 382.71451pt x 116.4792pt.
+ [44 <./pictures/shearingBad.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
 Underfull \hbox (badness 10000) in paragraph at lines 120--122
 
  []
 
-) (./RelatedWork.tex [46]
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--136
+
+ []
+
+[46] <pictures/colocalization/cropedOrig.png, id=225, 863.225pt x 441.65pt>
+File: pictures/colocalization/cropedOrig.png Graphic file (type png)
+
+<use pictures/colocalization/cropedOrig.png>
+Package pdftex.def Info: pictures/colocalization/cropedOrig.png used on input l
+ine 150.
+(pdftex.def)             Requested size: 344.44437pt x 176.22557pt.
+
+<pictures/colocalization/cropedCh0.png, id=226, 863.225pt x 441.65pt>
+File: pictures/colocalization/cropedCh0.png Graphic file (type png)
+
+<use pictures/colocalization/cropedCh0.png>
+Package pdftex.def Info: pictures/colocalization/cropedCh0.png used on input li
+ne 155.
+(pdftex.def)             Requested size: 208.81886pt x 106.8338pt.
+
+<pictures/colocalization/cropedCh1.png, id=227, 863.225pt x 441.65pt>
+File: pictures/colocalization/cropedCh1.png Graphic file (type png)
+
+<use pictures/colocalization/cropedCh1.png>
+Package pdftex.def Info: pictures/colocalization/cropedCh1.png used on input li
+ne 156.
+(pdftex.def)             Requested size: 208.81886pt x 106.8338pt.
+
+<pictures/colocalization/cropedCh0100.png, id=228, 863.225pt x 441.65pt>
+File: pictures/colocalization/cropedCh0100.png Graphic file (type png)
+
+<use pictures/colocalization/cropedCh0100.png>
+Package pdftex.def Info: pictures/colocalization/cropedCh0100.png used on input
+ line 161.
+(pdftex.def)             Requested size: 208.81886pt x 106.8338pt.
+
+<pictures/colocalization/cropedCh1100.png, id=229, 863.225pt x 441.65pt>
+File: pictures/colocalization/cropedCh1100.png Graphic file (type png)
+
+<use pictures/colocalization/cropedCh1100.png>
+Package pdftex.def Info: pictures/colocalization/cropedCh1100.png used on input
+ line 162.
+(pdftex.def)             Requested size: 208.81886pt x 106.8338pt.
+) (./RelatedWork.tex [47]
+[48 <./pictures/colocalization/cropedOrig.png (PNG copy)> <./pictures/colocaliz
+ation/cropedCh0.png (PNG copy)> <./pictures/colocalization/cropedCh1.png (PNG c
+opy)> <./pictures/colocalization/cropedCh0100.png (PNG copy)> <./pictures/coloc
+alization/cropedCh1100.png (PNG copy)>]
 Chapter 6.
 ) (./ISBIChallange.tex
-Underfull \vbox (badness 3460) has occurred while \output is active []
+Underfull \vbox (badness 1048) has occurred while \output is active []
 
- [47
+ [49
 
 ]
-[48]
+[50]
 Chapter 7.
-[49
+[51
 
-]
-<pictures/bundledTubesHighDensityFrameFarbig.png, id=231, 442.2924pt x 442.2924
+] [52]
+<pictures/bundledTubesHighDensityFrameFarbig.png, id=250, 442.2924pt x 442.2924
 pt>
 File: pictures/bundledTubesHighDensityFrameFarbig.png Graphic file (type png)
  <use pictures/bundledTubesHighDensityFrameFarbig.png>
 Package pdftex.def Info: pictures/bundledTubesHighDensityFrameFarbig.png used o
-n input line 45.
-(pdftex.def)             Requested size: 124.19771pt x 124.19196pt.
+n input line 48.
+(pdftex.def)             Requested size: 126.55746pt x 126.55405pt.
 
-<pictures/bundledTubesLowDensityFrameFarbig.png, id=232, 442.2924pt x 442.2924p
+<pictures/bundledTubesLowDensityFrameFarbig.png, id=251, 442.2924pt x 442.2924p
 t>
 File: pictures/bundledTubesLowDensityFrameFarbig.png Graphic file (type png)
  <use pictures/bundledTubesLowDensityFrameFarbig.png>
 Package pdftex.def Info: pictures/bundledTubesLowDensityFrameFarbig.png used on
- input line 46.
-(pdftex.def)             Requested size: 124.19771pt x 124.19196pt.
+ input line 49.
+(pdftex.def)             Requested size: 126.55746pt x 126.55405pt.
 
-<pictures/maximumProjectionBundledTubesLSFarbig.png, id=233, 442.2924pt x 442.2
+<pictures/maximumProjectionBundledTubesLSFarbig.png, id=252, 442.2924pt x 442.2
 924pt>
 File: pictures/maximumProjectionBundledTubesLSFarbig.png Graphic file (type png
 )
  <use pictures/maximumProjectionBundledTubesLSFarbig.png>
 Package pdftex.def Info: pictures/maximumProjectionBundledTubesLSFarbig.png use
-d on input line 52.
-(pdftex.def)             Requested size: 123.94159pt x 123.9355pt.
+d on input line 55.
+(pdftex.def)             Requested size: 126.29648pt x 126.29085pt.
 
-Underfull \hbox (badness 1603) in paragraph at lines 53--53
+Underfull \hbox (badness 5878) in paragraph at lines 56--56
 [][]|\T1/cmr/m/n/12 Max-i-mum pro-
  []
 
-[50] <pictures/Tubulin2Frame10.png, id=238, 442.2924pt x 442.2924pt>
+
+Underfull \hbox (badness 1314) in paragraph at lines 56--56
+\T1/cmr/m/n/12 jec-tion of bun-
+ []
+
+<pictures/Tubulin2Frame10.png, id=253, 442.2924pt x 442.2924pt>
 File: pictures/Tubulin2Frame10.png Graphic file (type png)
 
 <use pictures/Tubulin2Frame10.png>
-Package pdftex.def Info: pictures/Tubulin2Frame10.png used on input line 65.
-(pdftex.def)             Requested size: 206.99408pt x 206.99336pt.
+Package pdftex.def Info: pictures/Tubulin2Frame10.png used on input line 68.
+(pdftex.def)             Requested size: 210.92697pt x 210.92792pt.
 
-<pictures/Tubulin2Frame1010.png, id=239, 442.2924pt x 442.2924pt>
+<pictures/Tubulin2Frame1010.png, id=254, 442.2924pt x 442.2924pt>
 File: pictures/Tubulin2Frame1010.png Graphic file (type png)
 
 <use pictures/Tubulin2Frame1010.png>
-Package pdftex.def Info: pictures/Tubulin2Frame1010.png used on input line 66.
-(pdftex.def)             Requested size: 206.99408pt x 206.99336pt.
+Package pdftex.def Info: pictures/Tubulin2Frame1010.png used on input line 69.
+(pdftex.def)             Requested size: 210.92697pt x 210.92792pt.
 
-<pictures/maximumProjectionTubulinFarbig.png, id=240, 442.2924pt x 442.2924pt>
+<pictures/maximumProjectionTubulinFarbig.png, id=255, 442.2924pt x 442.2924pt>
 File: pictures/maximumProjectionTubulinFarbig.png Graphic file (type png)
 
 <use pictures/maximumProjectionTubulinFarbig.png>
 Package pdftex.def Info: pictures/maximumProjectionTubulinFarbig.png used on in
-put line 73.
-(pdftex.def)             Requested size: 375.5785pt x 375.58588pt.
- [51 <./pictures/bundledTubesHighDensityFrameFarbig.png> <./pictures/bundledTub
+put line 76.
+(pdftex.def)             Requested size: 382.71451pt x 382.71939pt.
+
+Underfull \vbox (badness 1603) has occurred while \output is active []
+
+ [53 <./pictures/bundledTubesHighDensityFrameFarbig.png> <./pictures/bundledTub
 esLowDensityFrameFarbig.png> <./pictures/maximumProjectionBundledTubesLSFarbig.
 png>]
-<pictures/postproc2.png, id=247, 401.5pt x 401.5pt>
+[54 <./pictures/Tubulin2Frame10.png> <./pictures/Tubulin2Frame1010.png>]
+[55 <./pictures/maximumProjectionTubulinFarbig.png>]
+<pictures/postproc2.png, id=272, 401.5pt x 401.5pt>
 File: pictures/postproc2.png Graphic file (type png)
 
 <use pictures/postproc2.png>
-Package pdftex.def Info: pictures/postproc2.png used on input line 93.
-(pdftex.def)             Requested size: 128.03871pt x 128.04152pt.
+Package pdftex.def Info: pictures/postproc2.png used on input line 96.
+(pdftex.def)             Requested size: 130.47145pt x 130.4737pt.
 
-<pictures/postproc1.png, id=248, 401.5pt x 401.5pt>
+<pictures/postproc1.png, id=273, 401.5pt x 401.5pt>
 File: pictures/postproc1.png Graphic file (type png)
 
 <use pictures/postproc1.png>
-Package pdftex.def Info: pictures/postproc1.png used on input line 94.
-(pdftex.def)             Requested size: 128.03871pt x 128.04152pt.
+Package pdftex.def Info: pictures/postproc1.png used on input line 97.
+(pdftex.def)             Requested size: 130.47145pt x 130.4737pt.
 
-<pictures/postproc3.png, id=249, 401.5pt x 401.5pt>
+<pictures/postproc3.png, id=274, 401.5pt x 401.5pt>
 File: pictures/postproc3.png Graphic file (type png)
 
 <use pictures/postproc3.png>
-Package pdftex.def Info: pictures/postproc3.png used on input line 95.
-(pdftex.def)             Requested size: 128.03871pt x 128.04152pt.
- [52 <./pictures/Tubulin2Frame10.png> <./pictures/Tubulin2Frame1010.png>] [53 <
-./pictures/maximumProjectionTubulinFarbig.png>]
-[54 <./pictures/postproc2.png (PNG copy)> <./pictures/postproc1.png (PNG copy)>
- <./pictures/postproc3.png (PNG copy)>] [55]
-<pictures/diagrammsChallenge/MeanRankOverallCropped.pdf, id=266, 522.95375pt x 
+Package pdftex.def Info: pictures/postproc3.png used on input line 98.
+(pdftex.def)             Requested size: 130.47145pt x 130.4737pt.
+ [56 <./pictures/postproc2.png (PNG copy)> <./pictures/postproc1.png (PNG copy)
+> <./pictures/postproc3.png (PNG copy)>] [57]
+<pictures/diagrammsChallenge/MeanRankOverallCropped.pdf, id=281, 522.95375pt x 
 229.85875pt>
 File: pictures/diagrammsChallenge/MeanRankOverallCropped.pdf Graphic file (type
  pdf)
  <use pictures/diagrammsChallenge/MeanRankOverallCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanRankOverallCropped.pdf
- used on input line 133.
-(pdftex.def)             Requested size: 375.5785pt x 165.08429pt.
+ used on input line 136.
+(pdftex.def)             Requested size: 382.71451pt x 168.21986pt.
 )
-(./SummaryConclusion.tex [56 <./pictures/diagrammsChallenge/MeanRankOverallCrop
+(./SummaryConclusion.tex [58 <./pictures/diagrammsChallenge/MeanRankOverallCrop
 ped.pdf>]
 Chapter 8.
-[57
+[59
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) (./Anhang.tex [58]
+) (./Anhang.tex [60]
 Chapter 9.
+(./main.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf, id=291, 520.946
+ [61
+
+]
+Underfull \vbox (badness 1400) has occurred while \output is active []
+
+ [62])
+\tf@lof=\write4
+\openout4 = `main.lof'.
+
+
+(./main.lot [63])
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+
+<pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf, id=316, 520.946
 24pt x 228.855pt>
 File: pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf Graphic fil
 e (type pdf)
 
 <use pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanHighDensityJaccardCrop
-ped.pdf used on input line 35.
-(pdftex.def)             Requested size: 375.5785pt x 164.99547pt.
-
-<pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf, id=292, 524.96124p
+ped.pdf used on input line 49.
+(pdftex.def)             Requested size: 382.71451pt x 168.13132pt.
+ [64 <./pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf>]
+<pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf, id=335, 524.96124p
 t x 228.855pt>
 File: pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf Graphic file (
 type pdf)
 
 <use pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanHighDensityRSMECropped
-.pdf used on input line 42.
-(pdftex.def)             Requested size: 375.5785pt x 163.73833pt.
+.pdf used on input line 55.
+(pdftex.def)             Requested size: 382.71451pt x 166.84973pt.
 
-<pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf, id=293, 519.9425
+<pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf, id=336, 519.9425
 pt x 228.855pt>
 File: pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf Graphic file
  (type pdf)
 
 <use pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanLowDensityJaccardCropp
-ed.pdf used on input line 87.
-(pdftex.def)             Requested size: 375.5785pt x 165.31323pt.
+ed.pdf used on input line 96.
+(pdftex.def)             Requested size: 382.71451pt x 168.45258pt.
 
-<pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf, id=294, 515.9275pt 
+Underfull \vbox (badness 3138) has occurred while \output is active []
+
+ [65 <./pictures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf>]
+<pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf, id=355, 515.9275pt 
 x 228.855pt>
 File: pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf Graphic file (t
 ype pdf)
  <use pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanLowDensityRSMECropped.
-pdf used on input line 94.
-(pdftex.def)             Requested size: 375.5785pt x 166.60529pt.
+pdf used on input line 102.
+(pdftex.def)             Requested size: 382.71451pt x 169.76909pt.
 
-<pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf, id=295, 524.96
+<pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf, id=356, 524.96
 124pt x 228.855pt>
 File: pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf Graphic fi
 le (type pdf)
 
 <use pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanLowDensityPrecisionCro
-pped.pdf used on input line 101.
-(pdftex.def)             Requested size: 375.5785pt x 163.73833pt.
+pped.pdf used on input line 109.
+(pdftex.def)             Requested size: 382.71451pt x 166.84973pt.
+ [66 <./pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf> <./pictur
+es/diagrammsChallenge/MeanLowDensityRSMECropped.pdf
 
-<pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf, id=296, 518.93875pt
+pdfTeX warning: pdflatex (file ./pictures/diagrammsChallenge/MeanLowDensityRSME
+Cropped.pdf): PDF inclusion: multiple pdfs with page group included in a single
+ page
+> <./pictures/diagrammsChallenge/MeanLowDensityPrecisionCropped.pdf
+
+pdfTeX warning: pdflatex (file ./pictures/diagrammsChallenge/MeanLowDensityPrec
+isionCropped.pdf): PDF inclusion: multiple pdfs with page group included in a s
+ingle page
+>]
+<pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf, id=403, 518.93875pt
  x 228.855pt>
 File: pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf Graphic file (t
 ype pdf)
  <use pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanRankLowDensityCropped.
-pdf used on input line 108.
-(pdftex.def)             Requested size: 375.5785pt x 165.6415pt.
+pdf used on input line 116.
+(pdftex.def)             Requested size: 382.71451pt x 168.78781pt.
 
-<pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf, id=297, 517.935pt 
+<pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf, id=404, 517.935pt 
 x 228.855pt>
 File: pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf Graphic file (
 type pdf)
  <use pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf>
 Package pdftex.def Info: pictures/diagrammsChallenge/MeanRankHighDensityCropped
-.pdf used on input line 115.
-(pdftex.def)             Requested size: 375.5785pt x 165.95926pt.
-
-(./main.lof [59
-
-] [60 <./pictures/diagrammsChallenge/MeanHighDensityJaccardCropped.pdf> <./pict
-ures/diagrammsChallenge/MeanHighDensityRSMECropped.pdf
-
-pdfTeX warning: pdflatex (file ./pictures/diagrammsChallenge/MeanHighDensityRSM
-ECropped.pdf): PDF inclusion: multiple pdfs with page group included in a singl
-e page
->] [61 <./pictures/diagrammsChallenge/MeanLowDensityJaccardCropped.pdf>]
-[62 <./pictures/diagrammsChallenge/MeanLowDensityRSMECropped.pdf> <./pictures/d
-iagrammsChallenge/MeanLowDensityPrecisionCropped.pdf
-
-pdfTeX warning: pdflatex (file ./pictures/diagrammsChallenge/MeanLowDensityPrec
-isionCropped.pdf): PDF inclusion: multiple pdfs with page group included in a s
-ingle page
->] [63 <./pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf> <./picture
-s/diagrammsChallenge/MeanRankHighDensityCropped.pdf
+.pdf used on input line 123.
+(pdftex.def)             Requested size: 382.71451pt x 169.11258pt.
+)
+(./main.bbl [67 <./pictures/diagrammsChallenge/MeanRankLowDensityCropped.pdf> <
+./pictures/diagrammsChallenge/MeanRankHighDensityCropped.pdf
 
 pdfTeX warning: pdflatex (file ./pictures/diagrammsChallenge/MeanRankHighDensit
 yCropped.pdf): PDF inclusion: multiple pdfs with page group included in a singl
 e page
 >]
-Overfull \hbox (4.4242pt too wide) in paragraph at lines 33--33
- [][] []\T1/cmr/m/n/12 Result of the ac-cu-racy test for dif-fer-ent sig-mas fo
-r the gaus-sian smooth- 
- []
-
-
-Underfull \vbox (badness 1137) has occurred while \output is active []
-
- [64])
-\tf@lof=\write4
-\openout4 = `main.lof'.
-
-
-(./main.lot
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65])
-\tf@lot=\write5
-\openout5 = `main.lot'.
-
-)
-(./main.bbl [66]
 Chapter 10.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 22.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -1018,7 +1141,7 @@ gej.'' URL
  []
 
 
-Overfull \hbox (8.0163pt too wide) in paragraph at lines 20--25
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
 \T1/cmtt/m/n/12 http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/smlm_pl
 ugins\T1/cmr/m/n/12 .
  []
@@ -1036,34 +1159,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--31
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 33--38
+Underfull \hbox (badness 4859) in paragraph at lines 33--38
 []\T1/cmr/m/n/12 Baddeley, David, MarkB. Can-nell, and Chris-tian Soeller (2011
 ), ``Three-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
-[]\T1/cmr/m/n/12 Carlas S Smith, Bernd Rieger, Niko-lai Joseph and
+Underfull \hbox (badness 1694) in paragraph at lines 33--38
+\T1/cmr/m/n/12 dimensional sub-100 nm super-resolution imag-ing of bi-o-log-i-c
+al sam-ples us-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
-\T1/cmr/m/n/12 Keith A Lidke (2010), ``Fast, single-molecule lo-cal-iza-
+Underfull \hbox (badness 1048) in paragraph at lines 77--84
+[]\T1/cmr/m/n/12 Heilemann, Mike, Se-bas-tian van de Linde, Mark Schüttpelz, Ro
+bert Kasper,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
-\T1/cmr/m/n/12 tion that achieves the-o-ret-i-cally min-i-mum un-cer-tainty.'' 
-URL
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 77--84
+Underfull \hbox (badness 1917) in paragraph at lines 77--84
 \T1/cmr/m/n/12 Britta Seefeldt, Anin-dita Mukher-jee, Philip Tin-nefeld, and Ma
 rkus Sauer
  []
 
-[67
+[68
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 111--115
@@ -1072,7 +1191,7 @@ is.'' URL
  []
 
 
-Overfull \hbox (1.8428pt too wide) in paragraph at lines 111--115
+Underfull \hbox (badness 10000) in paragraph at lines 111--115
 \T1/cmtt/m/n/12 http://hci.iwr.uni-heidelberg/Staff/ukoethe/papers/habil-koethe
 .pdf\T1/cmr/m/n/12 .
  []
@@ -1084,31 +1203,37 @@ y.'' URL
  []
 
 
-Underfull \hbox (badness 2426) in paragraph at lines 138--142
+Underfull \hbox (badness 1107) in paragraph at lines 138--142
+[]\T1/cmr/m/n/12 R Core Team (2012), \T1/cmr/m/it/12 R: A Lan-guage and En-vi-r
+on-ment for Sta-tis-ti-cal Com-
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 138--142
 \T1/cmr/m/it/12 put-ing\T1/cmr/m/n/12 . R Foun-da-tion for Sta-tis-ti-cal Com-p
 ut-ing, Vi-enna, Aus-tria, URL
  []
 
-[68]
-Underfull \hbox (badness 2460) in paragraph at lines 168--173
+
+Underfull \hbox (badness 3701) in paragraph at lines 168--173
 []\T1/cmr/m/n/12 Seamus J Holden, Achillefs N Ka-pani-dis, Stephan Up-hoff (201
 1), ``Daos-
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 168--173
+Underfull \hbox (badness 2698) in paragraph at lines 168--173
 \T1/cmr/m/n/12 torm: an al-go-rithm for high- den-sity super-resolution mi-cros
 copy.'' URL
  []
 
-
-Underfull \hbox (badness 2050) in paragraph at lines 182--188
+[69]
+Underfull \hbox (badness 2990) in paragraph at lines 182--188
 []\T1/cmr/m/n/12 WOLTER, S. and M. SAUER (2012), ``Follow-up to pa-per by s. wo
 lter,
  []
 
 
-Underfull \hbox (badness 2753) in paragraph at lines 182--188
+Underfull \hbox (badness 3954) in paragraph at lines 182--188
 \T1/cmr/m/n/12 m. schÃ$[]$ttpelz, m. tscherepanow, s. van de linde, m. heile-ma
 nn and
  []
@@ -1126,21 +1251,27 @@ py\T1/cmr/m/n/12 , 245, 109--109, URL
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 191--197
+Underfull \hbox (badness 1122) in paragraph at lines 191--197
+[]\T1/cmr/m/n/12 Wolter, Steve, Ul-rike En-des-felder, Se-bas-tian van de Linde
+, Mike Heile-mann,
+ []
+
+
+Underfull \hbox (badness 2903) in paragraph at lines 191--197
 \T1/cmr/m/n/12 and Markus Sauer (2011), ``Mea-sur-ing lo-cal-iza-tion per-for-m
 ance of super-
  []
 
-) (./deposition.tex [69]) [70] (./main.aux (./titlepages-eng.aux)
+) (./deposition.tex [70]) [71] (./main.aux (./titlepages-eng.aux)
 (./abstracts.aux)) ) 
 Here is how much of TeX's memory you used:
- 6513 strings out of 494983
- 101063 string characters out of 3180409
- 181703 words of memory out of 3000000
- 9447 multiletter control sequences out of 15000+200000
+ 7055 strings out of 494983
+ 109864 string characters out of 3180409
+ 190229 words of memory out of 3000000
+ 9971 multiletter control sequences out of 15000+200000
  24987 words of font info for 62 fonts, out of 3000000 for 9000
  59 hyphenation exceptions out of 8191
- 50i,19n,66p,1773b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,19n,66p,1094b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/herrmannsdoerfer/.texmf-var/fonts/pk/ljfour/jknappe
 n/ec/ectt1200.600pk> </home/herrmannsdoerfer/.texmf-var/fonts/pk/ljfour/jknappe
 n/ec/ecti1200.600pk> </home/herrmannsdoerfer/.texmf-var/fonts/pk/ljfour/jknappe
@@ -1167,10 +1298,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive
 ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (70 pages, 4221644 bytes).
+Output written on main.pdf (71 pages, 4811582 bytes).
 PDF statistics:
- 1146 PDF objects out of 1200 (max. 8388607)
- 328 compressed objects within 4 object streams
+ 1161 PDF objects out of 1200 (max. 8388607)
+ 330 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

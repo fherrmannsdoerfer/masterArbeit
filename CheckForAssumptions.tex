@@ -1,8 +1,8 @@
 \chapter{Check of the assumptions}
 For the whole workflow several assumptions about the data or the results of certain transformations are made. These assumptions have to be met at least roughly to ensure the correctness of the results.\newline
-This section gives proofs for most of the assumptions like accuracy of the PSF scale estimation or that the matched filter of the matching size compared to the PSF performs best.
+This section gives checks for most of the assumptions like accuracy of the PSF scale estimation or that the matched filter of the matching size compared to the PSF performs best.
 \section{Calibration measurement}
-As described by \cite{meanVar} the gain can be determined using the mean and variance of data with different mean intensities. Therefore a calibration dataset was aquired. The temperature and the gain factor were match the settings usually used. A sample with cells was prepared for the Storm measurement. First eleven time series were taken, with opend shutter and with increasing exposure time from 0 milliseconds up to 1000 milliseconds. Afterwards the same procedure was repeated with the shutter kept closed. Figure \ref{calibplot} shows the results for the first 6 exposure time. All points lie on a straight line. The gain factor determined by the calibration measurement was 3.9, the offset 315. This offset is too small. An other methode was used to determine the offset. There were also an other series of  images taken with closed shutter. This series shows the response of the camera without any light around. The mean value of the shortest exposure time was taken as offset. Its value is 380. 
+As described by \cite{meanVar} the gain can be determined using the mean and variance of data with different mean intensities. Therefore a calibration dataset was aquired. The temperature and the gain factor were set to match the settings usually used. A sample with cells was prepared for the Storm measurement. First, eleven time series were taken, with opend shutter and with increasing exposure time from 0 milliseconds up to 1000 milliseconds. Afterwards the same procedure was repeated with the shutter kept closed. Figure \ref{calibplot} shows the results for the first 6 exposure time. All points lie on a straight line. The gain factor determined by the calibration measurement was 3.9, the offset 315. This offset is too small. An other methode was used to determine the offset. There were also an other series of  images taken with closed shutter. This series shows the response of the camera without any light around. The mean value of the shortest exposure time was taken as offset. Its value is 380. 
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/meanVariancePlotCalibration.png}
@@ -21,7 +21,7 @@ It is very important for the whole workflow that the first transform results in 
 \end{figure}
 
 \section{Result Anscombe transformation}
-After the transformation described in \ref{trafoPoiss}, the Anscombe transformation was aplied on the same data set that was used in the previous section and the background subtracted. Figure \ref{isitAnscombe} shows the histogram of the intensities of one randomly chosen frame and a Gaussian with zero mean and unit variance. The histogram fits very well to the Gaussian. The tail exceeding the Gaussian on the right side can at least partially be explained by the signal that is present in the image and does not follow the Gaussian distribution, but has higher intensities.
+After the transformation described in \ref{trafoPoiss}, the Anscombe transformation was aplied on the same data set that was used in the previous section and the background was subtracted. Figure \ref{isitAnscombe} shows the histogram of the intensities of one randomly chosen frame and a Gaussian with zero mean and unit variance. The histogram fits very well to the Gaussian. The tail exceeding the Gaussian on the right side can at least partially be explained by the signal that is present in the image and does not follow the Gaussian distribution, but has higher intensities.
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/anscombeAndFit.png}
@@ -30,7 +30,7 @@ After the transformation described in \ref{trafoPoiss}, the Anscombe transformat
 \end{figure}
 
 \section{Accuracy of detection}
-Unfortunately the position of the flourescent molecules can't be detected
+Unfortunately the position of the flourescent molecules can not be detected
 perfectly. There are two main contribution to the errors in detection.\\
 On one hand, there is a problem with finding the maximum in a noisy signal. Due to
 noise the spots maxima might be shifted.\newline
@@ -38,7 +38,7 @@ On the other hand, the position of the fluorescent molecule is deteted by upscal
 After that the maximums position of the upscaled grid is taken as the resulting
 position. This gives an error from roughly a 12th pixelwidth. This error becomes less important with higher upscaling factors.\newline
 
-Because there is no groundtruth for the real data, we had to produce test data and groundtruth. This was done simular to the method described by \cite{simulated}. The difference was, that instead of generating just one spot per frame a different number of spots were simulated for each frame. For different signal to  noise ratios, a dataset with 40 times 40 pixels and 1000 frames was created. Each frame containing one, three or five point spread functions. The position of the spots was determined beforehand, to use the same spots for each signal to noise ratio.\newline
+Because there is no groundtruth for the real data, we had to produce test data and groundtruth. This was done similar to the method described by \cite{simulated}. The difference was, that instead of generating just one spot per frame a different number of spots were simulated for each frame. For different signal-to -noise ratios, a dataset with 40 times 40 pixels and 1000 frames was created. Each frame containing one, three or five point spread functions. The position of the spots was determined beforehand, to use the same spots for each signal to noise ratio.\newline
 
 To determine the accuracy, the standard deviation between the true position of the signal and its detection were used. For data sets with more than one spot per frame, the best match within a certain distance around the true position was found. If a pair of true spot and detection were found, both were removed for further matching of the remaining signals. In the end the averaged standard deviation of the detection relative to the true positions were calculated as follows:
 \begin{align}
@@ -67,7 +67,8 @@ The results can be seen in Figure \ref{accplot}. The Figure shows, that the more
 
 \section{Matched filter is best filter} \label{detectionError}
 For denoising the image a matched filter is used. Since we assume that the point spread function is Gaussian, a two dimensional Gaussian filter with the estimated size of the point spread function is used. The following calculation shows why this is the best choice for the standard deviation.\newline
-This calculation is similar to the calculation in \cite{ulli}. The assumptions are, the point spread function is Gaussian shaped with a true standard deviation of $\sigma_\text{PSF}$, the image contains white Gaussian noise with mean zero and unit variance, the applied filter for denoising is a Gaussian filter with standard deviation $\sigma_\text{filter}$.\newline
+This calculation was inspired by the calculation in \cite{ulli}.\newline 
+The assumptions are, the point spread function is Gaussian shaped with a true standard deviation of $\sigma_\text{PSF}$, the image contains white Gaussian noise with mean zero and unit variance, the applied filter for denoising is a Gaussian filter with standard deviation $\sigma_\text{filter}$.\newline
 The image $f$ is composed of Gaussian filter convolved with the signal $s$ and the above mentioned white noise $n$. $s$ and $n$ describe the filtered signal respectivly noise.
 \begin{align}
  f=s+n \label{gl91}
@@ -103,13 +104,13 @@ Combining \ref{ch9gl1}, \ref{ch9gl2} and \ref{ch9gl3} yields:
 &= \frac{N^2}{S_0^2} \frac{\pi \left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right)^4}{2\sigma_\text{filter}^4}\\
 &= \frac{N^2\pi}{2S_0^2} \left(1+\frac{\sigma_\text{PSF}^2}{\sigma_\text{filter}^2}\right)^2\left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right)^2 
 \end{align}
-The same variance can be calculated with respect to $y$, yielding a total variance that is square root of 2 higher, because the variances are orthogonal.
+The same calculation can be done with respect to $y$. This gives the same variance, yielding a total variance that is square root of 2 times larger, because the variances are orthogonal.
 Therefore the standard deviation of the localization is:
 \begin{align}
  \text{std. dev loc}&=\frac{N}{S_0}\sqrt{\frac{\sqrt{2}\pi}{2}}
  \left(1+\frac{\sigma_\text{PSF}^2}{\sigma_\text{filter}^2}\right)\left(\sigma_\text{filter}^2+\sigma_\text{PSF}^2\right) 
 \end{align}
-To verify these results a test data sets has been created containing 3500 frames with one PSF with different scales. This data sets have been filtered with Gaussian filters of different sizes. After that the maximum for each frame was detected and compared with the true position. Figure \ref{matchedFilter1} shows the accuracy for different PSF scales and filter widths.\newline
+To verify these results test data sets have been created containing 3500 frames with one PSF per frame. Each created data set contained a PSF with different scale. This data sets have been filtered with Gaussian filters of different sizes. After that the maximum for each frame was detected and compared with the true position. Figure \ref{matchedFilter1} shows the accuracy for different PSF scales and filter widths.\newline
 The best results were achieved using a Gaussian filter with the PSFs size. The larger the PSFs scale the more inaccurate the localization becomes.\newline
 
 \begin{figure}
@@ -130,8 +131,8 @@ These results show that the calculated standard deviation of the localization ca
 \end{figure}
 
 \section{Test PSF estimation}
-The estimation of the width of the point spread function of the signal is very important. The localization error increases with larger deviations of the matched filters width from the true width of the PSF. \newline
-Figure \ref{estimatedSigma} shows the results of an accuracy test. For this test, data was created artificially. One PSF was simulated at a random location with a fixed width, poisson noise was added so that the signal-to-noise ratio was 10. Then this width was estimated by the SimpleSTORM algorithm. This was done with values for the standard deviation of the Gaussian in a range from 0.2 up to 4. The plot shows that for standard deviations up to 2.5 the estimated value for the width is very close to the actual value. The wider the PSF becomes in the spatial domain the smaller it gets in the Fourier domain. This is the reason why the accuracy of the estimation is decreasing for larger widths. This effect can be reduced by choosing a larger region of interest for the power spectrums acumulation. The parameter chosen for the plot in figure \ref{estimatedSigma} was the default value. The typical width of the PSF is in a range of 1 to 2, this is a range in which the estimation gives reliable results.\newline
+The estimation of the width of the point spread function of the signal is very important. The localization error increases with larger deviations of the matched filters width from the true width of the PSF, as shown in \ref{detectionError}. \newline
+Figure \ref{estimatedSigma} shows the results of an accuracy test. For this test, data was created artificially. One PSF was simulated at a random location with a fixed width, poisson noise was added. The signal-to-noise ratio was set to 10. Then this width was estimated by the SimpleSTORM algorithm. This was done with values for the standard deviation of the Gaussian in a range from 0.2 up to 4. The plot shows that for standard deviations up to 2.5 the estimated value for the width is very close to the actual value. The wider the PSF becomes in the spatial domain the smaller it gets in the Fourier domain. This is the reason why the accuracy of the estimation is decreasing for larger widths. This effect can be reduced by choosing a larger region of interest for the power spectrums acumulation. The parameter chosen for the plot in figure \ref{estimatedSigma} was the default value. The typical width of the PSF for real world data is in a range of 1 to 2, this is a range in which the estimation gives reliable results.\newline
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/AccuracyTestPSFWidth.png}
@@ -141,7 +142,7 @@ Figure \ref{estimatedSigma} shows the results of an accuracy test. For this test
 
 
 \section{Bleaching signal}
-One assumption was that the backgrounds illumination is caused mainly form out of focus fluorophors and therefore Poission distributed. If this is the case the background illumination should decrease over time. Bleaching of fluorophores describes the process in which the fluorescent molecules change their conformation and lose the ability to emit light. The spectrum of the emission can also change so that the fluorescent molecules can't be detected any more. All fluorophores used for the STORM images available to us bleach over time. This decay of the mean backgrounds intensity is shown in figure \ref{bleaching}.
+One assumption was that the backgrounds illumination is caused mainly from out of focus fluorophors and is therefore Poission distributed. If this is the case the background illumination should decrease over time. Bleaching of fluorophores describes the process in which the fluorescent molecules change their conformation and lose the ability to emit light permanently. The spectrum of the emission can also change so that the fluorescent molecules can not be detected any more. All fluorophores used for the STORM images available to us bleach over time. This decay of the mean backgrounds intensity is shown in figure \ref{bleaching}.
 
 \begin{figure}
 \centering

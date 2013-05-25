@@ -20,7 +20,7 @@ An other important value is the recall $r$ that is defined as the ratio of true 
 \end{equation}
 The recall lies also in a range from 0 to 1  and gives an impression on how many relevant spots were found.
 
-\section{Measures} 
+\section{Measures} \label{measuresISBI}
 For the evaluation three different measures were used. The f-score index $f$, the Jaccard index $J$ and the root-mean square distance RSME. 
 \subsection{F-score}
 The f-score $f$ is directly computed from precision and recall.

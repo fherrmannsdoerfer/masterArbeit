@@ -7,12 +7,12 @@ used as landmarks, because their position in the original image is at the same
 spot. The task is to find a transformation that maps corresponding beads on each
 other.\newline
 The aligned images can then be investigated for colocalized structures.\newline
-Both tasks can be done using the imporved version of the Colorcomposer.
+Both tasks can be done using the improved version of the Colorcomposer.
 
 \section{Colorcomposer GUI}
 The goal of the colorcomposer tool is to provide software that is easy to use, flexible and powerful. The current version of the colorcomposer is easy to use, because the different channels can be aligned by just selecting the auto align option.\newline
-If the user wants to select beads on his or her own, beads can manually be selected and deleted. After the transformation the user can use the implemented tools for colocalization detection or save the transformed images and process them with the tool of his or her choice.\newline
-Also the colorcomposer is powerful as it provides information about the number of points currently under the cursor or its intensity. Also the estimated transformation error and the localization error are computed and stored.\newline
+If the user wants to select beads on his or her own, beads can manually be selected and deleted. After the transformation the user can use the implemented tool for colocalization detection or save the transformed images and process them with the tool of his or her choice.\newline
+Also the colorcomposer is powerful as it provides information about the number of points currently under the cursor or its intensity. The estimated transformation error and the localization error are computed and stored.\newline
 The basic framework for the colorcomposer was set up by \cite{MAJoachim}. It contained the workflow for importing and exporting images the handling of bead objects and a linear transformation that used the beads in the order they were found. This early version was not usable.\newline
 Figure \ref{ColorComposer} shows improved colorcomposer GUI with two datasets loaded. The buttons on the right give the user the option to add or remove beads also in addition to the autodetected beads. There are also different sliders to control the values used for bead detection. In the lower right corner there is additional information provided about the total number of points within a rectengular with the selected cursor radius' size. The sum of the intensities and the total number of frames for each data set are also given. This information is helpful to determin whether a cluster of points is a bead or not.\newline
 On top there is a menu bar with new options, that enable the user to discard all beads, automatically detect beads, calculate colocalization measures and show or hide the colocalization heatmap.
@@ -26,7 +26,7 @@ On top there is a menu bar with new options, that enable the user to discard all
 
 \section{Features of the colorcomposer application}
 \subsection{Invariance of input datas units}
-The resulting coordinate files from SimpleSTORM or other STORM algorithms may be given in units of pixels relative to the unprocessed data or in nanometers. Treating coordinates given in nanometer as pixlel units would lead to very huge and very sparse images to display in the colorcomposer. Therefore the colorcomposer reads out additional information from the coordinates text files header. These informations are the pixel to nanometer ratio and the used factor. With this information the picture can be reconstructed as an upsampled version of the input image by the used factor, regardless of the units used to save the coordinates file. If none of this information is given a pixel to nanometer ratio of 1 is assumed which garantues backward compatibility with older coordinate files given in pixel units.
+The resulting coordinate files from SimpleSTORM or other STORM algorithms may be given in units of pixels relative to the unprocessed data or in nanometers. Treating coordinates given in nanometer as pixel units would lead to very huge and very sparse images displayed in the colorcomposer. Therefore the colorcomposer reads out additional information from the coordinates text files header. These informations are the pixel to nanometer ratio and the used factor. With this information the picture can be reconstructed as an upsampled version of the input image by the used factor, regardless of the units used to save the coordinates file. If none of this information is given a pixel to nanometer ratio of 1 is assumed which garantues backward compatibility with older coordinate files given in pixel units.
 \subsection{Manual bead selection and removal}
 With the improved version of the colorcomposer it is possible to add beads manually. Therefore the desired location is clicked in the preview image and after that either the button "add green bead" or "add red bead" is hit. If there are enough frames containing localizations near the given location a bead is added to the center of mass of the intensities in that area. If the button "delete bead" is pressed all beads in the selected area are deleted.\newline
 This feature can be used to add beads missed by the automatic bead detection.
@@ -46,17 +46,18 @@ After the beads for each channel are found, the next task is to find the corresp
 beads in each channel. It happens that some beads only occur in one channel.
 If this happens there will be no corresponding bead in the other
 channels.\newline
-To align the beads, the minimal number of beads, three, that are neccesary to
-calculate the transformation are chosen randomly from the first channel. After that, based on
-a probabilistic approach and a distance matrix containing information about the
-distances between all beads of the two channels, three beads from the
-second channel are chosen. It is more likely for nearer beads of the other channel to be selected, but any bead within a certain range can be chosen.\newline
+The first step is to discard beads that are far away from any bead of the other color. From the resulting subset of beads the maximal number of possible bead pairs is estimated by taking the smaller number of beads per color.\newline
+The iteration begins, which tries to find the best transformation to map all beads from one color to the beads of the other color. Therefore all beads from the color with less beads are chosen and the same number from the other color are selected. This selection is based on
+a probabilistic approach and the distance matrix containing the information about the
+distances between all beads of the two channels. It is more likely for nearer beads of the other channel to be selected, but any bead within a certain range can be chosen.\newline
 Using these pairs of beads, a linear transformation is found, as described by
 \cite{MAJoachim}.\newline
-This transformation is used to test how many other beads, that were not used to calculate the transformation match intotal. It is assumed that the correct transformation will match other bead pairs in addition.
-This is very important because with every set of three points a valid transformation can be found that perfectly aligns this three beads. After that the whole
-procedure is done multiple times. In the end the best transformation is
-chosen based on the total number of bead pairs that match. If there are multiple transformations that match the same number of bead pairs, it is searched for the transformation with the lowest root mean square error for the matching beads.\newline
+This transformation is used to test how many other beads, that were not used to calculate the transformation match intotal. It is assumed that the correct transformation will match other bead pairs in addition. 
+This step is repeated multiple times.\newline
+The maximal number of matching bead pairs is compared with the number of assumed bead pairs. If less bead pairs are found than expected the number of expected bead pairs is reduced by one and the previous procedure is repeated with the appropriate number of beads randomly chosen from the channel with less beads.\newline
+All transformations that match more or equal bead pairs are stored. Also all bead pairs that are aligned under this transformation are stored. The number of assumed bead pairs is reduced by on and the iteration started again. \newline
+This loop ends when the assumed number of bead pairs is lower than 3, the minimal number of bead pairs necessary for the calculation of the transformation.\newline
+All candidates for the transformation are checked for the occurance of shearing.
 In principle shearing should also be allowed for a linear transformation, but tests
 indicate that shearing does not occur, so it is disabled to improve stability. \newline 
 If there are just
@@ -73,6 +74,8 @@ This effects can be suppressed by not allowing shearing for the transformation.
 \end{figure}
 \subsection{Information about localization certainty}
 The detected spots from SimpleSTORM contain some localization error. This error will be derived in section \ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore.
+
+Within all transformations that do not show shearing, the transformation is chosen that has the least root mean square error for all matching pairs of beads.
 
 \section{Total localization error}
 There are four contributions to the total localization error considered in this thesis.\newline
@@ -93,7 +96,8 @@ It is derived in \ref{detectionError} and can be calculated for each detection i
 \end{align}
 The third contribution results from the fact that the fluorophors are not directly attached to the sample of interest, but there are the antibodies used for staining inbetween. The upper bound of this error can be estimated under the assumption that the target of the antibodies is much smaller than the antibodies, so that there is no occlusion in the projection. This assumption does not hold in reality. Structures like cell membranes are certainly larger than the antibodies, but the assumption gives an upper bound. 
 \begin{align}
-\text{var x} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ \frac{1}{\Omega_\text{Sphere}}\int\limits_0^{2\pi}\int\limits_0^\pi R^2\sin\theta \left(R\cos\phi \sin\theta\right)^2 d\theta d\phi\\
+\text{var x} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ 
+&=\frac{1}{\Omega_\text{Sphere}}\int\limits_0^{2\pi}\int\limits_0^\pi R^2\sin\theta \left(R\cos\phi \sin\theta\right)^2 d\theta d\phi\\
 &=\frac{R^2}{4\pi} \int\limits_0^{2\pi}\int\limits_0^\pi \cos^2\phi \sin^3\theta d\theta d\phi\\
 &=\frac{R^2}{4\pi} \left[\frac{1}{2}\phi +\frac{1}{4}\sin 2\phi \right]_0^{2\pi}\int\limits_0^\pi \sin^3\theta d\theta \\
 &=\frac{ R^2}{2} \left[\frac{1}{12}\cos3\theta -\frac{3}{4}\cos\theta \right]_0^\pi\\
@@ -127,7 +131,36 @@ With $R_{i,\text{coloc}} = R_i$ if $G_i >0$ and $R_{i,\text{coloc}} = 0$ otherwi
 
 \subsection{Local colocalization}
 Global colocalization has the drawback that there is just one value for the whole image, not yielding any information about where colocalization is localised. If there are regions in the image that show much colocalization and other regions without colocalization the same colocalization coefficient might be achieved as if one channel is distributed randomly.\newline
-For local colocalization analysis the algorithm from \cite{coloc} is used and was further developed to gain a speed boost. The algorithm runs now approximatly 40 times faster. This was achieved by using scipys (\cite{scipy}) ckdtree function, which is a k-d tree implemented in C.
+For local colocalization analysis the algorithm from \cite{coloc} is used and was further developed to gain a speed boost. The algorithm runs approximatly 40 times faster now. This was achieved by using scipys (\cite{scipy}) ckdtree function, which is a k-d tree implemented in C.\newline
+The concept of the localization algorithm is to compute a colocalisation value for each coordinate. This is done by calculating the distribution of all detections of both channels around each detection within a maximal radius $R$. This maximal radius determins the longest distance for which colocalization can be detected.\newline
+
+Figures \ref{radius50} and \ref{radius100} show the results from the colocalization calculation for both the red and green channel from \ref{cropedOrig}. The difference between \ref{radius50} and \ref{radius100} is that the maximal distance is larger for the later. This example shows the larger the maximal distance the more colocalization is detected. This choice for the maximal distance depends strongly on the sample.
+
+
+
+
+
 %\subsection{Validation of colocalization approaches}
 %"Image set CBS001RGM-CBS010RGM from the Colocalization Benchmark Source
 %(www.colocalization-benchmark.com) was used to validate colocalization."
+
+\begin{figure}
+\begin{minipage}[t]{0.99\textwidth}
+\centering
+	\includegraphics[width = 0.8\textwidth]{pictures/colocalization/cropedOrig.png}
+	\caption{Aligned image showing colocalization.}
+	\label{cropedOrig}	
+\end{minipage}\\
+\begin{minipage}[t]{0.99\textwidth}
+\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh0.png}}\hfill
+\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh1.png}}
+	\caption{Colocalization for the red and green channel with a maximal radius $R=50$ nm}
+	\label{radius50}	
+\end{minipage}\\
+\begin{minipage}[t]{0.99\textwidth}
+\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh0100.png}}\hfill
+\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh1100.png}}
+	\caption{Colocalization for the red and green channel with a maximal radius $R=100$ nm}
+	\label{radius100}	
+\end{minipage}
+\end{figure}

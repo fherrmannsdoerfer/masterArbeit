@@ -1,3 +1,5 @@
-Bild Geradenfit
-Bild Colocalisation
 Fix Storm, dass psf parameter [bernommen wird und nicht neu berechnet wird beim ersten mal
+Fix Storm wenn auto nach parameter laden eingegeben wird klappt nicht gain =0 dann.
+Final [ber parameter check nachdenken
+etwas über p wert schreiben vll schaubild
+psf fit [berprüfen
