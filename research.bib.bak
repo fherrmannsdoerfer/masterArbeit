@@ -80,7 +80,7 @@ Transactions on Pattern Analysis and Machine Intelligence},
 		
 @article{Abbe,
 		author    = {Ernst Abbe},
-		title     = {Beitr\"age zur Theorie des Mikroskops und der mikroskopischen Wahrnehmung},
+		title     = {{Beitr\"age zur Theorie des Mikroskops und der mikroskopischen Wahrnehmung}},
 		journal   = {Archiv f\"ur Mikroskopische Anatomie},
 		volume    = {9},
 		pages     = {456},
@@ -300,7 +300,7 @@ abstract = {Super-resolution fluorescence imaging based on single-molecule local
   pages = {109--109},
   publisher = {Blackwell Publishing Ltd},
   timestamp = {2012-07-11T13:23:04.000+0200},
-  title = {Follow-up to paper by S. Wolter, M. Sch\"uttpelz, M. Tscherepanow, S. van de Linde, M. Heilemann and M. Sauer, entitled Real-Time Computation of Subdiffraction-Resolution Fluorescence Images},
+  title = {{Follow-up to paper by S. Wolter, M. Sch\"uttpelz, M. Tscherepanow, S. van de Linde, M. Heilemann and M. Sauer, entitled Real-Time Computation of Subdiffraction-Resolution Fluorescence Images}},
   url = {http://dx.doi.org/10.1111/j.1365-2818.2011.03562.x},
   volume = 245,
   year = 2012

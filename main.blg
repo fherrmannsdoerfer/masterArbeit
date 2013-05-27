@@ -15,7 +15,7 @@ Warning--entry type for "peakFit" isn't style-file defined
 --line 249 of file research.bib
 You've used 27 entries,
             2904 wiz_defined-function locations,
-            794 strings with 10424 characters,
+            794 strings with 10429 characters,
 and the built_in function-call counts, 14945 in all, are:
 = -- 1243
 > -- 702

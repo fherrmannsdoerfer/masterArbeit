@@ -21,14 +21,14 @@ It is very important for the whole workflow that the first transform results in 
 \end{figure}
 
 \section{Result Anscombe transformation}
-After the transformation described in \ref{trafoPoiss}, the Anscombe transformation was aplied on the same data set that was used in the previous section and the background was subtracted. Figure \ref{isitAnscombe} shows the histogram of the intensities of one randomly chosen frame and a Gaussian with zero mean and unit variance. The histogram fits very well to the Gaussian. The tail exceeding the Gaussian on the right side can at least partially be explained by the signal that is present in the image and does not follow the Gaussian distribution, but has higher intensities.
+After the transformation described in \ref{trafoPoiss}, the Anscombe transformation was aplied on the same data set that was used in the previous section and the background was subtracted. Figure \ref{isitAnscombe} shows the histogram of the intensities of one randomly chosen frame and a Gaussian with zero mean and unit variance. The histogram fits very well to the Gaussian. The tail exceeding the Gaussian on the right side can at least partially be explained by the signal that is present in the image and does not follow the Gaussian distribution, but has higher intensities.\newline
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/anscombeAndFit.png}
 	 \caption{After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.}
 	\label{isitAnscombe}
 \end{figure}
-
+There may be confusion why the Anscombe transformation that is applied to all intensities of one time step instead of all intensities of one pixel, does work. This is because the Anscombe transformation is applied to each intensity independently. Therefore all intensities at a certain time step are one sample from the Gaussian distribution in $t$ dimension that results from the Anscombe transformation. All of these Gaussian distributions in $t$ dimension have the same mean (since the background was subtracted) and variance. This means that the distribution created from all intensities of a certain frame has the same mean and variance as the transformed Poisson distributions in $t$ dimension.
 \section{Accuracy of detection}
 Unfortunately the position of the flourescent molecules can not be detected
 perfectly. There are two main contribution to the errors in detection.\\

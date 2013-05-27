@@ -19,14 +19,14 @@ On top there is a menu bar with new options, that enable the user to discard all
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/GuiColorcomposer/BeforeAlignmentWithMenu.png}
-\caption{Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete singel beads. On the lower right additional information about the area under the coursor is displayed, such as number of pixels, total intensity and the number of frames in total.}
+\caption{Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete single beads. On the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.}
 \label{ColorComposer}
 \end{figure}
 
 
 \section{Features of the colorcomposer application}
 \subsection{Invariance of input datas units}
-The resulting coordinate files from SimpleSTORM or other STORM algorithms may be given in units of pixels relative to the unprocessed data or in nanometers. Treating coordinates given in nanometer as pixel units would lead to very huge and very sparse images displayed in the colorcomposer. Therefore the colorcomposer reads out additional information from the coordinates text files header. These informations are the pixel to nanometer ratio and the used factor. With this information the picture can be reconstructed as an upsampled version of the input image by the used factor, regardless of the units used to save the coordinates file. If none of this information is given a pixel to nanometer ratio of 1 is assumed which garantues backward compatibility with older coordinate files given in pixel units.
+The resulting coordinate files from SimpleSTORM or other STORM algorithms may be given in units of pixels relativly to the unprocessed data or in nanometers. Treating coordinates given in nanometer as pixel units would lead to very huge and very sparse images displayed in the colorcomposer. Therefore the colorcomposer reads out additional information from the coordinates text files header. These informations are the pixel to nanometer ratio and the used factor. With this information the picture can be reconstructed as an upsampled version of the input image by the used factor, regardless of the units used to save the coordinates file. If none of this information is given a pixel to nanometer ratio of 1 is assumed which garantues backward compatibility with older coordinate files given in pixel units.
 \subsection{Manual bead selection and removal}
 With the improved version of the colorcomposer it is possible to add beads manually. Therefore the desired location is clicked in the preview image and after that either the button "add green bead" or "add red bead" is hit. If there are enough frames containing localizations near the given location a bead is added to the center of mass of the intensities in that area. If the button "delete bead" is pressed all beads in the selected area are deleted.\newline
 This feature can be used to add beads missed by the automatic bead detection.
@@ -62,7 +62,7 @@ In principle shearing should also be allowed for a linear transformation, but te
 indicate that shearing does not occur, so it is disabled to improve stability. \newline 
 If there are just
 three beads in each channel used for the transformation, then every time a perfect transformation is found,
-but the correct one, if possible, is the one without shearing. There is an other problem with this transformation if the bead density is very high it might be that a transformation with much shearing is found. This compresses the beads of one channel to a slim band. The probability to find a matching point by chance is much greater then. \newline
+but the correct one, if possible, is the one without shearing. There will be an other problem with this transformation if the bead density is very high it might be that a transformation with much shearing is found. This compresses the beads of one channel to a slim band. The probability to find a matching point by chance is much greater then. \newline
 Figure \ref{badshearing} shows the result of an incorrect transformation of simulated data. The red channel was created by randomly placing beads. The green channel was slightly shifted and rotated. The green channel was transformed to match with the red channel. Just a subset of beads was used to calculate the transformation and so this solution was found and chosen from the algorithm because of the additional matching point.\newline
 This effects can be suppressed by not allowing shearing for the transformation.
 

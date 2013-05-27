@@ -11,9 +11,9 @@
   \textsc{Annotation:}\ #2\end{quotation}}
 
 \bibitem[{Abbe(1873)}]{Abbe}
-Abbe, Ernst (1873), \enquote{Beitr\"age zur theorie des mikroskops und der
-  mikroskopischen wahrnehmung.} \emph{Archiv f\"ur Mikroskopische Anatomie}, 9,
-  456.
+Abbe, Ernst (1873), \enquote{{Beitr\"age zur Theorie des Mikroskops und der
+  mikroskopischen Wahrnehmung}.} \emph{Archiv f\"ur Mikroskopische Anatomie},
+  9, 456.
 \bibAnnoteFile{Abbe}
 
 \bibitem[{Alex D.~Herbert(2013)}]{peakFit}
@@ -179,10 +179,10 @@ Starr, Rebecca, Shane Stahlheber, and Alex Small (2012), \enquote{Fast maximum
 \bibAnnoteFile{M2LE}
 
 \bibitem[{WOLTER and SAUER(2012)}]{rapidstorm}
-WOLTER, S. and M.~SAUER (2012), \enquote{Follow-up to paper by s. wolter, m.
-  schüttpelz, m. tscherepanow, s. van de linde, m. heilemann and m. sauer,
-  entitled real-time computation of subdiffraction-resolution fluorescence
-  images.} \emph{Journal of Microscopy}, 245, 109--109,
+WOLTER, S. and M.~SAUER (2012), \enquote{{Follow-up to paper by S. Wolter, M.
+  Sch\"uttpelz, M. Tscherepanow, S. van de Linde, M. Heilemann and M. Sauer,
+  entitled Real-Time Computation of Subdiffraction-Resolution Fluorescence
+  Images}.} \emph{Journal of Microscopy}, 245, 109--109,
   \urlprefix\url{http://dx.doi.org/10.1111/j.1365-2818.2011.03562.x}.
 \bibAnnoteFile{rapidstorm}
 

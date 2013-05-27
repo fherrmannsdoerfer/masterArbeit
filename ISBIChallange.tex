@@ -22,19 +22,19 @@ The recall lies also in a range from 0 to 1  and gives an impression on how many
 
 \section{Measures} \label{measuresISBI}
 For the evaluation three different measures were used. The f-score index $f$, the Jaccard index $J$ and the root-mean square distance RSME. 
-\subsection{F-score}
+\subsection*{F-score}
 The f-score $f$ is directly computed from precision and recall.
 \begin{eqnarray}
 	\text{f-score: }f &=\frac{2\cdot p \cdot r}{p+r} 
 \end{eqnarray}
 It ranges from zero for bad performance up to one for perfect results.
-\subsection{Jaccard index}
+\subsection*{Jaccard index}
 Let $A$ be the set of points of the groundtruth and $B$ be the set of detected points. The Jaccard index $J$ is then defined as:
 \begin{equation}
 \text{Jaccard: }J = \frac{\left|A\cap B\right|}{\left|A\cup B\right|}
 \end{equation}
 The intersection is done frame by frame. This means two spots from the groundtruth and the detection set just match if they occure in the same frame. 
-\subsection{RSME}
+\subsection*{RSME}
 The root-mean square distance gives an impression on how big the squared distance between a spot in the groundtruth and an associated detection was in average. It can be calculated as follows:
 \begin{equation}
 \text{RSME} = \frac{1}{\left|A\cap B\right|}\sum\limits_{i=1}^{\left|A\cap B\right|} \left(p_a(x,y)-p_b(x,y)\right)^2

@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation, software from the \cite {challenge} were used.\relax }}{24}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation, software from the \cite {challenge} were used.\relax }}{25}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

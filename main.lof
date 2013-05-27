@@ -3,44 +3,44 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Dual-color image of a cell treated with nocodazole. The upper part shows the reconstructed and aligned image, the lower part the maximum projection of the raw data over all frames.\relax }}{8}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Raw image for dSTORM processing\relax }}{11}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Poisson and Gaussian distrubutions with different parameters. Especially for small numbers the Poisson and the Gaussian distribution differ. The larger $\mu $ gets for the Poisson distribution the more similar it gets to a Gaussian with mean $\mu $ and sigma $\sqrt {\mu }$. The Poisson distributions were interpolated between their defined values.\relax }}{12}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.\relax }}{13}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions (green) and their Anscombe transformed distributions (blue)\relax }}{15}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{18}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Poisson and Gaussian distrubutions with different parameters. Especially for small numbers the Poisson and the Gaussian distribution differ. The larger $\mu $ gets for the Poisson distribution the more similar it gets to a Gaussian with mean $\mu $ and sigma $\sqrt {\mu }$. The Poisson distributions were interpolated between their defined values. For better comparision the integer values of the Gaussian distribution were also marked with dots.\relax }}{13}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.\relax }}{14}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions (green) and their Anscombe transformed distributions (blue)\relax }}{16}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{21}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{23}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image}}}{23}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {image after background subtraction}}}{23}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{25}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Advanced setting widget}}}{25}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Easy setting widget}}}{25}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{26}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{26}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result old SimpleSTORM}}}{26}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result new SimpleSTORM}}}{26}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{27}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Easy setting widget}}}{27}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Advanced setting widget}}}{27}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{28}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input widget}}}{28}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result widget}}}{28}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{22}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{24}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image}}}{24}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {image after background subtraction}}}{24}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{26}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Advanced setting widget}}}{26}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Easy setting widget}}}{26}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{27}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result old SimpleSTORM}}}{27}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result new SimpleSTORM}}}{27}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{28}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Easy setting widget}}}{28}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Advanced setting widget}}}{28}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{29}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input widget}}}{29}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result widget}}}{29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{31}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{31}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{31}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{31}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{32}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{34}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{34}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{36}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparism the line was shifted to match the calculated error.\relax }}{37}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {PSFs scale = 2.6}}}{37}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PSFs scale = 1.8}}}{37}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true widht of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{38}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{32}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{32}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{32}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{32}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{33}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{35}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{35}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{37}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparism the line was shifted to match the calculated error.\relax }}{38}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {PSFs scale = 2.6}}}{38}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PSFs scale = 1.8}}}{38}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true widht of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{39}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces The number of active fluorophores decreases over time and so does the mean intensity of the image. This picture shows the mean intensities of 10 background pixel over time. \relax }}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete singel beads. On the lower right additional information about the area under the coursor is displayed, such as number of pixels, total intensity and the number of frames in total.\relax }}{41}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete single beads. On the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.\relax }}{41}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.\relax }}{44}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Aligned image showing colocalization.\relax }}{48}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=50$ nm\relax }}{48}

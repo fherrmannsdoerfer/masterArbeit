@@ -5,51 +5,54 @@
 \contentsline {subsection}{\numberline {2.1.1}Labeling}{9}
 \contentsline {subsection}{\numberline {2.1.2}Description of the data sets}{9}
 \contentsline {section}{\numberline {2.2}Distributions}{10}
-\contentsline {subsection}{\numberline {2.2.1}Poisson distribution}{10}
-\contentsline {subsection}{\numberline {2.2.2}Skellam distribution}{12}
-\contentsline {section}{\numberline {2.3}CCD camera}{13}
-\contentsline {subsection}{\numberline {2.3.1}Photon sources with shot noise}{13}
-\contentsline {subsection}{\numberline {2.3.2}Quantum efficiency}{13}
-\contentsline {subsection}{\numberline {2.3.3}Gain}{14}
-\contentsline {subsection}{\numberline {2.3.4}Readout noise}{14}
-\contentsline {subsection}{\numberline {2.3.5}Dark current noise}{14}
-\contentsline {subsection}{\numberline {2.3.6}Quantisation}{14}
-\contentsline {section}{\numberline {2.4}Transformations}{14}
-\contentsline {subsection}{\numberline {2.4.1}Transformation to Poisson distributed signal}{14}
-\contentsline {subsection}{\numberline {2.4.2}Anscombe transformation}{15}
+\contentsline {subsection}{\numberline {2.2.1}Gaussian distribution}{10}
+\contentsline {subsection}{\numberline {2.2.2}Poisson distribution}{10}
+\contentsline {subsection}{\numberline {2.2.3}Skellam distribution}{12}
+\contentsline {section}{\numberline {2.3}CCD camera}{14}
+\contentsline {subsection}{\numberline {2.3.1}Photon sources with shot noise}{14}
+\contentsline {subsection}{\numberline {2.3.2}Quantum efficiency}{14}
+\contentsline {subsection}{\numberline {2.3.3}Gain}{15}
+\contentsline {subsection}{\numberline {2.3.4}Readout noise}{15}
+\contentsline {subsection}{\numberline {2.3.5}Dark current noise}{15}
+\contentsline {subsection}{\numberline {2.3.6}Quantisation}{15}
+\contentsline {section}{\numberline {2.4}Transformations}{15}
+\contentsline {subsection}{\numberline {2.4.1}Transformation to Poisson distributed signal}{15}
+\contentsline {subsection}{\numberline {2.4.2}Anscombe transformation}{16}
 \contentsline {section}{\numberline {2.5}Estimation of camera gain}{16}
-\contentsline {subsection}{\numberline {2.5.1}Using variance-mean plot}{16}
-\contentsline {subsection}{\numberline {2.5.2}Using skewness of poisson distribution}{17}
-\contentsline {section}{\numberline {2.6}Chromatic aberration}{17}
-\contentsline {chapter}{\numberline {3}Data processing}{19}
-\contentsline {section}{\numberline {3.1}Import and processing}{19}
-\contentsline {section}{\numberline {3.2}Workflow}{19}
-\contentsline {subsection}{\numberline {3.2.1}Choosing parameters}{19}
-\contentsline {subsection}{\numberline {3.2.2}Estimating camera gain and offset}{19}
-\contentsline {subsection}{\numberline {3.2.3}Recursively adjusting gain and offset}{20}
-\contentsline {subsection}{\numberline {3.2.4}Estimating the width of the point spread function}{21}
-\contentsline {subsection}{\numberline {3.2.5}Processing the data}{22}
-\contentsline {subsubsection}{Import Data}{22}
-\contentsline {subsubsection}{Background estimation}{22}
-\contentsline {subsubsection}{Create mask for background suppression}{22}
-\contentsline {subsubsection}{Filtering data and finding maxima}{23}
-\contentsline {subsubsection}{Quality control for detections}{23}
-\contentsline {section}{\numberline {3.3}Comparison with older version of the SimpleStorm algorithm}{24}
-\contentsline {subsection}{\numberline {3.3.1}Adjustable filter width}{24}
-\contentsline {subsection}{\numberline {3.3.2}False positive suppression}{25}
-\contentsline {subsection}{\numberline {3.3.3}Comparable results based on the signal-to-noise ratio}{26}
-\contentsline {section}{\numberline {3.4}New graphical user interface (GUI)}{26}
-\contentsline {subsection}{\numberline {3.4.1}Input widget}{26}
-\contentsline {subsection}{\numberline {3.4.2}Result widget}{27}
-\contentsline {subsection}{\numberline {3.4.3}Easy parameter selection}{28}
-\contentsline {chapter}{\numberline {4}Check of the assumptions}{30}
-\contentsline {section}{\numberline {4.1}Calibration measurement}{30}
-\contentsline {section}{\numberline {4.2}Correction to Poisson distributions}{30}
-\contentsline {section}{\numberline {4.3}Result Anscombe transformation}{30}
-\contentsline {section}{\numberline {4.4}Accuracy of detection}{32}
-\contentsline {section}{\numberline {4.5}Matched filter is best filter}{33}
+\contentsline {subsection}{\numberline {2.5.1}Using variance-mean plot}{17}
+\contentsline {subsection}{\numberline {2.5.2}Using skewness of poisson distribution}{18}
+\contentsline {section}{\numberline {2.6}Check for correct gain factor}{18}
+\contentsline {section}{\numberline {2.7}Filters}{19}
+\contentsline {section}{\numberline {2.8}Chromatic aberration}{19}
+\contentsline {chapter}{\numberline {3}Data processing}{20}
+\contentsline {section}{\numberline {3.1}Import and processing}{20}
+\contentsline {section}{\numberline {3.2}Workflow}{20}
+\contentsline {subsection}{\numberline {3.2.1}Choosing parameters}{20}
+\contentsline {subsection}{\numberline {3.2.2}Estimating camera gain and offset}{20}
+\contentsline {subsection}{\numberline {3.2.3}Recursively adjusting gain and offset}{21}
+\contentsline {subsection}{\numberline {3.2.4}Estimating the width of the point spread function}{22}
+\contentsline {subsection}{\numberline {3.2.5}Processing the data}{23}
+\contentsline {subsubsection}{Import Data}{23}
+\contentsline {subsubsection}{Background estimation}{23}
+\contentsline {subsubsection}{Create mask for background suppression}{23}
+\contentsline {subsubsection}{Filtering data and finding maxima}{24}
+\contentsline {subsubsection}{Quality control for detections}{25}
+\contentsline {section}{\numberline {3.3}Comparison with older version of the SimpleStorm algorithm}{25}
+\contentsline {subsection}{\numberline {3.3.1}Adjustable filter width}{25}
+\contentsline {subsection}{\numberline {3.3.2}False positive suppression}{26}
+\contentsline {subsection}{\numberline {3.3.3}Comparable results based on the signal-to-noise ratio}{27}
+\contentsline {section}{\numberline {3.4}New graphical user interface (GUI)}{27}
+\contentsline {subsection}{\numberline {3.4.1}Input widget}{27}
+\contentsline {subsection}{\numberline {3.4.2}Result widget}{28}
+\contentsline {subsection}{\numberline {3.4.3}Easy parameter selection}{29}
+\contentsline {chapter}{\numberline {4}Check of the assumptions}{31}
+\contentsline {section}{\numberline {4.1}Calibration measurement}{31}
+\contentsline {section}{\numberline {4.2}Correction to Poisson distributions}{31}
+\contentsline {section}{\numberline {4.3}Result Anscombe transformation}{31}
+\contentsline {section}{\numberline {4.4}Accuracy of detection}{33}
+\contentsline {section}{\numberline {4.5}Matched filter is best filter}{34}
 \contentsline {section}{\numberline {4.6}Test PSF estimation}{37}
-\contentsline {section}{\numberline {4.7}Bleaching signal}{39}
+\contentsline {section}{\numberline {4.7}Bleaching signal}{38}
 \contentsline {chapter}{\numberline {5}Multicolor registration}{40}
 \contentsline {section}{\numberline {5.1}Colorcomposer GUI}{40}
 \contentsline {section}{\numberline {5.2}Features of the colorcomposer application}{42}
@@ -67,9 +70,6 @@
 \contentsline {section}{\numberline {7.1}Introduction}{51}
 \contentsline {section}{\numberline {7.2}Terminology}{51}
 \contentsline {section}{\numberline {7.3}Measures}{52}
-\contentsline {subsection}{\numberline {7.3.1}F-score}{52}
-\contentsline {subsection}{\numberline {7.3.2}Jaccard index}{52}
-\contentsline {subsection}{\numberline {7.3.3}RSME}{52}
 \contentsline {section}{\numberline {7.4}Training data}{53}
 \contentsline {subsection}{\numberline {7.4.1}Bundled tubes datasets}{53}
 \contentsline {subsection}{\numberline {7.4.2}Tubulin data sets}{53}
@@ -84,11 +84,6 @@
 \contentsline {chapter}{\numberline {8}Summary and outlook}{59}
 \contentsline {section}{\numberline {8.1}Summary}{59}
 \contentsline {section}{\numberline {8.2}Outlook}{59}
-\contentsline {subsection}{\numberline {8.2.1}3d Storm}{59}
-\contentsline {subsection}{\numberline {8.2.2}Improved method to detect maxima}{59}
-\contentsline {subsection}{\numberline {8.2.3}Colorcomposer implemented in Storm-Gui}{60}
-\contentsline {subsection}{\numberline {8.2.4}Combination of Wiener filter and Gaussian filter}{60}
-\contentsline {subsection}{\numberline {8.2.5}Interactive parameter selection}{60}
 \contentsline {chapter}{\numberline {9}Appendix}{61}
 \contentsline {section}{\numberline {9.1}List of Figures}{61}
 \contentsline {section}{\numberline {9.2}List of Tables}{63}
