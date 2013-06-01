@@ -13,18 +13,16 @@ Initially the user has the option to set all important parameters. If no paramet
 \subsection{Estimating camera gain and offset}
 First the application checks for a file containing settings for gain and offset from an earlier run. If this is not the case new parameters are estimated based on the first part of the data; usually 200 frames are sufficiant.\newline
 A set of 2000 points is chosen by their mean intensity with respect to time. For faster computation the mean is not calculated over all frames but only a certain, user defined, number. The goal is to get pixels with the whole range of mean intensities, good representatives from the darkest background pixel to the brightest beads.\newline 
-The method described by \cite{skellam} is used to estimate the
-gain factor based on the selected points, a more detailed description of is given in section \ref{skellam1}. For this method a Skellam distribution is used to calculate the variance of the intensities. 
+The method described in section \ref{skellam1} is used to estimate the gain factor, based on the preselected points. The variances of the pixels are computed based on the first part of the data.
 Each dataset is three-dimensional, where time is the third
 dimension. Therefore mean $\mu$ and variance $\sigma^2$, in time, can be calculated from
 the data for each pixel individually
 \begin{align}
-	\mu(i,j) & = \frac{\Sigma_t(I_t(i,j)-I_{t+1}(i,j))}{n}\\
-	\sigma^2 & = \frac{\Sigma_t(\mu(i,j)-(I_t(i,j)-I_{t+1}(i,j)))^2}{n-1}\\
-	\mu^{(1)}& = \frac{\mu + \sigma^2}{2}
+	\mu(i,j) & = \frac{\Sigma_t(I_t(i,j)(i,j))}{n}\\
+	\sigma^2 & = \frac{\Sigma_t(\mu(i,j)-(I_t(i,j)))^2}{n-1}\\
 \end{align} 
 $I_t(i,j)$ describes the intensity of the pixel of frame $t$ at position $i,j$.
-To determine the gain factor the Skellam parameters $\mu^{(1)}$ for each pixel are plotted over the mean
+To determine the gain factor the variances $\sigma^2$ for each pixel are plotted over the mean
 intensities. A straight line can be fitted, and its slope gives the gain
 factor, the intersection gives the offset.\newline 
 Figure \ref{skellamplot} shows the scatter plot for the selected points and the fitted line. The data is taken from a real world data set. The red dots result from pixels that have a constant mean intensity over time. They are either dark the whole time, these are the dots on the left or they are beads and show signal in every frame. The blue dots result from pixels that are sometimes covered by a PSF. This blinking has much stronger influence on the variance than for the pixels mean values. This is the reason why this points are clustered on the lower end of the mean intensities. \newline

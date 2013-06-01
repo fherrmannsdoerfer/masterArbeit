@@ -1,7 +1,40 @@
+To estimate the camera gain and offset from the raw data the method described in \ref{skellam1} is used. Ideally the intensities for every pixel would follow a Poisson distribution with a certain mean. However this assumption only holds for beads and background pixel that never show any signal. The resulting points in the variance over mean plot will lie on a straight line. But what happens if background pixels are illuminated by a fluorophore in one or several frames?\newline
+This section proves that points in the variance over mean intensity plot lie on the straight line or above, but almost never below.\newline
+Set $A$ contains $n$ samples drawn from a Poisson distribution. The variance and mean of the set shall be $\mu_p$. Set $B$ is equal to set $A$ but the last ($n^\text{th}$) member $p_n^A$ is replaced by $p_n^A+c$. $c$ is a positive value that describes the difference in intensity between a background pixel and an illuminated pixel.\newline  
+
+The exchange of the last pixel increased the mean intensity:
 \begin{align}
-\text{var x} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ \int\limits_0^{2\pi}\int\limits_0^\pi R^2\sin\theta \left(R\cos\phi \sin\theta\right)^2 d\theta d\phi\\
-&=R^4 \int\limits_0^{2\pi}\int\limits_0^\pi \cos^2\phi \sin^3\theta d\theta d\phi\\
-&=R^4 \left[\frac{1}{2}\phi +\frac{1}{4}\sin 2\phi \right]_0^{2\pi}\int\limits_0^\pi \sin^3\theta d\theta \\
-&=2\pi R^4 \left[\frac{1}{12}\cos3\theta -\frac{3}{4}\cos\theta \right]_0^\pi\\
-&=\frac{8}{3}\pi R^4
+\mu_B&=\frac{1}{n}\sum_{i=1}^n(p_i^B)\\
+&=\frac{1}{n}\left(\sum_{i=1}^{n-1}(p_i^A) +p_n^A+c \right)\\
+&=\frac{1}{n}\left(\sum_{i=1}^{n}(p_i^A) +c \right)\\
+&=\mu_p + \frac{c}{n}
 \end{align}
+The variance of set $B$ times $(n-1)$ is given as:
+\begin{align}
+(n-1)\cdot\text{var}(B)&=\sum_{i=1}^n \left(p_i^B - \left(\mu_p+\frac{c}{n}\right)\right)^2\\
+&=\sum_{i=1}^n \left(\left(p_i^B\right)^2 - 2p_i^B\mu_p-\frac{2p_i^Bc}{n}+\left(\mu_p+\frac{c}{n}\right)^2\right)\\
+&=\sum_{i=1}^n \left(\left(p_i^B\right)^2 - 2p_i^B\mu_p+\mu_p^2 -\frac{2p_i^Bc}{n}+\frac{2c\mu_p}{n}+\frac{c^2}{n^2}\right)\\
+&=\sum_{i=1}^{n-1} \Big(\underbrace{\left(p_i^A\right)^2}_{=p_i^B \text{for } i\neq n} - 2p_i^A\mu_p+\mu_p^2\Big)+\underbrace{\left(p_n^A+c\right)^2}_{=\left(p_n^B\right)^2} -2\left(p_n^A+c\right)\mu_p + \mu_p^2 \\
+&~~+\sum_{i=1}^n\left(-\frac{2p_i^Bc}{n}+\frac{2c\mu_p}{n}+\frac{c^2}{n^2}\right) \nonumber\\
+&=\sum_{i=1}^{n} \left(\left(p_i^A\right)^2 - 2p_i^A\mu_p+\mu_p^2\right)+2p_n^Ac+c^2-2c\mu_p\\
+&~~+\sum_{i=1}^n\left(-\frac{2p_i^Bc}{n}+\frac{2c\mu_p}{n}+\frac{c^2}{n^2}\right) \nonumber\\
+%&=(n-1)\mu_p+2p_n^Ac+c^2-2c\mu_p+\sum_{i=1}^n\left(-\frac{2p_i^Bc}{n}+\frac{2c\mu_p}{n}+\frac{c^2}{n^2}\right)\\
+&=(n-1)\mu_p+2p_n^Ac+c^2+\frac{c^2}{n}-\sum_{i=1}^n\frac{2\left(p_i^B\right)c}{n}\\
+&=(n-1)\mu_p+2p_n^Ac+c^2+\frac{c^2}{n}-\sum_{i=1}^{n-1}\frac{2\left(p_i^A\right)c}{n} -\frac{2\left(p_n^A+c\right)c}{n}\\
+&=(n-1)\mu_p+2p_n^Ac+c^2+\frac{c^2}{n}-\sum_{i=1}^{n}\frac{2\left(p_i^A\right)c}{n} -\frac{2c^2}{n}\\
+&=(n-1)\mu_p+2p_n^Ac+c^2+\frac{c^2}{n}-2c\mu_p -\frac{2c^2}{n}\\
+&=(n-1)\mu_p+2c\left(p_n^A-\mu_p\right)+c^2 \left(1-\frac{1}{n}\right)
+\end{align}
+The exchange of $p_n^A$ increased the mean intensity, the variance of $B$ must exceed $\mu_p+1/n$ to lie above the line. Therefore the second part of the sum in equation \ref{gliwa} must be larger than $1/n$.
+\begin{align}
+\text{var}(B)&=\mu_p+\underbrace{\frac{2c\left(p_n^A-\mu_p\right)+c^2 \left(1-\frac{1}{n}\right)}{n-1}}_{>\frac{1}{n}}\label{gliwa}\\
+&~~\frac{1}{n-1}\Big(2c\underbrace{\left(p_n^A-\mu_p\right)}_{> -\mu_p}+c^2 \left(1-\frac{1}{n}\right)\Big)&\overset{!}{>}\frac{1}{n}\\
+\Rightarrow c &>\frac{\sqrt{\left(\mu_p^2+1\right)n^2-2n+1}+\mu_pn}{n-1}\\
+&=\frac{\sqrt{\mu_p^2n^2+n^2-2n+1}+\mu_pn}{n-1}\\
+&=\frac{\sqrt{\mu_p^2n^2+(n-1)^2}+\mu_pn}{n-1}\\
+&\leq \frac{2\mu_p n}{n-1}+1 ,\text{because $\mu_p, n>0$ and $n>2$}\\
+&\leq 2\mu_p + 1
+\end{align}
+This result confirms that if the additional intensity caused by signal $c$ is at least two times the mean intensity plus one of the background pixel, its variance rises.\newline
+If n samples from a Poisson distribution with mean $\mu_p$ are drawn, and one sample has the lowest value possible, for a Poisson distribution, one, at least two times the mean value has to be added to increase the variance. Lower values for $c$ would decrease the summand $(p_n - \mu_p)^2$.\newline
+The variance increses even stronger when the pixel is illuminated by a fluorophore more than once. The variance is not affected by a constant offset, but increases even more rapidly if a gain factor larger than one is present. In case of a gain factor $g$ the equations would get multiplied by $g^2$.

@@ -29,12 +29,13 @@
 \newlabel{rawStorm}{{2.1}{11}}
 \newlabel{meanMedianPoiss}{{2.4}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Skellam distribution}{12}}
+\newlabel{skellamdist}{{2.2.3}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Poisson and Gaussian distrubutions with different parameters. Especially for small numbers the Poisson and the Gaussian distribution differ. The larger $\mu $ gets for the Poisson distribution the more similar it gets to a Gaussian with mean $\mu $ and sigma $\sqrt  {\mu }$. The Poisson distributions were interpolated between their defined values. For better comparision the integer values of the Gaussian distribution were also marked with dots.\relax }}{13}}
 \newlabel{poisgaussdistr}{{2.2}{13}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.\relax }}{14}}
 \newlabel{skellamdist}{{2.3}{14}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}CCD camera}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Photon sources with shot noise}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Photon counting noise}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Quantum efficiency}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Gain}{15}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Readout noise}{15}}
@@ -49,7 +50,8 @@
 \newlabel{transtopoiss}{{2.9}{16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Anscombe transformation}{16}}
 \newlabel{trafoAnscombe}{{2.4.2}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Estimation of camera gain}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Estimation of camera gain and offset}{16}}
+\newlabel{estimationCameraGain}{{2.5}{16}}
 \newlabel{trafoGain}{{2.11}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Using variance-mean plot}{17}}
 \newlabel{skellam1}{{2.5.1}{17}}
@@ -59,147 +61,175 @@
 \newlabel{meanvarPoiss2}{{2.22}{18}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.6}Check for correct gain factor}{18}}
 \newlabel{checkGain}{{2.6}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{19}}
-\newlabel{wikibild1}{{2.5}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.7}Filters}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.8}Chromatic aberration}{19}}
-\citation{skellam}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Data processing}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{20}}
+\newlabel{wikibild1}{{2.5}{20}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Data processing}{21}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Import and processing}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Workflow}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Choosing parameters}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Estimating camera gain and offset}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Import and processing}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Workflow}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Choosing parameters}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Estimating camera gain and offset}{21}}
 \citation{Rcite}
 \citation{ilia1}
 \citation{ilia2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Recursively adjusting gain and offset}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Recursively adjusting gain and offset}{22}}
 \citation{MAJoachim}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{22}}
-\newlabel{skellamplot}{{3.1}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Estimating the width of the point spread function}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{23}}
+\newlabel{skellamplot}{{3.1}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Estimating the width of the point spread function}{23}}
 \citation{vigra}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Processing the data}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{Import Data}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{Background estimation}{23}}
-\newlabel{bgestimation}{{3.2.5}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{Create mask for background suppression}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Processing the data}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{Import Data}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{Background estimation}{24}}
+\newlabel{bgestimation}{{3.2.5}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{Create mask for background suppression}{24}}
 \citation{MAJoachim}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{24}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Original image}}}{24}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {image after background subtraction}}}{24}}
-\newlabel{removedBG}{{3.2}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{Filtering data and finding maxima}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{25}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Original image}}}{25}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {image after background subtraction}}}{25}}
+\newlabel{removedBG}{{3.2}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{Filtering data and finding maxima}{25}}
 \citation{challenge}
 \citation{challenge}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation, software from the \cite  {challenge} were used.\relax }}{25}}
-\newlabel{tabelbetterthansimplestorm}{{3.1}{25}}
-\@writefile{toc}{\contentsline {subsubsection}{Quality control for detections}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Comparison with older version of the SimpleStorm algorithm}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Adjustable filter width}{25}}
-\newlabel{sectionFilterisEvil}{{3.3.1}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{26}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Advanced setting widget}}}{26}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Easy setting widget}}}{26}}
-\newlabel{betterthansimplestorm}{{3.3}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}False positive suppression}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Result old SimpleSTORM}}}{27}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Result new SimpleSTORM}}}{27}}
-\newlabel{bgmakesitbad}{{3.4}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Comparable results based on the signal-to-noise ratio}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}New graphical user interface (GUI)}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Input widget}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Easy setting widget}}}{28}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Advanced setting widget}}}{28}}
-\newlabel{guiSettings}{{3.5}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Result widget}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{29}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Input widget}}}{29}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Result widget}}}{29}}
-\newlabel{guiWidgets}{{3.6}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Easy parameter selection}{29}}
-\newlabel{easyParam}{{3.4.3}{29}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation, software from the \cite  {challenge} were used.\relax }}{26}}
+\newlabel{tabelbetterthansimplestorm}{{3.1}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{Quality control for detections}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Comparison with older version of the SimpleStorm algorithm}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Adjustable filter width}{26}}
+\newlabel{sectionFilterisEvil}{{3.3.1}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Advanced setting widget}}}{27}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Easy setting widget}}}{27}}
+\newlabel{betterthansimplestorm}{{3.3}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}False positive suppression}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Result old SimpleSTORM}}}{28}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Result new SimpleSTORM}}}{28}}
+\newlabel{bgmakesitbad}{{3.4}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Comparable results based on the signal-to-noise ratio}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}New graphical user interface (GUI)}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Input widget}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Easy setting widget}}}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Advanced setting widget}}}{29}}
+\newlabel{guiSettings}{{3.5}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Result widget}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{30}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Input widget}}}{30}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Result widget}}}{30}}
+\newlabel{guiWidgets}{{3.6}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Easy parameter selection}{30}}
+\newlabel{easyParam}{{3.4.3}{30}}
 \citation{meanVar}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Check of the assumptions}{31}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Check of the assumptions}{32}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Calibration measurement}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Correction to Poisson distributions}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Result Anscombe transformation}{31}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{32}}
-\newlabel{calibplot}{{4.1}{32}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{32}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{32}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{32}}
-\newlabel{isitPoisson}{{4.2}{32}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{33}}
-\newlabel{isitAnscombe}{{4.3}{33}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Accuracy of detection}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Calibration measurement}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Correction to Poisson distributions}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Result Anscombe transformation}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{33}}
+\newlabel{calibplot}{{4.1}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{33}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{33}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{33}}
+\newlabel{isitPoisson}{{4.2}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{34}}
+\newlabel{isitAnscombe}{{4.3}{34}}
 \citation{simulated}
 \citation{ulli}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Matched filter is best filter}{34}}
-\newlabel{detectionError}{{4.5}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Accuracy of detection}{35}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Matched filter is best filter}{35}}
+\newlabel{detectionError}{{4.5}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{36}}
+\newlabel{accplot}{{4.4}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{36}}
+\newlabel{accplot2}{{4.5}{36}}
+\newlabel{gl91}{{4.2}{36}}
 \citation{ulli}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{35}}
-\newlabel{accplot}{{4.4}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{35}}
-\newlabel{accplot2}{{4.5}{35}}
-\newlabel{gl91}{{4.2}{35}}
-\newlabel{ch9gl1}{{4.6}{35}}
-\newlabel{ch9gl2}{{4.7}{36}}
-\newlabel{ch9gl3}{{4.9}{36}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{37}}
-\newlabel{matchedFilter1}{{4.6}{37}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Test PSF estimation}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparism the line was shifted to match the calculated error.\relax }}{38}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PSFs scale = 2.6}}}{38}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PSFs scale = 1.8}}}{38}}
-\newlabel{matchedFilter2}{{4.7}{38}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Bleaching signal}{38}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true widht of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{39}}
-\newlabel{estimatedSigma}{{4.8}{39}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces The number of active fluorophores decreases over time and so does the mean intensity of the image. This picture shows the mean intensities of 10 background pixel over time. \relax }}{39}}
-\newlabel{bleaching}{{4.9}{39}}
+\newlabel{ch9gl1}{{4.6}{37}}
+\newlabel{ch9gl2}{{4.7}{37}}
+\newlabel{ch9gl3}{{4.9}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{38}}
+\newlabel{matchedFilter1}{{4.6}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparism the line was shifted to match the calculated error.\relax }}{39}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PSFs scale = 2.6}}}{39}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PSFs scale = 1.8}}}{39}}
+\newlabel{matchedFilter2}{{4.7}{39}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Test PSF estimation}{39}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Bleaching signal}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true widht of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{40}}
+\newlabel{estimatedSigma}{{4.8}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces The number of active fluorophores decreases over time and so does the mean intensity of the image. This picture shows the mean intensities of 10 background pixel over time. \relax }}{41}}
+\newlabel{bleaching}{{4.9}{41}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Points lie above desired line}{41}}
+\newlabel{pointsabove}{{4.8}{41}}
+\newlabel{gliwa}{{4.29}{44}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.9}Variance vs Skellam}{44}}
+\newlabel{skellambettervariance}{{4.9}{44}}
+\citation{ilia1}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Mean of the estimated variances.\relax }}{45}}
+\newlabel{skellamvarmean}{{4.10}{45}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.10}Best line fit method}{45}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.1}Based on minimum covariance determinant (Fit1)}{45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Variance of the estimated variances.\relax }}{46}}
+\newlabel{skellamvarvar}{{4.11}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.2}Use just lowest variances, weighted (Fit2)}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.3}Linear fit of a random number of points (Fit3)}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.4}RANSAC (Fit4) and weighted RANSAC (Fit5)}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.5}Simple fit (Fit6)}{47}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10.6}Discussion}{47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces plot plot\relax }}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {a}}}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {b}}}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {c}}}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {d}}}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {a}}}{48}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {b}}}{48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces plot plot2\relax }}{49}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {c}}}{49}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {d}}}{49}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {c}}}{49}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {d}}}{49}}
 \citation{MAJoachim}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Multicolor registration}{40}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Multicolor registration}{50}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Colorcomposer GUI}{40}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete single beads. On the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.\relax }}{41}}
-\newlabel{ColorComposer}{{5.1}{41}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Colorcomposer GUI}{50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete single beads. On the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.\relax }}{51}}
+\newlabel{ColorComposer}{{5.1}{51}}
 \citation{MAJoachim}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Features of the colorcomposer application}{42}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Invariance of input datas units}{42}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Manual bead selection and removal}{42}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Automatic bead detection}{42}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Features of the colorcomposer application}{52}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Invariance of input datas units}{52}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Manual bead selection and removal}{52}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Automatic bead detection}{52}}
 \citation{MAJoachim}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Alignment of two multicolor images}{43}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.\relax }}{44}}
-\newlabel{badshearing}{{5.2}{44}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Information about localization certainty}{44}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Total localization error}{44}}
-\newlabel{gl22}{{5.1}{44}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Alignment of two multicolor images}{53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.\relax }}{54}}
+\newlabel{badshearing}{{5.2}{54}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Information about localization certainty}{54}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Total localization error}{54}}
+\newlabel{gl22}{{5.1}{54}}
 \citation{pearson}
 \citation{manders}
 \citation{coloc}
 \citation{scipy}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Colocalization}{46}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Global colocalization}{46}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Local colocalization}{47}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Aligned image showing colocalization.\relax }}{48}}
-\newlabel{cropedOrig}{{5.3}{48}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=50$ nm\relax }}{48}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{48}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{48}}
-\newlabel{radius50}{{5.4}{48}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=100$ nm\relax }}{48}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{48}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{48}}
-\newlabel{radius100}{{5.5}{48}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Colocalization}{56}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Global colocalization}{56}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Local colocalization}{57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Aligned image showing colocalization.\relax }}{58}}
+\newlabel{cropedOrig}{{5.3}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=50$ nm\relax }}{58}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{58}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{58}}
+\newlabel{radius50}{{5.4}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=100$ nm\relax }}{58}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{58}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{58}}
+\newlabel{radius100}{{5.5}{58}}
 \citation{DAO}
 \citation{simulated}
 \citation{alg3}
@@ -208,89 +238,88 @@
 \citation{PYME}
 \citation{quickpalm}
 \citation{rapidstorm}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Related work}{49}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Related work}{59}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \citation{challenge}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}ISBI Challenge 2013}{51}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}ISBI Challenge 2013}{61}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Introduction}{51}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Terminology}{51}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Introduction}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Terminology}{61}}
 \citation{challenge}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Measures}{52}}
-\newlabel{measuresISBI}{{7.3}{52}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces One frame from bundled tubes training data set\relax }}{53}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {High spot density}}}{53}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Low spot density}}}{53}}
-\newlabel{bundledtubesHighowDensityFrame}{{7.1}{53}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Maximum projection of bundled tubes data set\relax }}{53}}
-\newlabel{pctMaximumProjBundledTubes}{{7.2}{53}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Training data}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Bundled tubes datasets}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Tubulin data sets}{53}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces This pictures show the variability of the background in the spatial and temporal dimensions\relax }}{54}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{54}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{54}}
-\newlabel{tubulinVariableBg}{{7.3}{54}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}Submissions}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}High precision}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.2}High score}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Maximum projection of tubulin data set\relax }}{55}}
-\newlabel{pctMaximumProjTubulin}{{7.4}{55}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Measures}{62}}
+\newlabel{measuresISBI}{{7.3}{62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces One frame from bundled tubes training data set\relax }}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {High spot density}}}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Low spot density}}}{63}}
+\newlabel{bundledtubesHighowDensityFrame}{{7.1}{63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.2}{\ignorespaces Maximum projection of bundled tubes data set\relax }}{63}}
+\newlabel{pctMaximumProjBundledTubes}{{7.2}{63}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}Training data}{63}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.1}Bundled tubes datasets}{63}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4.2}Tubulin data sets}{63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.3}{\ignorespaces This pictures show the variability of the background in the spatial and temporal dimensions\relax }}{64}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Tubulin2 frame 10}}}{64}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Tubulin2 frame 1010}}}{64}}
+\newlabel{tubulinVariableBg}{{7.3}{64}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}Submissions}{64}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.1}High precision}{64}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.2}High score}{64}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.4}{\ignorespaces Maximum projection of tubulin data set\relax }}{65}}
+\newlabel{pctMaximumProjTubulin}{{7.4}{65}}
 \citation{challenge}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces Overview over the steps of postprocessing.\relax }}{56}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Image before postprocessing}}}{56}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Mask}}}{56}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Result of postprocessing}}}{56}}
-\newlabel{postproc}{{7.5}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.3}Highest score via postprocessing}{56}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}Results}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.1}High density data}{56}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.2}Low density data}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.3}Overall}{57}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all data sets. Lower ranks are better\relax }}{58}}
-\newlabel{meanRankOverall}{{7.6}{58}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Summary and outlook}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.5}{\ignorespaces Overview over the steps of postprocessing.\relax }}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Image before postprocessing}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Mask}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Result of postprocessing}}}{66}}
+\newlabel{postproc}{{7.5}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5.3}Highest score via postprocessing}{66}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.6}Results}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.1}High density data}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.2}Low density data}{67}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6.3}Overall}{67}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all data sets. Lower ranks are better\relax }}{68}}
+\newlabel{meanRankOverall}{{7.6}{68}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Summary and outlook}{69}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Summary}{59}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Outlook}{59}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Appendix}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Summary}{69}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Outlook}{69}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Appendix}{71}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}List of Figures}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.1}List of Figures}{71}}
 \citation{challenge}
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}List of Tables}{63}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.3}ISBI challenge}{64}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces Results for the main submission for the high density data set (with postprocessing)\relax }}{64}}
-\newlabel{reshd1}{{9.1}{64}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Results for the high precission submission for the high density data set\relax }}{64}}
-\newlabel{reshd2}{{9.2}{64}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.3}{\ignorespaces Results for the high score submission for the high density data set (without postprocessing)\relax }}{64}}
-\newlabel{reshd3}{{9.3}{64}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.1}{\ignorespaces Results for high density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{64}}
-\newlabel{meanJaccardHighDensity}{{9.1}{65}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.2}{\ignorespaces Results for high density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{65}}
-\newlabel{meanRSMEHighDensity}{{9.2}{65}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.4}{\ignorespaces Results for the main submission for low density data sets(with postprocessing)\relax }}{65}}
-\newlabel{resls1}{{9.4}{65}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.5}{\ignorespaces Results for the high precission submission for low density data sets\relax }}{65}}
-\newlabel{resls2}{{9.5}{65}}
-\@writefile{lot}{\contentsline {table}{\numberline {9.6}{\ignorespaces Results for the high score submission for low density data sets (without postprocessing)\relax }}{65}}
-\newlabel{resls3}{{9.6}{65}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.3}{\ignorespaces Results for low density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{66}}
-\newlabel{meanJaccardLowDensity}{{9.3}{66}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.4}{\ignorespaces Results for low density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{66}}
-\newlabel{meanRSMELowDensity}{{9.4}{66}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.5}{\ignorespaces Results for low density data sets. Averaged Precision over all three datasets. For this score higher is better. The y axis is broken to show the differences better.\relax }}{66}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.2}List of Tables}{74}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.3}ISBI challenge}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.1}{\ignorespaces Results for the main submission for the high density data set (with postprocessing)\relax }}{74}}
+\newlabel{reshd1}{{9.1}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.2}{\ignorespaces Results for the high precission submission for the high density data set\relax }}{74}}
+\newlabel{reshd2}{{9.2}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.3}{\ignorespaces Results for the high score submission for the high density data set (without postprocessing)\relax }}{74}}
+\newlabel{reshd3}{{9.3}{74}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.1}{\ignorespaces Results for high density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{75}}
+\newlabel{meanJaccardHighDensity}{{9.1}{75}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.2}{\ignorespaces Results for high density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{75}}
+\newlabel{meanRSMEHighDensity}{{9.2}{75}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.4}{\ignorespaces Results for the main submission for low density data sets(with postprocessing)\relax }}{75}}
+\newlabel{resls1}{{9.4}{75}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.5}{\ignorespaces Results for the high precission submission for low density data sets\relax }}{75}}
+\newlabel{resls2}{{9.5}{75}}
+\@writefile{lot}{\contentsline {table}{\numberline {9.6}{\ignorespaces Results for the high score submission for low density data sets (without postprocessing)\relax }}{76}}
+\newlabel{resls3}{{9.6}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.3}{\ignorespaces Results for low density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{76}}
+\newlabel{meanJaccardLowDensity}{{9.3}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.4}{\ignorespaces Results for low density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{76}}
+\newlabel{meanRSMELowDensity}{{9.4}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.5}{\ignorespaces Results for low density data sets. Averaged Precision over all three datasets. For this score higher is better. The y axis is broken to show the differences better.\relax }}{77}}
+\newlabel{meanPrecisionLowDensity}{{9.5}{77}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better.\relax }}{77}}
+\newlabel{meanRankLow}{{9.6}{77}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9.7}{\ignorespaces Averaged rank over Jaccard index and RSME score for all high density data sets. Lower ranks are better\relax }}{77}}
 \bibstyle{te}
 \bibdata{research}
-\newlabel{meanPrecisionLowDensity}{{9.5}{67}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better.\relax }}{67}}
-\newlabel{meanRankLow}{{9.6}{67}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9.7}{\ignorespaces Averaged rank over Jaccard index and RSME score for all high density data sets. Lower ranks are better\relax }}{67}}
-\newlabel{meanRankHigh}{{9.7}{67}}
 \bibcite{Abbe}{{1}{1873}{{Abbe}}{{}}}
 \bibcite{peakFit}{{2}{2013}{{Alex D.~Herbert}}{{}}}
 \bibcite{anscombe}{{3}{1948}{{Anscombe}}{{}}}
@@ -302,7 +331,8 @@
 \bibcite{simulated}{{9}{2011}{{Gr\"ull et~al.}}{{Gr\"ull, Kirchgessner, Kaufmann, Hausmann, and Kebschull}}}
 \bibcite{heilemann}{{10}{2008}{{Heilemann et~al.}}{{Heilemann, van~de Linde, Sch\"uttpelz, Kasper, Seefeldt, Mukherjee, Tinnefeld, and Sauer}}}
 \bibcite{sted}{{11}{1994}{{Hell and Wichmann}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Bibliography}{68}}
+\newlabel{meanRankHigh}{{9.7}{78}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Bibliography}{78}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{skellam}{{12}{2012}{{Hwang et~al.}}{{Hwang, Hun-Sik, and Kweon}}}

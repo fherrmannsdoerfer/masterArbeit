@@ -65,7 +65,8 @@ The sum of Poisson-distributed independent variables is also Poisson-distributed
 	\label{poisgaussdistr}
 \end{figure}
 
-\subsection{Skellam distribution}
+\subsection{Skellam distribution}\label{skellamdist}
+The variance of a Poisson distribution can be estimated using a Skellam distribution based.
 The probability
 mass function of the Skellam distribution is a function of the difference between
 two Poisson random variables
@@ -76,7 +77,7 @@ two Poisson random variables
 \end{equation}  
 $n_1$ and $n_2$ are the Poisson distributed random variables and $k = n_1 - n_2$.
 $I_{|k|}$ is the modified Bessel function of the first kind.\\
-Mean $\mu$ and variance $\sigma$ of the Skellam distribution are given by
+Mean $\mu$ and variance $\sigma^2$ of the Skellam distribution are given by
 \begin{align}
 	&&\mu &= \mu_1 - \mu_2,& \sigma^2 &= \mu_1 + \mu_2\\
 	\Rightarrow &&\mu_1& = \frac{\mu + \sigma^2}{2},& \mu_2 &=\frac{-\mu +
@@ -89,12 +90,13 @@ Figure \ref{skellamdist} shows two Poisson distributions ($P_\text{red}$ and $P_
 	\caption{Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.}
 	\label{skellamdist}
 \end{figure}
-
+If the differences between following values of a single Poisson distribution are used for the Skellam distribution the variance of the Poisson distribution is given by the Skellam parameters $\mu_1$ or $\mu_2$ (the mean of the Skellam distribution $\mu$ will be close to zero if the same Poisson distributions are used).\newline
+In section \ref{skellambettervariance} is shown which way to estimate the variance works better and more reliable.
 
 
 
 \section{CCD camera}
-\subsection{Photon sources with shot noise}
+\subsection{Photon counting noise}
 The emission of photons is a random process that occures at unpredictible times. Therefore the number of photons passing through a plane is never constant but varies around some average value. The phenomena, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera for example, is called shot noise. It playes a major role if the total number of photons is low, as from dark sources or with short exposure times of the camera.
 \subsection{Quantum efficiency}
 Quantum efficiency describes the fraction of photons that creates a detectable electron in a sensor chip. The quantum efficiency depends on the wavelenght of the incoming photon. Photons with energies below the band gap can not produce a free electron that can be detected. The quantum efficiency as a maximum for a certain wavelength. This maximum of the quantum efficiency is basically caused by two effects. The higher the energy of the photon is the higher is the kinetic energy of the freed electron and therefore it has a greater diffusion length, but the electron is absorbed farer away from the detector and will therefore recombinate with a electron hole more likely.
@@ -147,7 +149,7 @@ one.
 \end{figure}
  
 
-\section{Estimation of camera gain}
+\section{Estimation of camera gain and offset}\label{estimationCameraGain}
 Two different ways of estimating the camera parameters have been investigated. For both approaches it is assumed that the background and the beads are Poisson distributed. This data $I_\text{true}$ is then transformed in the following way:
 \begin{equation}
 	I_\text{meas} = g \cdot I_\text{true} + o \label{trafoGain}
@@ -209,6 +211,10 @@ The gain factor may have been determined or entered incorrectly. Assuming there 
 The variance of the Gaussian can be determined. Since the incorrect estimate of the gain factor and the Gaussians variance $r$ are known, the correct gain factor can be determined by multiplication of the incorrect one and $r$.
 
 \section{Filters}
+\subsection*{Gaussian filter}
+The Gaussian filter uses a Gaussian for the convolution with the image that shall be filtered. The convolution of an image with a Gaussian filter alters the intensities of the pixels by adding some fraction, depending on the parameters of the filter, of the surrounding pixels intensities. The Gaussian filter can be used for noise suppression.
+\subsection*{Wiener filter}
+The Wiener filter is also known as Wiener-Kolmogoroff filter. One application of the Wiener filter is noise suppression. It is designed to minimize the mean square error of the filtered image compared to the original image, without noise. 
 
 \section{Chromatic aberration}
 In microscopy it is often desirable to label different structures in a cell with
