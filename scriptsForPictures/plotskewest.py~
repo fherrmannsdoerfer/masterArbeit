@@ -1,0 +1,68 @@
+import numpy as np
+import matplotlib.pyplot as plot
+nbrPxl = 100
+skewest100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/skewest'+str(nbrPxl)+'.npy')
+varest100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/varest'+str(nbrPxl)+'.npy')
+meanest100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/meanest'+str(nbrPxl)+'.npy')
+
+nbrPxl = 400
+skewest400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/skewest'+str(nbrPxl)+'.npy')
+varest400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/varest'+str(nbrPxl)+'.npy')
+meanest400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/meanest'+str(nbrPxl)+'.npy')
+
+nbrPxl = 100
+skewest2100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/skewest2'+str(nbrPxl)+'.npy')
+varest2100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/varest2'+str(nbrPxl)+'.npy')
+meanest2100 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/meanest2'+str(nbrPxl)+'.npy')
+
+nbrPxl = 400
+skewest2400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/skewest2'+str(nbrPxl)+'.npy')
+varest2400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/varest2'+str(nbrPxl)+'.npy')
+meanest2400 = np.load('/home/herrmannsdoerfer/MasterArbeit/daten/meanest2'+str(nbrPxl)+'.npy')
+
+for i in range(0,skewest100.shape[0],2):
+    plot.plot(range(1,skewest100.shape[1]+1), skewest100[i,:], label = str(i*1000+1000)+' frames', linewidth = 2)
+
+
+plot.xlabel("True variance", fontsize=20)
+plot.ylabel("Estimated variance", fontsize=20)
+plot.tick_params(axis='both', labelsize=12)
+
+plot.legend(loc = 2, prop={'size':15})
+plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/skewness100.png')
+plot.close()
+
+for i in range(0,skewest400.shape[0],2):
+    plot.plot(range(1,skewest400.shape[1]+1), skewest400[i,:], label = str(i*1000+1000)+' frames', linewidth = 2)
+
+
+plot.xlabel("True variance", fontsize=20)
+plot.ylabel("Estimated variance", fontsize=20)
+plot.tick_params(axis='both', labelsize=12)
+
+plot.legend(loc = 2, prop={'size':15})
+plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/skewness400.png')
+
+
+for i in range(0,skewest2100.shape[0],2):
+    plot.plot(range(1,skewest2100.shape[1]+1), skewest2100[i,:], label = str(i*100+100)+' frames', linewidth = 2)
+
+
+plot.xlabel("True variance", fontsize=20)
+plot.ylabel("Estimated variance", fontsize=20)
+plot.tick_params(axis='both', labelsize=12)
+
+plot.legend(loc = 2, prop={'size':15})
+plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/skewness2100.png')
+plot.close()
+
+for i in range(0,skewest2400.shape[0],2):
+    plot.plot(range(1,skewest2400.shape[1]+1), skewest2400[i,:], label = str(i*100+100)+' frames', linewidth = 2)
+
+
+plot.xlabel("True variance", fontsize=20)
+plot.ylabel("Estimated variance", fontsize=20)
+plot.tick_params(axis='both', labelsize=12)
+
+plot.legend(loc = 2, prop={'size':15})
+plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/skewness2400.png')

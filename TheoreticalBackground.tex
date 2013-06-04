@@ -3,22 +3,22 @@ This chapter gives an overview over the most important distributions and transfo
 
 \section{The data}
 \subsection{Labeling}
-The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label structures of interest with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. A short time after the activation the fluorophors emit a photon and fall back to the unexited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. The result of this is that each fluorophore is visible only every thousandth frame or less often.\newline
+The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label structures of interest with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. A short time after the activation the fluorophors emit a photon and fall back to the unexited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. Each fluorophore is only visible a couple of times. A movie that shows the frames consecutively shows blinking spots.\newline
 The technique to stain the samples that was used for all real-world images in this thesis is called immunofluorescence. For this technique antibodies are used to attach the fluorescenic molecules to the samples. Antibodies target specific biomolecules within a cell that show their antigen. There are two classes of immunofluorescence techniques.\newline
 Primary immunofluorescence uses only one antibody to that the fluorophore is directly attached.\newline
 For secundary immunofluorescence two kinds of antibodies are used. One primary antibody that binds to the molecule or structure of interest and a second antibody that binds to the primary and carries the fluorophore.
 
 \subsection{Description of the data sets}
 The datasets for dSTORM microscopy that we recieve from our collaborators from
-Bioquant are big datasets of several gigabyte in the Andor ".sif" format. Each
-file contains a stack of pictures, normaly between 1000 and 10000, taken
+Bioquant, Heidleberg are big datasets of several gigabyte in the Andor ".sif" format. Each
+file contains a stack of pictures, usually between 1000 and 10000, taken
 consecutively with a fixed exposure time normally between 20 and 200 milliseconds. From now on the first two dimensions are called spatial dimensions. It is refered to third dimension of the data that results from the consecutive capturing of the images as temporal dimension.\newline
 
 Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as approximatly Gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
 
 Beads are larger and brighter than spots from only one fluorophore and are used to align multiple channels in the postprocessing step. Beads are designed to show up in every frame of the sequence at the same position and can therefore be used as landmarks for the alignment. They are composed of fluorophores of different colors to be visible in every channel.\newline
 
-The other spots, bound to some proteins for example, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of point spread functions per frame. This gives the possibility to determine the center of each point spread function with a sub-pixel precision. A high resoluion image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
+The other spots, such as spots from fluorophores bound to some proteins, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of point spread functions per frame. This gives the possibility to determine the center of each point spread function with a sub-pixel precision. A high resoluion image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
 
 \begin{figure}
 \centering
@@ -83,19 +83,20 @@ Mean $\mu$ and variance $\sigma^2$ of the Skellam distribution are given by
 	\Rightarrow &&\mu_1& = \frac{\mu + \sigma^2}{2},& \mu_2 &=\frac{-\mu +
 	\sigma^2}{2}
 \end{align}
-Figure \ref{skellamdist} shows two Poisson distributions ($P_\text{red}$ and $P_\text{blue}$) and the resulting Skellam distribution (puple) of the difference $P_\text{blue} - P_\text{red}$.
+Figure \ref{skellamdistfig} shows two Poisson distributions ($P_\text{red}$ and $P_\text{blue}$) and the resulting Skellam distribution (puple) of the difference $P_\text{blue} - P_\text{red}$.
 \begin{figure}
 \centering
 \includegraphics[width = 0.7\textwidth]{pictures/skellamdist.png}
 	\caption{Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.}
-	\label{skellamdist}
+	\label{skellamdistfig}
 \end{figure}
 If the differences between following values of a single Poisson distribution are used for the Skellam distribution the variance of the Poisson distribution is given by the Skellam parameters $\mu_1$ or $\mu_2$ (the mean of the Skellam distribution $\mu$ will be close to zero if the same Poisson distributions are used).\newline
 In section \ref{skellambettervariance} is shown which way to estimate the variance works better and more reliable.
 
 
 
-\section{CCD camera}
+\section{Charge-coupled Device (CCD) camera}
+The light emmited by the fluorophores is captured by a CCD camera. During the capturing process the true measure, the photons arriving at the aperture of the camera, is transformed to electrons and eventually to a digital number. This section gives a short overview over the most important parts of the signal processing within a CCD camera.
 \subsection{Photon counting noise}
 The emission of photons is a random process that occures at unpredictible times. Therefore the number of photons passing through a plane is never constant but varies around some average value. The phenomena, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera for example, is called shot noise. It playes a major role if the total number of photons is low, as from dark sources or with short exposure times of the camera.
 \subsection{Quantum efficiency}
@@ -175,7 +176,7 @@ The offset $o$ can be calculated in the same way.
 	\text{mean}(I_{\text{meas}1}) - \frac{\text{var}(I_{\text{meas}1})}{g} &= g\cdot \lambda_1 + o - \frac{g^2\cdot\lambda_1}{g}\\
 	&= o
 \end{align}
-The estimation gets more stable if more than two points are used and if the points are taken from a wide range of intensities. If more than two points are used a straight line must be fitted through them. The lines slope gives the gain factor and the intersection on the $x$-axis the offset. For more robustness the Skellam distribution instead of the variances is used. 
+The estimation gets more stable if more than two points are used and if the points are taken from a wide range of intensities. If more than two points are used a straight line must be fitted through them. The lines slope gives the gain factor and the intersection on the $x$-axis the offset. The variance of the pixels intensities are calculated directly, instead of using the Skellam approach. This is motivated in section \ref{skellambettervariance}.
 \subsection{Using skewness of poisson distribution}
 A second approach is to use the skewness of the Poisson distribution to estimate the mean value.\newline
 For every pixel there are multiple intensities in temporal dimension. One can
@@ -200,7 +201,7 @@ The skewness is invariant to shift and multiplication with a constant. This
 means that the transformation caused by the camera gain and the offset
 does not affect the skewness. This gives a third equation to solve for $g$ and
 $o$.\\
-This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than roughly 30, the skewness gives, due to noise, no stabel results. For data sets with bright background intensities it is not possible to determine the camera parameters in this way.
+This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than roughly 30, the skewness gives no stabel results. This is shown in section \ref{skewnesssucks}. For data sets with bright background intensities it is not possible to determine the camera parameters in this way.
 
 \section{Check for correct gain factor} \label{checkGain}
 The gain factor may have been determined or entered incorrectly. Assuming there is the true gain factor $g_\text{true}$ and the incorrect gain factor $g_\text{false}$. Let be Poiss$(\mu)$ the true Poisson distribution of one background pixel and $o$ the offset. The pixels raw intensities are therefore $g_\text{true} \cdot \text{Poiss($\mu$)} + o$. The following shows the effects of the incorrectly chosen gain factor on the transformed images:
@@ -208,28 +209,10 @@ The gain factor may have been determined or entered incorrectly. Assuming there 
 	\frac{(g_\text{true} \cdot \text{Poiss($\mu$)} + o)-o}{g_\text{false}} &= \underbrace{\frac{g_\text{true}}{g_\text{false}}}_{r}\text{Poiss($\mu$)}&\text{Transformation \ref{trafoPoiss}}\\
 	2\sqrt{r\text{Poiss($\mu$)}+\frac{3}{8}}&\approx \text{Gauss}(2\sqrt{r\mu},r)&\text{Transformation \ref{trafoAnscombe}}
 \end{align}
-The variance of the Gaussian can be determined. Since the incorrect estimate of the gain factor and the Gaussians variance $r$ are known, the correct gain factor can be determined by multiplication of the incorrect one and $r$.
+The variance of the Gaussian can be determined. Since the incorrect estimate of the gain factor and the Gaussians variance $r$ are known, the correct gain factor can be determined by multiplication of the incorrect one with $r$.
 
 \section{Filters}
 \subsection*{Gaussian filter}
-The Gaussian filter uses a Gaussian for the convolution with the image that shall be filtered. The convolution of an image with a Gaussian filter alters the intensities of the pixels by adding some fraction, depending on the parameters of the filter, of the surrounding pixels intensities. The Gaussian filter can be used for noise suppression.
+The Gaussian filter uses a Gaussian for the convolution with the image that shall be filtered. The convolution of an image with a Gaussian filter alters the intensities of the pixels by adding some fraction, depending on the parameters of the filter, of the intensities of the surrounding pixels. The Gaussian filter can be used for noise suppression.
 \subsection*{Wiener filter}
-The Wiener filter is also known as Wiener-Kolmogoroff filter. One application of the Wiener filter is noise suppression. It is designed to minimize the mean square error of the filtered image compared to the original image, without noise. 
-
-\section{Chromatic aberration}
-In microscopy it is often desirable to label different structures in a cell with
-different colors. To do so our collaborators use different fluoroscent molecules
-that emit light at different and therefore distinguishable wavelengths. Using appropriate
-filters it is possible to capture pictures just containing light emited from one
-kind of fluorophore.\newline
-The propagation speed of light depends on the substance it is propagating through. The property of the substance that describes the ratio of the speed of light in vacuum $c$ and in the substance $v$ is called refraction index $n = c/v$.\newline
-The refraction index for one substance is wavelength dependent. Different wavelengths are refrected under different angles. This effect causes the splitting of white light into its components when shining through a prism.\newline
-The same effect causes the focal length of the microscope to be wavelength dependent. This means that the light for the same spot but with
-different wavelenghts is not mapped to the same spot in the image. This is shown in Figure \ref{wikibild1}.
-
-\begin{figure}
-	\centering
-	\includegraphics[width = 0.5\textwidth]{pictures/bildabberationwiki.png}
-	\caption[Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013]{Sketch of the dependency of the focal length on the wavelength.}
-	\label{wikibild1}
-	\end{figure}
+The Wiener filter is also known as Wiener-Kolmogoroff filter. One application of the Wiener filter is noise suppression. It is designed to minimize the mean square error of the filtered image compared to the original image without noise. 

@@ -82,7 +82,7 @@ The other training data sets models 7 microtubules, a structure that is a long f
 
 \section{Submissions}
 Now the question arose what it means to be the best algorithm. Is the one the best that finds the most true positives regardles of the number of false positives and the accuracy of detection? Or is it more favorable to find exclusivly correct spots, but less? There are different definitions for the best algorithm possible.\newline
-For that reason we run each dataset with three different settings described below. All parameters were set manually.
+For that reason each dataset was processed with three different settings described below. All parameters were set manually.
 \subsection{High precision}
 A biological question to be answered by STORM microscopy can be: "How are the labeled proteins, distributed over the cell?" There might be just a couple of fluorophors attached to each protein. In that case a high precision is crucial. Otherwise homogenously distributed false positives all over the image might leed to the conclusion that the protein of intest is distributed all over the cell, intead of beeing clustered in some spots.\newline
 The high precision submission set the $\alpha$ value to low values to get almost 100 percent precision.

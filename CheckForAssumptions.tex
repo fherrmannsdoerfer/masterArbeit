@@ -1,6 +1,7 @@
 \chapter{Check of the assumptions}
 For the whole workflow several assumptions about the data or the results of certain transformations are made. These assumptions have to be met at least roughly to ensure the correctness of the results.\newline
-This section gives checks for most of the assumptions like accuracy of the PSF scale estimation or that the matched filter of the matching size compared to the PSF performs best.
+This section gives checks for most of the assumptions like accuracy of the PSF scale estimation or that the matched filter of the matching size compared to the PSF performs best.\newline
+Also a discussion about the design choices is present in this chapter.
 \section{Calibration measurement}
 As described by \cite{meanVar} the gain can be determined using the mean and variance of data with different mean intensities. Therefore a calibration dataset was aquired. The temperature and the gain factor were set to match the settings usually used. A sample with cells was prepared for the Storm measurement. First, eleven time series were taken, with opend shutter and with increasing exposure time from 0 milliseconds up to 1000 milliseconds. Afterwards the same procedure was repeated with the shutter kept closed. Figure \ref{calibplot} shows the results for the first 6 exposure time. All points lie on a straight line. The gain factor determined by the calibration measurement was 3.9, the offset 315. This offset is too small. An other method was used to determine the offset. There were also an other series of  images taken with closed shutter. This series shows the response of the camera without any light around. The mean value of the shortest exposure time was taken as offset. Its value is 380. 
 \begin{figure}
@@ -38,7 +39,7 @@ On the other hand, the position of the fluorescent molecule is deteted by upscal
 After that the maximums position of the upscaled grid is taken as the resulting
 position. This gives an error from roughly a 12th pixelwidth. This error becomes less important with higher upscaling factors.\newline
 
-Because there is no groundtruth for the real data, we had to produce test data and groundtruth. This was done similar to the method described by \cite{simulated}. The difference was, that instead of generating just one spot per frame a different number of spots were simulated for each frame. For different signal-to -noise ratios, a dataset with 40 times 40 pixels and 1000 frames was created. Each frame containing one, three or five point spread functions. The position of the spots was determined beforehand, to use the same spots for each signal to noise ratio.\newline
+Because there is no groundtruth for the real data, test data and groundtruth had to be produce. This was done similar to the method described by \cite{simulated}. The difference was, that instead of generating just one spot per frame a different number of spots were simulated for each frame. For different signal-to -noise ratios, a dataset with 40 times 40 pixels and 1000 frames was created. Each frame containing one, three or five point spread functions. The position of the spots was determined beforehand, to use the same spots for each signal to noise ratio.\newline
 
 To determine the accuracy, the standard deviation between the true position of the signal and its detection were used. For data sets with more than one spot per frame, the best match within a certain distance around the true position was found. If a pair of true spot and detection were found, both were removed for further matching of the remaining signals. In the end the averaged standard deviation of the detection relative to the true positions were calculated as follows:
 \begin{align}
@@ -66,7 +67,7 @@ The results can be seen in Figure \ref{accplot}. The Figure shows, that the more
 
 
 \section{Matched filter is best filter} \label{detectionError}
-For denoising the image a matched filter is used. Since we assume that the point spread function is Gaussian, a two dimensional Gaussian filter with the estimated size of the point spread function is used. The following calculation shows why this is the best choice for the standard deviation.\newline
+For denoising the image a matched filter is used. Since it is assumed that the point spread function is Gaussian, a two dimensional Gaussian filter with the estimated size of the point spread function is used. The following calculation shows why this is the best choice for the standard deviation.\newline
 This calculation was inspired by the calculation in \cite{ulli}, page 207.\newline 
 The assumptions are, the point spread function is Gaussian shaped with a true standard deviation of $\sigma_\text{PSF}$, the image contains white Gaussian noise with mean zero and unit variance, the applied filter for denoising is a Gaussian filter with standard deviation $\sigma_\text{filter}$.\newline
 The image $f$ is composed of Gaussian filter convolved with the signal $s$ and the above mentioned white noise $n$. $s$ and $n$ describe the filtered signal respectivly noise.
@@ -151,6 +152,25 @@ One assumption was that the backgrounds illumination is caused mainly from out o
 	\label{bleaching}
 \end{figure}
 
+\section{Reliability of skewness estimation} \label{skewnesssucks}
+To estimate the true Poisson distributions mean using its skewness is a direct way to get to the true distribution regardless of the camera parameters.\newline
+This approach has one drawback. The larger the mean value of a Poisson distribution gets, the more similar the Poisson distribution gets to a Gaussian. This means that the skewness, which measures the assymetry of the distribution gets smaller and smaller, converging to zero. The inverse of the skewness squared is used to estimate the mean of the Poisson distribution, this means that small uncertainties for the skewness lead to a high uncertainty for the estimated mean. Also a single distribution with a couple of hundred samples yields no reliable estimate. A robust estimate can be achieved if the median of several distributions is calculated. Figure \ref{skew1000} show the results of the estimate of the mean using the skewness approach on patches of different size. The plot shows the estimated value on the ordinate, the true value on the abscissa. The different lines show the results for different sizes of the distribution. Figure \ref{skew100} shows the same plot but for smaller distribution sizes.
+
+\begin{figure}
+\subfloat[10 times 10 pixel patch]{\includegraphics[width = 0.485\textwidth]{pictures/skewness100.png}}\hfill
+\subfloat[20 times 20 pixel patch]{\includegraphics[width = 0.485\textwidth]{pictures/skewness400.png}}
+	\caption{Result of mean estimation using skewness approach.}
+	\label{skew1000}	
+\end{figure}
+\begin{figure}
+\subfloat[10 times 10 pixel patch]{\includegraphics[width = 0.485\textwidth]{pictures/skewness2100.png}}\hfill
+\subfloat[20 times 20 pixel patch]{\includegraphics[width = 0.485\textwidth]{pictures/skewness2400.png}}
+	\caption{Result of mean estimation using skewness approach.}
+	\label{skew100}	
+\end{figure}
+The estimate for the mean is accurate even for a smaller number of samples up to 15 to 20.\newline
+This approach has the drawback that for small data sets with only several hundred frames the accuracy of the estimated values is low. An other problem are artificially created data sets with a background intensity of 100 or above. In that case the skewness approach gives no reliable results.
+
 \section{Points lie above desired line}\label{pointsabove}
 To estimate the camera gain and offset from the raw data the method described in \ref{skellam1} is used. Ideally the intensities for every pixel would follow a Poisson distribution with a certain mean. However this assumption only holds for beads and background pixel that never show any signal. The resulting points in the variance over mean plot will lie on a straight line. But what happens if background pixels are illuminated by a fluorophore in one or several frames?\newline
 This section proves that points in the variance over mean intensity plot lie on the straight line or above, but almost never below.\newline
@@ -183,22 +203,32 @@ The exchange of $p_n^A$ increased the mean intensity, the variance of $B$ must e
 \begin{align}
 \text{var}(B)&=\mu_p+\underbrace{\frac{2c\left(p_n^A-\mu_p\right)+c^2 \left(1-\frac{1}{n}\right)}{n-1}}_{>\frac{1}{n}}\label{gliwa}\\
 &~~\frac{1}{n-1}\Big(2c\underbrace{\left(p_n^A-\mu_p\right)}_{> -\mu_p}+c^2 \left(1-\frac{1}{n}\right)\Big)&\overset{!}{>}\frac{1}{n}\\
-\Rightarrow c &>\frac{\sqrt{\left(\mu_p^2+1\right)n^2-2n+1}+\mu_pn}{n-1}\\
-&=\frac{\sqrt{\mu_p^2n^2+n^2-2n+1}+\mu_pn}{n-1}\\
-&=\frac{\sqrt{\mu_p^2n^2+(n-1)^2}+\mu_pn}{n-1}\\
-&\leq \frac{2\mu_p n}{n-1}+1 ,\text{because $\mu_p, n>0$ and $n>2$}\\
-&\leq 2\mu_p + 1
+\Rightarrow c &>\frac{\sqrt{\left(\mu_p^2+1\right)n^2-2n+1}+\mu_pn}{n-1}
 \end{align}
-This result confirms that if the additional intensity caused by signal $c$ is at least two times the mean intensity plus one of the background pixel, its variance rises.\newline
-If n samples from a Poisson distribution with mean $\mu_p$ are drawn, and one sample has the lowest value possible, for a Poisson distribution, one, at least two times the mean value has to be added to increase the variance. Lower values for $c$ would decrease the summand $(p_n - \mu_p)^2$.\newline
-The variance increses even stronger when the pixel is illuminated by a fluorophore more than once. The variance is not affected by a constant offset, but increases even more rapidly if a gain factor larger than one is present. In case of a gain factor $g$ the equations would get multiplied by $g^2$.
+\begin{align}
+\frac{\sqrt{\mu_p^2n^2+n^2-2n+1}+\mu_pn}{n-1}&=\frac{\sqrt{\mu_p^2n^2+(n-1)^2}+\mu_pn}{n-1}\\
+&\leq \frac{2\mu_p n}{n-1}+1 ,\text{because $\mu_p, n>0$ and $n>2$}\\
+&< 2\mu_p + 1
+\end{align}
+This result confirms that if the additional intensity caused by signal $c$ is at least two times the mean intensity plus one, the pixels variance rises.\newline
+If $n$ samples from a Poisson distribution with mean $\mu_p$ are drawn, and one sample has the lowest value possible, for a Poisson distribution, one, at least two times the mean value has to be added to increase the variance. Lower values for $c$ would decrease the summand $(p_n - \mu_p)^2$. The mean of the set increases if the replaced value lies further apart from the mean after replacement than before.\newline
+The variance increses even stronger when the pixel is illuminated by a fluorophore more than once. The variance is not affected by a constant offset, but increases even more rapidly if a gain factor larger than one is present. In case of a gain factor $g$ the equations would get multiplied by $g^2$.\newline
+
+Figure \ref{simulatedScatter} shows a scatter plot of simulated data. For this plot a normal data set with 200 frames were simulated. The data set contains background pixel with mean intensitie between five and ten and beads with intensities between 80 and 160. For each pixel a Poisson distribution with the given mean is drawn. 30 PSFs per frame with a standard deviation of two and an intensity of 80 were added. The data was multiplied by 4 and an offset of 400 was added. Only a subset of all points is plotted. In Figure \ref{simulatedScatter} the blue line shows the expected position for pixels with constant intensity. Pixels that were not affected by any signal are displayed as green dots. The color of all the other pixel is calculated based on the value $c$ added by the PSF. A red color is used if the added $c$ is larger than the mean intensity, a blue color is used if the additional intensity is lower than the mean value of the pixel. The brighter the dots are the more often they are affected by signal. It can be seen, that the points tend to lie above the line, even when less than the mean value is added.
+\begin{figure}
+\centering
+\includegraphics[width = .7\textwidth]{pictures/scatterplot_psfint_2000intmax_80_resx_150psfw_2.png}
+\caption{Variance mean scatter plot. The blue line indicates where pixels with constant mean would be displayed.}\label{simulatedScatter}
+\end{figure}
 
 \section{Variance vs Skellam}\label{skellambettervariance}
 For the estimation of the camera gain and offset the method described in section \ref{estimationCameraGain} is used. There are two different ways to estimate the variance of pixel intenensities.\newline
 The variance can be computed directly or the Skellam distribution as described in section \ref{skellamdist} can be used.\newline
 The problem is to estimate the variance of the Poisson distribution of the pixels as good as possible, with as few samples as possible. The condition to work well on as few frames as possible araises, because there may be data sets with only 200 or 300 frames or the user does not want to spend more time on the parameter estimation.\newline
 To test which method for the variance estimation performs best, from a Poisson distribution with variance one, 200 samples are drawn, multiple times. Both methods were used to estimate the true variance. From all estimations the mean value of the estimated variance and the variance of the estimated variance were calculated. After that the procedure was repeated with increased true variance.\newline
-Figure \ref{skellamvarmean} shows the results of for the mean of the estimated variances, Figure \ref{skellamvarvar} shows the variance of the estimated variances, plotted over the true variance of the Poisson distribution.
+Figure \ref{skellamvarmean} shows the results of for the mean of the estimated variances, Figure \ref{skellamvarvar} shows the variance of the estimated variances, plotted over the true variance of the Poisson distribution.\newline
+Figure \ref{skellamvarmean} shows, the mean estimates for the variance of a Poisson distribution with variances between zero and 40. The mean of all estimates from the Skellam approach is almost the same as the true variance (a straight line with slope one and zero intercept). The variance approach underestimates the true variance. Figure \ref{skellamvarvar} shows the variances of the estimates for both approaches. The variance approach has a lower variance than the Skellam approach.\newline
+Only one estimate is calculated in practice, therefore the variance approach is taken, because of the lower variance for the estimated values.
 
 %\begin{figure}
 %\begin{minipage}{0.48\textwidth}
@@ -225,14 +255,15 @@ Figure \ref{skellamvarmean} shows the results of for the mean of the estimated v
 
 \section{Best line fit method}
 To get the correct gain and offset based on the mean intensities and the corresponding variances of the pixels intensities, a robust fitting method is needed. This is because of the phenomena described in section \ref{pointsabove}. In this section four different methods will be described and their performances compared.
-\subsection{Based on minimum covariance determinant (Fit1)}
+\subsection{Different methods}
+\subsubsection*{Based on minimum covariance determinant (Fit1)}
 The base of this fitting approach is to find a compact subset of points that represent the inliers. To do so a R function based on the algorithm of \cite{ilia1} is used. For this algorithm many initial subsets of  the data are drawn. For each subset the of points the minimal covariance determinant is calculated. The subset with the smallest covariance determinant is taken. Weighted linear regression is performed on the selected subset of points. Therefore the $x$ range is split into several bins. For each bin the variance of the points is calculated and its inverse is used as weights for linear regression.
-\subsection{Use just lowest variances, weighted (Fit2)}
+\subsubsection*{Use just lowest variances, weighted (Fit2)}
 For each run half of the preselected points is chosen randomly. 
 The mean values are splited into bins of equal witdth. Withing each bin the point with the lowest variance is found. Linear regression is performed on all this lowest points with the inverse variance of each bin as weights. 
-\subsection{Linear fit of a random number of points (Fit3)}
+\subsubsection*{Linear fit of a random number of points (Fit3)}
 Bins are determined as above. From each bin just the lowest variance is considered. A linear fit is performed on a subset of this lowest points with varying size.
-\subsection{RANSAC (Fit4) and weighted RANSAC (Fit5)}
+\subsubsection*{RANSAC (Fit4) and weighted RANSAC (Fit5)}\label{ransacdescr}
 A standard RANSAC (random sample consensus) algorithm is used. Its pseudo code looks like this:
 \begin{verbatim}
 input:
@@ -262,26 +293,52 @@ while iterations < k
 
 return best_m, best_c
 \end{verbatim}
-
-\subsection{Simple fit (Fit6)}
+For the weighted RANSAC instead of a linear fit, a weighted line fit is done. The weights are determined as for the other weighted fitting methods.
+\subsubsection*{Simple fit (Fit6)}
 For this very simple approach, a certain number of points is chosen randomly from all points. A straight line is fitted and the mean square error for the current set of points is computed. This is done several times. The best fit with the lowest mean square error is taken as the final result.
 
 \subsection{Discussion} 
+The goal is to find a robust fitting method. Figures \ref{lineplot1} and \ref{lineplot2} show scatter plots of the means and variances of the preselected points and the results of the fits.
+It is difficult to determine the best fit by looking at the results, because there is not only one line but two or more visible.
+The calibration measurement yields a gain factor of 3.9 and a offset off 380. Table \ref{tablefits} shows the fit results for offset and gain. The results from the weighted RANSAC method (Fit 5) are closest to the results from the calibration measurement. This table also illustrates why for the offset the minimal value is used instead of the estimated value.\newline
+For the parameter estimation the weighted RANSAC method is used.
 
+
+\begin{footnotesize}
+\begin{center}
+%\caption{Results for the main submission (with postprocessing)}
+\captionof{table}{Fitting results for gain and offset for various data sets from our collaborators from Bioquant.}\label{tablefits}%
+\begin{tabular}{l||c|c||c|c||c|c||c|c||c|c||c|c||}
+Data set&\multicolumn{2}{c||}{Fit 1}&\multicolumn{2}{c||}{Fit 2}&\multicolumn{2}{c||}{Fit 3}&\multicolumn{2}{c||}{Fit 4}&\multicolumn{2}{c||}{Fit 5}&\multicolumn{2}{c||}{Fit 6}\\
+&$g$&$o$&$g$&$o$&$g$&$o$&$g$&$o$&$g$&$o$&$g$&$o$\\\hline
+110215\_HeLa1\_Er647&21.4&435&16.6&430&20.0&474&2.37&282&4.17&350&8.37&402\\\hline
+110302\_ER-Alexa647&12.3&458&19.1&432&11.3&479&4.42&358&4.42&358&8.00&410\\\hline
+110302\_HeLa1\_ER647&7.56&437&6.45&452&6.68&474&3.22&228&2.69&156&4.21&269\\\hline
+Pos2\_2\_green&12.6&484&7.05&452&7.12&483&3.13&308&3.44&329&5.76&407\\\hline
+Pos2\_2\_red&6.67&378&7.26&443&7.78&474&3.82&374&4.31&380&6.18&396\\\hline
+Pos11\_2\_green&12.9&442&8.17&395&9.15&474&4.51&376&4.59&378&5.83&390\\\hline
+Pos11\_2\_red&11.0&390&20.3&839&10.6&443&3.78&359&3.84&361&9.89&416\\\hline
+Tetra1\_high\_568&5.33&387&4.74&394&3.97&387&4.11&379&4.12&380&4.68&382
+\end{tabular} 
+
+\end{center}
+\end{footnotesize}
+ 
 \begin{figure}
-\subfloat[a]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110215hela.png}}\hfill
-\subfloat[b]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110302alexa647.png}}\\
-\subfloat[c]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110302hela647.png}}\hfill
-\subfloat[d]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos2green.png}}\\
-\subfloat[a]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos2red.png}}\hfill
-\subfloat[b]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos11green.png}}
-\caption{plot plot}
+\subfloat[110215\_HeLa1\_Er647]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110215hela.png}}\hfill
+\subfloat[110302\_ER-Alexa647]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110302alexa647.png}}\\
+\subfloat[110302\_HeLa1\_ER647]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/110302hela647.png}}\hfill
+\subfloat[Pos2\_2\_green]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos2green.png}}\\
+\subfloat[Pos2\_2\_red]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos2red.png}}\hfill
+\subfloat[Pos11\_2\_green]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos11green.png}}
+\caption{Scatter plot variance over mean for different data sets and the fitting results.}
+\label{lineplot1}
 \end{figure}
 
 \begin{figure}
-\subfloat[c]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos11red.png}}\hfill
-\subfloat[d]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/tetrahigh568.png}}\\
-\subfloat[c]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/bundledtubeshigh.png}}\hfill
-\subfloat[d]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/tubulin1.png}}
+\subfloat[Pos11\_2\_red]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/pos11red.png}}\hfill
+\subfloat[Tetra1\_high\_568]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/tetrahigh568.png}}\\
+\subfloat[Tubulin1]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/bundledtubeshigh.png}}\hfill
+\subfloat[Bundled tubes high density]{\includegraphics[width =0.48\textwidth]{pictures/geradenplots/tubulin1.png}}
 \caption{plot plot2}
 \end{figure}

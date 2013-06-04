@@ -9,6 +9,25 @@ other.\newline
 The aligned images can then be investigated for colocalized structures.\newline
 Both tasks can be done using the improved version of the Colorcomposer.
 
+\section{Chromatic aberration}
+In microscopy it is often desirable to label different structures in a cell with
+different colors. To do so our collaborators use different fluoroscent molecules
+that emit light at different and therefore distinguishable wavelengths. Using appropriate
+filters it is possible to capture pictures just containing light emited from one
+kind of fluorophore.\newline
+The propagation speed of light depends on the substance it is propagating through. The property of the substance that describes the ratio of the speed of light in vacuum $c$ and in the substance $v$ is called refraction index $n = c/v$.\newline
+The refraction index for one substance is wavelength dependent. Different wavelengths are refrected under different angles. This effect causes the splitting of white light into its components when shining through a prism.\newline
+The same effect causes the focal length of the microscope to be wavelength dependent. This means that the light for the same spot but with
+different wavelenghts is not mapped to the same spot in the image. This is shown in Figure \ref{wikibild1}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.5\textwidth]{pictures/bildabberationwiki.png}
+	\caption[Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013]{Sketch of the dependency of the focal length on the wavelength.}
+	\label{wikibild1}
+	\end{figure}
+
+
 \section{Colorcomposer GUI}
 The goal of the colorcomposer tool is to provide software that is easy to use, flexible and powerful. The current version of the colorcomposer is easy to use, because the different channels can be aligned by just selecting the auto align option.\newline
 If the user wants to select beads on his or her own, beads can manually be selected and deleted. After the transformation the user can use the implemented tool for colocalization detection or save the transformed images and process them with the tool of his or her choice.\newline
