@@ -1,20 +1,20 @@
 \chapter{Summary and outlook}
 \section{Summary}
 A new, easy to use and robust data processing algorithm was presented. It enables even users that are new to STORM imaging techniques to get reasonable results in a straight forward way. Understanding about several parameters and their influence on the algorithm is not necessary, as well as finding a good set of parameters.\newline
-SimpleSTORM is also a powerful tool that allows tweaking of the parameters. Its performance has been shown in the ISBI localization microscopy challenge where SimpleSTORM showed good performance overall data sets.\newline
+SimpleSTORM is also a powerful tool that allows tweaking of the parameters. Its performance has been shown in the ISBI localization microscopy challenge where SimpleSTORM showed good performance over all data sets.\newline
 With the improved colorcomposer software an easy to use and powerful tool for image reconstruction of multi-channel microscopy data is provided. The reconstructed images of different channels can be aligned automatically. A colocalization analysis can be performed.
 \section{Outlook}
 \subsection*{3d Storm}
-STORM imageing techniques have been extended to capture 3-D structures up to a thickness of micrometers with super resolution. This will become more an more important in the future. There are different ways to get the information about the depth. One way is to use a cylindric lense which results in point spread functions that are symmetrical if the fluorophore lies in the confocal plane, but is more and more assymetric the farer away the captured spot lies off the confocal plane.\newline
-An other way for depth estimation is to use normal lenses but use the information that the width of the PSF exceeds with greater distance of the spot to the confocal plane.\newline
+STORM imaging techniques have been extended to capture 3-D structures up to a thickness of micrometers with super resolution. This will become more and more important in the future. There are different ways to get the information about the depth. One way is to use a cylindric lense which results in point spread functions that are symmetrical if the fluorophore lies in the confocal plane, but more and more assymetric the further away the captured spot lies off the confocal plane.\newline
+Another way for depth estimation is to use normal lenses but use the information that the width of the PSF exceeds with greater distance of the spot to the confocal plane.\newline
 Both methodes might be implemented as only the part of the maximum detection hase to be altered.
 \subsection*{Improved method to detect maxima}
-Instead of looking for the maxima in an upsampled image, a model for the point spread functions could be used to find the maxima. This would make it possible to find maxima that are too close together so that their maxima merge into just one maxima between them.\newline
+Instead of looking for the maxima in an upsampled image, a model for the point spread functions could be used to find the maxima. This would make it possible to find maxima that are too close together so that their maxima merge into only one maxima between them.\newline
 This changes can be implemented without affecting the structure of the other parts of the SimpleSTORM software, just the maxima detection part must be changed.
 \subsection*{Colorcomposer implemented in Storm-Gui}
-The Colorcomposer could be implemented in the SimpleSTORM-GUI. The benefits beside increased performance are an easier and more direct way of the processing and just one tool is needed.
+The Colorcomposer could be implemented in the SimpleSTORM-GUI. The benefits beside increased performance are an easier and more direct way of the processing and the need for only one tool.
 \subsection*{Combination of Wiener filter and Gaussian filter}
-Depending on the spot density and the datas atributes like the signal-to-noise ratio it might be favorable to combine the usage of a Wiener filter and a Gaussian filter in a way to chose the filter that performs best on the data given.
+Depending on the spot density and the datas atributes like the signal-to-noise ratio it might be favorable to combine the usage of a Wiener filter and a Gaussian filter to chose the filter that performs best on the data given.
 \subsection*{Interactive parameter selection}
 An unprocessed image is shown to the user. The user marks areas with spots of interest, specially the darkest spots that should be detected. Then the program sets the parameters in a way that at the user labeled spots will be detected in the end. This would be a good way to set the best alpha value or the signal-to-noise ratio limit.\newline
 

@@ -1,24 +1,24 @@
 \chapter{Theoretical background}
-This chapter gives an overview over the most important distributions and transformations that are used for the SimpleSTORM algorithm and the Colorcomposer. Also an introduction into the most important parts of a regular Charge-coupled Device (CCD) cameras is given as well as a section about the data the algorithm is designed for. 
+This chapter gives an overview over the most important distributions and transformations that are used for the SimpleSTORM algorithm and the Colorcomposer. An introduction to the most important parts of regular Charge-coupled Device (CCD) cameras is also given, as well as a section about the data the algorithm is designed for. 
 
 \section{The data}
 \subsection{Labeling}
-The concept of direct stochastic optical reconstruction microscopy (dSTORM) \cite{heilemann} is, to label structures of interest with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. A short time after the activation the fluorophors emit a photon and fall back to the unexited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. Each fluorophore is only visible a couple of times. A movie that shows the frames consecutively shows blinking spots.\newline
+The concept of direct stochastic optical reconstruction microscopy (dSTORM) (\cite{heilemann}) is, to label structures of interest with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. Shortly after the activation the fluorophors emit a photon and fall back to the unexited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. Each fluorophore is visible only every thousandth frame or even less frequently. A movie that shows the frames consecutively shows blinking spots.\newline
 The technique to stain the samples that was used for all real-world images in this thesis is called immunofluorescence. For this technique antibodies are used to attach the fluorescenic molecules to the samples. Antibodies target specific biomolecules within a cell that show their antigen. There are two classes of immunofluorescence techniques.\newline
-Primary immunofluorescence uses only one antibody to that the fluorophore is directly attached.\newline
-For secundary immunofluorescence two kinds of antibodies are used. One primary antibody that binds to the molecule or structure of interest and a second antibody that binds to the primary and carries the fluorophore.
+Primary immunofluorescence uses only one antibody that the fluorophore is directly attached to.\newline
+For secundary immunofluorescence two kinds of antibodies are used. First the primary antibody that binds to the molecule or structure of interest and then a second antibody that binds to the primary and carries the fluorophore.
 
 \subsection{Description of the data sets}
 The datasets for dSTORM microscopy that we recieve from our collaborators from
 Bioquant, Heidleberg are big datasets of several gigabyte in the Andor ".sif" format. Each
 file contains a stack of pictures, usually between 1000 and 10000, taken
-consecutively with a fixed exposure time normally between 20 and 200 milliseconds. From now on the first two dimensions are called spatial dimensions. It is refered to third dimension of the data that results from the consecutive capturing of the images as temporal dimension.\newline
+consecutively with a fixed exposure time normally between 20 and 200 milliseconds. From now on the first two dimensions are called spatial dimensions. The third dimension of the data, resulting from the consecutive capturing of the images, is refered to as temporal dimension.\newline
 
-Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as approximatly Gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or they form a cluster, called a bead.\newline
+Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as approximatly Gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or form a cluster, called a bead.\newline
 
-Beads are larger and brighter than spots from only one fluorophore and are used to align multiple channels in the postprocessing step. Beads are designed to show up in every frame of the sequence at the same position and can therefore be used as landmarks for the alignment. They are composed of fluorophores of different colors to be visible in every channel.\newline
+Beads are larger and brighter than spots from only one fluorophore and are used to align multiple channels in the postprocessing step. Designed to show up in every frame of the sequence at the same position they can be used as landmarks for alignment. They are composed of fluorophores of different colors to be visible in every channel.\newline
 
-The other spots, such as spots from fluorophores bound to some proteins, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of point spread functions per frame. This gives the possibility to determine the center of each point spread function with a sub-pixel precision. A high resoluion image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
+The other spots, such as spots from fluorophores bound structures, often proteins of interest, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of point spread functions per frame. This makes it possible to determine the center of each point spread function with a sub-pixel precision. A high resoluion image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
 
 \begin{figure}
 \centering
@@ -42,7 +42,7 @@ distribution. Its probability mass function is:
 \begin{equation}
 	p(n,\mu) = \frac{\mu^n}{n!}\exp(-\mu)
 \end{equation}
-The larger the mean value $\mu$ gets the more likely the Poisson distribution gets to a Gaussian distribution with a mean and a variance of $\mu$. Figure \ref{poisgaussdistr} shows Poisson and Gaussian distributions with different parameters. The mean value of the gaussian was shifted by 0.5 which results from continuity correction.\newline
+The larger the mean value $\mu$ becomes the more likely the Poisson distribution results in a Gaussian distribution with a mean and a variance of $\mu$. Figure \ref{poisgaussdistr} shows Poisson and Gaussian distributions with different parameters. The mean value of the gaussian was shifted by 0.5 which results from continuity correction.\newline
 Poisson distributions describe the results of ``counting experiments'' and are
 therefore important for image processing as pictures taken with a
 camera are in principle counts of photons reaching the camera.  \newline
@@ -98,15 +98,15 @@ In section \ref{skellambettervariance} is shown which way to estimate the varian
 \section{Charge-coupled Device (CCD) camera}
 The light emmited by the fluorophores is captured by a CCD camera. During the capturing process the true measure, the photons arriving at the aperture of the camera, is transformed to electrons and eventually to a digital number. This section gives a short overview over the most important parts of the signal processing within a CCD camera.
 \subsection{Photon counting noise}
-The emission of photons is a random process that occures at unpredictible times. Therefore the number of photons passing through a plane is never constant but varies around some average value. The phenomena, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera for example, is called shot noise. It playes a major role if the total number of photons is low, as from dark sources or with short exposure times of the camera.
+The emission of photons is a random process that occures at unpredictible times. Therefore the number of photons passing through a plane is never constant but varies around some average value. This means, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera for example. This phenomena is called shot noise. It playes a major role if the total number of photons is low, for example from dark sources or with short exposure times of the camera.
 \subsection{Quantum efficiency}
-Quantum efficiency describes the fraction of photons that creates a detectable electron in a sensor chip. The quantum efficiency depends on the wavelenght of the incoming photon. Photons with energies below the band gap can not produce a free electron that can be detected. The quantum efficiency as a maximum for a certain wavelength. This maximum of the quantum efficiency is basically caused by two effects. The higher the energy of the photon is the higher is the kinetic energy of the freed electron and therefore it has a greater diffusion length, but the electron is absorbed farer away from the detector and will therefore recombinate with a electron hole more likely.
+Quantum efficiency describes the fraction of photons creating a detectable electron in a sensor chip. The quantum efficiency depends on the wavelenght of the incoming photon. Photons with energies below the band gap can not produce a free electron that can be detected. The quantum efficiency has a maximum for a certain wavelength. This maximum of the quantum efficiency is basically caused by two effects. The higher the energy of the photon is the higher is the kinetic energy of the freed electron and therefore the diffusion length is greater, but the electron is absorbed further from the detector and is more likely to recombine with an electron hole.
 \subsection{Gain}
-There are two different gain factors involved in the capturing process of a camera. First the electric signal for each pixel might be amplified. Second there is a gain factor that describes the proportionality between collected electrons and the digital number it is associated with.
+There are two different gain factors involved in the capturing process of a camera. Firstly the electric signal for each pixel may be amplified. Secondly there is a gain factor that describes the proportionality between collected electrons and the digital number it is associated with.
 \subsection{Readout noise}
-The origin of readout noise is the amplifier. The amplification is never perfect, this means that the exact number of electrons at the end of the amplification has some variation around the expected linearly increased value. There might also be some random signals of the electronics that add to the "true" signal. The readout noise does not depend on the exposure time.
+The origin of readout noise is the amplifier. The amplification is never perfect, this means that the exact number of electrons at the end of the amplification variates around the expected linearly increased value. There might also be some random signals in the electronics adding to the "true" signal. The readout noise does not depend on the exposure time.
 \subsection{Dark current noise}
-The dark current noise is generated by the thermal movement of the atoms in the sensor chip. The movement of molecules and atoms dependends on the temperature of the material, therefore dark current noise strongly depends on the temperature of the chip and can be reduced by cooling. Dark current noise generates electrons in the bins of each pixel, even with closed shutter. It is constantly increasing with time and follows Poisson statistics.
+The dark current noise is generated by the thermal movement of the atoms in the sensor chip. The movement of molecules and atoms depends on the temperature of the material, therefore the dark current noise strongly depends on the temperature of the chip and can be reduced by cooling. Dark current noise generates electrons in the bins of each pixel, even with closed shutter. It increases constantly with time and follows Poisson statistics.
 \subsection{Quantisation}
 The signal must fit into the output color depth. It has to be rounded or truncated to fit in. This process introduces errors that can be seen as additional noise that is dependent on the intensity of the signal. High intensities are disturbed less relative to low intensies.
 
@@ -116,8 +116,8 @@ The signal must fit into the output color depth. It has to be rounded or truncat
 The images aquired from the camera do not show the real intensities
 $I_\text{true}$, which result from the photon emission of the probe, but
 transformed ones $I_\text{meas}$.\newline
-A linearly transformation of the data is assumed with two parameters, the gain $g$ and the offset $o$.
-Incoming photons create electrons via inner photoelectric effect. This electrons
+A linear transformation of the data is assumed with two parameters, the gain $g$ and the offset $o$.
+Incoming photons create electrons via inner photoelectric effect. These electrons
 are collected for each pixel and might be amplified to get the final result.
 Assuming a linear relation between the number of incoming photons and the number
 of electrons created and a linear amplifier results in a factor $g$. This factor
@@ -138,9 +138,8 @@ transformation is defined as:
 \begin{equation}
 	A(x) = 2\sqrt{x+\frac{3}{8}}
 \end{equation}
-Figure \ref{anscombe} shows the standard deviation of Poisson distributions with increasing mean (green line) and the standard deviation of Poisson distributions that are transformed unsing the Anscombe transformation (blue line). As on can see in Figure \ref{anscombe} the Anscombe transformations result has
-for mean intensities greater than 4 a intensity independent standard deviation of
-one.
+Figure \ref{anscombe} shows the standard deviation of Poisson distributions with increasing mean (green line) and the standard deviation of Poisson distributions that are transformed unsing the Anscombe transformation (blue line). As can be seen in Figure \ref{anscombe} the Anscombe transformations result has
+an intensity independent standard deviation of one for mean intensities greater than 4.
 \begin{figure}
 	\centering
 	\includegraphics[width = 0.5\textwidth]{pictures/anscombe.png}
@@ -158,7 +157,7 @@ Two different ways of estimating the camera parameters have been investigated. F
 This is the inverse transformation of equation \ref{transtopoiss}.
 \subsection{Using variance-mean plot} \label{skellam1}
 The approach for the parameter estimation using the variances of the pixels is shown using a minimalistic example. It is then used in a generalised form.\newline
-Considering two pixels with different Poisson distributions $P_1$ and $P_2$ with mean value and variances of this distributions $\lambda_1$ and $\lambda_2$. If this distributions are transfomed as given in equation \ref{trafoGain} their mean and variance in temporal domain change like shown in equation \ref{meanvarPoiss1} and \ref{meanvarPoiss2}. This gives the oportunity to determine the gain and offset using only two pixels.
+Consider two pixels with different Poisson distributions $P_1$ and $P_2$ with mean value and variances of this distributions $\lambda_1$ and $\lambda_2$. If these distributions are transfomed as given in equation \ref{trafoGain} their mean and variance in temporal domain change as shown in equation \ref{meanvarPoiss1} and \ref{meanvarPoiss2}. This allows to determine the gain and offset using only two pixels.
 \begin{align}
 	\text{var}(I_{\text{meas}1})& = g^2\cdot\text{var}(I_{\text{true}1}) \label{calcvar}\\ 
 	\text{var}(I_{\text{meas}2})& = g^2\cdot\text{var}(I_{\text{true}2})\\
@@ -176,7 +175,7 @@ The offset $o$ can be calculated in the same way.
 	\text{mean}(I_{\text{meas}1}) - \frac{\text{var}(I_{\text{meas}1})}{g} &= g\cdot \lambda_1 + o - \frac{g^2\cdot\lambda_1}{g}\\
 	&= o
 \end{align}
-The estimation gets more stable if more than two points are used and if the points are taken from a wide range of intensities. If more than two points are used a straight line must be fitted through them. The lines slope gives the gain factor and the intersection on the $x$-axis the offset. The variance of the pixels intensities are calculated directly, instead of using the Skellam approach. This is motivated in section \ref{skellambettervariance}.
+The estimation gets more stable if more than two points are used and if the points are taken from a wide range of intensities. If more than two points are used a straight line must be fitted through them. This lines slope gives the gain factor and the intersection on the $x$-axis the offset. The variance of the pixels intensities are calculated directly, instead of using the Skellam approach. This is motivated in section \ref{skellambettervariance}.
 \subsection{Using skewness of poisson distribution}
 A second approach is to use the skewness of the Poisson distribution to estimate the mean value.\newline
 For every pixel there are multiple intensities in temporal dimension. One can
@@ -201,7 +200,7 @@ The skewness is invariant to shift and multiplication with a constant. This
 means that the transformation caused by the camera gain and the offset
 does not affect the skewness. This gives a third equation to solve for $g$ and
 $o$.\\
-This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than roughly 30, the skewness gives no stabel results. This is shown in section \ref{skewnesssucks}. For data sets with bright background intensities it is not possible to determine the camera parameters in this way.
+This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than roughly 30, the skewness gives no stabel results. This is shown in section \ref{skewnesssucks}. For data sets with high background intensities it is not possible to determine the camera parameters in this way.
 
 \section{Check for correct gain factor} \label{checkGain}
 The gain factor may have been determined or entered incorrectly. Assuming there is the true gain factor $g_\text{true}$ and the incorrect gain factor $g_\text{false}$. Let be Poiss$(\mu)$ the true Poisson distribution of one background pixel and $o$ the offset. The pixels raw intensities are therefore $g_\text{true} \cdot \text{Poiss($\mu$)} + o$. The following shows the effects of the incorrectly chosen gain factor on the transformed images:

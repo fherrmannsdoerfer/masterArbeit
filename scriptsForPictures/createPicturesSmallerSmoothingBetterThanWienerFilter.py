@@ -45,7 +45,7 @@ print len(DetStorm0Frame)
 print DetStorm11Frame
 print DetStormSimpleStormFrame
 
-maxval = np.max(bildupscaled)*2
+maxval = np.max(bildupscaled)*1
 
 for i in range(len(DetStorm0Frame)):
   posx = dataStorm0[DetStorm0Frame[i],0] * factor + factor/2

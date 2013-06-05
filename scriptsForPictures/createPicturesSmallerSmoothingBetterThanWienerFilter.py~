@@ -87,7 +87,7 @@ bildupscaled[5:10,25:30,[0,2]] = maxval
 bildupscaled[15:20,25:30,[1,2]] = maxval
 bildupscaled[25:30,25:30,2] = maxval
 
-vigra.impex.writeImage(bildupscaled[146:200,151:191], "/home/herrmannsdoerfer/vigoutputtest"+str(frame)+".png")
+vigra.impex.writeImage(bildupscaled[146:200,151:191], "/home/herrmannsdoerfer/MasterArbeit/pictures/betterthanSimplestorm1.png")
 #plot.matshow(bildupscaled)
 #plot.show()
 
@@ -151,7 +151,7 @@ bildupscaled[5:10,25:30,[0,2]] = maxval
 bildupscaled[15:20,25:30,[1,2]] = maxval
 bildupscaled[25:30,25:30,2] = maxval
 
-vigra.impex.writeImage(bildupscaled[313:367,144:184], "/home/herrmannsdoerfer/vigoutputtest"+str(frame)+".png")
+vigra.impex.writeImage(bildupscaled[313:367,144:184], "/home/herrmannsdoerfer/MasterArbeit/pictures/betterthanSimplestorm2.png")
 #plot.matshow(bildupscaled)
 #plot.show()
 
