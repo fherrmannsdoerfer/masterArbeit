@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{25}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -64,6 +64,12 @@ E.~M. M.~Manders, J. A.~Aten, F. J.~Verbeek (1993), \enquote{Measurement of
   microscopy.} \emph{Journal of Microscopy}, 169, 375--382.
 \bibAnnoteFile{manders}
 
+\bibitem[{Fritschny and H\"artig(2011)}]{immuno}
+Fritschny, Jean-Marc and Wolfgang H\"artig (2011),
+  \enquote{Immunofluorescence.} \emph{eLS. John Wiley \& Sons Ltd},
+  \urlprefix\url{http://www.els.net}.
+\bibAnnoteFile{immuno}
+
 \bibitem[{Gr\"ull et~al.(2011)Gr\"ull, Kirchgessner, Kaufmann, Hausmann, and
   Kebschull}]{simulated}
 Gr\"ull, Frederik, Manfred Kirchgessner, Rainer Kaufmann, Michael Hausmann, and
@@ -89,23 +95,11 @@ Hell, S.~W. and J.~Wichmann (1994), \enquote{{Breaking the diffraction
   \urlprefix\url{http://dx.doi.org/10.1364/ol.19.000780}.
 \bibAnnoteFile{sted}
 
-\bibitem[{Hwang et~al.(2012)Hwang, Hun-Sik, and Kweon}]{skellam}
-Hwang, Youngbae, Kim Hun-Sik, and In~So Kweon (2012), \enquote{Difference-based
-  image noise modeling using skellam distribution.} \emph{IEEE Transactions on
-  Pattern Analysis and Machine Intelligence}, 34, 1329--1341.
-\bibAnnoteFile{skellam}
-
 \bibitem[{Jones et~al.(2001--)Jones, Oliphant, Peterson et~al.}]{scipy}
 Jones, Eric, Travis Oliphant, Pearu Peterson, et~al. (2001--),
   \enquote{{SciPy}: Open source scientific tools for {Python}.}
   \urlprefix\url{http://www.scipy.org/}.
 \bibAnnoteFile{scipy}
-
-\bibitem[{Kats(2013)}]{ilia2}
-Kats, Ilia (2013), \emph{{Implementation and benchmarking of simpleSTORM, a
-  self-calibrating single-molecule localization algorithm}}. Laboratory report,
-  University of Heidelberg.
-\bibAnnoteFile{ilia2}
 
 \bibitem[{K\"othe(2007)}]{ulli}
 K\"othe, Ullrich (2007), \enquote{Reliable low-level image analysis.}
@@ -133,12 +127,6 @@ Newberry, Michael (1998), \enquote{Pixel response effects on ccd camera gain
   \urlprefix\url{$http://www.mirametrics.com/tech_note_ccdgain.htm$}. Tech
   note.
 \bibAnnoteFile{meanVar}
-
-\bibitem[{{R Core Team}(2012)}]{Rcite}
-{R Core Team} (2012), \emph{R: A Language and Environment for Statistical
-  Computing}. R Foundation for Statistical Computing, Vienna, Austria,
-  \urlprefix\url{http://www.R-project.org/}. {ISBN} 3-900051-07-0.
-\bibAnnoteFile{Rcite}
 
 \bibitem[{Rodgers and Nicewander(Feb., 1988)}]{pearson}
 Rodgers, Joseph~Lee and W.~Alan Nicewander (Feb., 1988), \enquote{Thirteen ways

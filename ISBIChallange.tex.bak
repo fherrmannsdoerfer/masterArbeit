@@ -50,7 +50,7 @@ There were two kinds of bundled tubes data sets, both created from the same unde
 	\caption{One frame from bundled tubes training data set}
 	\label{bundledtubesHighowDensityFrame}	
 \end{minipage}\hfill
-\begin{minipage}[t]{0.33\textwidth}
+\begin{minipage}[t]{0.30\textwidth}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/maximumProjectionBundledTubesLSFarbig.png}
 	\caption{Maximum projection of bundled tubes data set}

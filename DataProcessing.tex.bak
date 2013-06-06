@@ -1,4 +1,4 @@
-\chapter{The improved SimpleSTORM}
+\chapter{The improved SimpleSTORM algorithm}
 STORM data from different cells or structures show many different features: there can be clusters of fluorophores with a high density of spots, areas with low density, variable background in space and time, beads can be present or absent.\newline
 This section describes how the algorithm processes the data sets and how it is possible to find good settings that will work for all kind of input data. The changes and improvements over the previous version are described and discussed. The new GUI design and the new features are introduced.\newline
 All real world images shown in this thesis were acquired from members of Prof. Dr. Mike Heilemanns group.
@@ -42,6 +42,7 @@ Due to the Anscombe transformation, the background pixels of the image should on
 If the estimated value for the variance is too far from one, the originally estimated gain factor is corrected and applied, and the fit is done again (compare section \ref{checkGain}). This is done until the background variance converges within a small threshold or the maximal number of iterations is reached. In this case the initial gain factor will be used and a warning will be shown on the screen.\newline
 It might be that the correction of the gain factor gets trapped duo to overshooting. In that case the estimated background variances oscillate around one. If this is the case the mean gain factor from the last two corrections is used.
 \subsection{Estimating the width of the point spread function}
+An inverse Anscombe transformation (equation \ref{invAnsc}) is applied to the data. This is necessary because the Anscombe transformation increases the point spread functions width, depending on the intensity of the point spread function. This is shown in section \ref{PSF}.\newline  
 For 20 local maxima of a certain, user defined, number of frames the square of the Fourier transformation off each region of interest around the chosen local maxima is calculated. This squared Fourier transformations are then averaged. The result is called the mean power spectrum. It can be used to estimate the variance of the point spread function of the signal. A two dimensional Gaussian function's Fourier transform is again a Gaussian but with inverse variance. This relation is used to determine the variance of the point spread function in the spatial domain, using the fit parameter for the variance in the frequency domain.\newline
 The script for fitting the two dimensional Gaussian function was implemented by Ilia Kats.
 \subsection{Processing the data}
@@ -92,8 +93,8 @@ Wiener filter& 14480&17.06&29.15&79.19&17.87&27.28
 
 
 \begin{figure}
-\subfloat[Advanced setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm1improved.png}}\hfill
-\subfloat[Easy setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm2improved.png}}
+\subfloat[Advanced setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm1.png}}\hfill
+\subfloat[Easy setting widget]{\includegraphics[width = 0.485\textwidth]{pictures/betterthanSimplestorm2.png}}
 	\caption{This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.}
 	\label{betterthansimplestorm}	
 \end{figure}

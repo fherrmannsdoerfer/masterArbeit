@@ -43,7 +43,7 @@ Because there is no groundtruth for the real data, test data and groundtruth had
 
 To determine the accuracy, the standard deviation between the true position of the signal and its detection were used. For data sets with more than one spot per frame, the best match within a certain distance around the true position was found. If a pair of true spot and detection were found, both were removed for further matching of the remaining signals. In the end the averaged standard deviation of the detection relative to the true positions were calculated as follows:
 \begin{align}
-	\text{std. dev.} = \sum_i^{#\text{ pairs}} \sqrt{\left(\bf{p}_{\text{true}}^i - \bf{p}_{\text{detec}}^i\right)^2}
+	\text{std. dev.} = \sum_i^{\#\text{ pairs}} \sqrt{\left(\bf{p}_{\text{true}}^i - \bf{p}_{\text{detec}}^i\right)^2}
 \end{align}
 $i$ runs over all found pairs of groundtruth and detections, $\bf{p}$ describes the two dimensional spatial vector of the groundtruth or detection respectively. False detections with no corresponding spot in the groundtruth did not contribute to the localization error.\newline
 
@@ -122,13 +122,30 @@ The best results were achieved using a Gaussian filter with the PSFs size. The l
 \end{figure}
 
 The figures in \ref{matchedFilter2} show the measurement, a shifted measurement curve and the result of the calculation. The measured error was larger than the calculated error, therefore the shifted line is also shown to state that the curves shape match but there is an additional error that shifts the line. \newline
-These results show that the calculated standard deviation of the localization can be used to estimate the localization error of SimpleSTORM for further calculations or error propagation.
+These results show that the calculated standard deviation of the localization can be used to estimate the localization error of SimpleSTORM for further calculations or error propagation.\newline
 
 \begin{figure}
 \subfloat[PSFs scale = 2.6]{\includegraphics[width = 0.485\textwidth]{pictures/matchedFilterPlots2.png}}\hfill
 \subfloat[PSFs scale = 1.8]{\includegraphics[width = 0.485\textwidth]{pictures/matchedFilterPlots3.png}}
 	\caption{Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparison the line was shifted to match the calculated error.}
 	\label{matchedFilter2}	
+\end{figure}
+It is important that the size of the ideal filter does not depend on whether an Anscombe transformation is applied to the data or not. The Anscombe transformation increases the standard deviation of the PSFs, this is shown in the next section. However the filter width that gives the lowes error is the original width of the PSF. This is shown in Figure \ref{PSFdoesnotcare}. A data set with 3500 frames and a PSF with $\sigma=1.5$ was created. Then the Anscombe transformation is applied to one copy of the data set. Both data sets were filtered with filters of different scale. The localization error is then plotted over the used filter scale.
+
+\begin{figure}
+\includegraphics[width = 0.5\textwidth]{pictures/AnscVsNoAnsc.png}
+\caption{This plot shows the influence of the Anscombe transformation on the localization error for a PSF with $\sigma=1.5$, which was filtered with Gaussian filters of different size. It can be seen, that the minimum of the localization error is the same for data with applied Anscombe transformation and for data without.}
+\label{PSFdoesnotcare}
+\end{figure}
+
+\section{Influence of Anscombe transformation on the PSF}\label{PSF}
+The Anscombe transformation has no influence on the best matched filter, however the standard deviation of a PSF after applied Anscombe transformation changes compared to the original standard deviation. This change in the standard deviation depends on the SNR of the PSF. Figure \ref{psfwider} shows the change of the standard deviation of a PSF with $\sigma=1$ for different SNRs. To avoid estimating a mean SNR for all PSFs used to calculate the mean power spectrum, an inverse Anscombe transformation is applied before the Fourier transformation is applied.\newline
+The reason why the inverse Anscombe transformation is used instead of not applying the Anscombe transformation, is that the data processing part is the same for all parts of the program (transformation to Poisson distributed background, background estimation and subtraction, Anscombe transformation). Therefore it is easier to do the inverse transformation instead of changing the data processing part.
+
+\begin{figure}
+\includegraphics[width = 0.5\textwidth]{pictures/AnscombeChangesWidth.png}
+\caption{The standard deviation of the Anscombe transformed PSF changes with respect to the SNR.}
+\label{psfwider}
 \end{figure}
 
 \section{Test PSF estimation}

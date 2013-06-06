@@ -3,95 +3,97 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Dual-color image of a cell treated with nocodazole. The upper part shows the reconstructed and aligned image, the lower part the maximum projection of the raw data over all frames.\relax }}{8}{figure.caption.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Raw image for dSTORM processing\relax }}{11}{figure.caption.3}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Poisson and Gaussian distrubutions with different parameters. Especially for small numbers the Poisson and the Gaussian distribution differ. The larger $\mu $ gets for the Poisson distribution the more similar it gets to a Gaussian with mean $\mu $ and sigma $\sqrt {\mu }$. The Poisson distributions were interpolated between their defined values. For better comparision the integer values of the Gaussian distribution were also marked with dots.\relax }}{13}{figure.caption.4}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Two Poisson distributions and the resulting Skellam distribution. The distributions were interpolated between the integer values.\relax }}{14}{figure.caption.5}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions (green) and their Anscombe transformed distributions (blue)\relax }}{16}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Poisson and Gaussian distributions with different parameters. Especially for small numbers the Poisson and the Gaussian distribution differ. The larger $\mu $ becomes for the Poisson distribution the more similar it becomes to a Gaussian with mean $\mu $ and sigma $\sqrt {\mu }$. The Poisson distributions were interpolated between their defined values. For better comparison the integer values of the Gaussian distribution were also marked with dots.\relax }}{13}{figure.caption.4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Two Poisson distributions ($P_\text {red}$ and $P_\text {blue}$) and the resulting Skellam distribution. The distributions were interpolated between the integer values.\relax }}{14}{figure.caption.5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Standard deviation over mean intensities of different Poisson distributions (green) and their Anscombe transformed distributions (blue)\relax }}{17}{figure.caption.6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{22}{figure.caption.10}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogenous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{24}{figure.caption.13}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image}}}{24}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {image after background subtraction}}}{24}{subfigure.2.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{26}{figure.caption.18}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Advanced setting widget}}}{26}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Easy setting widget}}}{26}{subfigure.3.2}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{27}{figure.caption.19}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{27}{subfigure.4.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result old SimpleSTORM}}}{27}{subfigure.4.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result new SimpleSTORM}}}{27}{subfigure.4.3}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{28}{figure.caption.20}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Easy setting widget}}}{28}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Advanced setting widget}}}{28}{subfigure.5.2}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{29}{figure.caption.21}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input widget}}}{29}{subfigure.6.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result widget}}}{29}{subfigure.6.2}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Scatter plot for the preselected points. Blue points result from pixels that show at least once a higher intensity caused by a fluorophore. The red dots are used to determine the gain and offset.\relax }}{23}{figure.caption.10}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Effect of background subtraction on an inhomogeneous background. For the human eye no more points are visible but for computers it is much easier to find the bright spots in the background subtracted image, because a global threshold can be applied or as in the case of SimpleSTORM the probabilistic model can be tested.\relax }}{25}{figure.caption.13}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original image}}}{25}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {image after background subtraction}}}{25}{subfigure.2.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces This pictures show the effect of a smaller filter width. The red crosses show detections found with a filter width of 0.01, the green crosses the results using a Wiener filter. The white x marks the ground truth.\relax }}{27}{figure.caption.18}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Advanced setting widget}}}{27}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Easy setting widget}}}{27}{subfigure.3.2}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces This pictures show the drawback of the old background treatment. On the left a typical frame with variable background is shown. The old version of SimpleSTORM discards many detections in the regions of high background intensity. The new SimpleSTORM software discards detections based on their signal-to-noise ratio and is less affected by variable background.\relax }}{28}{figure.caption.19}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Typical frame showing variable background intensities}}}{28}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result old SimpleSTORM}}}{28}{subfigure.4.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result new SimpleSTORM}}}{28}{subfigure.4.3}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces There are two different ways to set the parameters for the algorithm. On the right the standard way of setting parameters can be seen. On the left, there are sliders that can be adjusted between the extremes. The program sets the value for the parameters in a way to produce the best results for the selected attributes of the data set.\relax }}{30}{figure.caption.20}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Easy setting widget}}}{30}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Advanced setting widget}}}{30}{subfigure.5.2}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The new GUI. On the left is the window for selecting input file and parameters. On the right is the result widget showing the processing of a data set in progress.\relax }}{31}{figure.caption.21}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input widget}}}{31}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Result widget}}}{31}{subfigure.6.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{32}{figure.caption.22}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{32}{figure.caption.23}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{32}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{32}{subfigure.2.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{33}{figure.caption.24}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are.\relax }}{35}{figure.caption.25}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{35}{figure.caption.25}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{37}{figure.caption.26}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparism the line was shifted to match the calculated error.\relax }}{38}{figure.caption.27}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {PSFs scale = 2.6}}}{38}{subfigure.7.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PSFs scale = 1.8}}}{38}{subfigure.7.2}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true widht of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{39}{figure.caption.28}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The number of active fluorophores decreases over time and so does the mean intensity of the image. This picture shows the mean intensities of 10 background pixel over time. \relax }}{40}{figure.caption.29}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Result of mean estimation using skewness approach.\relax }}{41}{figure.caption.30}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {10 times 10 pixel patch}}}{41}{subfigure.10.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {20 times 20 pixel patch}}}{41}{subfigure.10.2}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Result of mean estimation using skewness approach.\relax }}{41}{figure.caption.31}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {10 times 10 pixel patch}}}{41}{subfigure.11.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {20 times 20 pixel patch}}}{41}{subfigure.11.2}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Variance mean scatter plot. The blue line indicates where pixels with constant mean would be displayed.\relax }}{45}{figure.caption.32}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Mean of the estimated variances.\relax }}{46}{figure.caption.33}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Variance of the estimated variances.\relax }}{47}{figure.caption.34}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Scatter plot variance over mean for different data sets and the fitting results.\relax }}{49}{figure.caption.40}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {110215\_HeLa1\_Er647}}}{49}{subfigure.15.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {110302\_ER-Alexa647}}}{49}{subfigure.15.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {110302\_HeLa1\_ER647}}}{49}{subfigure.15.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Pos2\_2\_green}}}{49}{subfigure.15.4}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Pos2\_2\_red}}}{49}{subfigure.15.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Pos11\_2\_green}}}{49}{subfigure.15.6}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces plot plot2\relax }}{50}{figure.caption.41}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pos11\_2\_red}}}{50}{subfigure.16.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tetra1\_high\_568}}}{50}{subfigure.16.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Tubulin1}}}{50}{subfigure.16.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Bundled tubes high density}}}{50}{subfigure.16.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Result of the calibration measurements. The gain determined from this variance-mean plot is 3.9.\relax }}{34}{figure.caption.22}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces These pictures show how well the histograms of background pixels taken over the first 3000 frames, follow a Poisson distribution. For the gain the parameter from the calibration measurement of $g$ = 3.9 was used. The offset was estimated from the minimal intensities of the original image.\relax }}{34}{figure.caption.23}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{34}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{34}{subfigure.2.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces After the Anscombe transformation the background pixel intensities should be distributed with mean zero and variance one. This figure shows the histogram of the pixel intensities and a fitted Gaussian with variance one and mean zero.\relax }}{35}{figure.caption.24}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Result of the accuracy test. For datasets with one, three or five point spread functions per frame, evaluated for different signal to noise levels. The more dense the spots are the less accurate the detections are. The PSFs standard deviation is 1.4.\relax }}{37}{figure.caption.25}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Result of the accuracy test for different sigmas for the Gaussian smoothing. One data set was processed with different sigma values and evaluated for different signal to noise levels. The true standard deviation of point spread function of the simulated data is 1.4.\relax }}{37}{figure.caption.25}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces This figure shows the accuracy of detection achieved using different Gaussian filters for denoising. The cross marks the minimum of each curve.\relax }}{39}{figure.caption.26}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Comparison between the measured and the calculated localization error. The dashed lines show the unchanged measurement results, for better comparison the line was shifted to match the calculated error.\relax }}{40}{figure.caption.27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {PSFs scale = 2.6}}}{40}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PSFs scale = 1.8}}}{40}{subfigure.7.2}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces This plot shows the influence of the Anscombe transformation on the localization error for a PSF with $\sigma =1.5$, which was filtered with Gaussian filters of different size. It can be seen, that the minimum of the localization error is the same for data with applied Anscombe transformation and for data without.\relax }}{41}{figure.caption.28}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The standard deviation of the Anscombe transformed PSF changes with respect to the SNR.\relax }}{41}{figure.caption.29}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The figure shows the estimated widths of the point spread function plotted over the true width of the simulated signal. The signal-to-noise ratio was 10 for this test. The green line shows the simulated values.\relax }}{42}{figure.caption.30}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces The number of active fluorophores decreases over time and so does the mean intensity of the image. This picture shows the mean intensities of 10 background pixel over time. \relax }}{43}{figure.caption.31}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Result of mean estimation using skewness approach.\relax }}{44}{figure.caption.32}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {10 times 10 pixel patch}}}{44}{subfigure.12.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {20 times 20 pixel patch}}}{44}{subfigure.12.2}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Result of mean estimation using skewness approach.\relax }}{44}{figure.caption.33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {10 times 10 pixel patch}}}{44}{subfigure.13.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {20 times 20 pixel patch}}}{44}{subfigure.13.2}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Variance mean scatter plot. The blue line indicates where pixels with constant mean would be displayed.\relax }}{48}{figure.caption.34}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Mean of the estimated variances.\relax }}{49}{figure.caption.35}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Variance of the estimated variances.\relax }}{50}{figure.caption.36}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Scatter plot variance over mean for different data sets and the fitting results.\relax }}{53}{figure.caption.42}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {110215\_HeLa1\_Er647}}}{53}{subfigure.17.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {110302\_ER-Alexa647}}}{53}{subfigure.17.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {110302\_HeLa1\_ER647}}}{53}{subfigure.17.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Pos2\_2\_green}}}{53}{subfigure.17.4}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Pos2\_2\_red}}}{53}{subfigure.17.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Pos11\_2\_green}}}{53}{subfigure.17.6}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Scatter plot variance over mean for different data sets and the fitting results.\relax }}{54}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pos11\_2\_red}}}{54}{subfigure.18.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tetra1\_high\_568}}}{54}{subfigure.18.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Tubulin1}}}{54}{subfigure.18.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Bundled tubes high density}}}{54}{subfigure.18.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{51}{figure.caption.42}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Improved colorcomposer GUI. On the right sliders to set the parameters are present. There are also buttons to add or delete single beads. On the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.\relax }}{53}{figure.caption.43}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.\relax }}{56}{figure.caption.44}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Aligned image showing colocalization.\relax }}{60}{figure.caption.45}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=50$ nm\relax }}{60}{figure.caption.45}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}{subfigure.5.2}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=100$ nm\relax }}{60}{figure.caption.45}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}{subfigure.6.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}{subfigure.6.2}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces One frame from bundled tubes training data set\relax }}{65}{figure.caption.49}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {High spot density}}}{65}{subfigure.1.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Low spot density}}}{65}{subfigure.1.2}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Maximum projection of bundled tubes data set\relax }}{65}{figure.caption.49}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces This pictures show the variability of the background in the spatial and temporal dimensions\relax }}{66}{figure.caption.50}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{66}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{66}{subfigure.3.2}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Maximum projection of tubulin data set\relax }}{67}{figure.caption.51}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Overview over the steps of postprocessing.\relax }}{68}{figure.caption.52}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image before postprocessing}}}{68}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Mask}}}{68}{subfigure.5.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result of postprocessing}}}{68}{subfigure.5.3}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all data sets. Lower ranks are better\relax }}{70}{figure.caption.53}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Chromatic aberration, picture taken from http://en.wikipedia.org/wiki /File:Chromatic\_abberation\_lens\_diagram.svg, at 23rd of May 2013}}{55}{figure.caption.44}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Improved Colorcomposer GUI. On the right are the sliders to set the parameters. There are also buttons to add or delete single beads. In the lower right additional information about the area under the cursor is displayed, such as numbers of pixels, total intensity and the number of frames in total.\relax }}{57}{figure.caption.45}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.\relax }}{59}{figure.caption.46}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Aligned image showing colocalization.\relax }}{64}{figure.caption.47}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=50$ nm\relax }}{64}{figure.caption.47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{64}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{64}{subfigure.5.2}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Colocalization for the red and green channel with a maximal radius $R=100$ nm\relax }}{64}{figure.caption.47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{64}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{64}{subfigure.6.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Results for high density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{77}{figure.9.1}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Results for high density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{77}{figure.9.2}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Results for low density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{78}{figure.9.3}
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Results for low density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{78}{figure.9.4}
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Results for low density data sets. Averaged Precision over all three datasets. For this score higher is better. The y axis is broken to show the differences better.\relax }}{79}{figure.9.5}
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better.\relax }}{79}{figure.9.6}
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Averaged rank over Jaccard index and RSME score for all high density data sets. Lower ranks are better\relax }}{79}{figure.9.7}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces One frame from bundled tubes training data set\relax }}{69}{figure.caption.51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {High spot density}}}{69}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Low spot density}}}{69}{subfigure.1.2}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Maximum projection of bundled tubes data set\relax }}{69}{figure.caption.51}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces This pictures show the variability of the background in the spatial and temporal dimensions\relax }}{70}{figure.caption.52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Tubulin2 frame 10}}}{70}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tubulin2 frame 1010}}}{70}{subfigure.3.2}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Maximum projection of tubulin data set\relax }}{71}{figure.caption.53}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Overview over the steps of postprocessing.\relax }}{72}{figure.caption.54}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Image before postprocessing}}}{72}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Mask}}}{72}{subfigure.5.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Result of postprocessing}}}{72}{subfigure.5.3}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all data sets. Lower ranks are better\relax }}{74}{figure.caption.55}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Results for high density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{81}{figure.9.1}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Results for high density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{81}{figure.9.2}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Results for low density data sets. The Jaccard indices are averaged over all three data sets. For this score higher is better.\relax }}{82}{figure.9.3}
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Results for low density data sets. Averaged RSME scores over all three datasets. For this score lower is better.\relax }}{82}{figure.9.4}
+\contentsline {figure}{\numberline {9.5}{\ignorespaces Results for low density data sets. Averaged Precision over all three datasets. For this score higher is better. The y axis is broken to show the differences better.\relax }}{83}{figure.9.5}
+\contentsline {figure}{\numberline {9.6}{\ignorespaces Averaged rank over Jaccard index and RSME score for all low density data sets. Lower ranks are better.\relax }}{83}{figure.9.6}
+\contentsline {figure}{\numberline {9.7}{\ignorespaces Averaged rank over Jaccard index and RSME score for all high density data sets. Lower ranks are better\relax }}{83}{figure.9.7}
 \addvspace {10\p@ }
