@@ -2,47 +2,49 @@
 \BOOKMARK [0][]{chapter.2}{Theoretical background}{}% 2
 \BOOKMARK [1][]{section.2.1}{The data}{chapter.2}% 3
 \BOOKMARK [1][]{section.2.2}{Distributions}{chapter.2}% 4
-\BOOKMARK [1][]{section.2.3}{Charge-coupled Device \(CCD\) camera}{chapter.2}% 5
+\BOOKMARK [1][]{section.2.3}{Charge-coupled device \(CCD\) camera}{chapter.2}% 5
 \BOOKMARK [1][]{section.2.4}{Transformations}{chapter.2}% 6
 \BOOKMARK [1][]{section.2.5}{Estimation of camera gain and offset}{chapter.2}% 7
 \BOOKMARK [1][]{section.2.6}{Check for correct gain factor}{chapter.2}% 8
-\BOOKMARK [1][]{section.2.7}{Filters}{chapter.2}% 9
-\BOOKMARK [0][]{chapter.3}{The improved SimpleSTORM algorithm}{}% 10
-\BOOKMARK [1][]{section.3.1}{Workflow}{chapter.3}% 11
-\BOOKMARK [1][]{section.3.2}{Comparison with older version of the SimpleStorm algorithm}{chapter.3}% 12
-\BOOKMARK [1][]{section.3.3}{New graphical user interface \(GUI\)}{chapter.3}% 13
-\BOOKMARK [0][]{chapter.4}{Check of the assumptions}{}% 14
-\BOOKMARK [1][]{section.4.1}{Calibration measurement}{chapter.4}% 15
-\BOOKMARK [1][]{section.4.2}{Correction to Poisson distributions}{chapter.4}% 16
-\BOOKMARK [1][]{section.4.3}{Result Anscombe transformation}{chapter.4}% 17
-\BOOKMARK [1][]{section.4.4}{Accuracy of detection}{chapter.4}% 18
-\BOOKMARK [1][]{section.4.5}{Matched filter is best filter}{chapter.4}% 19
-\BOOKMARK [1][]{section.4.6}{Influence of Anscombe transformation on the PSF}{chapter.4}% 20
-\BOOKMARK [1][]{section.4.7}{Test PSF estimation}{chapter.4}% 21
-\BOOKMARK [1][]{section.4.8}{Bleaching signal}{chapter.4}% 22
-\BOOKMARK [1][]{section.4.9}{Reliability of skewness estimation}{chapter.4}% 23
-\BOOKMARK [1][]{section.4.10}{Points lie on or above desired line}{chapter.4}% 24
-\BOOKMARK [1][]{section.4.11}{Variance vs Skellam}{chapter.4}% 25
-\BOOKMARK [1][]{section.4.12}{Best line fit method}{chapter.4}% 26
-\BOOKMARK [0][]{chapter.5}{Multicolor registration}{}% 27
-\BOOKMARK [1][]{section.5.1}{Chromatic aberration}{chapter.5}% 28
-\BOOKMARK [1][]{section.5.2}{Colorcomposer GUI}{chapter.5}% 29
-\BOOKMARK [1][]{section.5.3}{Features of the Colorcomposer application}{chapter.5}% 30
-\BOOKMARK [1][]{section.5.4}{Total localization error}{chapter.5}% 31
-\BOOKMARK [1][]{section.5.5}{Colocalization}{chapter.5}% 32
-\BOOKMARK [0][]{chapter.6}{Related work}{}% 33
-\BOOKMARK [0][]{chapter.7}{ISBI Challenge 2013}{}% 34
-\BOOKMARK [1][]{section.7.1}{Introduction}{chapter.7}% 35
-\BOOKMARK [1][]{section.7.2}{Terminology}{chapter.7}% 36
-\BOOKMARK [1][]{section.7.3}{Measures}{chapter.7}% 37
-\BOOKMARK [1][]{section.7.4}{Training data}{chapter.7}% 38
-\BOOKMARK [1][]{section.7.5}{Submissions}{chapter.7}% 39
-\BOOKMARK [1][]{section.7.6}{Results}{chapter.7}% 40
-\BOOKMARK [0][]{chapter.8}{Summary and outlook}{}% 41
-\BOOKMARK [1][]{section.8.1}{Summary}{chapter.8}% 42
-\BOOKMARK [1][]{section.8.2}{Outlook}{chapter.8}% 43
-\BOOKMARK [0][]{chapter.9}{Appendix}{}% 44
-\BOOKMARK [1][]{section.9.1}{List of Figures}{chapter.9}% 45
-\BOOKMARK [1][]{section.9.2}{List of Tables}{chapter.9}% 46
-\BOOKMARK [1][]{section.9.3}{Additional tables of ISBI challenge results}{chapter.9}% 47
-\BOOKMARK [0][]{chapter.10}{Bibliography}{}% 48
+\BOOKMARK [1][]{section.2.7}{Estimation of the point spread functions width}{chapter.2}% 9
+\BOOKMARK [1][]{section.2.8}{Filters}{chapter.2}% 10
+\BOOKMARK [0][]{chapter.3}{The improved SimpleSTORM algorithm}{}% 11
+\BOOKMARK [1][]{section.3.1}{Workflow}{chapter.3}% 12
+\BOOKMARK [1][]{section.3.2}{Comparison with older version of the SimpleStorm algorithm}{chapter.3}% 13
+\BOOKMARK [1][]{section.3.3}{New graphical user interface \(GUI\)}{chapter.3}% 14
+\BOOKMARK [1][]{section.3.4}{Summary of all new features}{chapter.3}% 15
+\BOOKMARK [0][]{chapter.4}{Check of the assumptions}{}% 16
+\BOOKMARK [1][]{section.4.1}{Calibration measurement}{chapter.4}% 17
+\BOOKMARK [1][]{section.4.2}{Correction to Poisson distributions}{chapter.4}% 18
+\BOOKMARK [1][]{section.4.3}{Result Anscombe transformation}{chapter.4}% 19
+\BOOKMARK [1][]{section.4.4}{Accuracy of detection}{chapter.4}% 20
+\BOOKMARK [1][]{section.4.5}{Matched filter is best filter}{chapter.4}% 21
+\BOOKMARK [1][]{section.4.6}{Influence of Anscombe transformation on the PSF}{chapter.4}% 22
+\BOOKMARK [1][]{section.4.7}{Test PSF estimation}{chapter.4}% 23
+\BOOKMARK [1][]{section.4.8}{Bleaching signal}{chapter.4}% 24
+\BOOKMARK [1][]{section.4.9}{Reliability of skewness estimation}{chapter.4}% 25
+\BOOKMARK [1][]{section.4.10}{Points lie on or above the desired line}{chapter.4}% 26
+\BOOKMARK [1][]{section.4.11}{Variance vs Skellam}{chapter.4}% 27
+\BOOKMARK [1][]{section.4.12}{Best line fit method}{chapter.4}% 28
+\BOOKMARK [0][]{chapter.5}{Multicolor registration}{}% 29
+\BOOKMARK [1][]{section.5.1}{Chromatic aberration}{chapter.5}% 30
+\BOOKMARK [1][]{section.5.2}{Colorcomposer GUI}{chapter.5}% 31
+\BOOKMARK [1][]{section.5.3}{Features of the Colorcomposer application}{chapter.5}% 32
+\BOOKMARK [1][]{section.5.4}{Total localization error}{chapter.5}% 33
+\BOOKMARK [1][]{section.5.5}{Colocalization}{chapter.5}% 34
+\BOOKMARK [0][]{chapter.6}{Related work}{}% 35
+\BOOKMARK [0][]{chapter.7}{ISBI Challenge 2013}{}% 36
+\BOOKMARK [1][]{section.7.1}{Introduction}{chapter.7}% 37
+\BOOKMARK [1][]{section.7.2}{Terminology}{chapter.7}% 38
+\BOOKMARK [1][]{section.7.3}{Measures}{chapter.7}% 39
+\BOOKMARK [1][]{section.7.4}{Training data}{chapter.7}% 40
+\BOOKMARK [1][]{section.7.5}{Submissions}{chapter.7}% 41
+\BOOKMARK [1][]{section.7.6}{Results}{chapter.7}% 42
+\BOOKMARK [0][]{chapter.8}{Summary and Outlook}{}% 43
+\BOOKMARK [1][]{section.8.1}{Summary}{chapter.8}% 44
+\BOOKMARK [1][]{section.8.2}{Outlook}{chapter.8}% 45
+\BOOKMARK [0][]{chapter.9}{Appendix}{}% 46
+\BOOKMARK [1][]{section.9.1}{List of Figures}{chapter.9}% 47
+\BOOKMARK [1][]{section.9.2}{List of Tables}{chapter.9}% 48
+\BOOKMARK [1][]{section.9.3}{Additional tables of ISBI challenge results}{chapter.9}% 49
+\BOOKMARK [0][]{chapter.10}{Bibliography}{}% 50

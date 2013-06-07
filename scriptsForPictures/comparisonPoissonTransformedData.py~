@@ -23,8 +23,8 @@ for i in range(nbrPoints):
   print i
   bild.append(vigra.impex.readImage('/home/herrmannsdoerfer/DatenBiologenAlsTif/Pos2_2_red2.tif',index = i))
 
-x0=[50,100,105,200,111,33]
-x1 = [50,100,105,200,111,36]
+x0=  [50,100,105,200,111,33,33 ,100]
+x1 = [50,100,105,200,111,36,200,10 ]
 
 bild2 = np.array(bild)
 bild3 = (bild2 - 380)/3.9

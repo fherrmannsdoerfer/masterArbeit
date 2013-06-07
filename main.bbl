@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -95,9 +95,9 @@ Hell, S.~W. and J.~Wichmann (1994), \enquote{{Breaking the diffraction
   \urlprefix\url{http://dx.doi.org/10.1364/ol.19.000780}.
 \bibAnnoteFile{sted}
 
-\bibitem[{Jones et~al.(2001--)Jones, Oliphant, Peterson et~al.}]{scipy}
-Jones, Eric, Travis Oliphant, Pearu Peterson, et~al. (2001--),
-  \enquote{{SciPy}: Open source scientific tools for {Python}.}
+\bibitem[{Jones et~al.(2001)Jones, Oliphant, Peterson et~al.}]{scipy}
+Jones, Eric, Travis Oliphant, Pearu Peterson, et~al. (2001), \enquote{{SciPy}:
+  Open source scientific tools for {Python}.}
   \urlprefix\url{http://www.scipy.org/}.
 \bibAnnoteFile{scipy}
 
@@ -127,6 +127,18 @@ Newberry, Michael (1998), \enquote{Pixel response effects on ccd camera gain
   \urlprefix\url{$http://www.mirametrics.com/tech_note_ccdgain.htm$}. Tech
   note.
 \bibAnnoteFile{meanVar}
+
+\bibitem[{Pinsky(2002)}]{pinsky}
+Pinsky, M.A. (2002), \emph{Introduction to Fourier Analysis and Wavelets}.
+  Graduate Studies in Mathematics, American Mathematical Society,
+  \urlprefix\url{http://books.google.de/books?id=tlLE4KUkk1gC}.
+\bibAnnoteFile{pinsky}
+
+\bibitem[{Press(1989)}]{wiener}
+Press, W.H. (1989), \emph{Numerical Recipes in Pascal (First Edition): The Art
+  of Scientific Computing}. Bd. 1, Cambridge University Press,
+  \urlprefix\url{http://books.google.de/books?id=bh5w6E-M-PUC}.
+\bibAnnoteFile{wiener}
 
 \bibitem[{Rodgers and Nicewander(Feb., 1988)}]{pearson}
 Rodgers, Joseph~Lee and W.~Alan Nicewander (Feb., 1988), \enquote{Thirteen ways

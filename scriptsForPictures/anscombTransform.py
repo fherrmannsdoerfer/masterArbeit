@@ -11,9 +11,9 @@ def fac(n):
 
 def poisson0(x, lamb):
     y = np.zeros(len(x))
-    for i in range(len(x)):     
+    for i in range(len(x)):
         y[i] = 1.*np.power(lamb,x[i]) / fac(x[i]) * np.exp(-lamb)
-    return y  
+    return y
 
 
 def poisson(x, lamb):
@@ -35,7 +35,7 @@ def poisson(x, lamb):
                 d = a - b
                 e = np.exp(d)
                 y[i] = e * c
-        return y  
+        return y
     else:
         return y
 
@@ -53,14 +53,14 @@ for i in range(len(m)):
         list_p.append(np.random.poisson(m[i]))
     y.append(np.sqrt(np.var(2*np.sqrt(np.array(list_p)+3./8))))
     yorig.append(np.sqrt(np.var(np.array(list_p))))
-	
+
 fst = 30
 fsa = 25
 fsl = 25
 lw = 2
 a=plot.plot(m,y, linewidth = lw)
 b=plot.plot(m,yorig, linewidth = lw)
-plot.title("Anscomb transformation", fontsize=fst)
+#plot.title("Anscomb transformation", fontsize=fst)
 plot.xlabel("mean", fontsize = fsa)
 plot.ylabel("stddev", fontsize = fsa)
 

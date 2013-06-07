@@ -19,5 +19,5 @@ plot.ylabel("Std. dev. in pixel", fontsize=20)
 plot.tick_params(axis='both', labelsize=12)
 
 plot.legend(loc = 1, prop={'size':15})
-plot.xlim([data1[skip,1], data1[-1,1]])
+plot.xlim([data1[skip,1]/100, data1[-1,1]/100])
 plot.savefig('/home/herrmannsdoerfer/MasterArbeit/pictures/AccuracyTest.png')

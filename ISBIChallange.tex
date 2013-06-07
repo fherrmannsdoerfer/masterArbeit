@@ -1,8 +1,8 @@
 \chapter{ISBI Challenge 2013}
 \section{Introduction}
-The goal of the ISBI Challenge, as announced on their website (\cite{challenge}), is to give an overview and understanding of available algorithms for single particle localization microscopy. The focus was on 2d localization, to give information about the depth of a localized spot was optional. To benchmark results one needs groundtruth. Therefore the organizers created synthetic datasets of biologically relevant structures such as tubulins. To match realistic conditions the data was transformed to contain different kinds of noise and background.\newline
+The goal of the ISBI Challenge, as announced on their website (\cite{challenge}), is to give an overview and understanding of available algorithms for single particle localization microscopy. The focus was on 2D localization, to give information about the depth of a localized spot was optional. To benchmark results one needs groundtruth. Therefore the organizers created synthetic datasets of biologically relevant structures such as tubulins. To match realistic conditions the data was transformed to contain different kinds of noise and background.\newline
 The participants were given training data sets and the corresponding groundtruth. One month before the deadline of the challenge the test sets were released. There were two different kinds of datasets in principle. One with very dense spots and shorter sequences, the other with longer sequences and fewer spots per frame.\newline
-All participants were asked to submit their results, including thee it took to run the algorithm and the hardware configuration of the used system.
+All participants were asked to submit their results, including the time it took to run the algorithm and the hardware configuration of the used system.
 
 \section{Terminology}
 To be able to compare different algorithms there must be a way to determine the correctly detected spots. To do so for each estimated position of a fluorophor, the nearest correct position of the molecule in the groundtruth data was searched within a lateral tolerance disc. Once a match was found these two spots were taken out of consideration for the matching.\newline
@@ -25,9 +25,9 @@ For the evaluation three different measures were used. The f-score index $f$, th
 \subsection*{F-score}
 The f-score $f$ is directly computed from precision and recall.
 \begin{eqnarray}
-	\text{f-score: }f &=\frac{2\cdot p \cdot r}{p+r} 
+	\text{f-score: }f &=\dfrac{2\cdot p \cdot r}{p+r} 
 \end{eqnarray}
-It ranges from zero for bad performance up to one for perfect results. The f-score is combination of precision and recall.
+It ranges from zero for bad performance up to one for perfect results. The f-score is a combination of precision and recall.
 \subsection*{Jaccard index}
 Let $A$ be the set of points of the groundtruth and $B$ be the set of detected points. The Jaccard index $J$ is then defined as:
 \begin{equation}
@@ -42,23 +42,16 @@ The root-mean square distance gives an impression on how big the squared distanc
 \section{Training data}
 All pictures shown in this section are reconstructed from data as provided by the \cite{challenge}.
 \subsection{Bundled tubes datasets}
-There were two kinds of bundled tubes data sets, both created from the same underlying structure. One set with a high spot density and a short sequence of 360 frames, the other with fewer spots per frame but 12000 frames in total. Picture \ref{bundledtubesHighowDensityFrame} shows one frame of each data set.\newline
+There were two kinds of bundled tubes data sets, both created from the same underlying structure. One set with a high spot density and a short sequence of 360 frames, the other with fewer spots per frame but 12000 frames in total. Figure \ref{bundledtubesHighowDensityFrame} shows one frame of each data set.%\newline
 \begin{figure}
-\begin{minipage}[t]{0.60\textwidth}
-\subfloat[High spot density]{\includegraphics[width = 0.485\textwidth]{pictures/bundledTubesHighDensityFrameFarbig.png}}\hfill
-\subfloat[Low spot density]{\includegraphics[width = 0.485\textwidth]{pictures/bundledTubesLowDensityFrameFarbig.png}}
-	\caption{One frame from bundled tubes training data set}
-	\label{bundledtubesHighowDensityFrame}	
-\end{minipage}\hfill
-\begin{minipage}[t]{0.30\textwidth}
-\centering
-\includegraphics[width = 0.88\textwidth]{pictures/maximumProjectionBundledTubesLSFarbig.png}
-	\caption{Maximum projection of bundled tubes data set}
-	\label{pctMaximumProjBundledTubes}
-
-\end{minipage}
+\subfloat[High spot density]{\includegraphics[width = 0.301\textwidth]{pictures/bundledTubesHighDensityFrameFarbig.png}}\hfill%
+\subfloat[Low spot density]{\includegraphics[width = 0.30\textwidth]{pictures/bundledTubesLowDensityFrameFarbig.png}}\hfill%
+\subfloat[Maximum projection]{\includegraphics[width = 0.302\textwidth]{pictures/maximumProjectionBundledTubesLSFarbig.png}}
+	\caption{One frame from each bundled tubes training data set and its maximum projection}%
+	\label{bundledtubesHighowDensityFrame}%
 \end{figure}
-The original images were very small, with only 64 pixels in each dimension. Both sequences had spatial and temporal constant background. Figure \ref{pctMaximumProjBundledTubes} shows the maximum projection of the bundled tubes data set. The maximum projection is used to reduce the dimensionality of a data set. In this case for each pixel in $x$- and $y$-dimension the brightest value from all frames is taken. 
+
+The original images were very small, with only 64 pixels in each dimension. Both sequences had spatial and temporal constant background. The right image in Figure \ref{bundledtubesHighowDensityFrame} shows the maximum projection of the bundled tubes data set. The maximum projection is used to reduce the dimensionality of a data set. In this case for each pixel in $x$- and $y$-dimension the brightest value from all frames is taken. 
 
 
 \subsection{Tubulin data sets}
@@ -74,17 +67,17 @@ The other training data sets models 7 microtubules, a structure that is a long f
 \begin{figure}
 \centering
 \includegraphics[width = 0.88\textwidth]{pictures/maximumProjectionTubulinFarbig.png}
-	\caption{Maximum projection of tubulin data set}
+	\caption{Maximum projection of tubulin data set.}
 	\label{pctMaximumProjTubulin}
 
 
 \end{figure}
 
 \section{Submissions}
-Now the question arose what it means to be the best algorithm. Is the one the best that finds the most true positives regardless of the number of false positives and the accuracy of detection? Or is it more favorable to find exclusively correct spots, but less? There are different definitions for the best algorithm possible.\newline
+Now the question arises what it means to be the best algorithm. Is the one the best that finds the most true positives regardless of the number of false positives and the accuracy of detection? Or is it more favorable to find exclusively correct spots, but less? There are different definitions for the best algorithm possible.\newline
 For that reason each dataset was processed with three different settings described below. All parameters were set manually.
 \subsection{High precision}
-A biological question to be answered by STORM microscopy can be: "How are the labeled proteins distributed over the cell?" There might be just a couple of fluorophors attached to each protein. In that case a high precision is crucial. Otherwise homogeneously distributed false positives all over the image might lead to the conclusion that the protein of interest is distributed all over the cell, instead of being clustered in some spots.\newline
+A biological question to be answered by STORM microscopy can be: "How are the labeled proteins distributed over the cell?" There might be only a couple of fluorophors attached to each protein. In that case a high precision is crucial. Otherwise homogeneously distributed false positives all over the image might lead to the conclusion that the protein of interest is distributed all over the cell, instead of being clustered in some spots.\newline
 The high precision submission set the $\alpha$ value to low values to get almost 100 percent precision.
 \subsection{High score}
 The parameters for the high score submission were set to maximize the Jaccard index. This was done by increasing the $\alpha$ value and estimating the number of true positives and false positives that were found in addition compared to the previously used $\alpha$ value. Based on tests on the trainings date the highest Jaccard index is achieved if the number of new false positives is equal to the number of new true positives. 
@@ -93,15 +86,14 @@ The higher the $\alpha$ value the more likely it is to detect false positives. B
 For the submission a high $\alpha$ was chosen to get also darker true positives. Afterwards the postprocessing was applied. The postprocessing worked well on the contest data because it contained only dense structures. For biological applications the postprocessing has to be used carefully because it discards small, isolated structures, which might be not noise but widely spread proteins.\newline
 Figure \ref{postproc} shows the data before postprocessing, the mask and the result.
 \begin{figure}
-\subfloat[Image before postprocessing]{\includegraphics[width = 0.3\textwidth]{pictures/postproc2.png}}\hfill
-\subfloat[Mask]{\includegraphics[width = 0.30\textwidth]{pictures/postproc1.png}}\hfill	
-\subfloat[Result of postprocessing]{\includegraphics[width = 0.3\textwidth]{pictures/postproc3.png}}
+\subfloat[Image before postprocessing]{\includegraphics[width = 0.32\textwidth]{pictures/postproc2.png}}\hfill
+\subfloat[Mask]{\includegraphics[width = 0.32\textwidth]{pictures/postproc1.png}}\hfill	
+\subfloat[Result of postprocessing]{\includegraphics[width = 0.32\textwidth]{pictures/postproc3.png}}
 
 \caption{Overview over the steps of postprocessing.}
 \label{postproc}	
 
 \end{figure}
-
 
 \section{Results}
 All tables shown in this section and all diagrams are created from the results released by the \cite{challenge}.
@@ -115,21 +107,33 @@ Figures \ref{meanJaccardHighDensity} and \ref{meanRSMEHighDensity} show the mean
 
 
 \subsection{Low density data}
-The tables \ref{resls1}, \ref{resls2} and \ref{resls3} show the same trends as for the high density data. But with this data sets, the difference between the precisions is greater between the high precision submission and the other two submissions. The runtime was about five minutes. This was, like for the high density data sets, average.
+The tables \ref{resls1}, \ref{resls2} and \ref{resls3} show the same trends as for the high density data. But with this data sets, the difference off the precisions is greater between the high precision submission and the other two submissions. The runtime was about five minutes. This was, like for the high density data sets, average.
 
 
 
-As for the high density data sets the mean scores were calculated for the low density data set and are shown in figure \ref{meanJaccardLowDensity} and \ref{meanRSMEHighDensity}. The results for the precision are also shown in figure \ref{meanPrecisionLowDensity}. SimpleSTORM achieved the third rank in the Jaccard index and intermediate ranks for accuracy and precision.
+As for the high density data sets the mean scores were calculated for the low density data set and are shown in Figure \ref{meanJaccardLowDensity} and \ref{meanRSMEHighDensity}. The results for the precision are also shown in figure \ref{meanPrecisionLowDensity}. SimpleSTORM achieved the third rank in the Jaccard index and intermediate ranks for accuracy and precision.
 
 
 
 \subsection{Overall}
-Of the 29 participants of the challenge just 15 submitted results for the high density data sets. There is no winner since no software performed well on each score. This can be explained by a trade-off between high accuracy (a low RSME) and the number of spots detected (influence on Jaccard index). For example, bright spots are easier to localize. Just finding the brightest spots yields a good performance on the RSME score but less points. This trade-off can be seen not just in our results, where a high Jaccard index goes along with an intermediate RSME score and vice versa, but also for other algorithms like Fast-ML-HD, which has the highest Jaccard index on the high density data but the second worst RSME score for the same data set.\newline
-To compare the different algorithms some metric has to be used that takes the shown trade-off between Jaccard index and accuracy into account. One way is to use the rank each software achieved on the different data sets for different scores and average over it. The results averaging just the mean rank for the Jaccard index and for the RSME score are shown in figure \ref{meanRankLow} for the low density data sets and in figure \ref{meanRankHigh} for the high density data sets.\newline
-SimpleSTORM achieves the best mean rank for high density data and the third best result for the low density data sets. \newline
-Figure \ref{meanRankOverall} shows the result if the average rank for each data set and for RSME score and the Jaccard index is calculated based on the ranks of all algorithms that processed both high density and low density data only. All other algorithms were taken out of this consideration. Although this method of comparison did not weight the ranks which means that extraordinary good performance makes no difference to slightly better performance between two consecutive software, it shows that SimpleSTORM provides a good compromise between a high number of correct detections and high accuracy.
+Of the 29 participants of the challenge only 15 submitted results for the high density data sets. There is no winner since no software performed well on each score. This can be explained by a trade-off between high accuracy (a low RSME) and the number of spots detected (influence on Jaccard index). For example, bright spots are easier to localize. Just finding the brightest spots yields a good performance on the RSME score but less points. This trade-off can be seen not only in our results, where a high Jaccard index goes along with an intermediate RSME score and vice versa, but also for other algorithms like Fast-ML-HD, which has the highest Jaccard index on the high density data but the second worst RSME score for the same data set.\newline
+To compare the different algorithms some metric has to be used that takes the shown trade-off between Jaccard index and accuracy into account. One way is to use the rank each software achieved on the different data sets for different scores and average over it. The averaged results over the mean rank for the Jaccard index and for the RSME score are shown in Figure \ref{meanRankLow} for the low density data sets and in Figure \ref{meanRankHigh} for the high density data sets. Figure \ref{scatterSoftware} shows scatter plots for the high and low density data sets. For the high density data sets the trade-off described above is clearly visible. The results of the different software show correlation. The correlation coefficient is -0.62. For the low density data sets the correlation is almost zero. The result that the trade-off is only present for high density data can be explained with the insights of section \ref{sectionFilterisEvil}, that there are merging PSFs for high density data. If they are detected the accuracy is low, but if the merged PSFs are discarded the Jaccard index drops.\newline
+SimpleSTORM achieves the best mean rank for high density data and the third best result for the low density data sets. This corresponds to small distances between the spot of SimpleSTORM and the origin in the scatter plot.\newline
+Figure \ref{meanRankOverall} shows the result if the average rank for each data set and for RSME score and the Jaccard index is calculated based on the ranks of all algorithms that processed both high density and low density data. All other algorithms were taken out of this consideration. Although this method of comparison did not weight the ranks which means that extraordinary good performances make no difference to slightly better performance between two consecutive software, it shows that SimpleSTORM provides a good compromise between a high number of correct detections and high accuracy.
 
+\begin{minipage}{\textwidth}
+\begin{minipage}{0.49\textwidth}
+\includegraphics[width = \textwidth]{pictures/scatterplotSoftware.png}
+\captionof*{figure}{high density data sets}
+\end{minipage}\hfill
+\begin{minipage}{0.49\textwidth}
 
+\includegraphics[width = \textwidth]{pictures/scatterplotSoftwareLS.png}
+\captionof*{figure}{low density data sets}
+\end{minipage}
+\captionof{figure}{Scatter plot of the mean Jaccard rank and the mean RSME rank. The correlation between high accuracy and a bad Jaccard index is clearly visible in the high density data set, however it is not present for the low density data. The closer the distance to the origin the better is the overall performance of a STORM software.}
+\label{scatterSoftware}
+\end{minipage}
 
 \begin{figure}
 \centering

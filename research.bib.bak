@@ -206,7 +206,7 @@ Transactions on Pattern Analysis and Machine Intelligence},
 @misc{scipy,
   author =    {Eric Jones and Travis Oliphant and Pearu Peterson and others},
   title =     {{SciPy}: Open source scientific tools for {Python}},
-  year =      {2001--},
+  year =      {2001},
   url = "http://www.scipy.org/"
 }
 
@@ -333,3 +333,24 @@ abstract = {Super-resolution fluorescence imaging based on single-molecule local
 	   url = {http://www.els.net},
 	   doi = {10.1038/npg.els.0001174}
      }
+     
+@book{wiener,
+  title={Numerical Recipes in Pascal (First Edition): The Art of Scientific Computing},
+  author={Press, W.H.},
+  number={Bd. 1},
+  isbn={9780521375160},
+  url={http://books.google.de/books?id=bh5w6E-M-PUC},
+  year={1989},
+  publisher={Cambridge University Press}
+}
+
+@book{pinsky,
+  title={Introduction to Fourier Analysis and Wavelets},
+  author={Pinsky, M.A.},
+  isbn={9780821847978},
+  series={Graduate Studies in Mathematics},
+  url={http://books.google.de/books?id=tlLE4KUkk1gC},
+  year={2002},
+  publisher={American Mathematical Society}
+}
+

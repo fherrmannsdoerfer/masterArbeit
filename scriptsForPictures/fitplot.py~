@@ -5,9 +5,9 @@ meansk = np.load("/home/herrmannsdoerfer/MasterArbeit/daten/meansk_a_5_b_380.npy
 varsk = np.load("/home/herrmannsdoerfer/MasterArbeit/daten/varsk.npy")
 
 plot.scatter(meansk, varsk)
-x = np.array(range(int(np.min(meansk)), int(np.max(meansk))))
+x = np.array(range(int(np.min(meansk)), int(np.max(meansk))) )
 y = 5 * x - 5*380
-plot.plot(x,y, legend = "fit = 5.01 * x - 1909", linewidth = 3)
+plot.plot(x,y, label = "fit = 5.01 * x - 1909", linewidth = 3)
 
 plot.title("Fitting example", fontsize=20)
 plot.xlabel("mean", fontsize=20)

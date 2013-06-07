@@ -26,7 +26,7 @@ plot.tick_params(axis='both', labelsize=12)
 m,c = stats.linregress(ms[:6],vs[:6])[0:2]
 xr = np.linspace(np.min(ms),int(np.max(ms)),11)
 yr = np.array(m)*xr + c
-
+print m, -c/m
  
 plot.plot(ms[:6],vs[:6],label="calibration measurement", linewidth = 3)
 plot.plot(xr[:7],yr[:7],label="fitted curve", linewidth = 3)

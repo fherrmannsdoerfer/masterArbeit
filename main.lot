@@ -2,18 +2,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation software from the \cite {challenge} were used.\relax }}{27}{table.caption.17}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of results created using almost no smoothing or Wiener filter on high density data. Although the accuracy is almost the same, the number of detections and the scores are higher for the unsmoothed data. For the evaluation software from the \cite {challenge} were used.\relax }}{26}{table.caption.17}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Fitting results for gain and offset for various data sets from our collaborators from Bioquant.\relax }}{52}{table.4.1}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Fitting results for gain and offset for various data sets from our collaborators from Bioquant.\relax }}{50}{table.4.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {9.1}{\ignorespaces Results for the main submission for the high density data set (with postprocessing)\relax }}{80}{table.9.1}
-\contentsline {table}{\numberline {9.2}{\ignorespaces Results for the high precission submission for the high density data set\relax }}{80}{table.9.2}
-\contentsline {table}{\numberline {9.3}{\ignorespaces Results for the high score submission for the high density data set (without postprocessing)\relax }}{81}{table.9.3}
-\contentsline {table}{\numberline {9.4}{\ignorespaces Results for the main submission for low density data sets(with postprocessing)\relax }}{81}{table.9.4}
-\contentsline {table}{\numberline {9.5}{\ignorespaces Results for the high precission submission for low density data sets\relax }}{82}{table.9.5}
-\contentsline {table}{\numberline {9.6}{\ignorespaces Results for the high score submission for low density data sets (without postprocessing)\relax }}{82}{table.9.6}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {9.1}{\ignorespaces Results for the main submission for the high density data set (with postprocessing)\relax }}{78}{table.9.1}
+\contentsline {table}{\numberline {9.2}{\ignorespaces Results for the high precission submission for the high density data set\relax }}{78}{table.9.2}
+\contentsline {table}{\numberline {9.3}{\ignorespaces Results for the high score submission for the high density data set (without postprocessing)\relax }}{78}{table.9.3}
+\contentsline {table}{\numberline {9.4}{\ignorespaces Results for the main submission for low density data sets(with postprocessing)\relax }}{79}{table.9.4}
+\contentsline {table}{\numberline {9.5}{\ignorespaces Results for the high precission submission for low density data sets\relax }}{79}{table.9.5}
+\contentsline {table}{\numberline {9.6}{\ignorespaces Results for the high score submission for low density data sets (without postprocessing)\relax }}{79}{table.9.6}
 \addvspace {10\p@ }

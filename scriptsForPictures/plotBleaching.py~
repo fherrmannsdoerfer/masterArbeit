@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plot
 
-meanar=np.load('/home/herrmannsdoerfer/MasterArbeit/daten/ergebnissBleachingPos2_2_green.npy')
-
+dataarr=np.load('/home/herrmannsdoerfer/MasterArbeit/daten/ergebnissBleachingPos2_2_green.npy')
+meanar = dataarr[10,:]
 
 plot.plot(range(len(meanar)), meanar)
 

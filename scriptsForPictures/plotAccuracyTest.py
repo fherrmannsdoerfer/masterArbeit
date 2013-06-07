@@ -13,7 +13,7 @@ plot.plot(data1[skip:,1]/100, data1[skip:,0], label = "1 spot per frame")
 plot.plot(data1[skip:,1]/100, data3[skip:,0], label = "3 spot per frame")
 plot.plot(data1[skip:,1]/100, data5[skip:,0], label = "5 spot per frame")
 
-plot.title("Accuracy test", fontsize=20)
+#plot.title("Accuracy test", fontsize=20)
 plot.xlabel("SNR", fontsize=20)
 plot.ylabel("Std. dev. in pixel", fontsize=20)
 plot.tick_params(axis='both', labelsize=12)

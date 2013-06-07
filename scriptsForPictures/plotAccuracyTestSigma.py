@@ -8,7 +8,7 @@ data4=np.loadtxt("/home/herrmannsdoerfer/MasterArbeit/daten/intensityAccuracyDat
 data5=np.loadtxt("/home/herrmannsdoerfer/MasterArbeit/daten/intensityAccuracyData1spot40_40_pixelsSigma_1_8.txt")
 data7=np.loadtxt("/home/herrmannsdoerfer/MasterArbeit/daten/intensityAccuracyData1spot40_40_pixelsSigma_2_2.txt")
 
-skip = 20
+skip = 30
 
 
 plot.plot(data1[skip:,1]/100, data0[skip:,0], label = "sigma = 0.6")
@@ -18,7 +18,7 @@ plot.plot(data1[skip:,1]/100, data4[skip:,0], label = "sigma = 1.6")
 plot.plot(data1[skip:,1]/100, data5[skip:,0], label = "sigma = 1.8")
 plot.plot(data1[skip:,1]/100, data7[skip:,0], label = "sigma = 2.2")
 
-plot.title("Accuracy test", fontsize=20)
+#plot.title("Accuracy test", fontsize=20)
 plot.xlabel("SNR", fontsize=20)
 plot.ylabel("Std. dev. in pixel", fontsize=20)
 plot.tick_params(axis='both', labelsize=12)

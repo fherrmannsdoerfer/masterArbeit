@@ -12,9 +12,9 @@ def fac(n):
 
 def poisson0(x, lamb):
     y = np.zeros(len(x))
-    for i in range(len(x)):     
+    for i in range(len(x)):
         y[i] = 1.*np.power(lamb,x[i]) / fac(x[i]) * np.exp(-lamb)
-    return y  
+    return y
 
 
 bild = []
@@ -35,8 +35,8 @@ for j in range(len(x0)):
   y = poisson0(x, np.mean(bild3[:,x0[j],x1[j],0]))*nbrPoints
   plot.hist(bild3[:,x0[j],x1[j],0], int(np.max(bild3[:,x0[j],x1[j],0])-np.min(bild3[:,x0[j],x1[j],0])))
   plot.plot(x,y, linewidth = 3)
-  
-  plot.title("Comparison Poisson distribution transformed data", fontsize=20)
+
+  #plot.title("Comparison Poisson distribution transformed data", fontsize=20)
   plot.xlabel("bin", fontsize=20)
   plot.ylabel("count per bin", fontsize=20)
   plot.tick_params(axis='both', labelsize=12)

@@ -1,31 +1,31 @@
-\chapter{Theoretical background}
-This chapter gives an overview over the most important distributions and transformations that are used for the SimpleSTORM algorithm and the Colorcomposer. An introduction to the most important parts of regular Charge-coupled Device (CCD) cameras is also given, as well as a section about the data the algorithm is designed for. 
+\chapter{Theoretical background} \label{theoreticalbg}
+This chapter gives an overview over the most important distributions and transformations that are used for the SimpleSTORM algorithm. An introduction to the most important parts of regular charge-coupled device (CCD) cameras is also given, as well as a section about the data the algorithm is designed for. 
 
 \section{The data}
-\subsection{Labeling stuctures of interest}
-The concept of direct stochastic optical reconstruction microscopy (dSTORM) (\cite{heilemann}) is, to label structures of interest with fluorophors that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. Shortly after the activation the fluorophors emit a photon and fall back to the unexcited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. Each fluorophore is visible a couple of times at most. A movie that shows the frames consecutively shows blinking spots.\newline
+\subsection{Labeling structures of interest}
+The concept of direct stochastic optical reconstruction microscopy (dSTORM) (\cite{heilemann}) is, to label structures of interest with fluorophores that can be exited using a laser with the appropriate wavelength directly, in contrast to STORM techniques which need an additional activator fluorophore. Shortly after the activation the fluorophores emit a photon and fall back to the unexcited state or lose the ability to get exited, they bleach out. Special fluorophores have to be used that have a low probability to get activated. Each fluorophore is visible a couple of times at most. A movie that shows the frames consecutively shows blinking spots.\newline
 The technique to stain the samples that was used for all real-world images in this thesis is called immunofluorescence. For this technique antibodies are used to attach the fluorescenic molecules to the samples. Antibodies target specific biomolecules within a cell that show their antigen. There are two classes of immunofluorescence techniques.\newline
 Primary immunofluorescence uses only one antibody, which the fluorophore is directly attached to.\newline
 For secondary immunofluorescence two kinds of antibodies are used. First the primary antibody that binds to the molecule or structure of interest and then a second antibody that binds to the primary and carries the fluorophore. The primary antibody is extracted from a specific animal and is sensitive to the desired structure within a cell. The secondary antibody binds to any primary antibody from the specific animal (\cite{immuno}).\newline
-Using secundary immunofluorescence is more flexible because for different labels only different primary antibodies are needed, but the fluorophore that will be attached can be chosen freely. For primary immunofluorescence the combination is fixed.\newline
+Using secondary immunofluorescence is more flexible because for different labels only different primary antibodies are needed, but the fluorophore that will be attached can be chosen freely. For primary immunofluorescence the combination is fixed.\newline
 The advantage of primary immunofluorescence is that the distance between fluorophore and target is smaller.\newline
 After staining the sample the unbound antibodies are washed away to avoid unspecific signals.
 
 \subsection{Description of the data sets}
 The datasets for dSTORM microscopy that we receive from our collaborators from
-Bioquant, Heidelberg are big datasets of several gigabyte in the Andor ".sif" format. Each
+Bioquant, Heidelberg (Mike Heilemanns group) are big datasets of several gigabyte in the Andor ".sif" format. Each
 file contains a stack of pictures, usually between 1000 and 10000, taken
-consecutively with a fixed exposure time normally between 20 and 200 milliseconds. The data set can be seen as a three-dimensional volume where the first two dimensions are given by the resolution of each picture and the thrid dimension is given by the size of the image stack. From now on the first two dimensions are called spatial dimensions. The third dimension of the data, resulting from the consecutive capturing of the images, is referred to as temporal dimension.\newline
+consecutively with a fixed exposure time normally between 20 and 200 milliseconds. The data set can be seen as a three-dimensional volume where the first two dimensions are given by the resolution of each picture and the third dimension is given by the size of the image stack. From now on the first two dimensions are called spatial dimensions. The third dimension of the data, resulting from the consecutive capturing of the images, is referred to as temporal dimension.\newline
 
-Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as approximately Gaussian shaped signals, their point spread functions. The fluorophores are either attached to the biological structures that are of interest or form a cluster, called a bead.\newline
+Figure \ref{rawStorm} shows a typical frame of raw data. In each frame there might be multiple fluorophores visible at the same time. Due to the large magnification, beyond the diffraction limit, the almost pointlike fluorophores appear as approximately Gaussian shaped signals, their point spread functions (PSF). The fluorophores are either attached to the biological structures that are of interest or form a cluster, called a bead.\newline
 
 Beads are larger and brighter than spots from only one fluorophore and are used to align multiple channels in the postprocessing step. Designed to show up in every frame of the sequence at the same position they can be used as landmarks for alignment. They are composed of fluorophores of different colors to be visible in every channel.\newline
 
-The other spots, such as spots from fluorophores bound structures, often proteins of interest, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of point spread functions per frame. This makes it possible to determine the center of each point spread function with a sub-pixel precision. A high resolution image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
+The other spots, such as spots from fluorophores bound to structures, often proteins of interest, only light up for a very short time. This is the key aspect of STORM. Instead of one frame that shows all fluorophores at the same time, thousands of frames are captured containing only a couple of PSFs per frame. This makes it possible to determine the center of each PSF with a sub-pixel precision. A high resolution image, with resolutions beyond the diffraction limit, can be reconstructed by plotting all detections found into one image.
 
 \begin{figure}
 \centering
-\includegraphics[width = 0.88\textwidth]{pictures/Pos2_2_red2-2frame2475Color.png}
+\includegraphics[width = 0.65\textwidth, angle=90]{pictures/Pos2_2_red2-2frame2475Color.png}
 	\caption{Raw image for dSTORM processing}
 	\label{rawStorm}
 \end{figure}
@@ -37,11 +37,11 @@ The one dimensional Gaussian distribution is characterized by its mean $\mu$ and
 \begin{align}
 f(x,\mu,\sigma) &= \frac{1}{\sqrt{2\pi}\sigma}\text{exp}\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)&\text{1-D}
 \end{align}
-The $k$-dimensional probability density function is characterized by the covariance matrix$\Sigma$ and the is the $k$-dimensional mean $\pmb{\mu}$:
+The $k$-dimensional probability density function is characterized by the covariance matrix $\Sigma$ and the $k$-dimensional mean $\pmb{\mu}$:
 \begin{align}
 f(x_1,...,x_k,\pmb{\mu},\Sigma)&=\frac{1}{\sqrt{(2\pi)^k \text{det}(\Sigma)}}\text{exp}\left(-\frac{1}{2}(\bf{x}-\pmb{\mu})^T\Sigma^{-1}(\bf{x}-\pmb{\mu})\right) &\text{$k$-D}
 \end{align}
-Figure \ref{poisgaussdistr} shows some Gaussian distributions. The two dimensional Gaussian distribution is used for the Gaussian filter.
+Figure \ref{poisgaussdistr} shows some Gaussian distributions. The two dimensional Gaussian distribution is used for the Gaussian filter, which will be briefly described later.
 \subsection{Poisson distribution}
 A very important probability distribution in Physics is the Poisson
 distribution. Its probability mass function is:
@@ -102,12 +102,12 @@ Figure \ref{skellamdistfig} shows two Poisson distributions ($P_\text{red}$ and 
 If the differences between following values of a single Poisson distribution are used as $k$ for the Skellam distribution the variance of the Poisson distribution is given by the Skellam parameters $\mu_1$ or $\mu_2$ (the mean of the Skellam distribution $\mu$ will be close to zero if the same Poisson distributions are used).\newline
 In section \ref{skellambettervariance} is shown which way to estimate the variance works better and more reliably.
 
-\section{Charge-coupled Device (CCD) camera}
+\section{Charge-coupled device (CCD) camera}
 The light emitted by the fluorophores is captured by a CCD camera. During the capturing process the true measure, the photons arriving at the aperture of the camera, is transformed to electrons and eventually to a digital number. This section gives a short overview over the most important aspects of signal processing within a CCD camera.
 \subsection{Photon counting noise}
-The emission of photons is a random process that occurs at unpredictable times. Therefore the number of photons passing through a plane is never constant but varies around an average value. This means, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera. This phenomenum is called photon counting noise. It plays a major role if the total number of photons is low, for example from dark sources or with short exposure times of the camera.
+The emission of photons is a random process that occurs at unpredictable times. Therefore the number of photons passing through a plane is never constant but varies around an average value. This means, that one can never determine exactly how many photons will hit the sensor chip of a CCD camera. This phenomenon is called photon counting noise. It plays a major role if the total number of photons is low, for example from dark sources or with short exposure times of the camera.
 \subsection{Quantum efficiency}
-Quantum efficiency describes the fraction of photons creating a detectable electron in a sensor chip. The quantum efficiency depends on the wavelength of the incoming photon. Photons with energies below the band gap can not produce a free electron that can be detected. The quantum efficiency has a maximum for a certain wavelength. This maximum of the quantum efficiency is basically caused by two effects. One hand the higher the energy of the photon is the higher is the kinetic energy of the freed electron and therefore the diffusion length is greater, on the other hand the electron is created further away from the detector and is more likely to recombine with an electron hole.
+Quantum efficiency describes the fraction of photons creating a detectable electron in a sensor chip. The quantum efficiency depends on the wavelength of the incoming photon. Photons with energies below the band gap can not produce a free electron that can be detected. The quantum efficiency has a maximum for a certain wavelength. This maximum of the quantum efficiency is basically caused by two effects. One hand the higher the energy of the photon is the higher is the kinetic energy of the freed electron and therefore the diffusion length is greater, on the other hand the electron is freed further away from the detector and is more likely to recombine with an electron hole.
 \subsection{Gain factor}
 There are two different gain factors involved in the capturing process of a camera. Firstly the electric signal for each pixel may be amplified. Secondly there is a gain factor that describes the proportionality between collected electrons and the digital number it is associated with. The gain factor leads to a linear amplification of the input signal.
 \subsection{Readout noise}
@@ -121,12 +121,12 @@ The signal must fit into the output color depth. It has to be rounded or truncat
 \section{Transformations}
 \subsection{Transformation to Poisson distributed signal} \label{trafoPoiss}
 The images acquired from the camera do not show the real intensities
-$I_\text{true}$, which result from the photon emission of the probe, but
+$I_\text{true}$, which result from the photon emission of the sample, but
 transformed intensities $I_\text{meas}$.\newline
 A linear transformation of the data is assumed with two parameters, the gain $g$ and the offset $o$.
 Incoming photons create electrons via inner photoelectric effect. These electrons
-are collected for each pixel and might be amplified to get the final result.
-A linear relatiion between the number of incoming photons is assumed, as well as a linear amplifier. This assumptions lead to a linearly transformed signal with a slope of $g$. 
+are collected for each pixel and might be amplified to get the digital number.
+A linear relation between the number of incoming photons and detected electrons is assumed, as well as a linear amplifier. This assumptions lead to a linearly transformed signal with a slope of $g$. 
 This factor
 is multiplied with the number of photons captured during exposure time for each
 pixel.\\
@@ -149,11 +149,11 @@ The inverse Anscombe transformation is given by:
 \begin{align}
 	I(x) = \left(\frac{x+\frac{3}{8}}{2}\right)^2 - \frac{3}{8} \label{invAnsc}
 \end{align}
-Figure \ref{anscombe} shows the standard deviation of Poisson distributions with increasing mean (green line) and the standard deviation of Poisson distributions that are transformed useing the Anscombe transformation (blue line). As can be seen in Figure \ref{anscombe} the Anscombe transformations result has
+Figure \ref{anscombe} shows the standard deviation of Poisson distributions with increasing mean (green line) and the standard deviation of Poisson distributions that are transformed using the Anscombe transformation (blue line). As can be seen in Figure \ref{anscombe} the Anscombe transformations result has
 an intensity independent standard deviation of one for mean intensities greater than 4.
 \begin{figure}
 	\centering
-	\includegraphics[width = 0.5\textwidth]{pictures/anscombe.png}
+	\includegraphics[width = 0.5\textwidth]{pictures/anscombe2.png}
 	\caption{Standard deviation over mean intensities of different Poisson
 	distributions (green) and their Anscombe transformed distributions (blue)}
 	\label{anscombe}	
@@ -167,8 +167,8 @@ Two different ways of estimating the camera parameters, which are needed to tran
 \end{equation}
 This is the inverse transformation of equation \ref{transtopoiss}.
 \subsection{Using variance-mean plot} \label{skellam1}
-The approach for the parameter estimation using the variances of the pixels is shown using a minimalistic example. It is then used in a generalized form.\newline
-Consider two pixels with different Poisson distributions $P_1$ and $P_2$ with mean value and variances of this distributions $\lambda_1$ and $\lambda_2$. If these distributions are transformed as given in equation \ref{trafoGain} their mean and variance in temporal domain change as as follows:
+The approach for the parameter estimation using the variances of the pixels is shown using a minimalistic example. It is then further used in a generalized form.\newline
+Consider two pixels with different Poisson distributions $P_1$ and $P_2$ with mean value and variances of these distributions $\lambda_1$ and $\lambda_2$. If these distributions are transformed as given in equation \ref{trafoGain} their mean and variance in temporal domain change as as follows:
 \begin{align}
 	\text{var}(I_{\text{meas}1})& = g^2\cdot\text{var}(I_{\text{true}1}) \label{calcvar}\\ 
 	\text{var}(I_{\text{meas}2})& = g^2\cdot\text{var}(I_{\text{true}2})\\
@@ -188,42 +188,70 @@ The offset $o$ can be calculated in the following way:
 	&= o
 \end{align}
 The estimation becomes more stable if more than two points are used and if the points are taken from a wide range of intensities. If more than two points are used a line of best fit must be found. This lines slope gives the gain factor and the intersection on the $x$-axis the offset. The variance of the pixels intensities are calculated directly, instead of using the Skellam approach. This is motivated in section \ref{skellambettervariance}.
+\newpage
 \subsection{Using skewness of Poisson distribution}
 A second approach is to use the skewness of the Poisson distribution to estimate the mean value.\newline
 For every pixel there are multiple intensities in temporal dimension. One can
-calculate mean and variance of the measured intensities for each pixel $I_\text{meas}(i,j)$ and
-gets
+calculate mean and variance of the measured intensities for each pixel $I_\text{meas}(i,j)$:
 \begin{align}
 	\text{mean}(I_\text{meas}(i,j))& = g\cdot \text{mean}(I_\text{true}(i,j)) + o \label{meanvarPoiss1}\\
 	\text{var}(I_\text{meas}(i,j))& = g^2\cdot\text{var}(I_\text{true}(i,j)) \label{meanvarPoiss2}
 \end{align}
 Assuming a Poisson distribution as the true intensity, mean and variance would
 be the same. Unfortunately the mean true intensities are unknown and it is
-not possible to determine $g$ and $o$ so far. For large mean Intensities $\mu$
+not possible to determine $g$ and $o$ so far. For large mean intensities $\mu$
 the Poisson distribution becomes more and more symmetric and therefore similar to a Gaussian distribution
 with the same mean and variance as the Poisson distribution. However, for small means, the Poisson distribution is not
 symmetric. The skewness $s_p$ of a Poisson distribution is the inverse of the
-square root of the mean $(\mu)^{-.5}$. It can also be directly
-calculated from data
+square root of the mean $(\mu)^{-.5}$. It can also be
+calculated from the data directly:
 \begin{equation}
-	s_p = \frac{1}{n}\sum_{i = 1}^n \left(\frac{x_i - \bar x}{\sigma}\right)^3
+	s_p = \frac{1}{n}\sum_{i = 1}^n \left(\frac{x_i - \bar x}{\sigma}\right)^3 = \frac{1}{\sqrt{\mu}}
 \end{equation}
 The skewness is invariant to shift and multiplication with a constant. This
 means that the transformation caused by the camera gain and the offset
 does not affect the skewness. This gives a third equation to solve for $g$ and
 $o$.\\
-This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than roughly 30, the skewness gives no stable results. This is shown in section \ref{skewnesssucks}. For data sets with high background intensities it is not possible to determine the camera parameters in this way.
+This approach is strictly limited to, at least for background pixels, low intensities. Tests have shown that if the mean of the true Poisson distribution is higher than around 30, the skewness gives no stable results. This is shown in section \ref{skewnesssucks}. For data sets with high background intensities it is not possible to determine the camera parameters this way.
 
 \section{Check for correct gain factor} \label{checkGain}
-The gain factor may have been determined or entered incorrectly. Assuming there is the true gain factor $g_\text{true}$ and the incorrect gain factor $g_\text{false}$. Let be Poiss$(\mu)$ the true Poisson distribution of one background pixel and $o$ the offset. The pixels raw intensities are therefore $g_\text{true} \cdot \text{Poiss($\mu$)} + o$. The following shows the effects of the incorrectly chosen gain factor on the transformed images:
+The gain factor may have been determined or entered incorrectly. Assuming there is the true gain factor $g_\text{true}$ and the incorrect gain factor $g_\text{false}$ and let Poiss$(\mu)$ be the true Poisson distribution of one background pixel and $o$ the offset, the pixels raw intensities are $g_\text{true} \cdot \text{Poiss($\mu$)} + o$. The following equations show the effect of the incorrectly chosen gain factor on the transformed images:
 \begin{align}
 	\frac{(g_\text{true} \cdot \text{Poiss($\mu$)} + o)-o}{g_\text{false}} &= \underbrace{\frac{g_\text{true}}{g_\text{false}}}_{r}\text{Poiss($\mu$)}&\text{Transformation \ref{trafoPoiss}}\\
-	2\sqrt{r\text{Poiss($\mu$)}+\frac{3}{8}}&\approx \text{Gauss}(2\sqrt{r\mu},r)&\text{Transformation \ref{trafoAnscombe}}
+	2\sqrt{r\cdot\text{Poiss($\mu$)}+\frac{3}{8}}&\approx \text{Gauss}(2\sqrt{r\mu},r)&\text{Transformation \ref{trafoAnscombe}}
 \end{align}
-The variance of the Gaussian can be determined. Since the incorrect estimate of the gain factor and the Gaussians variance $r$ are known, the correct gain factor can be determined by multiplication of the incorrect one with $r$.
+The variance of the Gaussian can be determined. Since the incorrect estimate of the gain factor and the Gaussians variance $r$ are known, the correct gain factor can be determined by multiplication of the incorrect one with $r$:
+\begin{align}
+g_\text{true}=r\cdot g_\text{false}
+\end{align}
 
+\section{Estimation of the point spread functions width}
+The width of the PSF of the signal is estimated from the mean power spectrum. The power spectrum of a frame is the magnitude of its Fourier transform
+\begin{align}
+P_t(u,v) = \left\|\text{FFT}(I_t)(u,v) \right\|^2.
+\end{align}
+The mean power spectrum is the mean of the power spectra of a number of frames:
+\begin{align}
+ P(u,v) = \frac{1}{N}\sum_{t=1}^{N}P_t(u,v)
+\end{align}
+Since a Gaussian stays a Gaussian with inverse variance under Fourier transform, the variance of the PSF in the spatial domain can be calculated based on the mean power spectrum.\newline
+Let $f$ be a Gaussian function, with a variance $\sigma_s^2$ in the spatial domain and $\sigma_f^2$ in the Fourier domain.
+The Uncertainty principle states (\cite{pinsky}, page 131):
+\begin{align}
+ \sigma_f^2\sigma_s^2 &\leq \frac{1}{16\pi^2}\\
+ \sigma_s&=\frac{1}{4\pi\sigma_f}
+\end{align}
+Equality holds since $f$ is Gaussian. The Fourier transform is squared this lowers $\sigma_f$ by a factor of $\sqrt{2}$. The formula to calculate the standard deviation of the PSFs in the spatial domain is therefore:
+\begin{align}
+\sigma_s&=\frac{1}{2\sqrt{2}\pi\sigma_f} \label{psfestimationch2}
+\end{align}
 \section{Filters}
+Two different filters are introduced, the Gaussian filter and the Wiener filter. A discussion why the Gaussian filter is used can be found in section \ref{sectionFilterisEvil}.
 \subsection*{Gaussian filter}
-The Gaussian filter uses a Gaussian for the convolution with the image that shall be filtered. The convolution of an image with a Gaussian filter alters the intensities of the pixels by adding some fraction, depending on the parameters of the filter, of the intensities of the surrounding pixels. The Gaussian filter can be used for noise suppression.
+The Gaussian filter uses a 2-dimensional Gaussian function for the convolution with the image that shall be filtered. The convolution of an image with a Gaussian filter alters the intensities of the pixels by adding some fraction of the intensities of the surrounding pixels. The Gaussian filter can be used for noise suppression.
 \subsection*{Wiener filter}
-The Wiener filter is also known as Wiener-Kolmogoroff filter. One application of the Wiener filter is noise suppression. It is designed to minimize the mean square error of the filtered image compared to the original image without noise. 
+The Wiener filter is also known as Wiener-Kolmogoroff filter. One application of the Wiener filter is noise suppression. It is designed to minimize the mean square error of the filtered image compared to the original image without noise. The filter $\Phi$ is given as (\cite{wiener}):
+\begin{align}
+\Phi = \frac{|S|^2}{|S|^2+|N|^2}
+\end{align}
+$S$ and $N$ represent the mean power spectral density of the undisturbed signal and the noise, respectively.

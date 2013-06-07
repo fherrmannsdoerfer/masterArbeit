@@ -44,7 +44,7 @@ plot.close()
 
 i = 17
 plot.plot(x,arrs[-4]-.046,linewidth = 3, label = 'shifted measurement', color = color[0])
-plot.plot(x,arrs[-4],linewidth = 1, label = 'measurement', color = color[1])
+plot.plot(x,arrs[-4],'--',linewidth = 1, label = 'measurement', color = color[1])
 s = 1000.
 n = 10.
 sigmapsf = 1.8

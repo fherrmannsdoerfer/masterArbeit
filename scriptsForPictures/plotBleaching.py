@@ -6,7 +6,7 @@ meanar = dataarr[10,:]
 
 plot.plot(range(len(meanar)), meanar)
 
-plot.title("Bleaching signal", fontsize=20)
+#plot.title("Bleaching signal", fontsize=20)
 plot.xlabel("Frame", fontsize=20)
 plot.ylabel("Mean background intensity", fontsize=20)
 plot.tick_params(axis='both', labelsize=12)

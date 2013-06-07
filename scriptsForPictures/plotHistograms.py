@@ -19,7 +19,7 @@ plot.bar(x,ansc[:150,1], width = ansc[1,0]-ansc[0,0], color='g')
 y = gauss(x,a1,b1,c1,d1)
 plot.plot(x,y,color = 'k', linewidth = 3)
 
-plot.title("Histogram after Anscombe transformation", fontsize=20)
+#plot.title("Histogram after Anscombe transformation", fontsize=20)
 plot.xlabel("intensity", fontsize=20)
 plot.ylabel("pixel per bin", fontsize=20)
 

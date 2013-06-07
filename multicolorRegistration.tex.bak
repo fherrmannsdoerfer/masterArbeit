@@ -1,23 +1,23 @@
 \chapter{Multicolor registration}
 Biological samples are often labeled with more than one kind of fluorophore to show different structures within the sample. To align images from
 different color channels despite chromatic aberration, beads are used. Beads are
-fluorophores added to the probe that emit light in all wavelengths the
+fluorophores added to the probe that emit light of the same wavelengths the
 different markers do, and therefore are visible in all channels. The beads can be
-used as landmarks, because their position in the original image must be the same. The task is to find a transformation that maps corresponding beads on each
+used as landmarks, because their position in the aligned image must be the same. The task is to find a transformation that maps corresponding beads on each
 other.\newline
 The aligned images can then be investigated for colocalized structures.\newline
 Both tasks can be done using the improved version of the Colorcomposer.
 
 \section{Chromatic aberration}
-In microscopy it is often desirable to label different structures in a cell with
+In microscopy it is often desirable to label different cell structures with
 different colors. To do so our collaborators use different fluoroscent molecules
 that emit light at different and therefore distinguishable wavelengths. Using appropriate
 filters it is possible to capture pictures containing light emitted from only one
 kind of fluorophore.\newline
 The propagation speed of light depends on the substance it is propagating through. The property of the substance that describes the ratio of the speed of light in vacuum $c$ and in the substance $v$ is called refraction index $n = c/v$.\newline
-The refraction index for one substance is wavelength dependent. Different wavelengths are refracted under different angles. This effect causes the splitting of white light into its components when shining through a prism.\newline
-The same effect causes the focal length of the microscope to be wavelength dependent. This means that the light for the same spot but with
-different wavelengths is not mapped to the same spot in the image. A sketch is shown in Figure \ref{wikibild1}.
+The refraction index for any substance depends on the wavelength. Different wavelengths are refracted under different angles. This effect causes the splitting of white light into its components when shining through a prism.\newline
+The same effect causes the focal length of the microscope to be wavelength dependent, as sketched in  Figure \ref{wikibild1}. This means that the light for the same spot but with
+different wavelengths is not mapped to the same spot in the image. This is the reason why the images of different colors have to be aligned.
 
 \begin{figure}
 	\centering
@@ -30,7 +30,7 @@ different wavelengths is not mapped to the same spot in the image. A sketch is s
 \section{Colorcomposer GUI}
 The goal of the Colorcomposer tool is to provide software that is easy to use, flexible and powerful. The current version of the Colorcomposer is easy to use, because the different channels can be aligned by selecting the auto-align option.\newline
 Beads can also be manually selected or deleted, if the user wishes to do so. After the transformation the user can use the implemented tool for colocalization detection or save the transformed images and process them with the tool of his or her choice.\newline
-The Colorcomposer is powerful as it provides information about the number of points currently under the cursor or its intensity. The estimated transformation error and the localization error are computed and stored.\newline
+The Colorcomposer is powerful as it provides information about the number of points currently under the cursor or their intensities. The estimated transformation error and the localization error are computed and stored.\newline
 The basic framework for the Colorcomposer was set up by \cite{MAJoachim}. It contained the workflow for importing and exporting images the handling of bead objects and a linear transformation that used the beads in the order they were found. This early version was unpractical.\newline
 Figure \ref{Colorcomposer} shows improved Colorcomposer GUI with two datasets loaded. The buttons on the right give the user the option to add or remove beads in addition to the autodetected beads. There are different sliders to control the values used for bead detection. In the lower right corner additional information is provided about the total number of points within a rectangle with the selected cursor radius' size. The sum of the intensities and the total number of frames for each data set are also given. This information is helpful to determine whether a cluster of points is a bead or not.\newline
 At the top there is a menu bar with new options, that enable the user to discard all beads, automatically detect beads, calculate colocalization measures and show or hide the colocalization heatmap.
@@ -73,25 +73,25 @@ Using these pairs of beads, a linear transformation is found, as described by
 This transformation is used to test how many other beads, that were not used to calculate the transformation match. It is assumed that the correct transformation will match additional bead pairs. 
 This step is repeated multiple times.\newline
 The maximal number of matching bead pairs is compared with the number of assumed bead pairs. If less bead pairs are found than expected the number of expected bead pairs is reduced by one and the previous procedure is repeated with the appropriate number of beads randomly chosen from the channel with less beads.\newline
-All transformations that match more or equal bead pairs are stored. Also all bead pairs that are aligned under this transformation are stored. The number of assumed bead pairs is reduced by one and the iteration started again. \newline
+All transformations that match more or equal bead pairs are stored. Also all bead pairs that are aligned under these transformation are stored. The number of assumed bead pairs is reduced by one and the iteration started again. \newline
 This loop ends when the assumed number of bead pairs is lower than 3, the minimal number of bead pairs necessary for the calculation of the transformation.\newline
 All candidates for the transformation are checked for the occurrence of shearing.
 In principle shearing should also be allowed for a linear transformation, but tests
 indicate that shearing does not occur, so it is disabled to improve stability. \newline 
-If there are just
+If there are only
 three beads in each channel used for the transformation, then a perfect transformation is found every time,
-but the correct one, if possible, is the one without shearing. There will be an other problem with this transformation if the bead density is very high is possible that a transformation with much shearing is found. This compresses the beads of one channel to a slim band. The probability to find a matching point by chance is much greater then. \newline
-Figure \ref{badshearing} shows the result of an incorrect transformation of simulated data. The red channel was created by randomly placing beads. The green channel was slightly shifted and rotated. The green channel was transformed to match with the red channel. Just a subset of beads was used to calculate the transformation and so this solution was found and chosen from the algorithm because of the additional matching point.\newline
-This effects can be suppressed by not allowing shearing for the transformation.
+but the correct one, if possible, is the one without shearing. There will be another problem with this transformation if the bead density is very high it is possible that a transformation with much shearing is found. This compresses the beads of one channel to a slim band. The probability to find a matching point by chance is much greater then. \newline
+Figure \ref{badshearing} shows the result of an incorrect transformation of simulated data. The red channel was created by randomly placing beads. The green channel was slightly shifted and rotated. The green channel was transformed to match with the red channel. Only a subset of beads was used to calculate the transformation and so this solution was found and chosen from the algorithm because of the additional matching point.\newline
+These effects can be suppressed by not allowing shearing for the transformation.
 
 \begin{figure}
 \centering
-\includegraphics[width = 0.88\textwidth]{pictures/shearingBad.png}
-\caption{Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation.}
+\includegraphics[width = 0.95\textwidth]{pictures/shearingBad2.png}
+\caption{Affine transformation with shearing enabled. The green channel is deformed and one bead matches by chance which led to selection of this transformation. The beads that match are highlighted.}
 \label{badshearing}
 \end{figure}
 \subsection{Information about localization certainty}
-The detected spots from SimpleSTORM contain some localization error. This error will be derived in section \ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore.
+The detected spots from SimpleSTORM contain some localization error. This error was derived in section \ref{detectionError}. It depends on the signal-to-noise ratio and the scale of the point spread function of a single fluorophore.
 
 Within all transformations that do not show shearing, the transformation is chosen that has the least root mean square error for all matching pairs of beads.
 
@@ -99,7 +99,7 @@ Within all transformations that do not show shearing, the transformation is chos
 There are four contributions to the total localization error considered in this thesis.\newline
 First there is the error that arises from the linear transformation to align the beads. To estimate this error the variance of the estimator is used. Since the transformation matrix is calculated by linear regression from the matrices $B$ and $R$ of the localizations of the first and the second layer of beads, with $B$ being the matrix of the first layer to that the second layer $R$ is transformed to. The variance of the estimator is
 \begin{align}
-\text{variance registration}&= \sigma^2 x_0\left(R^TR\right)^{-1}x_0^T, \text{ with }x_0 = \left(x_o,x_1,1\right) \label{gl22}
+\text{variance registration}&= \sigma^2 x_0\left(R^TR\right)^{-1}x_0^T, \text{ with }x_0 = \left(x_0,x_1,1\right) \label{gl22}
 \end{align}
 Using equation \ref{gl22} the variance $\sigma^2$ for all pixel can be calculated.\newline
 The second contribution to the total localization error is the localization error of the SimpleSTORM algorithm. Its formula is
@@ -114,17 +114,16 @@ It is derived in \ref{detectionError} and can be calculated for each detection i
 \end{align}
 The third contribution results from the fact that the fluorophors are not directly attached to the sample of interest, since the antibodies used for staining are in between. The upper bound of this error can be estimated under the assumption that the target of the antibodies is much smaller than the antibodies, so that there is no occlusion in the projection. This assumption does not hold in reality. Structures like cell membranes are certainly larger than the antibodies, but the assumption gives an upper bound. 
 \begin{align}
-\text{var x} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ 
+\text{variance position} &=\frac{1}{\Omega_\text{Sphere}}\int\limits_{\Omega_\text{Sphere}} x^2 dV\\ 
 &=\frac{1}{\Omega_\text{Sphere}}\int\limits_0^{2\pi}\int\limits_0^\pi R^2\sin\theta \left(R\cos\phi \sin\theta\right)^2 d\theta d\phi\\
 &=\frac{R^2}{4\pi} \int\limits_0^{2\pi}\int\limits_0^\pi \cos^2\phi \sin^3\theta d\theta d\phi\\
 &=\frac{R^2}{4\pi} \left[\frac{1}{2}\phi +\frac{1}{4}\sin 2\phi \right]_0^{2\pi}\int\limits_0^\pi \sin^3\theta d\theta \\
-&=\frac{ R^2}{2} \left[\frac{1}{12}\cos3\theta -\frac{3}{4}\cos\theta \right]_0^\pi\\
-&=\frac{2}{3} R^2
+&=\frac{ R^2}{2} \left[\frac{1}{12}\cos3\theta -\frac{3}{4}\cos\theta \right]_0^\pi=\frac{2}{3} R^2
 \end{align}
 $R$ is the assumed distance of the fluorophore to the structure it is attached to (about 20~nm/0.09~px).\newline
-The fourth and minor contribution to the total localization error for each pixel is the quantization noise. It occurs when continuous intensities, as the photons forming the PSF, are transformed into integer values. Quantization noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance $\sigma_Q^2$ is
+The fourth and minor contribution to the total localization error for each pixel is the quantization noise. It occurs when continuous intensities, as the photons forming the PSF, are transformed into integer values. Quantization noise describes the round-off error. The round-off error can be any value between -0.5 and 0.5 and is uniformly distributed. Its variance is
 \begin{align}
- \sigma_Q^2 =\int\limits_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}
+ \text{variance quantization} =\int\limits_{-\frac{1}{2}}^{\frac{1}{2}} x^2 dx = \frac{1}{12}
 \end{align}
 The unit of this error is the pixel size of the upscaled image and therefore more and more negligible the higher the upscaling factor is.\newline
 To get the total localization error all four variances are summed up for each pixel.
@@ -148,11 +147,11 @@ With $R_{i,\text{coloc}} = R_i$ if $G_i >0$ and $R_{i,\text{coloc}} = 0$ otherwi
 \end{align}
 
 \subsection{Local colocalization}
-Global colocalization has the drawback that there is just one value for the whole image, not yielding any information about where colocalization is localized. If there are regions in the image that show a lot of colocalization and other regions without colocalization the same colocalization coefficient might be achieved as if one channel is distributed randomly.\newline
+Global colocalization has the drawback that there is only one value for the whole image, not yielding any information about where colocalization is localized. If there are regions in the image that show a lot of colocalization and other regions without colocalization the same colocalization coefficient might be achieved as if one channel is distributed randomly.\newline
 For local colocalization analysis the algorithm from \cite{coloc} is used. It was further developed to gain a speed boost and runs approximately 40 times faster now. This was achieved by using scipys (\cite{scipy}) ckdtree function, which is a k-d tree implemented in C.\newline
 The concept of the localization algorithm is to compute a colocalization value for each coordinate. This is done by calculating the distribution of all detections of both channels around each detection within a maximal radius $R$. This maximal radius determines the longest distance for which colocalization can be detected.\newline
 
-Figures \ref{radius50} and \ref{radius100} show the results from the colocalization calculation for both the red and green channel from Figure \ref{cropedOrig}. The difference between Figure \ref{radius50} and Figure \ref{radius100} is that the maximal distance is larger for the later. This example shows that the larger the maximal distance the more colocalization is detected. The choice for the maximal distance depends strongly on the sample.
+Figures \ref{radius50} and \ref{radius100} show the results from the colocalization calculation for both the red and green channel from Figure \ref{cropedOrig}. The difference between Figure \ref{radius50} and Figure \ref{radius100} is that the maximal distance is larger for the later. This example shows that the larger the maximal distance the more colocalization is detected. The choice for the maximal distance depends strongly on the sample and the question that shall be answered.
 
 
 
@@ -165,20 +164,20 @@ Figures \ref{radius50} and \ref{radius100} show the results from the colocalizat
 \begin{figure}
 \begin{minipage}[t]{0.99\textwidth}
 \centering
-	\includegraphics[width = 0.8\textwidth]{pictures/colocalization/cropedOrig.png}
+	\includegraphics[width = 0.65\textwidth]{pictures/colocalization/cropedOrig.png}
 	\caption{Aligned image showing colocalization.}
 	\label{cropedOrig}	
 \end{minipage}\\
 \begin{minipage}[t]{0.99\textwidth}
-\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh0.png}}\hfill
-\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh1.png}}
-	\caption{Colocalization for the red and green channel with a maximal radius $R=50$ nm}
+\subfloat[]{\includegraphics[width = 0.455\textwidth]{pictures/colocalization/cropedCh0.png}}\hfill
+\subfloat[]{\includegraphics[width = 0.455\textwidth]{pictures/colocalization/cropedCh1.png}}
+	\caption{Colocalization for the red and green channel with a maximal radius $R=50$~nm}
 	\label{radius50}	
 \end{minipage}\\
 \begin{minipage}[t]{0.99\textwidth}
-\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh0100.png}}\hfill
-\subfloat[]{\includegraphics[width = 0.485\textwidth]{pictures/colocalization/cropedCh1100.png}}
-	\caption{Colocalization for the red and green channel with a maximal radius $R=100$ nm}
+\subfloat[]{\includegraphics[width = 0.455\textwidth]{pictures/colocalization/cropedCh0100.png}}\hfill
+\subfloat[]{\includegraphics[width = 0.455\textwidth]{pictures/colocalization/cropedCh1100.png}}
+	\caption{Colocalization for the red and green channel with a maximal radius $R=100$~nm}
 	\label{radius100}	
 \end{minipage}
 \end{figure}
